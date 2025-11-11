@@ -13,7 +13,6 @@ export default buildConfig({
     user: 'users',
     meta: {
       titleSuffix: '- Transparo',
-      favicon: '/favicon.ico',
     },
   },
   collections: [
