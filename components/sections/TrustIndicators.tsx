@@ -1,7 +1,7 @@
 'use client'
 
 import { DollarSign, Clock, Sparkles, RefreshCcw } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export function TrustIndicators() {
   const indicators = [

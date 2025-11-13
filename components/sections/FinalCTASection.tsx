@@ -3,7 +3,7 @@
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
 import { ArrowRight, Calendar, MessageCircle } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export function FinalCTASection() {
   return (

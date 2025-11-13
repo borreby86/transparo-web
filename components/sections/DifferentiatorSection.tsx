@@ -3,7 +3,7 @@
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { Shield, Zap, DollarSign } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export function DifferentiatorSection() {
   const differentiators = [

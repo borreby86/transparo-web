@@ -1,12 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show navbar after scrolling 100px
+      setIsVisible(window.scrollY > 100)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navigation = [
     { name: 'Forside', href: '/' },
@@ -17,67 +27,90 @@ export function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-warmgray-light/20">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex items-center justify-between h-20">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+      }`}
+      style={{ backgroundColor: isVisible ? 'rgba(255, 255, 255, 0.8)' : 'transparent' }}
+    >
+      <nav className="px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 backdrop-blur-md">
+        <div className="flex items-center justify-center h-20 relative">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <div className="font-display font-bold text-2xl text-navy">
+          <div className="absolute left-6 sm:left-12 md:left-16 lg:left-24 xl:left-32">
+            <Link href="/" className="font-sans font-black text-2xl text-black tracking-tight hover:opacity-80 transition-opacity">
               transparo<span className="text-gold">.</span>
-            </div>
-            <div className="text-[10px] text-warmgray tracking-wide -mt-1">
-              Unique designs • Built on trust
-            </div>
-          </Link>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
+          {/* Desktop Navigation - Spread out centered */}
+          <div className="hidden lg:flex items-center justify-center gap-16 xl:gap-20">
+            {navigation.slice(0, 2).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-black hover:text-navy transition-colors duration-200"
+                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest"
               >
                 {item.name}
               </Link>
             ))}
-            <Button href="/kontakt" variant="primary" size="sm">
-              Book Møde
-            </Button>
+
+            {/* Spacer for visual balance */}
+            <div className="w-32" />
+
+            {navigation.slice(2).map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
+
+          {/* CTA Button - Right side */}
+          <Link
+            href="/kontakt"
+            className="hidden lg:block absolute right-6 sm:right-12 md:right-16 lg:right-24 xl:right-32 bg-black text-white px-6 py-2.5 rounded-full font-bold text-xs hover:bg-black/80 transition-all uppercase tracking-wider"
+          >
+            Book Møde
+          </Link>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden p-2 text-navy hover:bg-offwhite rounded-lg transition-colors"
+            className="lg:hidden absolute right-6 p-2 text-black"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6" strokeWidth={2.5} />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-6 w-6" strokeWidth={2.5} />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-warmgray-light/20">
-            <div className="flex flex-col space-y-4">
+          <div className="lg:hidden pb-8 pt-4">
+            <div className="flex flex-col gap-6">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-base font-medium text-black hover:text-navy transition-colors duration-200 py-2"
+                  className="text-lg font-bold text-black uppercase tracking-wide"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button href="/kontakt" variant="primary" size="md" fullWidth>
+              <Link
+                href="/kontakt"
+                className="bg-navy text-white px-8 py-4 rounded-lg font-bold text-center hover:bg-navy/90 transition-all mt-4"
+              >
                 Book Møde
-              </Button>
+              </Link>
             </div>
           </div>
         )}

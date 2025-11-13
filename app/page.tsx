@@ -1,12 +1,12 @@
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { TrustIndicators } from '@/components/sections/TrustIndicators'
-import { PackagesSection } from '@/components/sections/PackagesSection'
-import { HowItWorksSection } from '@/components/sections/HowItWorksSection'
-import { DifferentiatorSection } from '@/components/sections/DifferentiatorSection'
-import { SocialProofSection } from '@/components/sections/SocialProofSection'
-import { FinalCTASection } from '@/components/sections/FinalCTASection'
+import { TrustMarquee } from '@/components/sections/TrustMarquee'
+import { ValuePropSection } from '@/components/sections/ValuePropSection'
+import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
+import { ProcessTimelineSection } from '@/components/sections/ProcessTimelineSection'
+import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
+import { CaseStudySection } from '@/components/sections/CaseStudySection'
 
 export default function HomePage() {
   return (
@@ -14,12 +14,12 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <TrustIndicators />
-        <PackagesSection />
-        <HowItWorksSection />
-        <DifferentiatorSection />
-        <SocialProofSection />
-        <FinalCTASection />
+        <TrustMarquee />
+        <ValuePropSection />
+        <ExclusiveSection />
+        <NewPackagesSection />
+        <CaseStudySection />
+        <ProcessTimelineSection />
       </main>
       <Footer />
     </>

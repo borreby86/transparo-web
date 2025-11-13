@@ -3,7 +3,7 @@
 import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
 import { Calendar, Pencil, Code, Rocket, CheckCircle2 } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export function HowItWorksSection() {
   const steps = [

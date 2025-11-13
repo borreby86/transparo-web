@@ -3,7 +3,7 @@
 import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { Quote } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 export function SocialProofSection() {
   // Placeholder testimonials - will be replaced with real ones later
