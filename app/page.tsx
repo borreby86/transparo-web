@@ -4,9 +4,8 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { TrustMarquee } from '@/components/sections/TrustMarquee'
 import { ValuePropSection } from '@/components/sections/ValuePropSection'
 import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
-import { ProcessTimelineSection } from '@/components/sections/ProcessTimelineSection'
 import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
-import { CaseStudySection } from '@/components/sections/CaseStudySection'
+import { PortfolioSection } from '@/components/sections/PortfolioSection'
 
 export default function HomePage() {
   return (
@@ -18,8 +17,7 @@ export default function HomePage() {
         <ValuePropSection />
         <ExclusiveSection />
         <NewPackagesSection />
-        <CaseStudySection />
-        <ProcessTimelineSection />
+        <PortfolioSection />
       </main>
       <Footer />
     </>
