@@ -4,9 +4,9 @@ import { packages } from '@/components/packages/packageData';
 import PackageDetailView from '@/components/packages/PackageDetailView';
 
 interface PackagePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all packages
@@ -18,7 +18,8 @@ export async function generateStaticParams() {
 
 // Generate metadata for each package
 export async function generateMetadata({ params }: PackagePageProps): Promise<Metadata> {
-  const pkg = packages.find((p) => p.slug === params.slug);
+  const resolvedParams = await params;
+  const pkg = packages.find((p) => p.slug === resolvedParams.slug);
 
   if (!pkg) {
     return {
@@ -37,8 +38,9 @@ export async function generateMetadata({ params }: PackagePageProps): Promise<Me
   };
 }
 
-export default function PackagePage({ params }: PackagePageProps) {
-  const pkg = packages.find((p) => p.slug === params.slug);
+export default async function PackagePage({ params }: PackagePageProps) {
+  const resolvedParams = await params;
+  const pkg = packages.find((p) => p.slug === resolvedParams.slug);
 
   if (!pkg) {
     notFound();
