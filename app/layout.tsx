@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/ui/CustomCursor'
 
@@ -7,12 +7,6 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
 })
 
 export const metadata: Metadata = {
@@ -34,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="da" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="da" className={inter.variable}>
       <body className="font-sans antialiased bg-offwhite text-black cursor-none" suppressHydrationWarning>
         <CustomCursor />
         {children}
