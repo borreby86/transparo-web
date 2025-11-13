@@ -39,14 +39,14 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
       <section className="relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className={`absolute top-0 right-0 w-[800px] h-[800px] ${
+          <div className={`absolute top-0 right-0 w-[400px] sm:w-[600px] lg:w-[800px] h-[400px] sm:h-[600px] lg:h-[800px] ${
             pkg.color === 'gold' ? 'bg-gold/10' :
             pkg.color === 'navy' ? 'bg-navy/10' :
             'bg-warmgray/10'
           } rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2`} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-20">
           {/* Back link */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -55,10 +55,10 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
           >
             <Link
               href="/#pakker"
-              className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors mb-12"
+              className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors mb-8 sm:mb-12"
             >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">Tilbage til oversigt</span>
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="text-sm sm:text-base font-medium">Tilbage til oversigt</span>
             </Link>
           </motion.div>
 
@@ -78,7 +78,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
               )}
 
               <motion.h1
-                className="text-5xl lg:text-7xl font-display font-black text-navy mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-black text-navy mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -87,7 +87,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
               </motion.h1>
 
               <motion.p
-                className="text-xl lg:text-2xl text-warmgray mb-8"
+                className="text-lg sm:text-xl lg:text-2xl text-warmgray mb-6 sm:mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -110,8 +110,8 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 + i * 0.05 }}
                   >
-                    <Check className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-lg text-navy">{highlight}</span>
+                    <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-base sm:text-lg text-navy">{highlight}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -124,18 +124,18 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
               transition={{ delay: 0.5, duration: 0.5 }}
             >
               <div className={`
-                p-8 lg:p-10 rounded-3xl
+                p-6 sm:p-8 lg:p-10 rounded-3xl
                 ${pkg.color === 'gold' ? 'bg-gradient-to-br from-gold-light to-gold text-navy' :
                   pkg.color === 'navy' ? 'bg-navy text-white' :
                   'bg-white text-navy shadow-xl'}
               `}>
                 {/* Price */}
-                <div className="mb-8">
+                <div className="mb-6 sm:mb-8">
                   <div className="flex items-baseline">
-                    <span className="text-6xl lg:text-7xl font-black">
+                    <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black">
                       {pkg.priceFormatted}
                     </span>
-                    <span className="ml-3 text-xl opacity-80">DKK</span>
+                    <span className="ml-2 sm:ml-3 text-lg sm:text-xl opacity-80">DKK</span>
                   </div>
                   <p className="text-sm mt-2 opacity-80">Fast pris • Ingen skjulte gebyrer</p>
                 </div>
@@ -182,18 +182,18 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-16 sm:py-20 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-display font-bold text-navy mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy mb-4">
               Alt der er inkluderet
             </h2>
-            <p className="text-xl text-warmgray max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-warmgray max-w-3xl mx-auto">
               Få en komplet løsning med alt hvad din virksomhed har brug for
             </p>
           </motion.div>
@@ -209,13 +209,13 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: catIndex * 0.1 }}
-                  className="bg-offwhite rounded-2xl p-8"
+                  className="bg-offwhite rounded-2xl p-6 sm:p-8"
                 >
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-12 h-12 bg-navy text-white rounded-xl flex items-center justify-center">
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-navy text-white rounded-xl flex items-center justify-center">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h3 className="text-2xl font-display font-bold text-navy">
+                    <h3 className="text-xl sm:text-2xl font-display font-bold text-navy">
                       {category.category}
                     </h3>
                   </div>

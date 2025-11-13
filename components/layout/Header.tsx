@@ -33,11 +33,11 @@ export function Header() {
       }`}
       style={{ backgroundColor: isVisible ? 'rgba(255, 255, 255, 0.8)' : 'transparent' }}
     >
-      <nav className="px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32 backdrop-blur-md">
+      <nav className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28 backdrop-blur-md">
         <div className="flex items-center justify-center h-20 relative">
           {/* Logo */}
-          <div className="absolute left-6 sm:left-12 md:left-16 lg:left-24 xl:left-32">
-            <Link href="/" className="font-sans font-black text-2xl text-black tracking-tight hover:opacity-80 transition-opacity">
+          <div className="absolute left-4 sm:left-8 md:left-12 lg:left-20 xl:left-28">
+            <Link href="/" className="font-sans font-black text-xl sm:text-2xl text-black tracking-tight hover:opacity-80 transition-opacity">
               transparo<span className="text-gold">.</span>
             </Link>
           </div>

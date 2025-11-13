@@ -21,8 +21,8 @@ export default function PackageComparison() {
   return (
     <div className="min-h-screen bg-offwhite">
       {/* Header */}
-      <section className="bg-white py-12 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-white py-8 sm:py-12 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -30,10 +30,10 @@ export default function PackageComparison() {
           >
             <Link
               href="/#pakker"
-              className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors mb-12"
+              className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors mb-8 sm:mb-12"
             >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">Tilbage til oversigt</span>
+              <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="text-sm sm:text-base font-medium">Tilbage til oversigt</span>
             </Link>
           </motion.div>
 
@@ -43,10 +43,10 @@ export default function PackageComparison() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <h1 className="text-4xl lg:text-6xl font-display font-black text-navy mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-display font-black text-navy mb-4">
               Sammenlign pakker
             </h1>
-            <p className="text-xl text-warmgray max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-warmgray max-w-3xl mx-auto">
               Se alle detaljer og funktioner side om side
             </p>
           </motion.div>
@@ -54,8 +54,8 @@ export default function PackageComparison() {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-12 lg:py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-8 sm:py-12 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Desktop Table */}
           <motion.div
             className="hidden lg:block bg-white rounded-3xl shadow-xl overflow-hidden"
@@ -171,7 +171,7 @@ export default function PackageComparison() {
                 transition={{ delay: index * 0.1 }}
               >
                 {/* Package Header */}
-                <div className={`p-6 ${
+                <div className={`p-5 sm:p-6 ${
                   pkg.popular
                     ? 'bg-gradient-to-r from-gold to-gold-light text-navy'
                     : 'bg-navy text-white'
@@ -184,8 +184,8 @@ export default function PackageComparison() {
                       </span>
                     </div>
                   )}
-                  <h3 className="text-2xl font-display font-bold mb-2">{pkg.name}</h3>
-                  <div className="text-3xl font-black mb-1">{pkg.priceFormatted} DKK</div>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold mb-2">{pkg.name}</h3>
+                  <div className="text-2xl sm:text-3xl font-black mb-1">{pkg.priceFormatted} DKK</div>
                   <div className="text-sm opacity-80">{pkg.duration}</div>
                 </div>
 

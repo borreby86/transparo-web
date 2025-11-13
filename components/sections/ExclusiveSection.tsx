@@ -53,10 +53,10 @@ export function ExclusiveSection() {
         />
 
         {/* Content container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-8 py-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24">
           <div>
           {/* Main text with scroll-triggered color reveals */}
-          <h2 className="font-display text-4xl md:text-5xl lg:text-7xl leading-tight tracking-tight">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl leading-tight tracking-tight">
             {/* Line 1 - "Det er ikke for alle." - White text that lights up */}
             <motion.span
               style={{
@@ -184,7 +184,7 @@ export function ExclusiveSection() {
                 ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.85)']
               ),
             }}
-            className="text-lg md:text-xl max-w-2xl font-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl max-w-2xl font-light leading-relaxed"
           >
             Vi arbejder kun med virksomheder, der forstår værdien af
             exceptionelt design og er klar til at investere i deres digitale fremtid.

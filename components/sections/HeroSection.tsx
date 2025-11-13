@@ -49,7 +49,7 @@ export function HeroSection() {
               ease: "easeInOut",
               delay: 1
             }}
-            className="absolute top-[10%] right-[15%] w-[700px] h-[700px] bg-gold rounded-full blur-3xl will-change-transform"
+            className="absolute top-[10%] right-[15%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] bg-gold rounded-full blur-3xl will-change-transform"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -65,7 +65,7 @@ export function HeroSection() {
               ease: "easeInOut",
               delay: 2
             }}
-            className="absolute bottom-[20%] left-[10%] w-[600px] h-[600px] bg-gold/60 rounded-full blur-3xl will-change-transform"
+            className="absolute bottom-[20%] left-[10%] w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-gold/60 rounded-full blur-3xl will-change-transform"
           />
           {/* Additional subtle orb for depth */}
           <motion.div
@@ -82,7 +82,7 @@ export function HeroSection() {
               ease: "easeInOut",
               delay: 3
             }}
-            className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/30 rounded-full blur-3xl will-change-transform"
+            className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px] lg:w-[800px] lg:h-[800px] bg-gold/30 rounded-full blur-3xl will-change-transform"
           />
         </motion.div>
 

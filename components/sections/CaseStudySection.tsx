@@ -83,7 +83,7 @@ export function CaseStudySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a2332] mb-3"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a2332] mb-3"
           >
             Resultater der taler
           </motion.h2>

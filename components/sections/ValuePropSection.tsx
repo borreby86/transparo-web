@@ -146,12 +146,12 @@ export function ValuePropSection() {
                   className="group relative"
                 >
                   <div className={`relative ${prop.bgColor} ${prop.bgColor !== 'bg-[#0E1D3D]' ? 'border border-[#A39B96]/15' : ''} rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 ${prop.bgColor === 'bg-[#0E1D3D]' ? 'hover:shadow-[0_12px_24px_rgba(184,146,69,0.15)]' : 'hover:shadow-[0_12px_24px_rgba(14,29,61,0.08)]'}`}>
-                    <div className="relative h-[600px] md:h-[700px] p-10 md:p-12 lg:p-14 flex flex-col">
+                    <div className="relative h-[450px] sm:h-[500px] md:h-[600px] lg:h-[700px] p-6 sm:p-8 md:p-12 lg:p-14 flex flex-col">
 
                       {/* Shape illustration - bigger */}
                       <div className="flex-1 flex items-center justify-center mb-12">
                         <motion.div
-                          className="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80"
+                          className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80"
                           style={{ color: prop.iconColor }}
                           animate={{
                             rotate: hoveredCard === index ? [0, 10, -10, 0] : 0,

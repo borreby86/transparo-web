@@ -65,7 +65,7 @@ export function ProcessTimelineSection() {
       </div>
 
       {/* Header */}
-      <div className="relative max-w-7xl mx-auto px-8 mb-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mb-12 sm:mb-16 md:mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,10 +73,10 @@ export function ProcessTimelineSection() {
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center"
         >
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-navy mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-navy mb-4 sm:mb-6">
             Fra idé til lancering
           </h2>
-          <p className="text-xl md:text-2xl text-black/60 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-black/60 max-w-3xl mx-auto">
             En struktureret proces på 2-4 uger der sikrer et perfekt resultat
           </p>
         </motion.div>
@@ -116,7 +116,7 @@ export function ProcessTimelineSection() {
                 >
                   <div className="relative">
                     {/* Step number - large background */}
-                    <span className="absolute -top-8 -left-4 font-display text-[120px] md:text-[160px] font-black text-black/5 select-none">
+                    <span className="absolute -top-8 -left-4 font-display text-[60px] sm:text-[80px] md:text-[120px] lg:text-[160px] font-black text-black/5 select-none">
                       {step.number}
                     </span>
 
@@ -223,7 +223,7 @@ export function ProcessTimelineSection() {
                         } 100%)`
                       }}
                     >
-                      <Icon className="w-32 h-32 md:w-48 md:h-48 text-white/10" strokeWidth={1} />
+                      <Icon className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 xl:w-48 xl:h-48 text-white/10" strokeWidth={1} />
                     </div>
 
                     {/* Connection dot */}
