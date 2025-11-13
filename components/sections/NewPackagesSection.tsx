@@ -54,49 +54,49 @@ export function NewPackagesSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="pakker" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white relative overflow-hidden">
+    <section id="pakker" className="py-20 sm:py-24 md:py-32 lg:py-40 bg-white relative overflow-hidden">
       {/* Background decoration - responsive sizes */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-1/4 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-gold/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-72 sm:w-96 md:w-[520px] h-72 sm:h-96 md:h-[520px] bg-gold/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-72 sm:w-96 md:w-[520px] h-72 sm:h-96 md:h-[520px] bg-navy/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-16 lg:mb-20"
+          className="text-center mb-20 lg:mb-24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="inline-flex items-center gap-1.5 sm:gap-2 mb-4 sm:mb-6"
+            className="inline-flex items-center gap-1.5 sm:gap-2 mb-5 sm:mb-7"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-            <span className="text-xs sm:text-sm font-medium text-gold uppercase tracking-wider">
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
+            <span className="text-sm sm:text-base font-medium text-gold uppercase tracking-wider">
               Faste priser • Ingen overraskelser
             </span>
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
           </motion.div>
 
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-navy mb-4">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[68px] text-navy mb-5">
             Vælg din pakke
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-warmgray max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-warmgray max-w-4xl mx-auto">
             Professionelle websites med AI-drevet udvikling.
-            <span className="block mt-2 text-sm sm:text-base text-warmgray/80">
+            <span className="block mt-3 text-base sm:text-lg text-warmgray/80">
               Klik på en pakke for at se alle detaljer.
             </span>
           </p>
         </motion.div>
 
         {/* Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.id}
@@ -121,7 +121,7 @@ export function NewPackagesSection() {
 
               <Link href={`/packages/${pkg.id}`}>
                 <div className={`
-                  relative h-full p-6 sm:p-8 lg:p-10 rounded-2xl transition-all duration-300
+                  relative h-full min-h-[460px] lg:min-h-[520px] p-8 sm:p-10 lg:p-12 rounded-[28px] transition-all duration-300
                   ${pkg.popular
                     ? 'bg-gradient-to-br from-navy via-navy to-navy/95 text-white shadow-2xl'
                     : 'bg-white border border-gray-200 hover:border-gold/30 shadow-lg hover:shadow-xl'
@@ -130,12 +130,12 @@ export function NewPackagesSection() {
                 `}>
                   {/* Package name and description */}
                   <div className="mb-8">
-                    <h3 className={`text-2xl font-display font-bold mb-2 ${
+                    <h3 className={`text-3xl font-display font-bold mb-3 ${
                       pkg.popular ? 'text-white' : 'text-navy'
                     }`}>
                       {pkg.name}
                     </h3>
-                    <p className={`text-sm ${
+                    <p className={`text-base ${
                       pkg.popular ? 'text-white/80' : 'text-warmgray'
                     }`}>
                       {pkg.description}
@@ -145,18 +145,18 @@ export function NewPackagesSection() {
                   {/* Price */}
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2">
-                      <span className={`text-3xl sm:text-4xl lg:text-5xl font-black ${
+                      <span className={`text-4xl sm:text-5xl lg:text-6xl font-black ${
                         pkg.popular ? 'text-gold' : 'text-navy'
                       }`}>
                         {pkg.price}
                       </span>
-                      <span className={`text-base sm:text-lg ${
+                      <span className={`text-lg sm:text-xl ${
                         pkg.popular ? 'text-white/70' : 'text-warmgray'
                       }`}>
                         DKK
                       </span>
                     </div>
-                    <p className={`text-xs mt-2 ${
+                    <p className={`text-sm mt-3 ${
                       pkg.popular ? 'text-white/60' : 'text-warmgray/80'
                     }`}>
                       Fast pris • Ingen skjulte gebyrer
@@ -164,13 +164,13 @@ export function NewPackagesSection() {
                   </div>
 
                   {/* Delivery time */}
-                  <div className={`flex items-center gap-2 mb-8 pb-8 border-b ${
+                  <div className={`flex items-center gap-3 mb-10 pb-8 border-b ${
                     pkg.popular ? 'border-white/20' : 'border-gray-200'
                   }`}>
                     <Clock className={`w-4 h-4 ${
                       pkg.popular ? 'text-white/60' : 'text-warmgray'
                     }`} />
-                    <span className={`text-sm ${
+                    <span className={`text-base ${
                       pkg.popular ? 'text-white/80' : 'text-warmgray'
                     }`}>
                       Levering: {pkg.duration}
@@ -178,13 +178,13 @@ export function NewPackagesSection() {
                   </div>
 
                   {/* Highlights */}
-                  <div className="space-y-3 mb-10">
+                  <div className="space-y-4 mb-12">
                     {pkg.highlights.map((highlight, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                        <Check className={`w-6 h-6 flex-shrink-0 mt-0.5 ${
                           pkg.popular ? 'text-gold' : 'text-green-600'
                         }`} />
-                        <span className={`text-sm ${
+                        <span className={`text-base ${
                           pkg.popular ? 'text-white/90' : 'text-navy'
                         }`}>
                           {highlight}
@@ -195,7 +195,7 @@ export function NewPackagesSection() {
 
                   {/* CTA */}
                   <div className={`
-                    w-full py-3.5 px-6 rounded-xl font-semibold text-center
+                    w-full py-4 px-8 rounded-xl text-lg font-semibold text-center
                     flex items-center justify-center gap-2 transition-all
                     ${pkg.popular
                       ? 'bg-gold text-navy hover:bg-gold-light'
@@ -213,7 +213,7 @@ export function NewPackagesSection() {
 
         {/* Comparison link */}
         <motion.div
-          className="text-center mt-12"
+          className="text-center mt-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -223,20 +223,20 @@ export function NewPackagesSection() {
             href="/packages/compare"
             className="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors group"
           >
-            <span className="text-base sm:text-lg font-medium">Sammenlign alle pakker i detaljer</span>
+            <span className="text-lg sm:text-xl font-medium">Sammenlign alle pakker i detaljer</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
 
         {/* Add-ons section */}
         <motion.div
-          className="mt-16 sm:mt-20 pt-16 sm:pt-20 border-t border-gray-200"
+          className="mt-20 sm:mt-24 pt-20 sm:pt-24 border-t border-gray-200"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-navy text-center mb-8 sm:mb-10">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy text-center mb-10 sm:mb-12">
             Tilkøb & Ekstra Services
           </h3>
 
@@ -249,14 +249,14 @@ export function NewPackagesSection() {
             ].map((addon, i) => (
               <motion.div
                 key={i}
-                className="text-center p-4 sm:p-6 bg-offwhite rounded-xl"
+                className="text-center p-6 sm:p-8 bg-offwhite rounded-2xl"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
                 <h4 className="font-semibold text-navy mb-2">{addon.name}</h4>
-                <p className="text-gold font-bold">{addon.price}</p>
+                <p className="text-2xl text-gold font-bold">{addon.price}</p>
               </motion.div>
             ))}
           </div>

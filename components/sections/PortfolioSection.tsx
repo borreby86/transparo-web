@@ -8,149 +8,150 @@ import { ArrowUpRight } from 'lucide-react'
 interface CaseStudy {
   id: number
   title: string
-  subtitle?: string
+  subtitle: string
   imageUrl: string
   link: string
-  size: 'small' | 'medium' | 'large'
-  label?: string
+  labels?: string[]
+  highlight?: boolean
 }
 
 const caseStudies: CaseStudy[] = [
   {
     id: 1,
     title: 'Hola Hurghada',
-    subtitle: 'Travel & Tourism',
+    subtitle: 'Coming soon – en ny digital rejse for en ikonisk destination',
     imageUrl: '/portfolio-images/Sundhed.png',
     link: '/cases/hola-hurghada',
-    size: 'large',
-    label: 'Featured'
+    labels: ['Coming soon', 'Tool'],
+    highlight: true
   },
   {
     id: 2,
     title: 'WalterAI',
-    subtitle: 'Fodbold Analytics',
+    subtitle: 'Fremtidens værktøj til træningsdata og performance',
     imageUrl: '/portfolio-images/WalterAI-Fodbold.png',
     link: '/cases/walter-ai',
-    size: 'large',
-    label: 'AI Tool'
+    labels: ['Produkt', 'AI']
   },
   {
     id: 3,
     title: 'VDB Notarissen',
-    subtitle: 'Legal Services',
+    subtitle: 'Brand løft og digital oplevelse for et nyt marked',
     imageUrl: '/portfolio-images/Flotte-Foder.png',
     link: '/cases/vdb-notarissen',
-    size: 'large'
+    labels: ['Brand identity']
   },
   {
     id: 4,
     title: 'Photograph',
-    subtitle: 'Visual Storytelling',
+    subtitle: 'Skarp visuel storytelling i en responsiv ramme',
     imageUrl: '/portfolio-images/Photograph.png',
     link: '/cases/photography',
-    size: 'large'
+    labels: ['Content']
   },
   {
     id: 5,
     title: 'Hest',
-    subtitle: 'Equestrian Excellence',
+    subtitle: 'Platform til moderne, data-drevet rideoplevelser',
     imageUrl: '/portfolio-images/Hest.png',
     link: '/cases/hest',
-    size: 'large'
+    labels: ['E-commerce']
   },
   {
     id: 6,
     title: 'Revy',
-    subtitle: 'Entertainment',
+    subtitle: 'Event site med fokus på billetsalg og stemning',
     imageUrl: '/portfolio-images/Revy.png',
     link: '/cases/revy',
-    size: 'large'
+    labels: ['Kampagne']
   }
 ]
 
 export function PortfolioSection() {
   return (
-    <section className="relative bg-gray-50 py-32">
-      <div className="container mx-auto px-6 lg:px-12 max-w-[1800px]">
-        {/* Header */}
-        <div className="mb-20">
+    <section className="relative bg-[#f7f5f1] py-24 md:py-32">
+      <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12">
+        <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-6xl md:text-7xl lg:text-8xl font-light text-gray-900"
+            className="text-5xl font-light text-gray-900 md:text-6xl lg:text-[74px]"
           >
             Cases
           </motion.h2>
+
+          <Link
+            href="/cases"
+            className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-5 py-3 text-sm font-medium text-gray-900 shadow-sm transition hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:shadow-lg"
+          >
+            Bekijk alles
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
         </div>
 
-        {/* Cases Grid - All cards are large now */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-6 md:grid-cols-2">
           {caseStudies.map((study, index) => {
-            // All cards are now large and take up equal space
-            const gridClass = 'col-span-1'
+            const isHighlight = study.highlight
 
             return (
               <motion.div
                 key={study.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`${gridClass} group h-[500px] md:h-[600px]`}
+                className={`group relative overflow-hidden rounded-[32px] border border-white/60 bg-white/80 shadow-[0_25px_70px_rgba(10,10,10,0.08)] backdrop-blur-sm ${
+                  isHighlight ? 'md:col-span-2 h-[420px] lg:h-[520px]' : 'h-[300px] lg:h-[360px]'
+                }`}
               >
                 <Link
                   href={study.link}
-                  className="block relative h-full rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-shadow duration-500"
+                  className="block h-full w-full"
                 >
-                  {/* Image Container */}
                   <div className="absolute inset-0">
                     <Image
                       src={study.imageUrl}
                       alt={study.title}
                       fill
+                      priority={index === 0}
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                   </div>
 
-                  {/* Labels */}
-                  {study.label && (
-                    <div className="absolute top-8 left-8 z-10">
-                      <span className="px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full text-base font-medium text-gray-900">
-                        {study.label}
-                      </span>
+                  {study.labels && study.labels.length > 0 && (
+                    <div className="absolute left-8 top-8 z-10 flex flex-wrap gap-3">
+                      {study.labels.map((label) => (
+                        <span
+                          key={label}
+                          className="rounded-full bg-white/80 px-4 py-1.5 text-xs font-medium uppercase tracking-wide text-gray-800"
+                        >
+                          {label}
+                        </span>
+                      ))}
                     </div>
                   )}
 
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-10 z-10">
-                    <h3 className="font-light text-white mb-3 text-4xl md:text-5xl lg:text-6xl">
-                      {study.title}
-                    </h3>
+                  <div className="absolute bottom-0 left-0 right-0 z-10 p-8 sm:p-10">
+                    <div className="flex items-end justify-between gap-6">
+                      <div>
+                        <h3 className="text-4xl font-light text-white md:text-[44px]">
+                          {study.title}
+                        </h3>
+                        <p className="mt-2 max-w-xl text-base text-white/80 md:text-lg">
+                          {study.subtitle}
+                        </p>
+                      </div>
 
-                    {study.subtitle && (
-                      <p className="text-white/80 text-xl md:text-2xl">
-                        {study.subtitle}
-                      </p>
-                    )}
-
-                    {/* Arrow on hover */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -10 }}
-                      whileHover={{ opacity: 1, x: 0 }}
-                      className="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    >
-                      <ArrowUpRight className="w-8 h-8 text-white" />
-                    </motion.div>
+                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white transition group-hover:bg-white group-hover:text-gray-900">
+                        <ArrowUpRight className="h-6 w-6" />
+                      </span>
+                    </div>
                   </div>
-
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Link>
               </motion.div>
             )
