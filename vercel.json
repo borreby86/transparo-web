@@ -1,0 +1,12 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "regions": ["arn1"],
+  "functions": {
+    "app/packages/[slug]/page.tsx": {
+      "maxDuration": 10
+    }
+  }
+}
