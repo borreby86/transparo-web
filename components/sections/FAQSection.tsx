@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import type { TouchEvent } from 'react'
 import { motion, useMotionValue, useTransform, animate } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -39,17 +40,33 @@ const faqs: FAQ[] = [
 
 export function FAQSection() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
   const x = useMotionValue(0)
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
 
+  // Detect mobile/tablet
   useEffect(() => {
-    const targetX = -activeIndex * 606
+    const updateIsMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    updateIsMobile()
+    window.addEventListener('resize', updateIsMobile)
+    return () => window.removeEventListener('resize', updateIsMobile)
+  }, [])
+
+  // Carousel animation with responsive card width
+  useEffect(() => {
+    const cardWidth = isMobile ? window.innerWidth * 0.85 : 600
+    const gap = isMobile ? 16 : 24
+    const targetX = -activeIndex * (cardWidth + gap)
     const controls = animate(x, targetX, {
       type: 'spring',
       stiffness: 300,
       damping: 30
     })
     return controls.stop
-  }, [activeIndex, x])
+  }, [activeIndex, x, isMobile])
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + faqs.length) % faqs.length)
@@ -59,8 +76,34 @@ export function FAQSection() {
     setActiveIndex((prev) => (prev + 1) % faqs.length)
   }
 
+  // Touch/swipe support for mobile
+  const handleTouchStart = (e: TouchEvent<HTMLElement>) => {
+    touchStartX.current = e.touches[0].clientX
+    touchEndX.current = touchStartX.current
+  }
+
+  const handleTouchMove = (e: TouchEvent<HTMLElement>) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current
+    const threshold = 50
+
+    if (diff > threshold) {
+      handleNext()
+    } else if (diff < -threshold) {
+      handlePrev()
+    }
+  }
+
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] px-8 py-20 md:px-16">
+    <section
+      className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] px-4 py-12 sm:px-8 sm:py-20 md:px-16"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Animated Background Elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <motion.div
@@ -99,7 +142,7 @@ export function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, type: 'spring' }}
-              className="text-6xl font-light leading-tight tracking-tight md:text-7xl"
+              className="text-4xl font-light leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
             >
               Frequently
               <br />
@@ -114,7 +157,7 @@ export function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="mb-6 max-w-md text-left text-lg text-gray-600"
+              className="mb-6 max-w-md text-left text-base sm:text-lg text-gray-600"
             >
               Find svar på almindelige spørgsmål om vores services, projekt proces, og teknisk
               ekspertise.
@@ -133,18 +176,18 @@ export function FAQSection() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="Forrige spørgsmål"
-                className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-gray-300 bg-white shadow-md transition-all hover:border-gray-400 hover:shadow-lg"
+                className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-gray-300 bg-white shadow-md transition-all hover:border-gray-400 hover:shadow-lg sm:h-12 sm:w-12"
               >
-                <ChevronLeft className="h-5 w-5 text-gray-600" />
+                <ChevronLeft className="h-4 w-4 text-gray-600 sm:h-5 sm:w-5" />
               </motion.button>
               <motion.button
                 onClick={handleNext}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label="Næste spørgsmål"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-black shadow-md transition-all hover:bg-gray-800 hover:shadow-lg"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-black shadow-md transition-all hover:bg-gray-800 hover:shadow-lg sm:h-12 sm:w-12"
               >
-                <ChevronRight className="h-5 w-5 text-white" />
+                <ChevronRight className="h-4 w-4 text-white sm:h-5 sm:w-5" />
               </motion.button>
             </motion.div>
           </div>
@@ -152,7 +195,7 @@ export function FAQSection() {
 
         {/* Cards Container */}
         <div className="relative overflow-visible">
-          <motion.div className="flex gap-6" style={{ x }}>
+          <motion.div className="flex gap-4 md:gap-6" style={{ x }}>
             {faqs.map((faq, index) => {
               const isActive = index === activeIndex
               const distance = Math.abs(index - activeIndex)
@@ -161,19 +204,19 @@ export function FAQSection() {
                 <motion.div
                   key={faq.id}
                   animate={{
-                    scale: isActive ? 1 : Math.max(0.7, 1 - distance * 0.15),
-                    opacity: isActive ? 1 : Math.max(0.2, 1 - distance * 0.3),
-                    rotateY: isActive ? 0 : (index - activeIndex) * 5
+                    scale: isActive ? 1 : isMobile ? 0.85 : Math.max(0.7, 1 - distance * 0.15),
+                    opacity: isActive ? 1 : isMobile ? 0 : Math.max(0.2, 1 - distance * 0.3),
+                    rotateY: isActive ? 0 : isMobile ? 0 : (index - activeIndex) * 5
                   }}
                   transition={{
                     duration: 0.8,
                     ease: [0.25, 0.1, 0.25, 1]
                   }}
-                  className={`h-[560px] w-[600px] flex-shrink-0 rounded-3xl p-14 shadow-2xl transition-all duration-700 ${
+                  className={`h-auto min-h-[400px] w-[85vw] flex-shrink-0 rounded-2xl p-6 shadow-2xl transition-all duration-700 sm:min-h-[480px] sm:rounded-3xl sm:p-8 md:h-[560px] md:w-[600px] md:p-14 ${
                     isActive ? 'bg-[#1e3a5f] text-white' : 'bg-[#e5e7eb] text-gray-800'
                   }`}
                   style={{
-                    filter: isActive ? 'none' : 'brightness(0.9) blur(1px)',
+                    filter: isActive ? 'none' : isMobile ? 'brightness(0.9)' : 'brightness(0.9) blur(1px)',
                     transformStyle: 'preserve-3d',
                     perspective: '1000px'
                   }}
@@ -185,7 +228,7 @@ export function FAQSection() {
                         y: isActive ? 0 : 10
                       }}
                       transition={{ duration: 0.5 }}
-                      className={`mb-10 text-4xl font-normal leading-snug ${
+                      className={`mb-6 text-2xl font-normal leading-snug sm:mb-8 sm:text-3xl md:mb-10 md:text-4xl ${
                         isActive ? 'text-white' : 'text-gray-800'
                       }`}
                     >
@@ -198,7 +241,7 @@ export function FAQSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 0.6 }}
-                        className="text-lg leading-relaxed text-white/90"
+                        className="text-base leading-relaxed text-white/90 sm:text-lg"
                       >
                         {faq.answer}
                       </motion.p>
@@ -216,15 +259,16 @@ export function FAQSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-12 flex justify-center gap-2"
+          className="mt-8 flex justify-center gap-2 sm:mt-12"
         >
           {faqs.map((_, index) => (
             <motion.button
               key={index}
               onClick={() => setActiveIndex(index)}
               whileHover={{ scale: 1.2 }}
-              className={`h-2 rounded-full transition-all ${
-                index === activeIndex ? 'w-8 bg-[#2563eb]' : 'w-2 bg-gray-400'
+              whileTap={{ scale: 0.9 }}
+              className={`h-1.5 rounded-full transition-all sm:h-2 ${
+                index === activeIndex ? 'w-6 bg-[#2563eb] sm:w-8' : 'w-1.5 bg-gray-400 sm:w-2'
               }`}
               aria-label={`Gå til spørgsmål ${index + 1}`}
             />
