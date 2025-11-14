@@ -6,6 +6,7 @@ import { ValuePropSection } from '@/components/sections/ValuePropSection'
 import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
 import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
 import { PortfolioSection } from '@/components/sections/PortfolioSection'
+import { FAQSection } from '@/components/sections/FAQSection'
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
         <ExclusiveSection />
         <NewPackagesSection />
         <PortfolioSection />
+        <FAQSection />
       </main>
       <Footer />
     </>
