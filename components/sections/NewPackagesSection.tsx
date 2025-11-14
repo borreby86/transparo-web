@@ -96,7 +96,7 @@ export function NewPackagesSection() {
         </motion.div>
 
         {/* Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.id}
@@ -111,7 +111,7 @@ export function NewPackagesSection() {
             >
               {/* Popular badge */}
               {pkg.popular && (
-                <div className="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 z-10">
+                <div className="absolute -top-2 sm:-top-3 lg:-top-4 left-1/2 -translate-x-1/2 z-10">
                   <div className="bg-gold text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-1 sm:gap-1.5 shadow-lg">
                     <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-white" />
                     <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Mest Populær</span>
@@ -121,7 +121,7 @@ export function NewPackagesSection() {
 
               <Link href={`/packages/${pkg.id}`}>
                 <div className={`
-                  relative h-full min-h-[460px] lg:min-h-[520px] p-8 sm:p-10 lg:p-12 rounded-[28px] transition-all duration-300
+                  relative h-full min-h-[420px] sm:min-h-[460px] lg:min-h-[520px] p-6 sm:p-8 lg:p-10 xl:p-12 rounded-[28px] overflow-hidden transition-all duration-300
                   ${pkg.popular
                     ? 'bg-gradient-to-br from-navy via-navy to-navy/95 text-white shadow-2xl'
                     : 'bg-white border border-gray-200 hover:border-gold/30 shadow-lg hover:shadow-xl'

@@ -55,7 +55,7 @@ export function TrustMarquee() {
           renderItem={(message, index) => (
             <>
               <span
-                className="inline-block px-6 md:px-8 lg:px-10 font-display font-light select-none cursor-default whitespace-nowrap"
+                className="inline-block px-4 sm:px-6 md:px-8 lg:px-10 font-display font-light select-none cursor-default whitespace-nowrap"
                 style={{
                   fontSize: 'clamp(2rem, 5vw, 5rem)',
                   lineHeight: '0.9',
@@ -82,7 +82,7 @@ export function TrustMarquee() {
           renderItem={(item) => (
             <>
               <span
-                className="inline-block px-5 md:px-6 lg:px-8 font-sans font-extralight uppercase tracking-widest select-none whitespace-nowrap"
+                className="inline-block px-3 sm:px-5 md:px-6 lg:px-8 font-sans font-extralight uppercase tracking-widest select-none whitespace-nowrap"
                 style={{
                   fontSize: 'clamp(1.2rem, 2.5vw, 2.5rem)',
                   lineHeight: '1.1',
@@ -109,7 +109,7 @@ export function TrustMarquee() {
           renderItem={(value, index) => (
             <>
               <span
-                className="inline-block px-5 md:px-6 lg:px-8 font-display font-thin select-none whitespace-nowrap"
+                className="inline-block px-3 sm:px-5 md:px-6 lg:px-8 font-display font-thin select-none whitespace-nowrap"
                 style={{
                   fontSize: 'clamp(1.5rem, 3vw, 3rem)',
                   lineHeight: '1',

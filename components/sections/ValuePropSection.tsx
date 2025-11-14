@@ -93,7 +93,7 @@ export function ValuePropSection() {
   return (
     <section className="relative bg-white overflow-hidden py-24 md:py-32 lg:py-40">
       {/* Full width container */}
-      <div className="w-full px-8 md:px-12 lg:px-20">
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20">
 
         {/* Header section */}
         <motion.div
@@ -146,7 +146,7 @@ export function ValuePropSection() {
                   className="group relative"
                 >
                   <div className={`relative ${prop.bgColor} ${prop.bgColor !== 'bg-[#0E1D3D]' ? 'border border-[#A39B96]/15' : ''} rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 ${prop.bgColor === 'bg-[#0E1D3D]' ? 'hover:shadow-[0_12px_24px_rgba(184,146,69,0.15)]' : 'hover:shadow-[0_12px_24px_rgba(14,29,61,0.08)]'}`}>
-                    <div className="relative h-[450px] sm:h-[500px] md:h-[600px] lg:h-[700px] p-6 sm:p-8 md:p-12 lg:p-14 xl:p-16 flex flex-col">
+                    <div className="relative h-[450px] sm:h-[500px] md:h-[600px] lg:h-[700px] p-5 sm:p-6 md:p-10 lg:p-12 xl:p-16 flex flex-col">
 
                       {/* Shape illustration - bigger */}
                       <div className="flex-1 flex items-center justify-center mb-12">

@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   description: 'Professional web design for Danish small businesses. Fixed prices (8,995-27,995 DKK), 2-4 week delivery, and zero scope creep guarantee.',
   keywords: ['webdesign', 'Danmark', 'small business', 'fast pris', 'custom website'],
   authors: [{ name: 'Transparo' }],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   openGraph: {
     title: 'Transparo | Unique designs. Built on trust.',
     description: 'Professional web design for Danish small businesses with zero scope creep guarantee.',

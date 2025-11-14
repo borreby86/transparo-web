@@ -165,10 +165,11 @@ export function PortfolioSection() {
 
   return (
     <section
-      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-white py-20"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-white py-20"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      style={{ touchAction: 'pan-y' }}
     >
       {/* Heading */}
       <motion.h2

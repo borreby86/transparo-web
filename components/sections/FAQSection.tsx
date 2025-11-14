@@ -62,8 +62,8 @@ export function FAQSection() {
     const targetX = -activeIndex * (cardWidth + gap)
     const controls = animate(x, targetX, {
       type: 'spring',
-      stiffness: 300,
-      damping: 30
+      stiffness: 400,
+      damping: 35
     })
     return controls.stop
   }, [activeIndex, x, isMobile])
@@ -103,6 +103,7 @@ export function FAQSection() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      style={{ touchAction: 'pan-y' }}
     >
       {/* Animated Background Elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -209,7 +210,7 @@ export function FAQSection() {
                     rotateY: isActive ? 0 : isMobile ? 0 : (index - activeIndex) * 5
                   }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.5,
                     ease: [0.25, 0.1, 0.25, 1]
                   }}
                   className={`h-auto min-h-[400px] w-[85vw] flex-shrink-0 rounded-2xl p-6 shadow-2xl transition-all duration-700 sm:min-h-[480px] sm:rounded-3xl sm:p-8 md:h-[560px] md:w-[600px] md:p-14 ${
@@ -227,9 +228,9 @@ export function FAQSection() {
                       animate={{
                         y: isActive ? 0 : 10
                       }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.3 }}
                       className={`mb-6 text-2xl font-normal leading-snug sm:mb-8 sm:text-3xl md:mb-10 md:text-4xl ${
-                        isActive ? 'text-white' : 'text-gray-800'
+                        isActive ? 'text-[#B89245]' : 'text-gray-800'
                       }`}
                     >
                       {faq.question}
@@ -240,7 +241,7 @@ export function FAQSection() {
                       <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
+                        transition={{ delay: 0.1, duration: 0.4 }}
                         className="text-base leading-relaxed text-white/90 sm:text-lg"
                       >
                         {faq.answer}
