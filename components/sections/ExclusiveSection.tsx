@@ -30,14 +30,12 @@ export function ExclusiveSection() {
     // Wrapper container for scroll height - creates the scroll area
     <div
       ref={containerRef}
-      className="relative w-full min-h-screen"
-      style={{ height: '300vh', minHeight: '300vh' }}
+      style={{ height: '200vh' }}
     >
       {/* Sticky section that stays in view during scroll */}
       <div
         ref={sectionRef}
-        className="sticky top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden z-10"
-        style={{ position: 'sticky', top: 0 }}
+        className="sticky top-0 w-full h-screen flex items-center justify-center overflow-hidden"
       >
         {/* Dark gradient background - static, no animation */}
         <div
