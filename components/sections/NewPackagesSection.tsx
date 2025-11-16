@@ -54,7 +54,7 @@ export function NewPackagesSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="pakker" className="py-20 sm:py-24 md:py-32 lg:py-40 bg-white relative overflow-hidden">
+    <section id="pakker" className="py-20 sm:py-24 md:py-32 lg:py-40 bg-offwhite relative overflow-hidden">
       {/* Background decoration - responsive sizes */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-1/4 w-72 sm:w-96 md:w-[520px] h-72 sm:h-96 md:h-[520px] bg-gold/5 rounded-full blur-3xl" />

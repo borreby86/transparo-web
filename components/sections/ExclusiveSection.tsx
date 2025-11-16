@@ -9,24 +9,22 @@ export function ExclusiveSection() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Scroll-triggered animation with sticky behavior
-  // Using a taller trigger area to create the "stuck" feeling
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end end"]
   })
 
-  // Create transforms for progressive text reveal
-  // Compress all animations to complete by 70% to ensure they all trigger
-  const textOpacity1 = useTransform(scrollYProgress, [0.05, 0.12], [0.15, 1])     // "Det er ikke for alle."
-  const textOpacity2 = useTransform(scrollYProgress, [0.1, 0.2], [0.15, 0.6])     // "Vi identificerer..."
-  const textOpacity3 = useTransform(scrollYProgress, [0.15, 0.25], [0.15, 0.6])   // "ekstraordinære..."
-  const textOpacity4 = useTransform(scrollYProgress, [0.2, 0.35], [0.15, 1])      // "seriøse ambitioner, de få"
-  const textOpacity5 = useTransform(scrollYProgress, [0.35, 0.5], [0.15, 0.6])    // "udvalgte hvis tilstedeværelse" - NOW VISIBLE!
-  const textOpacity6 = useTransform(scrollYProgress, [0.45, 0.65], [0.15, 1])     // "styrker helheden" - NOW VISIBLE!
-  const textOpacity7 = useTransform(scrollYProgress, [0.55, 0.68], [0.1, 0.85])   // Subtext - white and readable
+  // Create transforms for progressive text reveal - much more gradual
+  const textOpacity1 = useTransform(scrollYProgress, [0, 0.15], [0.15, 1])       // "Det er ikke for alle."
+  const textOpacity2 = useTransform(scrollYProgress, [0.1, 0.25], [0.15, 0.7])   // "Vi identificerer..."
+  const textOpacity3 = useTransform(scrollYProgress, [0.2, 0.35], [0.15, 0.7])   // "ekstraordinære..."
+  const textOpacity4 = useTransform(scrollYProgress, [0.3, 0.45], [0.15, 1])     // "seriøse ambitioner, de få"
+  const textOpacity5 = useTransform(scrollYProgress, [0.4, 0.55], [0.15, 0.7])   // "udvalgte hvis tilstedeværelse"
+  const textOpacity6 = useTransform(scrollYProgress, [0.5, 0.65], [0.15, 1])     // "styrker helheden"
+  const textOpacity7 = useTransform(scrollYProgress, [0.65, 0.8], [0.1, 0.9])    // Subtext
 
-  // Gold accent color transform - starts as dark gray, becomes gold
-  const goldColorProgress = useTransform(scrollYProgress, [0.2, 0.35], [0, 1])
+  // Gold accent color transform
+  const goldColorProgress = useTransform(scrollYProgress, [0.3, 0.45], [0, 1])
 
   return (
     // Wrapper container for scroll height - responsive heights for different screen sizes
