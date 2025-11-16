@@ -30,11 +30,11 @@ export function ExclusiveSection() {
 
   return (
     // Wrapper container for scroll height - responsive heights for different screen sizes
-    <div ref={containerRef} className="relative h-[250vh] sm:h-[275vh] md:h-[300vh]">
+    <div ref={containerRef} className="relative h-[300vh]">
       {/* Sticky section that stays in view during scroll */}
       <section
         ref={sectionRef}
-        className="sticky top-0 min-h-screen flex items-center justify-center overflow-hidden"
+        className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
       >
         {/* Dark gradient background - static, no animation */}
         <div
