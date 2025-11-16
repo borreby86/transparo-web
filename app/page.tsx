@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { TrustMarquee } from '@/components/sections/TrustMarquee'
 import { ValuePropSection } from '@/components/sections/ValuePropSection'
 import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
 import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
@@ -28,7 +27,6 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <TrustMarquee />
         <ValuePropSection />
         <ExclusiveSection />
         <NewPackagesSection />
