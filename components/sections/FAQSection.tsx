@@ -217,7 +217,7 @@ export function FAQSection() {
                     duration: 0.3,
                     ease: [0.25, 0.1, 0.25, 1]
                   }}
-                  className={`h-[320px] flex-shrink-0 rounded-2xl p-6 shadow-lg transition-colors duration-300 sm:h-[340px] sm:p-7 md:h-[360px] ${
+                  className={`h-[450px] flex-shrink-0 rounded-2xl p-6 shadow-lg transition-colors duration-300 sm:h-[480px] sm:p-8 md:h-[500px] md:p-10 ${
                     isActive ? 'bg-navy text-white' : 'bg-offwhite text-navy'
                   }`}
                   style={{
@@ -231,10 +231,10 @@ export function FAQSection() {
                         y: isActive ? 0 : 5
                       }}
                       transition={{ duration: 0.25 }}
-                      className={`mb-4 font-display font-semibold leading-tight ${
+                      className={`mb-6 font-display font-semibold leading-tight ${
                         isActive
-                          ? 'text-gold text-xl md:text-2xl'
-                          : 'text-navy text-base md:text-lg'
+                          ? 'text-gold text-2xl md:text-3xl'
+                          : 'text-navy text-lg md:text-xl'
                       }`}
                     >
                       {faq.question}
@@ -246,7 +246,7 @@ export function FAQSection() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.05, duration: 0.3 }}
-                        className="text-sm leading-relaxed text-white/90 sm:text-base"
+                        className="text-base leading-relaxed text-white/90 sm:text-lg"
                       >
                         {faq.answer}
                       </motion.p>
