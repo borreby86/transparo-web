@@ -14,27 +14,45 @@ interface FAQ {
 const faqs: FAQ[] = [
   {
     id: 1,
-    question: 'Hvad er inkluderet i hver pakke?',
+    question: 'Hvorfor er jeres priser så meget lavere end andre bureauer?',
     answer:
-      'Alle pakker inkluderer professionel design, moderne teknologi (Next.js + Payload CMS), mobiloptimering, og fuld ejerskab af koden. Essentials giver dig en komplet website, Professional tilføjer blog og avancerede funktioner, mens Business giver fuld fleksibilitet med custom features.'
+      'Vi bruger moderne teknologi og AI-assisterede værktøjer, der gør os 3-4 gange hurtigere end traditionelle bureauer. Det betyder lavere omkostninger for os - og for dig. Men vi går aldrig på kompromis med kvaliteten. Alle vores pakker bygges med samme professionelle teknologi (Next.js, Payload CMS), forskellen ligger kun i omfang og features.'
   },
   {
     id: 2,
-    question: 'Hvad betyder "AI-drevet udvikling" for mit projekt?',
+    question: 'Hvad mener I med "ingen scope creep"?',
     answer:
-      'Vi kombinerer AI-værktøjer (Cursor/Windsurf) med ekspert design for at levere hurtigere uden at gå på kompromis med kvalitet. AI hjælper med kodning og optimering, mens vores designere sikrer en unik, professionel oplevelse tilpasset din virksomhed.'
+      'Scope creep er når projekter trækker ud i det uendelige med konstante ændringer og revisioner. Vi stopper det fra starten med: (1) Klare pakker med definerede features, (2) Godkendelsesmøder ved vigtige milepæle, (3) Maksimalt 2 revisionsrunder inkluderet. Når du godkender designet, går vi videre. Det holder projektet på skinner og sikrer levering til tiden.'
   },
   {
     id: 3,
-    question: 'Kan jeg selv opdatere min website efter lancering?',
+    question: 'Hvor lang tid tager det at få min hjemmeside?',
     answer:
-      'Ja! Alle websites inkluderer Payload CMS – et professionelt, brugervenligt admin-panel. Du kan opdatere tekst, billeder, blog posts og meget mere uden teknisk viden. Vi giver også 30-45 minutters træning, så du føler dig tryg.'
+      'Essentials: 2 uger fra signering til lancering, Professional: 3 uger, Business: 4 uger. Dette er garanterede leveringstider, ikke estimater. Vi kan holde dem fordi vi har strukturerede processer og bruger moderne udviklings-værktøjer.'
   },
   {
     id: 4,
-    question: 'Hvor lang tid tager det at få min website klar?',
+    question: 'Hvad sker der hvis jeg har brug for ændringer efter lanceringen?',
     answer:
-      'Essentials leveres på 1-2 uger, Professional på 2-3 uger, og Business på 3-4 uger. Tidslinjen afhænger af, hvor hurtigt du leverer indhold (tekst, billeder) og feedback. Vi holder dig opdateret gennem hele processen.'
+      'Du får 30 dages support efter lancering for fejlrettelser. Derefter tilbyder vi en vedligeholdelsespakke fra 495 kr/måned der dækker mindre opdateringer, sikkerhedsopdateringer og teknisk support. Større ændringer eller nye features kan tilkøbes efter behov.'
+  },
+  {
+    id: 5,
+    question: 'Hvorfor bruger I ikke WordPress?',
+    answer:
+      'WordPress er godt til nogle ting, men det har begrænsninger: langsom performance, sikkerhedsproblemer, dyre plugins, og det er svært at integrere med AI-værktøjer. Vi bruger Next.js og Payload CMS - moderne teknologi der er hurtigere, mere sikker, og giver jer bedre SEO. Bonus: Det er også gratis at hoste (0-75 kr/måned vs. 200-500 kr for WordPress).'
+  },
+  {
+    id: 6,
+    question: 'Skal jeg selv skrive alt indholdet?',
+    answer:
+      'Nej! Vi guider dig gennem indholdsprocessen med vores Content Checklist. Du skal levere grundlæggende info om din virksomhed, billeder/logo, og godkende tekster - men vi hjælper med strukturering og optimering til SEO. Du ved bedst hvad din virksomhed laver, vi ved hvordan det skal præsenteres online.'
+  },
+  {
+    id: 7,
+    question: 'Hvad hvis jeg ikke er teknisk anlagt?',
+    answer:
+      'Det behøver du ikke være! Vores Payload CMS admin-panel er designet så det er intuitivt at bruge - tænk "WordPress-enkelt" men med moderne teknologi. Vi giver dig personlig træning i at opdatere tekster, billeder og blogindlæg. Og vores support er altid klar til at hjælpe.'
   }
 ]
 
