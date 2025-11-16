@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'motion/react'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 export function HeroSection() {
   const ref = useRef(null)
@@ -19,6 +19,28 @@ export function HeroSection() {
 
   // Apple-like easing - quick and confident
   const appleEase = [0.25, 0.1, 0.25, 1] as const
+
+  // Typewriter effect
+  const [displayedText, setDisplayedText] = useState("")
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [showCursor, setShowCursor] = useState(true)
+
+  useEffect(() => {
+    // Typewriter effect
+    if (currentIndex < mainWord.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(prev => prev + mainWord[currentIndex])
+        setCurrentIndex(prev => prev + 1)
+      }, 100) // 100ms per character for smooth typing
+      return () => clearTimeout(timeout)
+    } else {
+      // Blink cursor after typing is complete
+      const cursorInterval = setInterval(() => {
+        setShowCursor(prev => !prev)
+      }, 500)
+      return () => clearInterval(cursorInterval)
+    }
+  }, [currentIndex, mainWord])
 
   return (
     <>
@@ -92,7 +114,7 @@ export function HeroSection() {
         {/* Main Hero Content - No scroll transforms for smooth scrolling */}
         <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-6 sm:px-8 md:px-12 lg:px-16">
           <div className="w-full text-center">
-            {/* Main headline - "transparo." with clip-path reveal animation */}
+            {/* Main headline - "transparo." with typewriter animation */}
             <div className="mb-8 md:mb-12 lg:mb-16">
               <motion.h1
                 className="font-display font-black text-black leading-[0.85] tracking-tighter"
@@ -109,12 +131,21 @@ export function HeroSection() {
                   y: 0
                 }}
                 transition={{
-                  duration: 1.2,
+                  duration: 0.6,
                   delay: 0.2,
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                {mainWord}
+                {displayedText}
+                <span
+                  className="text-gold"
+                  style={{
+                    opacity: showCursor ? 1 : 0,
+                    transition: 'opacity 0.1s'
+                  }}
+                >
+                  |
+                </span>
               </motion.h1>
             </div>
 
@@ -123,7 +154,7 @@ export function HeroSection() {
               className="mb-12 md:mb-16 lg:mb-20"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: appleEase }}
+              transition={{ duration: 0.6, delay: 1.2, ease: appleEase }}
             >
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gold/80">
                 {tagline.map((word, index) => (
@@ -138,7 +169,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2, ease: appleEase }}
+              transition={{ duration: 0.6, delay: 1.6, ease: appleEase }}
               className="mb-12 md:mb-16 max-w-5xl mx-auto"
             >
               <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black/80 font-medium leading-relaxed">
@@ -152,7 +183,7 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6, ease: appleEase }}
+              transition={{ duration: 0.6, delay: 2.0, ease: appleEase }}
               className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6"
             >
               <a
