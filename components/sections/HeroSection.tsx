@@ -90,24 +90,27 @@ export function HeroSection() {
         <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(black_1px,transparent_1px)] bg-[size:20px_20px]" />
 
         {/* Main Hero Content - No scroll transforms for smooth scrolling */}
-        <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-4 sm:px-8">
-          <div className="w-full mx-auto text-center max-w-7xl">
+        <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-6 sm:px-8 md:px-12 lg:px-16">
+          <div className="w-full text-center">
             {/* Main headline - "transparo." with clip-path reveal animation */}
-            <div className="mb-6 md:mb-8 lg:mb-12 overflow-visible">
+            <div className="mb-8 md:mb-12 lg:mb-16">
               <motion.h1
-                className="font-display font-black text-black leading-[0.85] tracking-tighter whitespace-nowrap"
+                className="font-display font-black text-black leading-[0.85] tracking-tighter"
                 style={{
-                  fontSize: 'clamp(3rem, 12vw, 18rem)',
+                  fontSize: 'clamp(4rem, 16vw, 24rem)',
+                  letterSpacing: '-0.04em',
                 }}
                 initial={{
-                  clipPath: 'inset(0 100% 0 0)',
+                  opacity: 0,
+                  y: 30
                 }}
                 animate={{
-                  clipPath: 'inset(0 0% 0 0)',
+                  opacity: 1,
+                  y: 0
                 }}
                 transition={{
-                  duration: 2.5,
-                  delay: 0.3,
+                  duration: 1.2,
+                  delay: 0.2,
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
@@ -116,38 +119,29 @@ export function HeroSection() {
             </div>
 
             {/* Tagline - "Unique designs • Built on trust" - word by word reveal */}
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-gold/80 mb-8 md:mb-12">
-              {tagline.map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    opacity: 0,
-                    y: 15,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                    delay: 1.2 + index * 0.015,
-                    ease: appleEase,
-                  }}
-                  className="inline-block"
-                >
-                  {word}
-                </motion.span>
-              ))}
-            </div>
+            <motion.div
+              className="mb-12 md:mb-16 lg:mb-20"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: appleEase }}
+            >
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gold/80">
+                {tagline.map((word, index) => (
+                  <span key={index} className="inline-block">
+                    {word}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
 
             {/* Value Proposition */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.8, ease: appleEase }}
-              className="mb-10 md:mb-12"
+              transition={{ duration: 0.8, delay: 1.2, ease: appleEase }}
+              className="mb-12 md:mb-16 max-w-5xl mx-auto"
             >
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black/80 font-medium leading-relaxed max-w-4xl mx-auto">
+              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black/80 font-medium leading-relaxed">
                 Vi bygger professionelle websites til små virksomheder{' '}
                 <span className="text-gold font-semibold">med fast pris</span> og{' '}
                 <span className="text-gold font-semibold">levering på 10-28 dage</span>
@@ -158,18 +152,18 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 2.1, ease: appleEase }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+              transition={{ duration: 0.8, delay: 1.6, ease: appleEase }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 mb-16 md:mb-20"
             >
               <a
                 href="/pakker"
-                className="w-full sm:w-auto bg-navy text-white px-8 py-4 rounded-full font-bold text-base hover:bg-navy/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto bg-navy text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-navy/90 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5"
               >
                 Se Vores Pakker
               </a>
               <a
                 href="/kontakt"
-                className="w-full sm:w-auto bg-white text-navy px-8 py-4 rounded-full font-bold text-base hover:bg-offwhite transition-all border-2 border-navy/10"
+                className="w-full sm:w-auto bg-white text-navy px-10 py-5 rounded-full font-bold text-lg hover:bg-offwhite transition-all border-2 border-navy/20 shadow-lg hover:shadow-xl"
               >
                 Book et Møde
               </a>
@@ -179,26 +173,26 @@ export function HeroSection() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 2.4, ease: appleEase }}
-              className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-black/60"
+              transition={{ duration: 0.8, delay: 2.0, ease: appleEase }}
+              className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 text-base md:text-lg text-black/60"
             >
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center space-x-3">
+                <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-medium">Fast pris garanti</span>
+                <span className="font-semibold">Fast pris garanti</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center space-x-3">
+                <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-medium">Ingen scope creep</span>
+                <span className="font-semibold">Ingen scope creep</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <svg className="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center space-x-3">
+                <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="font-medium">100% tilfredse kunder</span>
+                <span className="font-semibold">100% tilfredse kunder</span>
               </div>
             </motion.div>
           </div>
