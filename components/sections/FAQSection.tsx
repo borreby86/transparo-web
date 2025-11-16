@@ -57,10 +57,13 @@ export function FAQSection() {
 
   // Carousel animation with responsive card width
   useEffect(() => {
-    const cardWidth = isMobile ? window.innerWidth * 0.75 : 400
+    const inactiveCardWidth = isMobile ? window.innerWidth * 0.5 : 220
     const gap = isMobile ? 16 : 24
-    const targetX = -activeIndex * (cardWidth + gap)
-    const controls = animate(x, targetX, {
+
+    // Calculate offset: all cards before active index are inactive
+    const offset = activeIndex * (inactiveCardWidth + gap)
+
+    const controls = animate(x, -offset, {
       type: 'tween',
       duration: 0.4,
       ease: [0.25, 0.1, 0.25, 1]
@@ -205,29 +208,33 @@ export function FAQSection() {
                 <motion.div
                   key={faq.id}
                   animate={{
-                    scale: isActive ? 1.02 : isMobile ? 0.92 : Math.max(0.85, 1 - distance * 0.08),
-                    opacity: isActive ? 1 : isMobile ? 0.4 : Math.max(0.5, 1 - distance * 0.2)
+                    width: isActive
+                      ? (isMobile ? '75vw' : '400px')
+                      : (isMobile ? '50vw' : '220px'),
+                    opacity: isActive ? 1 : isMobile ? 0.5 : Math.max(0.6, 1 - distance * 0.15)
                   }}
                   transition={{
                     duration: 0.3,
                     ease: [0.25, 0.1, 0.25, 1]
                   }}
-                  className={`h-[320px] w-[75vw] flex-shrink-0 rounded-2xl p-6 shadow-lg transition-colors duration-300 sm:h-[340px] sm:w-[380px] sm:p-7 md:h-[350px] md:w-[400px] ${
+                  className={`h-[320px] flex-shrink-0 rounded-2xl p-6 shadow-lg transition-colors duration-300 sm:h-[340px] sm:p-7 md:h-[360px] ${
                     isActive ? 'bg-navy text-white' : 'bg-offwhite text-navy'
                   }`}
                   style={{
                     filter: isActive ? 'none' : 'brightness(0.97)'
                   }}
                 >
-                  <div className="flex h-full flex-col justify-between">
+                  <div className="flex h-full flex-col justify-start">
                     {/* Question */}
                     <motion.h3
                       animate={{
                         y: isActive ? 0 : 5
                       }}
                       transition={{ duration: 0.25 }}
-                      className={`mb-4 font-display font-semibold text-lg leading-tight sm:text-xl md:text-2xl ${
-                        isActive ? 'text-gold' : 'text-navy'
+                      className={`mb-4 font-display font-semibold leading-tight ${
+                        isActive
+                          ? 'text-gold text-xl md:text-2xl'
+                          : 'text-navy text-base md:text-lg'
                       }`}
                     >
                       {faq.question}
