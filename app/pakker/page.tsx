@@ -1,7 +1,12 @@
 import { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
+import { PackagesHeroSection } from '@/components/sections/PackagesHeroSection'
+import { PricingPhilosophySection } from '@/components/sections/PricingPhilosophySection'
+import { NewPackagesSectionEnhanced } from '@/components/sections/NewPackagesSectionEnhanced'
+import { PackageComparisonSection } from '@/components/sections/PackageComparisonSection'
+import { PackagesFAQSection } from '@/components/sections/PackagesFAQSection'
+import { PackageTestimonialsSection } from '@/components/sections/PackageTestimonialsSection'
 import { FinalCTASection } from '@/components/sections/FinalCTASection'
 
 export const metadata: Metadata = {
@@ -19,7 +24,12 @@ export default function PakkerPage() {
     <>
       <Header />
       <main>
-        <NewPackagesSection />
+        <PackagesHeroSection />
+        <PricingPhilosophySection />
+        <NewPackagesSectionEnhanced />
+        <PackageComparisonSection />
+        <PackageTestimonialsSection />
+        <PackagesFAQSection />
         <FinalCTASection />
       </main>
       <Footer />
