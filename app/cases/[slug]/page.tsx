@@ -289,14 +289,15 @@ const caseStudies: CaseStudyDetail[] = [
   }
 ]
 
-export default function CaseDetailPage({ params }: { params: { slug: string } }) {
-  const caseStudy = caseStudies.find(cs => cs.slug === params.slug)
+export default async function CaseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const caseStudy = caseStudies.find(cs => cs.slug === slug)
 
   if (!caseStudy) {
     notFound()
   }
 
-  const currentIndex = caseStudies.findIndex(cs => cs.slug === params.slug)
+  const currentIndex = caseStudies.findIndex(cs => cs.slug === slug)
   const nextCase = caseStudies[(currentIndex + 1) % caseStudies.length]
 
   return (
