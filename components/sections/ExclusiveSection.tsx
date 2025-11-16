@@ -1,17 +1,32 @@
 'use client'
 
-import { motion, useReducedMotion } from 'motion/react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { useRef } from 'react'
 
 export function ExclusiveSection() {
   const shouldReduceMotion = useReducedMotion()
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  // Scroll progress for the section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  // Text reveal animations - each line appears at different scroll points
+  const line1Opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1])
+  const line2Opacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 0.7])
+  const line3Opacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 0.7])
+  const line4Opacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1])
+  const line5Opacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 0.7])
+  const line6Opacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1])
+  const subtextOpacity = useTransform(scrollYProgress, [0.7, 0.8], [0, 0.9])
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32"
-    >
+    <div ref={containerRef} className="relative" style={{ height: '250vh' }}>
+      <div
+        className="sticky top-0 min-h-screen flex items-center justify-center overflow-hidden"
+      >
         {/* Dark gradient background - static, no animation */}
         <div
           className="absolute inset-0"
@@ -31,14 +46,13 @@ export function ExclusiveSection() {
         {/* Content container */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div>
-          {/* Main text with simple fade-in animations */}
+          {/* Main text with scroll-triggered reveals */}
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight">
             {/* Line 1 - "Det er ikke for alle." */}
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0 }}
+              style={{
+                opacity: shouldReduceMotion ? 1 : line1Opacity
+              }}
               className="block font-light mb-4 text-white"
             >
               Det er ikke for alle.
@@ -46,55 +60,50 @@ export function ExclusiveSection() {
 
             {/* Line 2 */}
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 0.7, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="block font-light text-white/70"
+              style={{
+                opacity: shouldReduceMotion ? 0.7 : line2Opacity
+              }}
+              className="block font-light text-white"
             >
               Vi identificerer og samarbejder med
             </motion.span>
 
             {/* Line 3 */}
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 0.7, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="block font-light text-white/70"
+              style={{
+                opacity: shouldReduceMotion ? 0.7 : line3Opacity
+              }}
+              className="block font-light text-white"
             >
               ekstraordinære virksomheder med
             </motion.span>
 
             {/* Line 4 - Contains gold accent */}
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              style={{
+                opacity: shouldReduceMotion ? 1 : line4Opacity
+              }}
               className="block font-light"
             >
               <span className="text-gold">seriøse ambitioner</span>
-              <span className="text-white/70">, de få</span>
+              <span className="text-white">, de få</span>
             </motion.span>
 
             {/* Line 5 */}
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 0.7, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="block font-light text-white/70"
+              style={{
+                opacity: shouldReduceMotion ? 0.7 : line5Opacity
+              }}
+              className="block font-light text-white"
             >
               udvalgte hvis tilstedeværelse
             </motion.span>
 
             {/* Line 6 - "styrker helheden." */}
             <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              style={{
+                opacity: shouldReduceMotion ? 1 : line6Opacity
+              }}
               className="block font-light text-white"
             >
               styrker helheden.
@@ -103,19 +112,17 @@ export function ExclusiveSection() {
 
           {/* Subtle divider */}
           <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            style={{
+              scaleX: shouldReduceMotion ? 1 : useTransform(scrollYProgress, [0.65, 0.7], [0, 1])
+            }}
             className="w-24 h-px bg-gold mt-12 mb-8 origin-left"
           />
 
           {/* Subtext */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 0.9, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            style={{
+              opacity: shouldReduceMotion ? 0.9 : subtextOpacity
+            }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl font-light leading-relaxed text-white/90"
           >
             Vi arbejder kun med virksomheder, der forstår værdien af
@@ -131,6 +138,7 @@ export function ExclusiveSection() {
           background: 'linear-gradient(to top, #030712 0%, transparent 100%)',
         }}
       />
-    </section>
+      </div>
+    </div>
   )
 }
