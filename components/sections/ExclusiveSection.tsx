@@ -1,26 +1,51 @@
 'use client'
 
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
-import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform, useMotionValue } from 'motion/react'
+import { useRef, useEffect, useState } from 'react'
 
 export function ExclusiveSection() {
   const shouldReduceMotion = useReducedMotion()
   const containerRef = useRef<HTMLDivElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [isLocked, setIsLocked] = useState(false)
+  const scrollAccumulator = useRef(0)
 
-  // Scroll progress for the section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  })
+  // Handle scroll locking
+  useEffect(() => {
+    const handleScroll = (e: WheelEvent) => {
+      if (!containerRef.current) return
 
-  // Text reveal animations - more gradual progression
-  const line1Opacity = useTransform(scrollYProgress, [0, 0.14], [0, 1])
-  const line2Opacity = useTransform(scrollYProgress, [0.14, 0.28], [0, 0.7])
-  const line3Opacity = useTransform(scrollYProgress, [0.28, 0.42], [0, 0.7])
-  const line4Opacity = useTransform(scrollYProgress, [0.42, 0.56], [0, 1])
-  const line5Opacity = useTransform(scrollYProgress, [0.56, 0.70], [0, 0.7])
-  const line6Opacity = useTransform(scrollYProgress, [0.70, 0.84], [0, 1])
-  const subtextOpacity = useTransform(scrollYProgress, [0.84, 1], [0, 0.9])
+      const rect = containerRef.current.getBoundingClientRect()
+      const isInView = rect.top <= 100 && rect.bottom >= window.innerHeight - 100
+
+      if (isInView && scrollProgress < 1) {
+        e.preventDefault()
+        setIsLocked(true)
+
+        // Accumulate scroll
+        scrollAccumulator.current += e.deltaY * 0.001
+        scrollAccumulator.current = Math.max(0, Math.min(1, scrollAccumulator.current))
+        setScrollProgress(scrollAccumulator.current)
+
+        // Lock scroll position
+        window.scrollTo(0, containerRef.current.offsetTop - 50)
+      } else {
+        setIsLocked(false)
+      }
+    }
+
+    window.addEventListener('wheel', handleScroll, { passive: false })
+    return () => window.removeEventListener('wheel', handleScroll)
+  }, [scrollProgress])
+
+  // Text reveal based on scroll progress
+  const line1Opacity = scrollProgress * 6 > 1 ? 1 : scrollProgress * 6
+  const line2Opacity = Math.max(0, Math.min(0.7, (scrollProgress - 0.16) * 4))
+  const line3Opacity = Math.max(0, Math.min(0.7, (scrollProgress - 0.33) * 4))
+  const line4Opacity = Math.max(0, Math.min(1, (scrollProgress - 0.5) * 4))
+  const line5Opacity = Math.max(0, Math.min(0.7, (scrollProgress - 0.66) * 4))
+  const line6Opacity = Math.max(0, Math.min(1, (scrollProgress - 0.83) * 4))
+  const subtextOpacity = Math.max(0, Math.min(0.9, (scrollProgress - 0.9) * 10))
 
   return (
     <section ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden py-24">
@@ -49,87 +74,116 @@ export function ExclusiveSection() {
           {/* Main text with scroll-triggered reveals */}
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight">
             {/* Line 1 - "Det er ikke for alle." */}
-            <motion.span
+            <span
               style={{
-                opacity: shouldReduceMotion ? 1 : line1Opacity
+                opacity: shouldReduceMotion ? 1 : line1Opacity,
+                transition: 'opacity 0.3s ease-out'
               }}
               className="block font-light mb-4 text-white"
             >
               Det er ikke for alle.
-            </motion.span>
+            </span>
 
             {/* Line 2 */}
-            <motion.span
+            <span
               style={{
-                opacity: shouldReduceMotion ? 0.7 : line2Opacity
+                opacity: shouldReduceMotion ? 0.7 : line2Opacity,
+                transition: 'opacity 0.3s ease-out'
               }}
               className="block font-light text-white"
             >
               Vi identificerer og samarbejder med
-            </motion.span>
+            </span>
 
             {/* Line 3 */}
-            <motion.span
+            <span
               style={{
-                opacity: shouldReduceMotion ? 0.7 : line3Opacity
+                opacity: shouldReduceMotion ? 0.7 : line3Opacity,
+                transition: 'opacity 0.3s ease-out'
               }}
               className="block font-light text-white"
             >
               ekstraordinære virksomheder med
-            </motion.span>
+            </span>
 
             {/* Line 4 - Contains gold accent */}
-            <motion.span
+            <span
               style={{
-                opacity: shouldReduceMotion ? 1 : line4Opacity
+                opacity: shouldReduceMotion ? 1 : line4Opacity,
+                transition: 'opacity 0.3s ease-out'
               }}
               className="block font-light"
             >
               <span className="text-gold">seriøse ambitioner</span>
               <span className="text-white">, de få</span>
-            </motion.span>
+            </span>
 
             {/* Line 5 */}
-            <motion.span
+            <span
               style={{
-                opacity: shouldReduceMotion ? 0.7 : line5Opacity
+                opacity: shouldReduceMotion ? 0.7 : line5Opacity,
+                transition: 'opacity 0.3s ease-out'
               }}
               className="block font-light text-white"
             >
               udvalgte hvis tilstedeværelse
-            </motion.span>
+            </span>
 
             {/* Line 6 - "styrker helheden." */}
-            <motion.span
+            <span
               style={{
-                opacity: shouldReduceMotion ? 1 : line6Opacity
+                opacity: shouldReduceMotion ? 1 : line6Opacity,
+                transition: 'opacity 0.3s ease-out'
               }}
               className="block font-light text-white"
             >
               styrker helheden.
-            </motion.span>
+            </span>
           </h2>
 
           {/* Subtle divider */}
-          <motion.div
+          <div
             style={{
-              scaleX: shouldReduceMotion ? 1 : useTransform(scrollYProgress, [0.65, 0.7], [0, 1])
+              transform: `scaleX(${shouldReduceMotion ? 1 : Math.max(0, Math.min(1, (scrollProgress - 0.85) * 7))})`,
+              transition: 'transform 0.3s ease-out',
+              transformOrigin: 'left'
             }}
-            className="w-24 h-px bg-gold mt-12 mb-8 origin-left"
+            className="w-24 h-px bg-gold mt-12 mb-8"
           />
 
           {/* Subtext */}
-          <motion.p
+          <p
             style={{
-              opacity: shouldReduceMotion ? 0.9 : subtextOpacity
+              opacity: shouldReduceMotion ? 0.9 : subtextOpacity,
+              transition: 'opacity 0.3s ease-out'
             }}
             className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl font-light leading-relaxed text-white/90"
           >
             Vi arbejder kun med virksomheder, der forstår værdien af
             exceptionelt design og er klar til at investere i deres digitale fremtid.
-          </motion.p>
+          </p>
         </div>
       </div>
+
+      {/* Scroll indicator - shows when locked */}
+      {isLocked && scrollProgress < 0.9 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/40 text-sm"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span>Scroll to reveal</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              ↓
+            </motion.div>
+          </div>
+        </motion.div>
+      )}
 
       {/* Bottom fade */}
       <div
