@@ -116,15 +116,15 @@ export function ProcessTimelineSection() {
                 >
                   <div className="relative">
                     {/* Step number - large background */}
-                    <span className="absolute -top-8 -left-4 font-display text-[60px] sm:text-[80px] md:text-[120px] lg:text-[160px] font-black text-black/5 select-none">
+                    <span className="absolute -top-6 sm:-top-8 -left-2 sm:-left-4 font-display text-[50px] sm:text-[70px] md:text-[100px] lg:text-[140px] font-black text-black/5 select-none">
                       {step.number}
                     </span>
 
                     {/* Content card */}
-                    <div className="relative bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-black/5">
+                    <div className="relative bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-xl border border-black/5">
                       {/* Icon */}
                       <motion.div
-                        className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
+                        className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl mb-4 sm:mb-6"
                         style={{
                           backgroundColor: step.color === 'gold' ? '#B89245' :
                                          step.color === 'navy' ? '#0E1D3D' : '#1A1A1A'
@@ -132,7 +132,7 @@ export function ProcessTimelineSection() {
                         whileHover={{ rotate: shouldReduceMotion ? 0 : 360 }}
                         transition={{ duration: 0.6 }}
                       >
-                        <Icon className="w-8 h-8 text-white" strokeWidth={1.5} />
+                        <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" strokeWidth={1.5} />
                       </motion.div>
 
                       {/* Title */}

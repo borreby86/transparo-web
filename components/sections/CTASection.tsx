@@ -59,12 +59,12 @@ export function CTASection() {
       />
 
       {/* Centered content */}
-      <div className="container relative z-10 mx-auto px-6 max-w-5xl text-center">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 max-w-5xl text-center">
         <motion.div
           initial={shouldReduceMotion ? 'visible' : 'hidden'}
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="space-y-12"
+          className="space-y-8 sm:space-y-10 md:space-y-12"
         >
           {/* Overline */}
           <motion.p
@@ -79,7 +79,7 @@ export function CTASection() {
           <motion.h2
             variants={fadeInVariants}
             transition={{ ...transition, delay: shouldReduceMotion ? 0 : 0.2 }}
-            className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white leading-tight italic"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-tight italic"
           >
             Din digitale
             <br />

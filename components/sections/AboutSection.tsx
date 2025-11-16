@@ -92,7 +92,7 @@ export function AboutSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -102,7 +102,7 @@ export function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-gold mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gold mb-2">
                 {stat.number}
               </div>
               <div className="text-sm md:text-base text-black/60 font-medium">

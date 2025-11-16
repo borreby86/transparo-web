@@ -70,8 +70,8 @@ export function DifferentiatorSection() {
               transition={{ duration: 0.6, delay: index * 0.15 }}
             >
               <Card padding="lg" className="h-full">
-                <div className="w-14 h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-6">
-                  <Icon className="h-7 w-7 text-navy" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-navy/10 rounded-xl flex items-center justify-center mb-6">
+                  <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-navy" />
                 </div>
 
                 <h3 className="font-display font-bold text-xl md:text-2xl text-navy mb-4">

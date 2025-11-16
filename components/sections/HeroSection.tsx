@@ -112,7 +112,7 @@ export function HeroSection() {
               <motion.h1
                 className="font-display font-black text-black leading-[0.85] tracking-tighter"
                 style={{
-                  fontSize: 'clamp(4rem, 16vw, 24rem)',
+                  fontSize: 'clamp(3rem, 12vw, 16rem)',
                   letterSpacing: '-0.04em',
                 }}
                 initial={{

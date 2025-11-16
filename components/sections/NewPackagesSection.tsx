@@ -145,12 +145,12 @@ export function NewPackagesSection() {
                   {/* Price */}
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2">
-                      <span className={`text-4xl sm:text-5xl lg:text-6xl font-black ${
+                      <span className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black ${
                         pkg.popular ? 'text-gold' : 'text-navy'
                       }`}>
                         {pkg.price}
                       </span>
-                      <span className={`text-lg sm:text-xl ${
+                      <span className={`text-base sm:text-lg md:text-xl ${
                         pkg.popular ? 'text-white/70' : 'text-warmgray'
                       }`}>
                         DKK

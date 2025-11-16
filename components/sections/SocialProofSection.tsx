@@ -60,7 +60,7 @@ export function SocialProofSection() {
             transition={{ duration: 0.6, delay: index * 0.1 }}
           >
             <Card padding="lg" className="h-full relative">
-              <Quote className="h-10 w-10 text-gold/20 absolute top-6 right-6" />
+              <Quote className="h-8 w-8 sm:h-10 sm:w-10 text-gold/20 absolute top-6 right-6" />
               <p className="text-black/80 mb-6 relative z-10 italic">
                 "{testimonial.quote}"
               </p>

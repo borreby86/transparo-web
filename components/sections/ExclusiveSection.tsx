@@ -108,12 +108,12 @@ export function ExclusiveSection() {
         }}
       >
         {/* Content */}
-        <div className="relative z-10 max-w-7xl px-8">
-          <div className="mb-12">
+        <div className="relative z-10 max-w-6xl px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="mb-8 sm:mb-10 md:mb-12">
             <h1
               className={`
-                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
-                text-white mb-3 transition-all duration-300 ease-out
+                font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light
+                text-white mb-2 sm:mb-3 transition-all duration-300 ease-out
                 ${visibleElements.line1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
@@ -122,8 +122,8 @@ export function ExclusiveSection() {
 
             <h2
               className={`
-                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
-                text-gray-300 mb-3 transition-all duration-300 ease-out
+                font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light
+                text-gray-300 mb-2 sm:mb-3 transition-all duration-300 ease-out
                 ${visibleElements.line2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
@@ -132,8 +132,8 @@ export function ExclusiveSection() {
 
             <h2
               className={`
-                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
-                text-gray-300 mb-3 transition-all duration-300 ease-out
+                font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light
+                text-gray-300 mb-2 sm:mb-3 transition-all duration-300 ease-out
                 ${visibleElements.line3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
@@ -142,8 +142,8 @@ export function ExclusiveSection() {
 
             <div
               className={`
-                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
-                mb-3 transition-all duration-300 ease-out
+                font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light
+                mb-2 sm:mb-3 transition-all duration-300 ease-out
                 ${visibleElements.line4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
@@ -153,7 +153,7 @@ export function ExclusiveSection() {
 
             <h2
               className={`
-                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
+                font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light
                 text-gray-300 transition-all duration-300 ease-out
                 ${visibleElements.line5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}

@@ -116,7 +116,7 @@ export function CaseStudySection() {
             >
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col">
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden bg-gray-100">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
                   <img
                     src={study.image}
                     alt={study.client}
@@ -149,13 +149,13 @@ export function CaseStudySection() {
                   </p>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-3 gap-3 mb-7 pb-7 border-b border-gray-100">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-7 pb-7 border-b border-gray-100">
                     {study.stats.map((stat, idx) => {
                       const Icon = stat.icon
                       return (
                         <div key={idx} className="text-center">
                           <Icon className="w-5 h-5 mx-auto mb-2 text-gray-300" strokeWidth={1.5} />
-                          <div className="font-display text-lg md:text-xl font-bold text-[#1a2332] mb-1">
+                          <div className="font-display text-base sm:text-lg md:text-xl font-bold text-[#1a2332] mb-1">
                             {stat.value}
                           </div>
                           <div className="text-[10px] text-[#9ca3af] leading-tight">
