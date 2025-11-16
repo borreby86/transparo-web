@@ -57,8 +57,8 @@ export function FAQSection() {
 
   // Carousel animation with responsive card width
   useEffect(() => {
-    const cardWidth = isMobile ? window.innerWidth * 0.85 : 600
-    const gap = isMobile ? 12 : 16
+    const cardWidth = isMobile ? window.innerWidth * 0.75 : 400
+    const gap = isMobile ? 16 : 24
     const targetX = -activeIndex * (cardWidth + gap)
     const controls = animate(x, targetX, {
       type: 'tween',
@@ -196,7 +196,7 @@ export function FAQSection() {
 
         {/* Cards Container */}
         <div className="relative overflow-visible">
-          <motion.div className="flex gap-3 md:gap-4" style={{ x }}>
+          <motion.div className="flex gap-4 md:gap-6" style={{ x }}>
             {faqs.map((faq, index) => {
               const isActive = index === activeIndex
               const distance = Math.abs(index - activeIndex)
@@ -205,28 +205,28 @@ export function FAQSection() {
                 <motion.div
                   key={faq.id}
                   animate={{
-                    scale: isActive ? 1.05 : isMobile ? 0.9 : Math.max(0.75, 1 - distance * 0.12),
-                    opacity: isActive ? 1 : isMobile ? 0.3 : Math.max(0.3, 1 - distance * 0.25)
+                    scale: isActive ? 1.02 : isMobile ? 0.92 : Math.max(0.85, 1 - distance * 0.08),
+                    opacity: isActive ? 1 : isMobile ? 0.4 : Math.max(0.5, 1 - distance * 0.2)
                   }}
                   transition={{
                     duration: 0.3,
                     ease: [0.25, 0.1, 0.25, 1]
                   }}
-                  className={`h-auto min-h-[420px] w-[85vw] flex-shrink-0 rounded-2xl p-6 shadow-xl transition-colors duration-300 sm:min-h-[480px] sm:rounded-3xl sm:p-8 md:h-[540px] md:w-[600px] md:p-12 ${
+                  className={`h-[320px] w-[75vw] flex-shrink-0 rounded-2xl p-6 shadow-lg transition-colors duration-300 sm:h-[340px] sm:w-[380px] sm:p-7 md:h-[350px] md:w-[400px] ${
                     isActive ? 'bg-navy text-white' : 'bg-offwhite text-navy'
                   }`}
                   style={{
-                    filter: isActive ? 'none' : 'brightness(0.95)'
+                    filter: isActive ? 'none' : 'brightness(0.97)'
                   }}
                 >
                   <div className="flex h-full flex-col justify-between">
                     {/* Question */}
                     <motion.h3
                       animate={{
-                        y: isActive ? 0 : 8
+                        y: isActive ? 0 : 5
                       }}
                       transition={{ duration: 0.25 }}
-                      className={`mb-6 font-display font-bold text-2xl leading-snug sm:mb-8 sm:text-3xl md:mb-10 md:text-4xl ${
+                      className={`mb-4 font-display font-semibold text-lg leading-tight sm:text-xl md:text-2xl ${
                         isActive ? 'text-gold' : 'text-navy'
                       }`}
                     >
@@ -236,10 +236,10 @@ export function FAQSection() {
                     {/* Answer - Only visible on active card */}
                     {isActive && (
                       <motion.p
-                        initial={{ opacity: 0, y: 15 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.05, duration: 0.3 }}
-                        className="text-base leading-relaxed text-white/90 sm:text-lg"
+                        className="text-sm leading-relaxed text-white/90 sm:text-base"
                       >
                         {faq.answer}
                       </motion.p>
