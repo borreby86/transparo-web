@@ -262,24 +262,24 @@ export function FAQSection() {
                     <motion.p
                       animate={{
                         opacity: isActive ? 1 : 0,
-                        y: isActive ? 0 : 15,
-                        scale: isActive ? 1 : 0.98
+                        y: isActive ? 0 : 20,
+                        scale: isActive ? 1 : 0.95
                       }}
                       transition={{
                         opacity: {
-                          duration: 0.6,
+                          duration: 0.5,
                           ease: [0.25, 0.1, 0.25, 1],
-                          delay: isActive ? 0.2 : 0
+                          delay: isActive ? 0.45 : 0
                         },
                         y: {
                           duration: 0.5,
                           ease: [0.25, 0.1, 0.25, 1],
-                          delay: isActive ? 0.2 : 0
+                          delay: isActive ? 0.45 : 0
                         },
                         scale: {
                           duration: 0.5,
                           ease: [0.25, 0.1, 0.25, 1],
-                          delay: isActive ? 0.2 : 0
+                          delay: isActive ? 0.45 : 0
                         }
                       }}
                       className="text-base leading-relaxed text-white/90 sm:text-lg"
