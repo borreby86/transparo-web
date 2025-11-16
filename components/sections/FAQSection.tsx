@@ -217,7 +217,7 @@ export function FAQSection() {
         </div>
 
         {/* Cards Container */}
-        <div className="relative overflow-visible">
+        <div className="relative overflow-hidden">
           <motion.div className="flex gap-4 md:gap-6" style={{ x }}>
             {faqs.map((faq, index) => {
               const isActive = index === activeIndex
