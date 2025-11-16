@@ -64,9 +64,10 @@ export function FAQSection() {
     const offset = activeIndex * (inactiveCardWidth + gap)
 
     const controls = animate(x, -offset, {
-      type: 'tween',
-      duration: 0.4,
-      ease: [0.25, 0.1, 0.25, 1]
+      type: 'spring',
+      stiffness: 300,
+      damping: 30,
+      mass: 0.8
     })
     return controls.stop
   }, [activeIndex, x, isMobile])
@@ -211,14 +212,27 @@ export function FAQSection() {
                     width: isActive
                       ? (isMobile ? '75vw' : '400px')
                       : (isMobile ? '50vw' : '220px'),
-                    opacity: isActive ? 1 : isMobile ? 0.5 : Math.max(0.6, 1 - distance * 0.15)
+                    opacity: isActive ? 1 : isMobile ? 0.5 : Math.max(0.6, 1 - distance * 0.15),
+                    backgroundColor: isActive ? 'rgb(17, 24, 39)' : 'rgb(250, 248, 246)'
                   }}
                   transition={{
-                    duration: 0.3,
-                    ease: [0.25, 0.1, 0.25, 1]
+                    width: {
+                      type: 'spring',
+                      stiffness: 300,
+                      damping: 30,
+                      mass: 0.8
+                    },
+                    opacity: {
+                      duration: 0.4,
+                      ease: [0.25, 0.1, 0.25, 1]
+                    },
+                    backgroundColor: {
+                      duration: 0.5,
+                      ease: [0.25, 0.1, 0.25, 1]
+                    }
                   }}
-                  className={`h-[450px] flex-shrink-0 rounded-2xl p-6 shadow-lg transition-colors duration-300 sm:h-[480px] sm:p-8 md:h-[500px] md:p-10 ${
-                    isActive ? 'bg-navy text-white' : 'bg-offwhite text-navy'
+                  className={`h-[450px] flex-shrink-0 rounded-2xl p-6 shadow-lg sm:h-[480px] sm:p-8 md:h-[500px] md:p-10 ${
+                    isActive ? 'text-white' : 'text-navy'
                   }`}
                   style={{
                     filter: isActive ? 'none' : 'brightness(0.97)'
@@ -228,14 +242,18 @@ export function FAQSection() {
                     {/* Question */}
                     <motion.h3
                       animate={{
-                        y: isActive ? 0 : 5
+                        y: isActive ? 0 : 5,
+                        color: isActive ? 'rgb(212, 175, 55)' : 'rgb(17, 24, 39)',
+                        fontSize: isActive
+                          ? (isMobile ? '1.5rem' : '1.875rem')
+                          : (isMobile ? '1.125rem' : '1.25rem')
                       }}
-                      transition={{ duration: 0.25 }}
-                      className={`mb-6 font-display font-semibold leading-tight ${
-                        isActive
-                          ? 'text-gold text-2xl md:text-3xl'
-                          : 'text-navy text-lg md:text-xl'
-                      }`}
+                      transition={{
+                        y: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
+                        color: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+                        fontSize: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
+                      }}
+                      className="mb-6 font-display font-semibold leading-tight"
                     >
                       {faq.question}
                     </motion.h3>
@@ -247,8 +265,8 @@ export function FAQSection() {
                         y: isActive ? 0 : 10
                       }}
                       transition={{
-                        duration: 0.3,
-                        ease: [0.25, 0.1, 0.25, 1]
+                        opacity: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+                        y: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
                       }}
                       className="text-base leading-relaxed text-white/90 sm:text-lg"
                       style={{
