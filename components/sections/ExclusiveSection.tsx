@@ -10,22 +10,22 @@ export function ExclusiveSection() {
   // Scroll progress for the section
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start start", "end end"]
   })
 
-  // Text reveal animations - each line appears at different scroll points
-  const line1Opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1])
-  const line2Opacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 0.7])
-  const line3Opacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 0.7])
-  const line4Opacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1])
-  const line5Opacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 0.7])
-  const line6Opacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1])
-  const subtextOpacity = useTransform(scrollYProgress, [0.7, 0.8], [0, 0.9])
+  // Text reveal animations - more gradual progression
+  const line1Opacity = useTransform(scrollYProgress, [0, 0.14], [0, 1])
+  const line2Opacity = useTransform(scrollYProgress, [0.14, 0.28], [0, 0.7])
+  const line3Opacity = useTransform(scrollYProgress, [0.28, 0.42], [0, 0.7])
+  const line4Opacity = useTransform(scrollYProgress, [0.42, 0.56], [0, 1])
+  const line5Opacity = useTransform(scrollYProgress, [0.56, 0.70], [0, 0.7])
+  const line6Opacity = useTransform(scrollYProgress, [0.70, 0.84], [0, 1])
+  const subtextOpacity = useTransform(scrollYProgress, [0.84, 1], [0, 0.9])
 
   return (
-    <div ref={containerRef} className="relative" style={{ height: '250vh' }}>
+    <section ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden py-24">
       <div
-        className="sticky top-0 min-h-screen flex items-center justify-center overflow-hidden"
+        className="min-h-screen flex items-center justify-center"
       >
         {/* Dark gradient background - static, no animation */}
         <div
@@ -135,10 +135,10 @@ export function ExclusiveSection() {
       <div
         className="absolute bottom-0 left-0 right-0 h-32"
         style={{
-          background: 'linear-gradient(to top, #030712 0%, transparent 100%)',
+          background: 'linear-gradient(to top, rgb(17, 24, 39) 0%, transparent 100%)',
         }}
       />
       </div>
-    </div>
+    </section>
   )
 }
