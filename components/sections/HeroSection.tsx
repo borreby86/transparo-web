@@ -23,7 +23,6 @@ export function HeroSection() {
   // Typewriter effect
   const [displayedText, setDisplayedText] = useState("")
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [showCursor, setShowCursor] = useState(true)
 
   useEffect(() => {
     // Typewriter effect
@@ -33,12 +32,6 @@ export function HeroSection() {
         setCurrentIndex(prev => prev + 1)
       }, 100) // 100ms per character for smooth typing
       return () => clearTimeout(timeout)
-    } else {
-      // Blink cursor after typing is complete
-      const cursorInterval = setInterval(() => {
-        setShowCursor(prev => !prev)
-      }, 500)
-      return () => clearInterval(cursorInterval)
     }
   }, [currentIndex, mainWord])
 
@@ -137,15 +130,9 @@ export function HeroSection() {
                 }}
               >
                 {displayedText}
-                <span
-                  className="text-gold"
-                  style={{
-                    opacity: showCursor ? 1 : 0,
-                    transition: 'opacity 0.1s'
-                  }}
-                >
-                  |
-                </span>
+                {currentIndex < mainWord.length && (
+                  <span className="text-gold">|</span>
+                )}
               </motion.h1>
             </div>
 
