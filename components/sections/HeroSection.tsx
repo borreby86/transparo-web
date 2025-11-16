@@ -90,14 +90,14 @@ export function HeroSection() {
         <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(black_1px,transparent_1px)] bg-[size:20px_20px]" />
 
         {/* Main Hero Content - No scroll transforms for smooth scrolling */}
-        <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-8">
-          <div className="w-full mx-auto text-center max-w-5xl">
+        <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-4 sm:px-8">
+          <div className="w-full mx-auto text-center max-w-7xl">
             {/* Main headline - "transparo." with clip-path reveal animation */}
-            <div className="mb-6 md:mb-8 lg:mb-12 overflow-hidden">
+            <div className="mb-6 md:mb-8 lg:mb-12 overflow-visible">
               <motion.h1
-                className="font-display font-black text-black leading-[0.85] tracking-tighter"
+                className="font-display font-black text-black leading-[0.85] tracking-tighter whitespace-nowrap"
                 style={{
-                  fontSize: 'clamp(3.5rem, 14vw, 18rem)',
+                  fontSize: 'clamp(3rem, 12vw, 18rem)',
                 }}
                 initial={{
                   clipPath: 'inset(0 100% 0 0)',
