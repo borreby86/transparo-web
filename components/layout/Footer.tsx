@@ -110,6 +110,12 @@ export function Footer() {
               Privatlivspolitik
             </Link>
             <Link
+              href="/cookiepolitik"
+              className="text-offwhite/60 hover:text-gold transition-colors text-sm"
+            >
+              Cookiepolitik
+            </Link>
+            <Link
               href="/handelsbetingelser"
               className="text-offwhite/60 hover:text-gold transition-colors text-sm"
             >

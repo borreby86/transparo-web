@@ -22,6 +22,7 @@ export function Header() {
     { name: 'Forside', href: '/' },
     { name: 'Pakker', href: '/pakker' },
     { name: 'Sådan Virker Det', href: '/proces' },
+    { name: 'Portfolio', href: '/cases' },
     { name: 'Om Os', href: '/om-os' },
     { name: 'Kontakt', href: '/kontakt' },
   ]
@@ -43,8 +44,8 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation - Spread out centered */}
-          <div className="hidden lg:flex items-center justify-center gap-16 xl:gap-20">
-            {navigation.slice(0, 2).map((item) => (
+          <div className="hidden lg:flex items-center justify-center gap-12 xl:gap-16">
+            {navigation.slice(0, 3).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -55,9 +56,9 @@ export function Header() {
             ))}
 
             {/* Spacer for visual balance */}
-            <div className="w-32" />
+            <div className="w-24" />
 
-            {navigation.slice(2).map((item) => (
+            {navigation.slice(3).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}

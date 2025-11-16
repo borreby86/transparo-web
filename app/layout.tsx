@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/ui/CustomCursor'
+import { CookieBanner } from '@/components/ui/CookieBanner'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-offwhite text-black cursor-none" suppressHydrationWarning>
         <CustomCursor />
         {children}
+        <CookieBanner />
       </body>
     </html>
   )

@@ -53,7 +53,7 @@ export default function PrivatlivspolitikPage() {
                 <li><strong>Tekniske data:</strong> IP-adresse, browsertype, enhedstype, operativsystem</li>
                 <li><strong>Brugsdata:</strong> Hvordan du interagerer med vores website</li>
                 <li><strong>Kommunikation:</strong> Beskeder du sender til os via formularer eller email</li>
-                <li><strong>Cookies:</strong> Se vores cookiepolitik for detaljer</li>
+                <li><strong>Cookies:</strong> Se vores <Link href="/cookiepolitik" className="text-gold hover:underline">cookiepolitik</Link> for detaljer</li>
               </ul>
             </section>
 
@@ -141,7 +141,7 @@ export default function PrivatlivspolitikPage() {
               <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-4">10. Cookies</h2>
               <p className="text-black/80 leading-relaxed">
                 Vores website bruger cookies til at forbedre din brugeroplevelse. For detaljerede oplysninger om vores
-                brug af cookies, se vores cookiepolitik.
+                brug af cookies, se vores <Link href="/cookiepolitik" className="text-gold hover:underline">cookiepolitik</Link>.
               </p>
             </section>
 
