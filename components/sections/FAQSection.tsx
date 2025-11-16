@@ -267,19 +267,19 @@ export function FAQSection() {
                       }}
                       transition={{
                         opacity: {
-                          duration: 0.5,
+                          duration: 0.4,
                           ease: [0.25, 0.1, 0.25, 1],
-                          delay: isActive ? 0.45 : 0
+                          delay: isActive ? 0.3 : 0
                         },
                         y: {
-                          duration: 0.5,
+                          duration: 0.4,
                           ease: [0.25, 0.1, 0.25, 1],
-                          delay: isActive ? 0.45 : 0
+                          delay: isActive ? 0.3 : 0
                         },
                         scale: {
-                          duration: 0.5,
+                          duration: 0.4,
                           ease: [0.25, 0.1, 0.25, 1],
-                          delay: isActive ? 0.45 : 0
+                          delay: isActive ? 0.3 : 0
                         }
                       }}
                       className="text-base leading-relaxed text-white/90 sm:text-lg"
