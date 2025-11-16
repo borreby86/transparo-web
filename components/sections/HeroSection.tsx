@@ -153,7 +153,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.6, ease: appleEase }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 mb-16 md:mb-20"
+              className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6"
             >
               <a
                 href="/pakker"
@@ -167,33 +167,6 @@ export function HeroSection() {
               >
                 Book et Møde
               </a>
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 2.0, ease: appleEase }}
-              className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5 text-base md:text-lg text-black/60"
-            >
-              <div className="flex items-center space-x-3">
-                <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">Fast pris garanti</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">Ingen scope creep</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="font-semibold">100% tilfredse kunder</span>
-              </div>
             </motion.div>
           </div>
         </div>
