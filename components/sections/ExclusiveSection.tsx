@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useReducedMotion, useScroll, useTransform, useMotionValue } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import { useRef, useEffect, useState } from 'react'
 
 export function ExclusiveSection() {
