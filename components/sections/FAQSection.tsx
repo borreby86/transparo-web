@@ -240,17 +240,23 @@ export function FAQSection() {
                       {faq.question}
                     </motion.h3>
 
-                    {/* Answer - Only visible on active card */}
-                    {isActive && (
-                      <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.05, duration: 0.3 }}
-                        className="text-base leading-relaxed text-white/90 sm:text-lg"
-                      >
-                        {faq.answer}
-                      </motion.p>
-                    )}
+                    {/* Answer - Always rendered, animated opacity */}
+                    <motion.p
+                      animate={{
+                        opacity: isActive ? 1 : 0,
+                        y: isActive ? 0 : 10
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.25, 0.1, 0.25, 1]
+                      }}
+                      className="text-base leading-relaxed text-white/90 sm:text-lg"
+                      style={{
+                        pointerEvents: isActive ? 'auto' : 'none'
+                      }}
+                    >
+                      {faq.answer}
+                    </motion.p>
                   </div>
                 </motion.div>
               )
