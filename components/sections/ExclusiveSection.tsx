@@ -27,12 +27,13 @@ export function ExclusiveSection() {
   const goldColorProgress = useTransform(scrollYProgress, [0.3, 0.45], [0, 1])
 
   return (
-    // Wrapper container for scroll height - responsive heights for different screen sizes
-    <div ref={containerRef} className="relative h-[300vh]">
+    // Wrapper container for scroll height - creates the scroll area
+    <div ref={containerRef} className="relative w-full" style={{ height: '300vh' }}>
       {/* Sticky section that stays in view during scroll */}
       <section
         ref={sectionRef}
-        className="sticky top-0 h-screen flex items-center justify-center overflow-hidden"
+        className="sticky top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden"
+        style={{ position: 'sticky' }}
       >
         {/* Dark gradient background - static, no animation */}
         <div
