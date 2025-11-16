@@ -1,198 +1,186 @@
 'use client'
 
-import { motion, useReducedMotion } from 'motion/react'
-import { useRef, useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+type ScrollState = 'before' | 'sticky' | 'after'
+
+const clamp01 = (value: number) => Math.min(1, Math.max(0, value))
+
+const progressBetween = (value: number, start: number, end: number) => {
+  if (value <= start) return 0
+  if (value >= end) return 1
+  return (value - start) / (end - start)
+}
 
 export function ExclusiveSection() {
-  const shouldReduceMotion = useReducedMotion()
   const containerRef = useRef<HTMLDivElement>(null)
+  const [scrollState, setScrollState] = useState<ScrollState>('before')
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [isLocked, setIsLocked] = useState(false)
-  const scrollAccumulator = useRef(0)
+  const [visibleElements, setVisibleElements] = useState({
+    line1: false,
+    line2: false,
+    line3: false,
+    line4: false,
+    line5: false,
+    divider: false,
+    subtext: false,
+  })
 
-  // Handle scroll locking
   useEffect(() => {
-    const handleScroll = (e: WheelEvent) => {
+    const handleScroll = () => {
       if (!containerRef.current) return
 
       const rect = containerRef.current.getBoundingClientRect()
-      const isInView = rect.top <= 100 && rect.bottom >= window.innerHeight - 100
+      const containerHeight = containerRef.current.offsetHeight
+      const viewportHeight = window.innerHeight
 
-      if (isInView && scrollProgress < 1) {
-        e.preventDefault()
-        setIsLocked(true)
+      // Use scroll progress to reveal the text lines progressively
+      const scrollableDistance = Math.max(1, containerHeight - viewportHeight)
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollableDistance))
+      setScrollProgress(progress)
 
-        // Accumulate scroll
-        scrollAccumulator.current += e.deltaY * 0.001
-        scrollAccumulator.current = Math.max(0, Math.min(1, scrollAccumulator.current))
-        setScrollProgress(scrollAccumulator.current)
+      const releaseProgress = 0.975
 
-        // Lock scroll position
-        window.scrollTo(0, containerRef.current.offsetTop - 50)
+      // Determine how the sticky wrapper should behave
+      let state: ScrollState
+      if (rect.top > 0) {
+        state = 'before'
+      } else if (progress >= releaseProgress || rect.bottom <= viewportHeight) {
+        state = 'after'
       } else {
-        setIsLocked(false)
+        state = 'sticky'
       }
+      setScrollState(state)
+
+      setVisibleElements({
+        line1: progress >= 0,
+        line2: progress >= 0.15,
+        line3: progress >= 0.3,
+        line4: progress >= 0.45,
+        line5: progress >= 0.65,
+        divider: progress >= 0.8,
+        subtext: progress >= 0.8,
+      })
     }
 
-    window.addEventListener('wheel', handleScroll, { passive: false })
-    return () => window.removeEventListener('wheel', handleScroll)
-  }, [scrollProgress])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
 
-  // Text reveal based on scroll progress
-  const line1Opacity = scrollProgress * 6 > 1 ? 1 : scrollProgress * 6
-  const line2Opacity = Math.max(0, Math.min(0.7, (scrollProgress - 0.16) * 4))
-  const line3Opacity = Math.max(0, Math.min(0.7, (scrollProgress - 0.33) * 4))
-  const line4Opacity = Math.max(0, Math.min(1, (scrollProgress - 0.5) * 4))
-  const line5Opacity = Math.max(0, Math.min(0.7, (scrollProgress - 0.66) * 4))
-  const line6Opacity = Math.max(0, Math.min(1, (scrollProgress - 0.83) * 4))
-  const subtextOpacity = Math.max(0, Math.min(0.9, (scrollProgress - 0.9) * 10))
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const fadeInWindow = progressBetween(scrollProgress, 0.02, 0.16)
+  const stickyOpacity = clamp01(fadeInWindow)
+  const entryShift = (1 - fadeInWindow) * 70
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden py-24">
+    <div
+      ref={containerRef}
+      className="relative overflow-hidden"
+      style={{
+        height: '350vh',
+        background: 'linear-gradient(135deg, #030712 0%, #0a1628 50%, #030712 100%)',
+      }}
+    >
+      {/* Noise texture overlay on container */}
       <div
-        className="min-h-screen flex items-center justify-center"
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* Sticky content wrapper */}
+      <div
+        className="flex items-center justify-center"
+        style={{
+          position: scrollState === 'sticky' ? 'fixed' : 'absolute',
+          top: scrollState === 'after' ? undefined : 0,
+          bottom: scrollState === 'after' ? 0 : undefined,
+          left: 0,
+          right: 0,
+          height: '100vh',
+          zIndex: 10,
+          opacity: stickyOpacity,
+          transform: `translateY(${entryShift}px)`,
+          pointerEvents: stickyOpacity > 0.05 ? 'auto' : 'none',
+          transition: 'opacity 0.35s ease, transform 0.6s ease-out',
+        }}
       >
-        {/* Dark gradient background - static, no animation */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(135deg, #030712 0%, #0a1628 50%, #030712 100%)',
-          }}
-        />
-
-        {/* Noise texture overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          }}
-        />
-
-        {/* Content container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div>
-          {/* Main text with scroll-triggered reveals */}
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight">
-            {/* Line 1 - "Det er ikke for alle." */}
-            <span
-              style={{
-                opacity: shouldReduceMotion ? 1 : line1Opacity,
-                transition: 'opacity 0.3s ease-out'
-              }}
-              className="block font-light mb-4 text-white"
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl px-8">
+          <div className="mb-12">
+            <h1
+              className={`
+                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
+                text-white mb-3 transition-all duration-300 ease-out
+                ${visibleElements.line1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
+              `}
             >
               Det er ikke for alle.
-            </span>
+            </h1>
 
-            {/* Line 2 */}
-            <span
-              style={{
-                opacity: shouldReduceMotion ? 0.7 : line2Opacity,
-                transition: 'opacity 0.3s ease-out'
-              }}
-              className="block font-light text-white"
+            <h2
+              className={`
+                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
+                text-gray-300 mb-3 transition-all duration-300 ease-out
+                ${visibleElements.line2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
+              `}
             >
               Vi identificerer og samarbejder med
-            </span>
+            </h2>
 
-            {/* Line 3 */}
-            <span
-              style={{
-                opacity: shouldReduceMotion ? 0.7 : line3Opacity,
-                transition: 'opacity 0.3s ease-out'
-              }}
-              className="block font-light text-white"
+            <h2
+              className={`
+                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
+                text-gray-300 mb-3 transition-all duration-300 ease-out
+                ${visibleElements.line3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
+              `}
             >
               ekstraordinære virksomheder med
-            </span>
+            </h2>
 
-            {/* Line 4 - Contains gold accent */}
-            <span
-              style={{
-                opacity: shouldReduceMotion ? 1 : line4Opacity,
-                transition: 'opacity 0.3s ease-out'
-              }}
-              className="block font-light"
+            <div
+              className={`
+                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
+                mb-3 transition-all duration-300 ease-out
+                ${visibleElements.line4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
+              `}
             >
-              <span className="text-gold">seriøse ambitioner</span>
+              <span className="text-[#c9a961]">seriøse ambitioner</span>
               <span className="text-white">, de få</span>
-            </span>
+            </div>
 
-            {/* Line 5 */}
-            <span
-              style={{
-                opacity: shouldReduceMotion ? 0.7 : line5Opacity,
-                transition: 'opacity 0.3s ease-out'
-              }}
-              className="block font-light text-white"
+            <h2
+              className={`
+                font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light
+                text-gray-300 transition-all duration-300 ease-out
+                ${visibleElements.line5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
+              `}
             >
-              udvalgte hvis tilstedeværelse
-            </span>
+              udvalgte hvis tilstedeværelse<br />styrker helheden.
+            </h2>
+          </div>
 
-            {/* Line 6 - "styrker helheden." */}
-            <span
-              style={{
-                opacity: shouldReduceMotion ? 1 : line6Opacity,
-                transition: 'opacity 0.3s ease-out'
-              }}
-              className="block font-light text-white"
-            >
-              styrker helheden.
-            </span>
-          </h2>
-
-          {/* Subtle divider */}
           <div
-            style={{
-              transform: `scaleX(${shouldReduceMotion ? 1 : Math.max(0, Math.min(1, (scrollProgress - 0.85) * 7))})`,
-              transition: 'transform 0.3s ease-out',
-              transformOrigin: 'left'
-            }}
-            className="w-24 h-px bg-gold mt-12 mb-8"
+            className={`
+              h-px bg-[#c9a961] mb-12 transition-all duration-500 ease-out
+              ${visibleElements.divider ? 'w-24' : 'w-0'}
+            `}
           />
 
-          {/* Subtext */}
           <p
-            style={{
-              opacity: shouldReduceMotion ? 0.9 : subtextOpacity,
-              transition: 'opacity 0.3s ease-out'
-            }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl font-light leading-relaxed text-white/90"
+            className={`
+              text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl font-light
+              leading-relaxed transition-all duration-300 ease-out
+              ${visibleElements.subtext ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
+            `}
           >
             Vi arbejder kun med virksomheder, der forstår værdien af
             exceptionelt design og er klar til at investere i deres digitale fremtid.
           </p>
         </div>
       </div>
-
-      {/* Scroll indicator - shows when locked */}
-      {isLocked && scrollProgress < 0.9 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/40 text-sm"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span>Scroll to reveal</span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              ↓
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32"
-        style={{
-          background: 'linear-gradient(to top, rgb(17, 24, 39) 0%, transparent 100%)',
-        }}
-      />
-      </div>
-    </section>
+    </div>
   )
 }

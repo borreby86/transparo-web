@@ -7,6 +7,7 @@ import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
 import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
 import { SocialProofSection } from '@/components/sections/SocialProofSection'
 import { PortfolioSection } from '@/components/sections/PortfolioSection'
+import { CTASection } from '@/components/sections/CTASection'
 import { FAQSection } from '@/components/sections/FAQSection'
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function HomePage() {
         <NewPackagesSection />
         <SocialProofSection />
         <PortfolioSection />
+        <CTASection />
         <FAQSection />
       </main>
       <Footer />
