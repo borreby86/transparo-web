@@ -28,12 +28,16 @@ export function ExclusiveSection() {
 
   return (
     // Wrapper container for scroll height - creates the scroll area
-    <div ref={containerRef} className="relative w-full" style={{ height: '300vh' }}>
+    <div
+      ref={containerRef}
+      className="relative w-full min-h-screen"
+      style={{ height: '300vh', minHeight: '300vh' }}
+    >
       {/* Sticky section that stays in view during scroll */}
-      <section
+      <div
         ref={sectionRef}
-        className="sticky top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden"
-        style={{ position: 'sticky' }}
+        className="sticky top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden z-10"
+        style={{ position: 'sticky', top: 0 }}
       >
         {/* Dark gradient background - static, no animation */}
         <div
@@ -198,7 +202,7 @@ export function ExclusiveSection() {
           background: 'linear-gradient(to top, #030712 0%, transparent 100%)',
         }}
       />
-    </section>
+    </div>
     </div>
   )
 }
