@@ -5,93 +5,14 @@ import type { TouchEvent } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { caseStudies as importedCaseStudies } from '@/data/caseStudies'
 
-interface CaseStudy {
-  id: number
-  title: string
-  subtitle: string
-  imageUrl: string
-  link: string
-  labels?: string[]
-  quote: string
-  author: string
-  role: string
-}
-
-const caseStudies: CaseStudy[] = [
-  {
-    id: 1,
-    title: 'Fremtidens digitale sundhedsplatform',
-    subtitle: 'En ny digital standard for sundhed og velvære',
-    imageUrl: '/portfolio-images/Sundhed.png',
-    link: '/cases/health-platform',
-    labels: ['HealthTech', 'Platform'],
-    quote:
-      'Transparo oversatte et komplekst sundhedsunivers til et intuitivt digitalt økosystem. Vores brugere føler sig trygge, og platformen performer fra dag ét.',
-    author: 'Louise Kjær',
-    role: 'Produktchef, Sundhedskonsortiet'
-  },
-  {
-    id: 2,
-    title: 'AI-drevet fodboldanalyse',
-    subtitle: 'Præcise forudsigelser, dybe data og taktiske indsigter',
-    imageUrl: '/portfolio-images/WalterAI-Fodbold.png',
-    link: '/cases/walter-ai',
-    labels: ['AI', 'Fodbold'],
-    quote:
-      'De fangede tempoet og intensiteten i sporten og bragte data til live. Platformen er blevet et fast værktøj på både træningsbanen og stadion.',
-    author: 'Mikkel Juul',
-    role: 'CEO, WalterAI'
-  },
-  {
-    id: 3,
-    title: 'Professionel fodterapi for private kunder',
-    subtitle: 'En moderne klinikoplevelse med fokus på sundhed, velvære og ekspertbehandling',
-    imageUrl: '/portfolio-images/Flotte-Foder.png',
-    link: '/cases/flotte-foedder',
-    labels: ['Branding', 'Website'],
-    quote:
-      'Vi gik fra et traditionelt klinikudtryk til en digital oplevelse der føles rolig, professionel og personlig. Transparo tænkte på hver eneste detalje.',
-    author: 'Camilla Højland',
-    role: 'Indehaver, Flotte Fødder'
-  },
-  {
-    id: 4,
-    title: 'Fotografportefølje med fokus på autenticitet',
-    subtitle: 'En elegant og personlig fotowebsite til bryllupper, dåb og livsstil',
-    imageUrl: '/portfolio-images/Photograph.png',
-    link: '/cases/alex-morgan-photography',
-    labels: ['Branding', 'Website'],
-    quote:
-      'Fotografiet fik plads til at ånde, og besøgende glider ubesværet igennem porteføljen. Det føles som et magasin skabt kun til mig.',
-    author: 'Alex Morgan',
-    role: 'Fotograf'
-  },
-  {
-    id: 5,
-    title: 'Autentisk lederudvikling med hesteassisteret coaching',
-    subtitle: 'En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab',
-    imageUrl: '/portfolio-images/Hest.png',
-    link: '/cases/christina-borreby',
-    labels: ['Branding', 'Website'],
-    quote:
-      'De forstod læringsrejsen vi ville skabe og oversatte nærvær til et digitalt univers. Resultatet er både modigt og jordnært.',
-    author: 'Christina Borreby',
-    role: 'Stifter, Christina Borreby'
-  },
-  {
-    id: 6,
-    title: '40 år med lokal teaterkultur og fællesskab',
-    subtitle: 'En moderne teateroplevelse med fokus på revy, dramatik og stærke fortællinger',
-    imageUrl: '/portfolio-images/Revy.png',
-    link: '/cases/vat85',
-    labels: ['Branding', 'Website'],
-    quote:
-      'Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.',
-    author: 'Thomas Kjeldsen',
-    role: 'Formand, VAT 85'
-  }
-]
+// Map imported case studies to carousel format
+const caseStudies = importedCaseStudies.map((study) => ({
+  ...study,
+  link: `/cases/${study.slug}`,
+  labels: study.labels,
+}))
 
 export function PortfolioSection() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -267,7 +188,7 @@ export function PortfolioSection() {
                       alt={study.title}
                       fill
                       className="object-cover"
-                      sizes="1100px"
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 85vw, 1300px"
                       priority={index === 0}
                     />
                   </div>

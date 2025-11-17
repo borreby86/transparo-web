@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
@@ -6,9 +7,13 @@ import { ValuePropSection } from '@/components/sections/ValuePropSection'
 import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
 import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
 import { SocialProofSection } from '@/components/sections/SocialProofSection'
-import { PortfolioSection } from '@/components/sections/PortfolioSection'
 import { CTASection } from '@/components/sections/CTASection'
 import { FAQSection } from '@/components/sections/FAQSection'
+
+// Lazy load heavy Portfolio section
+const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection').then((mod) => mod.PortfolioSection), {
+  ssr: true,
+})
 
 export const metadata: Metadata = {
   title: 'Transparo - Professionelt Webdesign til Små Virksomheder | Fast Pris',
