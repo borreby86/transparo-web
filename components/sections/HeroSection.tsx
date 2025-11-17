@@ -34,14 +34,6 @@ export function HeroSection() {
 
   return (
     <section className="relative bg-white min-h-screen flex items-center justify-center overflow-hidden">
-      {/* CSS-only animated gradient background - Much more performant */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Use CSS animations instead of Motion for background effects */}
-        <div className="hero-gradient-orb hero-gradient-orb-1" />
-        <div className="hero-gradient-orb hero-gradient-orb-2" />
-        <div className="hero-gradient-orb hero-gradient-orb-3" />
-      </div>
-
       {/* Subtle particle effect */}
       <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(black_1px,transparent_1px)] bg-[size:20px_20px]" />
 
@@ -133,65 +125,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes float1 {
-          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.02; }
-          50% { transform: translate(20px, -15px) scale(1.15); opacity: 0.04; }
-        }
-
-        @keyframes float2 {
-          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.015; }
-          50% { transform: translate(-30px, 20px) scale(1.25); opacity: 0.03; }
-        }
-
-        @keyframes float3 {
-          0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.01; }
-          50% { transform: translate(calc(-50% + 15px), calc(-50% + 0px)) scale(1.1); opacity: 0.025; }
-        }
-
-        .hero-gradient-orb {
-          position: absolute;
-          border-radius: 50%;
-          filter: blur(60px);
-          will-change: transform;
-        }
-
-        .hero-gradient-orb-1 {
-          top: 10%;
-          right: 15%;
-          width: clamp(300px, 50vw, 700px);
-          height: clamp(300px, 50vw, 700px);
-          background: #D4AF37;
-          animation: float1 12s ease-in-out infinite;
-          animation-delay: 1s;
-        }
-
-        .hero-gradient-orb-2 {
-          bottom: 20%;
-          left: 10%;
-          width: clamp(250px, 45vw, 600px);
-          height: clamp(250px, 45vw, 600px);
-          background: rgba(212, 175, 55, 0.6);
-          animation: float2 15s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-
-        .hero-gradient-orb-3 {
-          top: 50%;
-          left: 50%;
-          width: clamp(350px, 60vw, 800px);
-          height: clamp(350px, 60vw, 800px);
-          background: rgba(212, 175, 55, 0.3);
-          animation: float3 18s ease-in-out infinite;
-          animation-delay: 3s;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .hero-gradient-orb {
-            animation: none;
-          }
-        }
-      `}</style>
     </section>
   )
 }
