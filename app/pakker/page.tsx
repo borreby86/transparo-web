@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { PackagesHeroMinimal } from '@/components/sections/PackagesHeroMinimal'
-import { PackageCardsMinimal } from '@/components/sections/PackageCardsMinimal'
+import { PackagesHeroThreekit } from '@/components/sections/PackagesHeroThreekit'
+import { PackageCardsThreekit } from '@/components/sections/PackageCardsThreekit'
+import { PackageComparisonMatrix } from '@/components/sections/PackageComparisonMatrix'
 import { PackagesFAQMinimal } from '@/components/sections/PackagesFAQMinimal'
 
 export const metadata: Metadata = {
@@ -20,8 +21,9 @@ export default function PakkerPage() {
     <>
       <Header />
       <main>
-        <PackagesHeroMinimal />
-        <PackageCardsMinimal />
+        <PackagesHeroThreekit />
+        <PackageCardsThreekit />
+        <PackageComparisonMatrix />
         <PackagesFAQMinimal />
       </main>
       <Footer />
