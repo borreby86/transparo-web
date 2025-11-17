@@ -6,10 +6,11 @@ import { CookieBanner } from '@/components/ui/CookieBanner'
 
 const inter = Inter({
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional', // Changed from 'swap' to 'optional' to prevent layout shift
   variable: '--font-inter',
   weight: ['400', '600', '700'],
   preload: true,
+  adjustFontFallback: true, // Automatically match fallback font metrics
 })
 
 const baseUrl = 'https://transparo.dk'
@@ -58,20 +59,11 @@ export const metadata: Metadata = {
     title: 'Transparo | Professionel Webudvikling Danmark',
     description:
       'Webbureau København specialiseret i moderne hjemmesider. Fast pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Transparo - Professionel Webudvikling',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Transparo | Professionel Webudvikling Danmark',
     description: 'Webbureau København - Moderne hjemmesider med fast pris og hurtig levering',
-    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
