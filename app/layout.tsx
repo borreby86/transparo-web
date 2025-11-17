@@ -1,13 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import dynamic from 'next/dynamic'
+import { ClientProviders } from '@/components/ClientProviders'
 import { CookieBanner } from '@/components/ui/CookieBanner'
-
-// Lazy load CustomCursor for better performance
-const CustomCursor = dynamic(() => import('@/components/ui/CustomCursor').then((mod) => mod.CustomCursor), {
-  ssr: false,
-})
 
 const inter = Inter({
   subsets: ['latin'],
@@ -140,7 +135,6 @@ export default function RootLayout({
         '@id': `${baseUrl}/#localbusiness`,
         name: 'Transparo Webbureau',
         image: `${baseUrl}/logo.png`,
-        '@id': baseUrl,
         url: baseUrl,
         telephone: '',
         priceRange: '8995-27995 DKK',
@@ -179,8 +173,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased bg-offwhite text-black cursor-none" suppressHydrationWarning>
-        <CustomCursor />
-        {children}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
         <CookieBanner />
       </body>
     </html>

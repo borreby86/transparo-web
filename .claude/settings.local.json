@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_install"
     ],
     "deny": [],
     "ask": []
