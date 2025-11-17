@@ -2,21 +2,32 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const pathname = usePathname()
+
+  // Check if we're on homepage
+  const isHomepage = pathname === '/'
 
   useEffect(() => {
+    // On non-homepage, always show navbar
+    if (!isHomepage) {
+      setIsVisible(true)
+      return
+    }
+
+    // On homepage, show navbar after scrolling 100px
     const handleScroll = () => {
-      // Show navbar after scrolling 100px
       setIsVisible(window.scrollY > 100)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isHomepage])
 
   const navigation = [
     { name: 'Forside', href: '/' },
