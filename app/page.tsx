@@ -6,14 +6,15 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import { ValuePropSection } from '@/components/sections/ValuePropSection'
 import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
 import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
-import { SocialProofSection } from '@/components/sections/SocialProofSection'
-import { CTASection } from '@/components/sections/CTASection'
-import { FAQSection } from '@/components/sections/FAQSection'
 
-// Lazy load heavy Portfolio section
-const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection').then((mod) => mod.PortfolioSection), {
-  ssr: true,
-})
+// Lazy load heavy sections below the fold for code splitting
+const SocialProofSection = dynamic(() => import('@/components/sections/SocialProofSection').then((mod) => mod.SocialProofSection))
+
+const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection').then((mod) => mod.PortfolioSection))
+
+const CTASection = dynamic(() => import('@/components/sections/CTASection').then((mod) => mod.CTASection))
+
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then((mod) => mod.FAQSection))
 
 export const metadata: Metadata = {
   title: 'Transparo - Professionelt Webdesign til Små Virksomheder | Fast Pris',
