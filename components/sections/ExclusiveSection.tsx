@@ -108,7 +108,7 @@ export function ExclusiveSection() {
         }}
       >
         {/* Content */}
-        <div className="relative z-10 max-w-6xl px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           <div className="mb-8 sm:mb-10 md:mb-12">
             <h1
               className={`

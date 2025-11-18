@@ -43,8 +43,8 @@ export function ValuePropSection() {
   return (
     <section className="relative bg-white overflow-hidden py-12 md:py-16 lg:py-20">
       {/* Container */}
-      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-[1600px] mx-auto">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+        <div className="max-w-[1800px] mx-auto">
 
           {/* Title - Full Width, One Line, Centered */}
           <motion.div

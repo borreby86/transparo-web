@@ -38,8 +38,8 @@ export function HeroSection() {
       <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(black_1px,transparent_1px)] bg-[size:20px_20px]" />
 
       {/* Main Hero Content */}
-      <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-6 sm:px-8 md:px-12 lg:px-16">
-        <div className="w-full text-center">
+      <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+        <div className="w-full max-w-[1800px] mx-auto text-center">
           {/* Main headline */}
           <div className="mb-8 md:mb-12 lg:mb-16">
             <motion.h1

@@ -45,35 +45,35 @@ export function Header() {
       }`}
       style={{ backgroundColor: isVisible ? 'rgba(255, 255, 255, 0.8)' : 'transparent' }}
     >
-      <nav className="px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28 backdrop-blur-md">
-        <div className="flex items-center justify-center h-20 relative">
+      <nav className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 backdrop-blur-md">
+        <div className="flex items-center justify-between h-20 max-w-[1800px] mx-auto">
           {/* Logo */}
-          <div className="absolute left-4 sm:left-8 md:left-12 lg:left-20 xl:left-28">
+          <div className="flex-shrink-0">
             <Link href="/" className="font-sans font-black text-xl sm:text-2xl text-black tracking-tight hover:opacity-80 transition-opacity">
               transparo<span className="text-gold">.</span>
             </Link>
           </div>
 
-          {/* Desktop Navigation - Spread out centered */}
-          <div className="hidden lg:flex items-center justify-center gap-12 xl:gap-16">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 flex-1 mx-8">
             {navigation.slice(0, 3).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest"
+                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
               >
                 {item.name}
               </Link>
             ))}
 
             {/* Spacer for visual balance */}
-            <div className="w-24" />
+            <div className="w-8 xl:w-12" />
 
             {navigation.slice(3).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest"
+                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
               >
                 {item.name}
               </Link>
@@ -83,7 +83,7 @@ export function Header() {
           {/* CTA Button - Right side */}
           <Link
             href="/kontakt"
-            className="hidden lg:block absolute right-6 sm:right-12 md:right-16 lg:right-24 xl:right-32 bg-black text-white px-6 py-2.5 rounded-full font-bold text-xs hover:bg-black/80 transition-all uppercase tracking-wider"
+            className="hidden lg:block flex-shrink-0 bg-black text-white px-6 py-2.5 rounded-full font-bold text-xs hover:bg-black/80 transition-all uppercase tracking-wider"
           >
             Book Møde
           </Link>
@@ -91,7 +91,7 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="lg:hidden absolute right-6 p-2 text-black"
+            className="lg:hidden p-2 text-black"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >

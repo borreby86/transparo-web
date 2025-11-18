@@ -61,7 +61,7 @@ export function NewPackagesSection() {
         <div className="absolute bottom-20 right-1/4 w-72 sm:w-96 md:w-[520px] h-72 sm:h-96 md:h-[520px] bg-navy/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         {/* Header */}
         <motion.div
           className="text-center mb-20 lg:mb-24"
