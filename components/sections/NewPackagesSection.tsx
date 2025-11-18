@@ -65,17 +65,17 @@ export function NewPackagesSection() {
         {/* Header */}
         <motion.div
           className="text-center mb-20 lg:mb-24"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.div
             className="inline-flex items-center gap-1.5 sm:gap-2 mb-5 sm:mb-7"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8, y: 30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
             <span className="text-sm sm:text-base font-medium text-gold uppercase tracking-wider">
@@ -101,12 +101,13 @@ export function NewPackagesSection() {
             <motion.div
               key={pkg.id}
               className="relative"
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 100, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.6,
-                delay: shouldReduceMotion ? 0 : index * 0.15
+                duration: shouldReduceMotion ? 0 : 1.0,
+                delay: shouldReduceMotion ? 0 : index * 0.2,
+                ease: [0.16, 1, 0.3, 1]
               }}
             >
               {/* Popular badge */}

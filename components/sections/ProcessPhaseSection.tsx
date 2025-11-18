@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+import Image from 'next/image'
 import { Target, FileText, Palette, Code, TestTube, Rocket, Headphones } from 'lucide-react'
 
 type BackgroundStyle = 'light' | 'dark' | 'navy' | 'gold' | 'warmgray' | 'success'
@@ -17,6 +18,7 @@ interface ProcessPhaseSectionProps {
   backgroundStyle?: BackgroundStyle
   hasCheckpoint?: boolean
   checkpointText?: string
+  imageUrl?: string
 }
 
 const iconMap = {
@@ -66,7 +68,8 @@ export function ProcessPhaseSection({
   iconName,
   backgroundStyle = 'light',
   hasCheckpoint = false,
-  checkpointText
+  checkpointText,
+  imageUrl
 }: ProcessPhaseSectionProps) {
   const Icon = iconMap[iconName]
   const bgClass = backgroundStyles[backgroundStyle]
@@ -75,7 +78,7 @@ export function ProcessPhaseSection({
   const isDark = backgroundStyle === 'dark' || backgroundStyle === 'navy'
 
   return (
-    <section className={`relative ${bgClass} px-6 md:px-12 lg:px-24 py-20 md:py-32 overflow-hidden`}>
+    <section id={`fase-${phaseNumber}`} className={`relative ${bgClass} px-6 md:px-12 lg:px-24 py-20 md:py-32 overflow-hidden`}>
       {/* Background decorative elements */}
       {isDark && (
         <div className="absolute inset-0 opacity-10">
@@ -84,15 +87,18 @@ export function ProcessPhaseSection({
         </div>
       )}
 
-      <div className="relative max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Phase header */}
-          <div className="flex items-start gap-6 md:gap-8 mb-8 md:mb-12">
+      <div className="relative max-w-7xl mx-auto">
+        <div className={`grid ${imageUrl ? 'lg:grid-cols-2' : ''} gap-12 lg:gap-16 items-center`}>
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className={phaseNumber % 2 === 0 && imageUrl ? 'lg:order-2' : ''}
+          >
+            {/* Phase header */}
+            <div className="flex items-start gap-6 md:gap-8 mb-8 md:mb-12">
             {/* Icon circle */}
             <motion.div
               className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center ${
@@ -204,7 +210,47 @@ export function ProcessPhaseSection({
               </div>
             </motion.div>
           )}
-        </motion.div>
+          </motion.div>
+
+          {/* Image Section */}
+          {imageUrl && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className={`relative ${phaseNumber % 2 === 0 && imageUrl ? 'lg:order-1' : ''}`}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src={imageUrl}
+                  alt={`${title} illustration`}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Decorative elements */}
+              <motion.div
+                className={`absolute -z-10 top-8 -right-8 w-64 h-64 rounded-full blur-3xl opacity-30 ${
+                  isDark ? 'bg-gold' : 'bg-navy'
+                }`}
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </motion.div>
+          )}
+        </div>
       </div>
     </section>
   )

@@ -48,11 +48,12 @@ export function HeroSection() {
                 fontSize: 'clamp(3rem, 12vw, 16rem)',
                 letterSpacing: '-0.04em',
               }}
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 100, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{
-                duration: shouldReduceMotion ? 0 : 0.6,
+                duration: shouldReduceMotion ? 0 : 1.2,
                 delay: shouldReduceMotion ? 0 : 0.2,
+                ease: [0.16, 1, 0.3, 1]
               }}
             >
               {displayedText}
@@ -65,11 +66,12 @@ export function HeroSection() {
           {/* Tagline */}
           <motion.div
             className="mb-12 md:mb-16 lg:mb-20"
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: shouldReduceMotion ? 0 : 0.6,
-              delay: shouldReduceMotion ? 0 : 1.2
+              duration: shouldReduceMotion ? 0 : 1.0,
+              delay: shouldReduceMotion ? 0 : 1.4,
+              ease: [0.16, 1, 0.3, 1]
             }}
           >
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gold/80">
@@ -84,11 +86,12 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 50, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
-              duration: shouldReduceMotion ? 0 : 0.6,
-              delay: shouldReduceMotion ? 0 : 1.6
+              duration: shouldReduceMotion ? 0 : 1.0,
+              delay: shouldReduceMotion ? 0 : 1.8,
+              ease: [0.16, 1, 0.3, 1]
             }}
           >
             <a
@@ -110,11 +113,12 @@ export function HeroSection() {
           {/* Scroll indicator */}
           <motion.div
             className="absolute bottom-8 left-1/2 -translate-x-1/2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: shouldReduceMotion ? 0 : 0.6,
-              delay: shouldReduceMotion ? 0 : 2
+              duration: shouldReduceMotion ? 0 : 0.8,
+              delay: shouldReduceMotion ? 0 : 2.2,
+              ease: [0.16, 1, 0.3, 1]
             }}
           >
             <div className="flex flex-col items-center gap-2 text-black/40">

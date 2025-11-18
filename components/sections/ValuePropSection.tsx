@@ -48,10 +48,10 @@ export function ValuePropSection() {
 
           {/* Title - Full Width, One Line, Centered */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="mb-8 md:mb-12 text-center"
           >
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
@@ -66,10 +66,10 @@ export function ValuePropSection() {
 
             {/* LEFT COLUMN - Benefits (spans 5 columns on desktop) */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 1.0, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-5 space-y-3 flex flex-col"
             >
               {/* Tagline Card */}
@@ -84,10 +84,10 @@ export function ValuePropSection() {
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.9, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                     className="group bg-white border-2 border-[#06392f]/10 hover:border-[#06392f]/30 rounded-xl p-4 transition-all duration-300 hover:shadow-lg"
                   >
                     <div className="flex items-start gap-3">
@@ -109,10 +109,10 @@ export function ValuePropSection() {
 
               {/* CTA Card */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: 1.0, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
               >
                 <a
                   href="/cases"
@@ -140,10 +140,10 @@ export function ValuePropSection() {
 
                 {/* Card 1 - Large (spans 2 columns, 2 rows) */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.2 }}
+                  initial={{ opacity: 0, y: 80, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   onMouseEnter={() => setHoveredCard(1)}
                   onMouseLeave={() => setHoveredCard(null)}
                   className="group relative overflow-hidden rounded-xl col-span-2 row-span-2 min-h-[250px] md:min-h-[300px]"
@@ -182,10 +182,10 @@ export function ValuePropSection() {
 
                 {/* Card 2 - Medium (1 column, 1 row) */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.3 }}
+                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 1.0, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   onMouseEnter={() => setHoveredCard(2)}
                   onMouseLeave={() => setHoveredCard(null)}
                   className="group relative overflow-hidden rounded-xl min-h-[150px]"
@@ -224,10 +224,10 @@ export function ValuePropSection() {
 
                 {/* Card 3 - Medium (1 column, 1 row) */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.4 }}
+                  initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 1.0, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
                   onMouseEnter={() => setHoveredCard(3)}
                   onMouseLeave={() => setHoveredCard(null)}
                   className="group relative overflow-hidden rounded-xl min-h-[150px]"

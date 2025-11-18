@@ -35,8 +35,8 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <ValuePropSection />
-        <ExclusiveSection />
         <NewPackagesSection />
+        <ExclusiveSection />
         <SocialProofSection />
         <PortfolioSection />
         <CTASection />

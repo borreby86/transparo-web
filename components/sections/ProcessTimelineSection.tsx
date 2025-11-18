@@ -7,13 +7,13 @@ import { Sparkles, Zap, Rocket, Check, ArrowDown } from 'lucide-react'
 const processSteps = [
   {
     number: '01',
-    title: 'Kickoff & Discovery',
+    title: 'Opstart & Opdagelse',
     description: 'Vi starter med et dybtgående møde for at forstå din vision, mål og målgruppe.',
     details: [
       'Vision & målsætning',
-      'Målgruppe analyse',
-      'Konkurrent research',
-      'Scope definition'
+      'Målgruppeanalyse',
+      'Konkurrentundersøgelse',
+      'Omfangsdefinition'
     ],
     icon: Sparkles,
     duration: '3-5 dage',
@@ -22,13 +22,13 @@ const processSteps = [
   },
   {
     number: '02',
-    title: 'Design & Wireframes',
+    title: 'Design & Struktur',
     description: 'Vi skaber et unikt design der matcher dit brand og konverterer besøgende.',
     details: [
-      'Moodboards & stil',
-      'Wireframe layouts',
-      'UI/UX design',
-      'Responsive design'
+      'Stemningstavler & stil',
+      'Wireframe-layouts',
+      'UI/UX-design',
+      'Responsivt design'
     ],
     icon: Zap,
     duration: '5-7 dage',
@@ -37,13 +37,13 @@ const processSteps = [
   },
   {
     number: '03',
-    title: 'Udvikling & Launch',
+    title: 'Udvikling & Lancering',
     description: 'Din hjemmeside bygges med moderne teknologi og lanceres professionelt.',
     details: [
-      'Next.js udvikling',
-      'Payload CMS setup',
-      'Performance optimering',
-      'Launch & support'
+      'Next.js-udvikling',
+      'Payload CMS-opsætning',
+      'Ydelseoptimering',
+      'Lancering & support'
     ],
     icon: Rocket,
     duration: '7-10 dage',
@@ -65,12 +65,15 @@ export function ProcessTimelineSection() {
       </div>
 
       {/* Header */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mb-12 sm:mb-16 md:mb-20">
+      <div className="relative max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mb-12 sm:mb-16 md:mb-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.2,
+            ease: [0.16, 1, 0.3, 1]
+          }}
           className="text-center"
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-navy mb-4 sm:mb-6">
@@ -96,13 +99,13 @@ export function ProcessTimelineSection() {
             return (
               <motion.div
                 key={step.number}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 100, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.2, margin: "-50px" }}
                 transition={{
-                  duration: shouldReduceMotion ? 0 : 0.8,
-                  delay: shouldReduceMotion ? 0 : index * 0.1,
-                  ease: [0.25, 0.1, 0.25, 1]
+                  duration: shouldReduceMotion ? 0 : 1.2,
+                  delay: shouldReduceMotion ? 0 : index * 0.2,
+                  ease: [0.16, 1, 0.3, 1]
                 }}
                 className={`relative grid md:grid-cols-2 gap-8 md:gap-16 items-center ${
                   isEven ? '' : 'md:text-right'
@@ -183,13 +186,13 @@ export function ProcessTimelineSection() {
                 {/* Visual element */}
                 <motion.div
                   className={`relative ${isEven ? 'md:order-2' : 'md:order-1'}`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.7, rotate: -10 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 0.6,
-                    delay: index * 0.1 + 0.2,
-                    ease: [0.25, 0.1, 0.25, 1]
+                    duration: shouldReduceMotion ? 0 : 1.4,
+                    delay: shouldReduceMotion ? 0 : index * 0.2 + 0.3,
+                    ease: [0.16, 1, 0.3, 1]
                   }}
                 >
                   <div className="relative mx-auto w-full max-w-sm">
@@ -262,18 +265,30 @@ export function ProcessTimelineSection() {
 
       {/* Bottom CTA */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 80 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{
+          duration: shouldReduceMotion ? 0 : 1.2,
+          ease: [0.16, 1, 0.3, 1]
+        }}
         className="text-center mt-20"
       >
-        <p className="text-lg text-black/60 mb-8">
+        <motion.p
+          className="text-lg text-black/60 mb-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.0,
+            delay: shouldReduceMotion ? 0 : 0.2
+          }}
+        >
           Klar til at starte din digitale transformation?
-        </p>
+        </motion.p>
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
+          whileTap={{ scale: shouldReduceMotion ? 1 : 0.95 }}
           className="inline-flex items-center gap-3 px-8 py-4 bg-navy text-white rounded-full font-bold text-lg hover:bg-navy/90 transition-colors"
         >
           Start dit projekt

@@ -1,19 +1,24 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 export function ProcessFinalCTA() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
-    <section className="relative bg-navy px-6 md:px-12 lg:px-24 py-32 md:py-48">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-navy px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-32 md:py-48">
+      <div className="max-w-[1800px] mx-auto">
         {/* Main headline */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 100, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.4,
+            ease: [0.16, 1, 0.3, 1]
+          }}
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
@@ -22,18 +27,31 @@ export function ProcessFinalCTA() {
             jeres projekt?
           </h2>
 
-          <p className="text-xl md:text-2xl text-white/60 font-light max-w-2xl mx-auto leading-relaxed">
+          <motion.p
+            className="text-xl md:text-2xl text-white/60 font-light max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 1.0,
+              delay: shouldReduceMotion ? 0 : 0.3
+            }}
+          >
             Professionel udvikling. Faste priser. Lancering på 2-4 uger.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Simple 3-step process */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 80 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="grid md:grid-cols-3 gap-px bg-white/10 mb-20"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.2,
+            delay: shouldReduceMotion ? 0 : 0.2,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          className="grid md:grid-cols-3 gap-px bg-white/10 mb-20 max-w-6xl mx-auto"
         >
           {[
             { num: '1', title: 'Book møde', desc: 'Gratis 30 min konsultation' },
@@ -42,13 +60,30 @@ export function ProcessFinalCTA() {
           ].map((step, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 + i * 0.1 }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 1.0,
+                delay: shouldReduceMotion ? 0 : 0.4 + i * 0.15,
+                ease: [0.16, 1, 0.3, 1]
+              }}
               className="bg-navy p-8 text-center"
             >
-              <div className="text-5xl font-bold text-white/10 mb-4">{step.num}</div>
+              <motion.div
+                className="text-5xl font-bold text-white/10 mb-4"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: shouldReduceMotion ? 0 : 0.8,
+                  delay: shouldReduceMotion ? 0 : 0.6 + i * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+              >
+                {step.num}
+              </motion.div>
               <div className="text-lg font-bold text-white mb-2">{step.title}</div>
               <div className="text-sm text-white/50">{step.desc}</div>
             </motion.div>
@@ -58,10 +93,14 @@ export function ProcessFinalCTA() {
         {/* CTA Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 80, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.2,
+            delay: shouldReduceMotion ? 0 : 0.8,
+            ease: [0.16, 1, 0.3, 1]
+          }}
         >
           <Link href="/contact" className="w-full sm:w-auto">
             <motion.button
@@ -92,27 +131,46 @@ export function ProcessFinalCTA() {
 
         {/* Benefits */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.7 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.0,
+            delay: shouldReduceMotion ? 0 : 1.0,
+            ease: [0.16, 1, 0.3, 1]
+          }}
           className="flex flex-wrap items-center justify-center gap-8 mb-16"
         >
           {['Faste priser', '2-4 ugers levering', '7 godkendelsespunkter', 'Premium kvalitet'].map((item, i) => (
-            <div key={i} className="flex items-center gap-2 text-white/60 text-sm font-medium">
+            <motion.div
+              key={i}
+              className="flex items-center gap-2 text-white/60 text-sm font-medium"
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 0.8,
+                delay: shouldReduceMotion ? 0 : 1.2 + i * 0.1,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+            >
               <div className="w-1.5 h-1.5 bg-gold" />
               {item}
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
         {/* Contact info */}
         <motion.div
           className="text-center pt-12 border-t border-white/10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 1.0,
+            delay: shouldReduceMotion ? 0 : 1.4,
+            ease: [0.16, 1, 0.3, 1]
+          }}
         >
           <p className="text-white/40 text-sm mb-6">Har du spørgsmål? Kontakt os direkte</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
