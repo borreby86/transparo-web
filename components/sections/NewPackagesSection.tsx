@@ -13,12 +13,12 @@ const packages = [
     name: 'Essentials',
     price: '8.995',
     duration: '10-14 dage',
-    description: 'Perfekt til startups og små virksomheder',
+    description: 'Kom online hurtigt og professionelt',
     highlights: [
       '5 professionelle sider',
-      'Mobil-optimeret design',
-      'Basis SEO-opsætning',
-      'Kontaktformular'
+      'Mobil-optimeret (60% af trafik)',
+      'SEO der får dig fundet',
+      'Kontaktformular der konverterer'
     ]
   },
   {
@@ -26,13 +26,13 @@ const packages = [
     name: 'Professional',
     price: '16.995',
     duration: '14-21 dage',
-    description: 'Den komplette løsning for voksende virksomheder',
+    description: 'For virksomheder der vil dominere online',
     popular: true,
     highlights: [
       '10 sider inkluderet',
-      'Avancerede animationer',
-      'Blog & portfolio',
-      'Fuld SEO-pakke'
+      'Animationer der imponerer',
+      'Blog der tiltrækker kunder',
+      'Fuld SEO = flere leads'
     ]
   },
   {
@@ -40,12 +40,12 @@ const packages = [
     name: 'Business',
     price: '27.995',
     duration: '21-28 dage',
-    description: 'Enterprise-niveau løsning med fuld kontrol',
+    description: 'Den ultimative konkurrencefordel',
     highlights: [
-      '20+ sider',
-      'Multi-language support',
-      'E-commerce ready',
-      'Premium animationer'
+      '20+ sider til alt dit indhold',
+      'Multi-sprog = flere markeder',
+      'E-commerce klar til salg',
+      'Premium der skiller dig ud'
     ]
   }
 ];
@@ -88,9 +88,9 @@ export function NewPackagesSection() {
             Vælg din pakke
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-warmgray max-w-4xl mx-auto">
-            Professionelle websites med AI-drevet udvikling.
+            Professionelle websites der sælger - leveret på 2-4 uger.
             <span className="block mt-3 text-base sm:text-lg text-warmgray/80">
-              Klik på en pakke for at se alle detaljer.
+              100+ virksomheder har allerede boosted deres online tilstedeværelse.
             </span>
           </p>
         </motion.div>
@@ -120,7 +120,7 @@ export function NewPackagesSection() {
                 </div>
               )}
 
-              <Link href={`/packages/${pkg.id}`}>
+              <Link href="/kontakt">
                 <div className={`
                   relative h-full min-h-[420px] sm:min-h-[460px] lg:min-h-[520px] p-6 sm:p-8 lg:p-10 xl:p-12 rounded-[28px] overflow-hidden transition-all duration-300
                   ${pkg.popular
@@ -203,7 +203,7 @@ export function NewPackagesSection() {
                       : 'bg-navy text-white hover:bg-navy/90'
                     }
                   `}>
-                    <span>Se alle detaljer</span>
+                    <span>Vælg denne pakke</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -212,7 +212,7 @@ export function NewPackagesSection() {
           ))}
         </div>
 
-        {/* Comparison link */}
+        {/* Trust signal */}
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0 }}
@@ -220,13 +220,9 @@ export function NewPackagesSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Link
-            href="/packages/compare"
-            className="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors group"
-          >
-            <span className="text-lg sm:text-xl font-medium">Sammenlign alle pakker i detaljer</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <p className="text-warmgray text-lg">
+            <span className="text-gold font-semibold">98% kundetilfredshed</span> • Ingen binding • Fuld ejendomsret
+          </p>
         </motion.div>
 
         {/* Add-ons section */}

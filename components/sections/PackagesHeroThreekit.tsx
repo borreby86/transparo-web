@@ -20,8 +20,8 @@ export function PackagesHeroThreekit() {
         >
           {/* Italic headline - Threekit style - MASSIVE */}
           <h1 className="font-light italic text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] text-navy mb-8 md:mb-12 leading-[0.9] tracking-tight">
-            Simple{' '}
-            <span className="block text-gold mt-2 md:mt-4">pricing</span>
+            Simpel{' '}
+            <span className="block text-gold mt-2 md:mt-4">prissætning</span>
           </h1>
 
           {/* Subtitle - more prominent */}

@@ -3,8 +3,7 @@ import dynamic from 'next/dynamic'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { ValuePropSection } from '@/components/sections/ValuePropSection'
-import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
+import { WhyUsSection } from '@/components/sections/WhyUsSection'
 import { NewPackagesSection } from '@/components/sections/NewPackagesSection'
 
 // Lazy load heavy sections below the fold for code splitting
@@ -34,12 +33,11 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <ValuePropSection />
+        <WhyUsSection />
         <NewPackagesSection />
-        <ExclusiveSection />
+        <CTASection />
         <SocialProofSection />
         <PortfolioSection />
-        <CTASection />
         <FAQSection />
       </main>
       <Footer />

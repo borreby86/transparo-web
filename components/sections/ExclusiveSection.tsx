@@ -117,7 +117,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              Det er ikke for alle.
+              Vi bygger websites der
             </h1>
 
             <h2
@@ -127,7 +127,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              Vi identificerer og samarbejder med
+              konverterer besøgende til
             </h2>
 
             <h2
@@ -137,7 +137,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              ekstraordinære virksomheder med
+              betalende kunder for
             </h2>
 
             <div
@@ -147,8 +147,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              <span className="text-[#c9a961]">seriøse ambitioner</span>
-              <span className="text-white">, de få</span>
+              <span className="text-[#c9a961]">ambitiøse virksomheder</span>
             </div>
 
             <h2
@@ -158,7 +157,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              udvalgte hvis tilstedeværelse<br />styrker helheden.
+              der vil vokse online.
             </h2>
           </div>
 
@@ -176,8 +175,8 @@ export function ExclusiveSection() {
               ${visibleElements.subtext ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
             `}
           >
-            Vi arbejder kun med virksomheder, der forstår værdien af
-            exceptionelt design og er klar til at investere i deres digitale fremtid.
+            100+ projekter leveret. 98% kundetilfredshed.
+            Din succes er vores mission.
           </p>
         </div>
       </div>

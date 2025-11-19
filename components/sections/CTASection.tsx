@@ -72,7 +72,7 @@ export function CTASection() {
             transition={transition}
             className="text-sm md:text-base tracking-[0.3em] uppercase text-gray-400 font-light"
           >
-            Klar til at transformere din virksomhed?
+            Stop med at tabe kunder til konkurrenterne
           </motion.p>
 
           {/* Main heading - Centered, elegant serif-style */}
@@ -81,11 +81,11 @@ export function CTASection() {
             transition={{ ...transition, delay: shouldReduceMotion ? 0 : 0.2 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-tight italic"
           >
-            Din digitale
+            Din nye
             <br />
-            <span className="text-[#c9a961]">succes</span> starter
+            <span className="text-[#c9a961]">hjemmeside</span>
             <br />
-            her
+            venter
           </motion.h2>
 
           {/* CTA Button - Bordered style */}
@@ -102,7 +102,7 @@ export function CTASection() {
                 href="/kontakt"
                 className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.2em] uppercase font-medium text-[#c9a961] bg-transparent border-2 border-[#c9a961] rounded-none hover:bg-[#c9a961] hover:text-gray-950 transition-all duration-300"
               >
-                Book et møde
+                Få gratis konsultation
               </Link>
             </motion.div>
           </motion.div>

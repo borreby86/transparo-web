@@ -1,7 +1,9 @@
 import { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { AboutSection } from '@/components/sections/AboutSection'
+import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
+import { TeamSection } from '@/components/sections/TeamSection'
+import { HappyClientsSection } from '@/components/sections/HappyClientsSection'
 import { FinalCTASection } from '@/components/sections/FinalCTASection'
 
 export const metadata: Metadata = {
@@ -19,7 +21,9 @@ export default function OmOsPage() {
     <>
       <Header />
       <main>
-        <AboutSection />
+        <ExclusiveSection />
+        <TeamSection />
+        <HappyClientsSection />
         <FinalCTASection />
       </main>
       <Footer />

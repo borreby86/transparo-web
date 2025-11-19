@@ -1,19 +1,12 @@
+'use client'
+
 import { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ProcessHeroSection } from '@/components/sections/ProcessHeroSection'
 import { ProcessPhaseSection } from '@/components/sections/ProcessPhaseSection'
 import { ProcessFinalCTA } from '@/components/sections/ProcessFinalCTA'
-
-export const metadata: Metadata = {
-  title: 'Vores Proces - Fra Ide til Lancering på 2-4 Uger | Transparo',
-  description: 'Gennemsigtig 7-fase proces med klare godkendelsespunkter. Discovery, wireframes, design, udvikling, test, lancering og support. Ingen overraskelser.',
-  openGraph: {
-    title: 'Vores Proces - Transparo',
-    description: 'Struktureret website udvikling proces fra ide til lancering på 2-4 uger.',
-    type: 'website',
-  },
-}
+import { ProcessProgress } from '@/components/sections/ProcessProgress'
 
 const processPhases = [
   {
@@ -148,16 +141,19 @@ export default function ProcesPage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-offwhite">
+        <ProcessProgress totalPhases={processPhases.length} />
         <ProcessHeroSection />
 
         {/* Detailed Phase Sections */}
-        {processPhases.map((phase) => (
-          <ProcessPhaseSection
-            key={phase.phaseNumber}
-            {...phase}
-          />
-        ))}
+        <div className="relative">
+          {processPhases.map((phase) => (
+            <ProcessPhaseSection
+              key={phase.phaseNumber}
+              {...phase}
+            />
+          ))}
+        </div>
 
         <ProcessFinalCTA />
       </main>

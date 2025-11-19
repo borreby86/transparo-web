@@ -37,6 +37,13 @@ const config: Config = {
         'display-md': ['2.5rem', { lineHeight: '1.2', fontWeight: '700' }],
         'display-sm': ['2rem', { lineHeight: '1.2', fontWeight: '600' }],
       },
+      backgroundSize: {
+        'size-[54px_54px]': '54px 54px',
+      },
+      maskImage: {
+        'radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)':
+          'radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%)',
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
         'slide-up': 'slideUp 0.5s ease-out',

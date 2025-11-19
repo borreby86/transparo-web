@@ -10,7 +10,7 @@ export function HeroSection() {
 
   // Animation timing
   const mainWord = "transparo."
-  const tagline = ["Unique", "designs", "•", "Built", "on", "trust"]
+  const tagline = ["Din", "succes", "•", "Vores", "mission"]
 
   // Typewriter effect - optimized with useTransition
   const [displayedText, setDisplayedText] = useState("")
@@ -95,18 +95,18 @@ export function HeroSection() {
             }}
           >
             <a
-              href="/pakker"
+              href="/kontakt"
               className="group relative px-8 py-4 bg-black text-white rounded-full font-medium text-lg overflow-hidden transition-transform hover:scale-105 active:scale-95"
             >
-              <span className="relative z-10">Se priser</span>
+              <span className="relative z-10">Start dit projekt</span>
               <div className="absolute inset-0 bg-gradient-to-r from-gold to-navy opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
 
             <a
-              href="/cases"
+              href="/pakker"
               className="px-8 py-4 border-2 border-black text-black rounded-full font-medium text-lg hover:bg-black hover:text-white transition-all duration-300"
             >
-              Se cases
+              Se priser fra 8.995 kr
             </a>
           </motion.div>
 
