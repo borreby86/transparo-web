@@ -119,3 +119,8 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
  ✓ Compiled in 116ms
  ✓ Compiled in 84ms
  ✓ Compiled in 122ms
+Image with src "/Hero img.jpg" is using quality "90" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+ GET / 200 in 585ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 283ms
+ ✓ Compiled in 126ms
