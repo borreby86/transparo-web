@@ -32,9 +32,9 @@ export function SocialProofSection() {
   ]
 
   const mockups = [
-    '/images/cases/mockup1.png',
-    '/images/cases/mockup2.png',
-    '/images/cases/mockup3.png',
+    '/images/cases/mockup1.webp',
+    '/images/cases/mockup2.webp',
+    '/images/cases/mockup3.webp',
   ]
 
   return (
@@ -53,7 +53,7 @@ export function SocialProofSection() {
       </div>
 
       {/* Testimonials Grid */}
-      <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-24">
+      <div className="grid md:grid-cols-2 laptop-l:grid-cols-3 gap-8 max-w-7xl mx-auto mb-24">
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}

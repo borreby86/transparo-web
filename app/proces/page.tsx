@@ -25,7 +25,7 @@ const processPhases = [
     backgroundStyle: 'light' as const,
     hasCheckpoint: true,
     checkpointText: 'Godkendelse af brief',
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80'
+    imageUrl: '/images/unsplash/proces-1.webp'
   },
   {
     phaseNumber: 2,
@@ -43,7 +43,7 @@ const processPhases = [
     backgroundStyle: 'gold' as const,
     hasCheckpoint: true,
     checkpointText: 'Struktur godkendt',
-    imageUrl: 'https://images.unsplash.com/photo-1576153192396-180ecef2a715?w=800&q=80'
+    imageUrl: '/images/unsplash/proces-2.webp'
   },
   {
     phaseNumber: 3,
@@ -61,7 +61,7 @@ const processPhases = [
     backgroundStyle: 'light' as const,
     hasCheckpoint: true,
     checkpointText: 'Design godkendt',
-    imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80'
+    imageUrl: '/images/unsplash/proces-3.webp'
   },
   {
     phaseNumber: 4,
@@ -79,7 +79,7 @@ const processPhases = [
     backgroundStyle: 'navy' as const,
     hasCheckpoint: true,
     checkpointText: 'Udvikling påbegyndt',
-    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80'
+    imageUrl: '/images/unsplash/proces-4.webp'
   },
   {
     phaseNumber: 5,
@@ -97,7 +97,7 @@ const processPhases = [
     backgroundStyle: 'light' as const,
     hasCheckpoint: true,
     checkpointText: 'Test gennemført',
-    imageUrl: 'https://images.unsplash.com/photo-1576444356170-66073046b1bc?w=800&q=80'
+    imageUrl: '/images/unsplash/proces-5.webp'
   },
   {
     phaseNumber: 6,
@@ -115,7 +115,7 @@ const processPhases = [
     backgroundStyle: 'success' as const,
     hasCheckpoint: true,
     checkpointText: 'Website lanceret',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
+    imageUrl: '/images/unsplash/why-us-3.webp'
   },
   {
     phaseNumber: 7,
@@ -133,7 +133,7 @@ const processPhases = [
     backgroundStyle: 'warmgray' as const,
     hasCheckpoint: true,
     checkpointText: 'Overdragelse komplet',
-    imageUrl: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80'
+    imageUrl: '/images/unsplash/proces-6.webp'
   }
 ]
 

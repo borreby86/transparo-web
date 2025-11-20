@@ -124,3 +124,24 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
  GET / 200 in 585ms
  GET /icon?c5a4c16c2f61c4e9 200 in 283ms
  ✓ Compiled in 126ms
+ ✓ Compiled in 58ms
+ GET / 200 in 99ms
+ GET / 200 in 95ms
+ ✓ Compiled in 57ms
+ ✓ Compiled /om-os in 49ms
+ GET /om-os 200 in 182ms
+ ✓ Compiled in 115ms
+ ✓ Compiled in 82ms
+ ✓ Compiled in 60ms
+ GET / 200 in 99ms
+ GET / 200 in 96ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.6 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://172.22.240.1:3001
+   - Experiments (use with caution):
+     ⨯ reactCompiler
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 1362ms

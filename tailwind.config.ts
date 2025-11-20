@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'laptop': '1024px',      // Standard laptop
+        'laptop-l': '1440px',    // Large laptop / small desktop
+        'desktop': '1920px',     // Full desktop
+      },
       colors: {
         // Transparo Brand Colors
         navy: {

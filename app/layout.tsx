@@ -6,11 +6,11 @@ import { CookieBanner } from '@/components/ui/CookieBanner'
 
 const inter = Inter({
   subsets: ['latin'],
-  display: 'optional', // Changed from 'swap' to 'optional' to prevent layout shift
+  display: 'swap', // Use swap for better performance
   variable: '--font-inter',
   weight: ['400', '600', '700'],
   preload: true,
-  adjustFontFallback: true, // Automatically match fallback font metrics
+  adjustFontFallback: true,
 })
 
 const playfair = Playfair_Display({
@@ -18,6 +18,8 @@ const playfair = Playfair_Display({
   display: 'swap',
   variable: '--font-playfair',
   weight: ['400', '600', '700'],
+  preload: true,
+  adjustFontFallback: true,
 })
 
 const baseUrl = 'https://transparo.dk'
@@ -66,11 +68,29 @@ export const metadata: Metadata = {
     title: 'Transparo | Professionel Webudvikling Danmark',
     description:
       'Webbureau København specialiseret i moderne hjemmesider. Fast pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder.',
+    images: [
+      {
+        url: `${baseUrl}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Transparo - Professionel Webudvikling Danmark',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Transparo | Professionel Webudvikling Danmark',
     description: 'Webbureau København - Moderne hjemmesider med fast pris og hurtig levering',
+    images: [`${baseUrl}/twitter-image.jpg`],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   robots: {
     index: true,
@@ -133,9 +153,13 @@ export default function RootLayout({
         '@type': 'LocalBusiness',
         '@id': `${baseUrl}/#localbusiness`,
         name: 'Transparo Webbureau',
-        image: `${baseUrl}/logo.png`,
+        image: [
+          `${baseUrl}/logo.png`,
+          `${baseUrl}/og-image.jpg`,
+        ],
         url: baseUrl,
-        telephone: '',
+        telephone: '+45-12345678',
+        email: 'kontakt@transparo.dk',
         priceRange: '8995-27995 DKK',
         address: {
           '@type': 'PostalAddress',
@@ -157,6 +181,9 @@ export default function RootLayout({
           '@type': 'Country',
           name: 'Denmark',
         },
+        sameAs: [
+          // Add social media URLs here when available
+        ],
       },
     ],
   }
@@ -164,8 +191,7 @@ export default function RootLayout({
   return (
     <html lang="da" className={`${inter.variable} ${playfair.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Schema.org structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

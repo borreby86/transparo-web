@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/cases',
     '/kontakt',
     '/proces',
-    '/packages/compare',
     '/privatlivspolitik',
     '/cookiepolitik',
     '/handelsbetingelser',
@@ -20,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1.0 : 0.8,
+    priority: route === '' ? 1.0 : route === '/pakker' || route === '/cases' ? 0.9 : 0.8,
   }))
 
   // Case study slugs

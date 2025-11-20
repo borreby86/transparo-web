@@ -70,7 +70,7 @@ export function CTASection() {
           <motion.h2
             variants={fadeInVariants}
             transition={{ ...transition, delay: shouldReduceMotion ? 0 : 0.2 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white leading-tight mb-6"
+            className="font-display text-3xl sm:text-4xl md:text-5xl laptop:text-5xl laptop-l:text-6xl xl:text-7xl font-medium text-white leading-tight mb-6"
           >
             Website der skaber tillid og konverterer
             <br />

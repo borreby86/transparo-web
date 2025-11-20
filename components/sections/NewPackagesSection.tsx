@@ -84,10 +84,10 @@ export function NewPackagesSection() {
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
           </motion.div>
 
-          <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[68px] text-navy mb-5">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl laptop-l:text-[68px] text-navy mb-5">
             Vælg din pakke
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-warmgray max-w-4xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-xl laptop-l:text-2xl text-warmgray max-w-4xl mx-auto">
             Professionelle websites der sælger - leveret på 2-4 uger.
             <span className="block mt-3 text-base sm:text-lg text-warmgray/80">
               100+ virksomheder har allerede boosted deres online tilstedeværelse.
@@ -95,8 +95,8 @@ export function NewPackagesSection() {
           </p>
         </motion.div>
 
-        {/* Package Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
+        {/* Package Cards - 2 columns on laptop, 3 on large laptop+ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 laptop-l:grid-cols-3 gap-6 sm:gap-8 laptop:gap-8 laptop-l:gap-10 xl:gap-12">
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.id}
@@ -122,7 +122,7 @@ export function NewPackagesSection() {
 
               <Link href="/kontakt">
                 <div className={`
-                  relative h-full min-h-[420px] sm:min-h-[460px] lg:min-h-[520px] p-6 sm:p-8 lg:p-10 xl:p-12 rounded-[28px] overflow-hidden transition-all duration-300
+                  relative h-full min-h-[420px] sm:min-h-[460px] md:min-h-[480px] laptop:min-h-[500px] laptop-l:min-h-[520px] p-6 sm:p-8 lg:p-9 laptop-l:p-10 xl:p-12 rounded-[28px] overflow-hidden transition-all duration-300
                   ${pkg.popular
                     ? 'bg-gradient-to-br from-navy via-navy to-navy/95 text-white shadow-2xl'
                     : 'bg-white border border-gray-200 hover:border-gold/30 shadow-lg hover:shadow-xl'
@@ -146,12 +146,12 @@ export function NewPackagesSection() {
                   {/* Price */}
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2">
-                      <span className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black ${
+                      <span className={`text-3xl sm:text-4xl md:text-4xl laptop:text-5xl laptop-l:text-6xl font-black ${
                         pkg.popular ? 'text-gold' : 'text-navy'
                       }`}>
                         {pkg.price}
                       </span>
-                      <span className={`text-base sm:text-lg md:text-xl ${
+                      <span className={`text-base sm:text-lg laptop:text-lg laptop-l:text-xl ${
                         pkg.popular ? 'text-white/70' : 'text-warmgray'
                       }`}>
                         DKK

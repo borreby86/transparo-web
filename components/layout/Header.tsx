@@ -49,31 +49,31 @@ export function Header() {
         <div className="flex items-center justify-between h-20 max-w-[1800px] mx-auto">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="font-sans font-black text-xl sm:text-2xl text-black tracking-tight hover:opacity-80 transition-opacity">
+            <Link href="/" className="font-sans font-black text-xl sm:text-2xl laptop:text-2xl text-black tracking-tight hover:opacity-80 transition-opacity">
               transparo<span className="text-gold">.</span>
             </Link>
           </div>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 flex-1 mx-8">
+          <div className="hidden lg:flex items-center justify-center gap-6 laptop:gap-7 laptop-l:gap-8 xl:gap-8 flex-1 mx-8">
             {navigation.slice(0, 3).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
+                className="text-xs laptop:text-xs laptop-l:text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
               >
                 {item.name}
               </Link>
             ))}
 
             {/* Spacer for visual balance */}
-            <div className="w-8 xl:w-12" />
+            <div className="w-8 laptop:w-10 laptop-l:w-10 xl:w-12" />
 
             {navigation.slice(3).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
+                className="text-xs laptop:text-xs laptop-l:text-xs font-bold text-black/60 hover:text-black transition-colors duration-300 uppercase tracking-widest whitespace-nowrap"
               >
                 {item.name}
               </Link>
@@ -83,7 +83,7 @@ export function Header() {
           {/* CTA Button - Right side */}
           <Link
             href="/kontakt"
-            className="hidden lg:block flex-shrink-0 bg-black text-white px-6 py-2.5 rounded-full font-bold text-xs hover:bg-black/80 transition-all uppercase tracking-wider"
+            className="hidden lg:block flex-shrink-0 bg-black text-white px-6 py-2.5 laptop:px-7 laptop:py-3 rounded-full font-bold text-xs hover:bg-black/80 transition-all uppercase tracking-wider"
           >
             Book Møde
           </Link>

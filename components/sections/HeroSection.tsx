@@ -54,12 +54,13 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/Hero img.jpg"
+          src="/hero-optimized.webp"
           alt="Transparo workspace"
           fill
           className="object-cover"
           priority
-          quality={90}
+          quality={80}
+          sizes="100vw"
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
@@ -108,9 +109,8 @@ export function HeroSection() {
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: "easeInOut" }}
           >
             <motion.h1
-              className="font-display font-black text-black leading-[0.85] tracking-tighter"
+              className="font-display font-black text-black leading-[0.85] tracking-tighter text-6xl sm:text-7xl md:text-8xl laptop:text-9xl laptop-l:text-[10rem] desktop:text-[12rem]"
               style={{
-                fontSize: 'clamp(3rem, 12vw, 16rem)',
                 letterSpacing: '-0.04em',
               }}
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 100, scale: 0.9 }}
@@ -134,7 +134,7 @@ export function HeroSection() {
       <AnimatePresence>
         {showHeroContent && (
           <motion.div
-            className="relative z-10 w-full flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+            className="relative z-10 w-full flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-8 laptop:px-10 laptop-l:px-12 xl:px-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: "easeOut" }}
@@ -151,7 +151,7 @@ export function HeroSection() {
                   ease: [0.16, 1, 0.3, 1]
                 }}
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] max-w-6xl mx-auto">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl laptop:text-6xl laptop-l:text-7xl xl:text-8xl font-bold leading-[1.1] max-w-6xl mx-auto">
                   <span className="text-white drop-shadow-2xl">
                     Professionelle websites der konverterer.
                   </span>
@@ -178,7 +178,7 @@ export function HeroSection() {
                   <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-gold to-transparent opacity-50" />
                   <div className="absolute -right-4 top-0 w-1 h-full bg-gradient-to-b from-gold to-transparent opacity-50" />
 
-                  <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed font-medium px-4 drop-shadow-lg">
+                  <p className="text-lg sm:text-xl laptop:text-xl laptop-l:text-2xl text-white/90 leading-relaxed font-medium px-4 drop-shadow-lg">
                     High-end webdesign bygget på fuld transparens. <span className="text-gold font-semibold">Ingen skjulte omkostninger,</span> <span className="text-gold font-semibold">ingen scope creep,</span> <span className="text-gold font-semibold">ingen bullshit.</span> Kun resultater du kan måle.
                   </p>
                 </div>

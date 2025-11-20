@@ -75,13 +75,13 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
       name: 'Louise Kjær',
       company: 'Sundhedskonsortiet',
       quote: 'Perfekt til vores behov - professionelt resultat til en fair pris.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80',
+      image: '/images/unsplash/package-1.webp',
     },
     {
       name: 'Thomas Kjeldsen',
       company: 'VAT 85',
       quote: 'Hurtig levering og præcis hvad vi havde brug for som startup.',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80',
+      image: '/images/unsplash/package-2.webp',
     },
   ];
 

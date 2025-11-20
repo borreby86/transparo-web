@@ -10,7 +10,7 @@ const caseStudies = [
     category: 'E-commerce',
     title: 'Fra 0 til 2M DKK på 6 måneder',
     description: 'Komplet e-commerce løsning med Shopify integration og custom design der øgede konverteringsraten med 240%.',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop',
+    image: '/images/unsplash/case-1.webp',
     stats: [
       { label: 'Konvertering', value: '+240%', icon: TrendingUp },
       { label: 'Salg første år', value: '2M DKK', icon: Users },
@@ -28,7 +28,7 @@ const caseStudies = [
     category: 'SaaS Platform',
     title: '500+ nye B2B kunder på 3 måneder',
     description: 'Moderne SaaS landing page med avanceret lead generation der transformerede deres online tilstedeværelse og B2B salg.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+    image: '/images/unsplash/why-us-3.webp',
     stats: [
       { label: 'Nye kunder', value: '500+', icon: Users },
       { label: 'Lead quality', value: '+85%', icon: TrendingUp },
@@ -46,7 +46,7 @@ const caseStudies = [
     category: 'Restaurant',
     title: '150% flere bordreservationer',
     description: 'Elegant restaurant website med integreret booking system og menu præsentation der øgede online reservationer markant.',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
+    image: '/images/unsplash/case-2.webp',
     stats: [
       { label: 'Reservationer', value: '+150%', icon: TrendingUp },
       { label: 'Gennemsnitlig ordre', value: '+45%', icon: Users },

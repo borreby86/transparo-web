@@ -11,7 +11,7 @@ const reasons = [
     stat: '01',
     statLabel: '',
     description: 'Vi siger tingene, som de er. Du får fuldt indblik i processer, deadlines og hvad du kan forvente — uden overraskelser undervejs.',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80'
+    image: '/images/unsplash/why-us-1.webp'
   },
   {
     icon: Zap,
@@ -19,7 +19,7 @@ const reasons = [
     stat: '02',
     statLabel: '',
     description: 'Dit website skal afspejle din kvalitet, dit brand og dine værdier. Vi designer unikt — aldrig "templates med makeup".',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80'
+    image: '/images/unsplash/why-us-2.webp'
   },
   {
     icon: Award,
@@ -27,7 +27,7 @@ const reasons = [
     stat: '03',
     statLabel: '',
     description: 'Personligt, professionelt og ægte. Ingen generisk løsninger — kun design der matcher din identitet.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
+    image: '/images/unsplash/why-us-3.webp'
   },
   {
     icon: Clock,
@@ -35,7 +35,7 @@ const reasons = [
     stat: '04',
     statLabel: '',
     description: 'Du skal kunne stole på os. Derfor arbejder vi struktureret, følger en fast projektmodel og leverer, når vi siger, vi gør.',
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80'
+    image: '/images/unsplash/why-us-4.webp'
   }
 ]
 
@@ -47,7 +47,7 @@ export function WhyUsSection() {
       <div className="max-w-[1800px] mx-auto px-6 md:px-12">
 
         {/* Main Layout - Split screen */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 laptop:gap-16 laptop-l:gap-20 xl:gap-24 items-center">
 
           {/* Left - Giant Typography */}
           <div className="relative">
@@ -61,7 +61,7 @@ export function WhyUsSection() {
                 Hvorfor Transparo
               </span>
 
-              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
+              <h2 className="text-5xl md:text-6xl laptop:text-6xl laptop-l:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
                 Fordi du
                 <br />
                 fortjener et
@@ -94,7 +94,7 @@ export function WhyUsSection() {
           {/* Right - Bento Grid */}
           <div className="grid grid-cols-2 gap-4 relative">
             {/* Background number - positioned near 04 card */}
-            <div className="absolute bottom-0 right-0 text-[7.84vw] lg:text-[4.9vw] font-bold text-white/[0.06] leading-none pointer-events-none select-none z-0">
+            <div className="absolute bottom-0 right-0 text-[80px] laptop:text-[90px] laptop-l:text-[100px] xl:text-[120px] font-bold text-white/[0.06] leading-none pointer-events-none select-none z-0">
               2025
             </div>
             {reasons.map((reason, index) => {
@@ -113,7 +113,7 @@ export function WhyUsSection() {
                   transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
                 >
                   <div className={`relative overflow-hidden rounded-2xl ${
-                    isLarge ? 'h-[400px] md:h-[500px]' : 'h-[190px] md:h-[240px]'
+                    isLarge ? 'h-[400px] md:h-[450px] laptop:h-[420px] laptop-l:h-[480px] xl:h-[500px]' : 'h-[190px] md:h-[220px] laptop:h-[200px] laptop-l:h-[230px] xl:h-[240px]'
                   }`}>
                     {/* Image */}
                     <Image

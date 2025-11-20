@@ -8,25 +8,25 @@ const teamMembers = [
     name: 'Alexander Nielsen',
     role: 'Founder & Lead Developer',
     bio: 'Full-stack udvikler med passion for moderne webteknologi og AI-drevet udvikling.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80'
+    image: '/images/unsplash/team-1.webp'
   },
   {
     name: 'Maria Christensen',
     role: 'Creative Director',
     bio: 'Designer med øje for detaljer og 10+ års erfaring med brand identitet.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80'
+    image: '/images/unsplash/team-2.webp'
   },
   {
     name: 'Thomas Andersen',
     role: 'Senior Developer',
     bio: 'Ekspert i Next.js og performance optimering. Lighthouse-nørd.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80'
+    image: '/images/unsplash/team-3.webp'
   },
   {
     name: 'Sophie Larsen',
     role: 'Project Manager',
     bio: 'Holder styr på deadlines og sikrer glade kunder hver gang.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80'
+    image: '/images/unsplash/team-4.webp'
   }
 ]
 

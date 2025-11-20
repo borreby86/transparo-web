@@ -14,7 +14,7 @@ export function PortfolioSection() {
     <section className="relative w-full bg-[#FAFAFA] py-24 overflow-hidden">
       {/* Editorial Headline */}
       <div className="max-w-[90vw] lg:max-w-[1400px] mx-auto text-center mb-12 relative z-10">
-        <h2 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.1] text-navy font-bold">
+        <h2 className="font-sans text-4xl sm:text-5xl md:text-5xl laptop:text-6xl laptop-l:text-7xl xl:text-[5.5rem] leading-[1.1] text-navy font-bold">
           Vi skaber <span className="italic text-gold">resultater</span> der kan mærkes — det er vores <span className="italic text-gold">eneste</span> måde at arbejde på.
         </h2>
       </div>
@@ -38,7 +38,7 @@ export function PortfolioSection() {
             <Link
               key={`${study.id}-${index}`}
               href={`/cases/${study.slug}`}
-              className="relative flex-none w-[60vw] sm:w-[300px] md:w-[22vw] group"
+              className="relative flex-none w-[60vw] sm:w-[300px] md:w-[280px] laptop:w-[300px] laptop-l:w-[320px] xl:w-[340px] group"
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-gray-100">
                 <Image
