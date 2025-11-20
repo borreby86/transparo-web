@@ -53,13 +53,13 @@ export function ExclusiveSection() {
       setScrollState(state)
 
       setVisibleElements({
-        line1: progress >= 0,
-        line2: progress >= 0.15,
-        line3: progress >= 0.3,
-        line4: progress >= 0.45,
-        line5: progress >= 0.65,
-        divider: progress >= 0.8,
-        subtext: progress >= 0.8,
+        line1: true, // Always visible
+        line2: progress >= 0.1,
+        line3: progress >= 0.25,
+        line4: progress >= 0.4,
+        line5: progress >= 0.6,
+        divider: progress >= 0.75,
+        subtext: progress >= 0.75,
       })
     }
 
@@ -69,9 +69,9 @@ export function ExclusiveSection() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const fadeInWindow = progressBetween(scrollProgress, 0.02, 0.16)
-  const stickyOpacity = clamp01(fadeInWindow)
-  const entryShift = (1 - fadeInWindow) * 70
+  const fadeInWindow = progressBetween(scrollProgress, 0, 0.05)
+  const stickyOpacity = 1 // Always fully visible
+  const entryShift = 0 // No vertical shift
 
   return (
     <div

@@ -6,31 +6,35 @@ import { Zap, Shield, Users, TrendingUp, Clock, Award } from 'lucide-react'
 
 const reasons = [
   {
-    icon: Zap,
-    title: 'AI-Drevet',
-    stat: '50%',
-    statLabel: 'hurtigere',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80'
-  },
-  {
     icon: Shield,
-    title: 'Fast Pris',
-    stat: '100%',
-    statLabel: 'transparent',
+    title: 'Transparente aftaler',
+    stat: '01',
+    statLabel: '',
+    description: 'Vi siger tingene, som de er. Du får fuldt indblik i processer, deadlines og hvad du kan forvente — uden overraskelser undervejs.',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80'
   },
   {
-    icon: TrendingUp,
-    title: 'Performance',
-    stat: '90+',
-    statLabel: 'lighthouse',
+    icon: Zap,
+    title: 'High-end design',
+    stat: '02',
+    statLabel: '',
+    description: 'Dit website skal afspejle din kvalitet, dit brand og dine værdier. Vi designer unikt — aldrig "templates med makeup".',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80'
+  },
+  {
+    icon: Award,
+    title: 'Design der føles som dig',
+    stat: '03',
+    statLabel: '',
+    description: 'Personligt, professionelt og ægte. Ingen generisk løsninger — kun design der matcher din identitet.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
   },
   {
     icon: Clock,
-    title: 'Levering',
-    stat: '15',
-    statLabel: 'dage',
+    title: 'Levering til tiden',
+    stat: '04',
+    statLabel: '',
+    description: 'Du skal kunne stole på os. Derfor arbejder vi struktureret, følger en fast projektmodel og leverer, når vi siger, vi gør.',
     image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80'
   }
 ]
@@ -54,25 +58,35 @@ export function WhyUsSection() {
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             >
               <span className="text-gold text-sm font-bold uppercase tracking-[0.3em] mb-8 block">
-                Hvorfor os
+                Hvorfor Transparo
               </span>
 
-              <h2 className="text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-bold leading-[0.85] tracking-tighter">
-                Derfor
+              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
+                Fordi du
                 <br />
-                Vælger
+                fortjener et
                 <br />
-                <span className="text-gold">SMV&apos;er</span>
+                <span className="text-gold">webbureau,</span>
                 <br />
-                Os
+                der spiller med
+                <br />
+                åbne kort.
               </h2>
 
               {/* Decorative line */}
-              <div className="mt-12 w-24 h-1 bg-gold" />
+              <div className="w-24 h-1 bg-gold mb-8" />
 
-              <p className="mt-8 text-white/50 text-lg max-w-md leading-relaxed">
-                Få en professionel hjemmeside der konverterer besøgende til kunder - uden at vente måneder eller betale formuer.
-              </p>
+              <div className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed space-y-6">
+                <p>
+                  Du har sikkert prøvet det før: Et projekt starter fint, men pludselig stiger prisen, deadlines rykker sig, og du ender med et site, der ikke helt rammer det, du så for dig.
+                </p>
+                <p className="text-white/90 font-medium">
+                  Det er præcis det, vi vil væk fra.
+                </p>
+                <p>
+                  Hos Transparo arbejder vi efter én grundregel: <span className="text-gold font-semibold">Tillid først. Design dernæst.</span>
+                </p>
+              </div>
             </motion.div>
 
             {/* Background number */}
@@ -120,20 +134,24 @@ export function WhyUsSection() {
                         <Icon className="w-5 h-5 text-white group-hover:text-black transition-colors" strokeWidth={2} />
                       </div>
 
-                      {/* Stat */}
-                      <div className="mb-2">
-                        <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold">
+                      {/* Number */}
+                      <div className="mb-3">
+                        <span className="text-3xl md:text-4xl font-bold text-gold/60">
                           {reason.stat}
-                        </span>
-                        <span className="text-white/60 text-sm ml-2">
-                          {reason.statLabel}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-xl md:text-2xl font-bold text-white">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
                         {reason.title}
                       </h3>
+
+                      {/* Description - only visible on larger cards */}
+                      {isLarge && reason.description && (
+                        <p className="text-sm md:text-base text-white/70 leading-relaxed">
+                          {reason.description}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -142,7 +160,7 @@ export function WhyUsSection() {
           </div>
         </div>
 
-        {/* Bottom Stats Bar */}
+        {/* Bottom - What This Means */}
         <motion.div
           className="mt-24 pt-12 border-t border-white/10"
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
@@ -150,22 +168,23 @@ export function WhyUsSection() {
           viewport={{ once: true }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.4 }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-gold">100+</div>
-              <div className="text-white/40 text-sm mt-1">Projekter</div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">Det betyder:</h3>
+          <div className="grid md:grid-cols-2 gap-6 text-white/70">
+            <div className="flex gap-3">
+              <span className="text-gold">—</span>
+              <p>Fast proces, faste aftaler</p>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-gold">98%</div>
-              <div className="text-white/40 text-sm mt-1">Tilfredse kunder</div>
+            <div className="flex gap-3">
+              <span className="text-gold">—</span>
+              <p>Klarhed om pris og omfang fra dag ét</p>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-gold">15</div>
-              <div className="text-white/40 text-sm mt-1">Dages levering</div>
+            <div className="flex gap-3">
+              <span className="text-gold">—</span>
+              <p>Et team, der faktisk lytter</p>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-gold">24/7</div>
-              <div className="text-white/40 text-sm mt-1">Support</div>
+            <div className="flex gap-3">
+              <span className="text-gold">—</span>
+              <p>Løsninger der holder — også om to år</p>
             </div>
           </div>
         </motion.div>

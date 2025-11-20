@@ -66,33 +66,22 @@ export function CTASection() {
           viewport={{ once: true, margin: '-100px' }}
           className="space-y-8 sm:space-y-10 md:space-y-12"
         >
-          {/* Overline */}
-          <motion.p
-            variants={fadeInVariants}
-            transition={transition}
-            className="text-sm md:text-base tracking-[0.3em] uppercase text-gray-400 font-light"
-          >
-            Stop med at tabe kunder til konkurrenterne
-          </motion.p>
-
           {/* Main heading - Centered, elegant serif-style */}
           <motion.h2
             variants={fadeInVariants}
             transition={{ ...transition, delay: shouldReduceMotion ? 0 : 0.2 }}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-tight italic"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white leading-tight mb-6"
           >
-            Din nye
+            Website der skaber tillid og konverterer
             <br />
-            <span className="text-[#c9a961]">hjemmeside</span>
-            <br />
-            venter
+            <span className="text-[#c9a961]">– fra første klik</span>
           </motion.h2>
 
-          {/* CTA Button - Bordered style */}
+          {/* CTA Buttons - Two options */}
           <motion.div
             variants={fadeInVariants}
             transition={{ ...transition, delay: shouldReduceMotion ? 0 : 0.4 }}
-            className="pt-6"
+            className="pt-6 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
           >
             <motion.div
               whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
@@ -100,9 +89,20 @@ export function CTASection() {
             >
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.2em] uppercase font-medium text-[#c9a961] bg-transparent border-2 border-[#c9a961] rounded-none hover:bg-[#c9a961] hover:text-gray-950 transition-all duration-300"
+                className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.1em] uppercase font-medium text-gray-950 bg-[#c9a961] rounded-full hover:bg-[#d4b366] transition-all duration-300"
               >
-                Få gratis konsultation
+                Lad os tale sammen
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            >
+              <Link
+                href="/cases"
+                className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.1em] uppercase font-medium text-[#c9a961] bg-transparent border-2 border-[#c9a961] rounded-full hover:bg-[#c9a961] hover:text-gray-950 transition-all duration-300"
+              >
+                Se vores arbejde
               </Link>
             </motion.div>
           </motion.div>

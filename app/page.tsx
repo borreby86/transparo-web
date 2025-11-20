@@ -16,12 +16,12 @@ const CTASection = dynamic(() => import('@/components/sections/CTASection').then
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then((mod) => mod.FAQSection))
 
 export const metadata: Metadata = {
-  title: 'Transparo - Professionelt Webdesign til Små Virksomheder | Fast Pris',
-  description: 'Professionelle websites til danske små virksomheder. Fast pris fra 8.995 DKK, levering på 10-28 dage, ingen scope creep. Book et gratis møde i dag.',
-  keywords: ['webdesign', 'Danmark', 'små virksomheder', 'fast pris', 'website udvikling', 'professionelt webdesign'],
+  title: 'Transparo - Webdesign uden Overraskelser | Unique Designs. Built on Trust.',
+  description: 'Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger — bygget på tillid.',
+  keywords: ['webdesign', 'Danmark', 'små virksomheder', 'fast pris', 'website udvikling', 'professionelt webdesign', 'transparens', 'tillid'],
   openGraph: {
-    title: 'Transparo - Professionelt Webdesign med Fast Pris',
-    description: 'Vi bygger professionelle websites til små virksomheder med fast pris og levering på 10-28 dage.',
+    title: 'Transparo - Webdesign uden Overraskelser',
+    description: 'High-end websites bygget på tillid. Ingen overraskelser, kun resultater.',
     type: 'website',
     locale: 'da_DK',
   },
