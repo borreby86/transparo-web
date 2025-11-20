@@ -207,7 +207,7 @@ export function HeroSection() {
 
                 <motion.a
                   href="/cases"
-                  className="group relative px-10 py-5 border-2 border-navy text-navy rounded-full font-bold text-lg hover:bg-navy hover:text-white hover:shadow-lg hover:shadow-navy/20 transition-all duration-300 backdrop-blur-sm"
+                  className="group relative px-10 py-5 bg-white border-2 border-white text-navy rounded-full font-bold text-lg hover:bg-navy hover:border-navy hover:text-white hover:shadow-lg hover:shadow-navy/30 transition-all duration-300"
                   whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
                   whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
                 >
