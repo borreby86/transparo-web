@@ -31,6 +31,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'serif'],
       },
       fontSize: {
         'display-lg': ['3.5rem', { lineHeight: '1.1', fontWeight: '700' }],

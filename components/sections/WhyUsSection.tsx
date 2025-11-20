@@ -89,14 +89,14 @@ export function WhyUsSection() {
               </div>
             </motion.div>
 
-            {/* Background number */}
-            <div className="absolute -top-20 -left-10 text-[30vw] lg:text-[20vw] font-bold text-white/[0.02] leading-none pointer-events-none select-none">
-              06
-            </div>
           </div>
 
           {/* Right - Bento Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 relative">
+            {/* Background number - positioned near 04 card */}
+            <div className="absolute bottom-0 right-0 text-[7.84vw] lg:text-[4.9vw] font-bold text-white/[0.06] leading-none pointer-events-none select-none z-0">
+              2025
+            </div>
             {reasons.map((reason, index) => {
               const Icon = reason.icon
               const isLarge = index === 0 || index === 3

@@ -121,7 +121,7 @@ export function FAQSection() {
 
   return (
     <section
-      className="relative w-full min-h-screen overflow-hidden bg-white px-4 py-12 sm:px-8 sm:py-20 md:px-16"
+      className="relative w-full min-h-screen overflow-hidden bg-white px-4 py-24 sm:px-8 sm:py-32 md:px-16"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -249,9 +249,8 @@ export function FAQSection() {
                       ease: [0.25, 0.1, 0.25, 1]
                     }
                   }}
-                  className={`h-[450px] flex-shrink-0 rounded-2xl p-6 shadow-lg sm:h-[480px] sm:p-8 md:h-[500px] md:p-10 ${
-                    isActive ? 'text-white' : 'text-navy'
-                  }`}
+                  className={`h-[450px] flex-shrink-0 rounded-2xl p-6 shadow-lg sm:h-[480px] sm:p-8 md:h-[500px] md:p-10 ${isActive ? 'text-white' : 'text-navy'
+                    }`}
                   style={{
                     filter: isActive ? 'none' : 'brightness(0.97)'
                   }}
@@ -328,9 +327,8 @@ export function FAQSection() {
               onClick={() => setActiveIndex(index)}
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.9 }}
-              className={`h-1.5 rounded-full transition-all sm:h-2 ${
-                index === activeIndex ? 'w-6 bg-gold sm:w-8' : 'w-1.5 bg-navy/30 sm:w-2'
-              }`}
+              className={`h-1.5 rounded-full transition-all sm:h-2 ${index === activeIndex ? 'w-6 bg-gold sm:w-8' : 'w-1.5 bg-navy/30 sm:w-2'
+                }`}
               aria-label={`Gå til spørgsmål ${index + 1}`}
             />
           ))}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { ClientProviders } from '@/components/ClientProviders'
 import { CookieBanner } from '@/components/ui/CookieBanner'
@@ -11,6 +11,13 @@ const inter = Inter({
   weight: ['400', '600', '700'],
   preload: true,
   adjustFontFallback: true, // Automatically match fallback font metrics
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+  weight: ['400', '600', '700'],
 })
 
 const baseUrl = 'https://transparo.dk'
@@ -155,7 +162,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="da" className={inter.variable}>
+    <html lang="da" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

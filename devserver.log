@@ -1,0 +1,121 @@
+
+> transparo@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by process 2960, using available port 3001 instead.
+   ▲ Next.js 15.5.6 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://172.22.240.1:3001
+   - Experiments (use with caution):
+     ⨯ reactCompiler
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 1099ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.4s
+ GET / 200 in 3915ms
+ GET / 200 in 258ms
+ ✓ Compiled /icon in 200ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 598ms
+ ✓ Compiled in 99ms
+ ✓ Compiled in 105ms
+ ✓ Compiled in 60ms
+ ✓ Compiled in 79ms
+ ✓ Compiled in 109ms
+ ✓ Compiled / in 70ms
+ GET / 200 in 198ms
+ ✓ Compiled in 92ms
+ ✓ Compiled in 69ms
+ ✓ Compiled in 57ms
+ ✓ Compiled in 82ms
+ ✓ Compiled in 85ms
+ ✓ Compiled in 77ms
+ ✓ Compiled / in 47ms
+ GET / 200 in 181ms
+ GET / 200 in 388ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 310ms
+ GET / 200 in 225ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 286ms
+ GET / 200 in 235ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 304ms
+ ✓ Compiled in 135ms
+ GET / 200 in 439ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 297ms
+ ✓ Compiled in 93ms
+ ✓ Compiled in 137ms
+ ✓ Compiled in 117ms
+ ✓ Compiled in 162ms
+ ✓ Compiled in 119ms
+ GET / 200 in 450ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 285ms
+ ✓ Compiled in 86ms
+ ✓ Compiled in 71ms
+ ✓ Compiled in 85ms
+ ✓ Compiled /om-os in 429ms
+ GET /om-os 200 in 518ms
+ GET /om-os 200 in 95ms
+ GET /om-os 200 in 190ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 301ms
+ GET /om-os 200 in 162ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 286ms
+ ✓ Compiled /proces in 435ms
+ GET /proces 200 in 506ms
+ ✓ Compiled in 68ms
+ GET / 200 in 207ms
+ ✓ Compiled in 84ms
+ ✓ Compiled in 69ms
+ GET /om-os 200 in 156ms
+ GET / 200 in 112ms
+ GET / 200 in 376ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 282ms
+ ✓ Compiled in 87ms
+ GET / 200 in 478ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 299ms
+ ✓ Compiled in 137ms
+ ✓ Compiled in 83ms
+ ✓ Compiled in 123ms
+ ✓ Compiled in 82ms
+ ✓ Compiled in 70ms
+ ✓ Compiled in 77ms
+ ✓ Compiled in 165ms
+ ✓ Compiled in 108ms
+Image with src "/Hero img.jpg" is using quality "90" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+ GET / 200 in 472ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 288ms
+ ✓ Compiled in 239ms
+ ✓ Compiled in 694ms
+ ✓ Compiled / in 119ms
+Image with src "/Hero img.jpg" is using quality "90" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+ GET / 200 in 685ms
+ GET / 200 in 669ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 281ms
+ ✓ Compiled in 99ms
+ ✓ Compiled / in 52ms
+ GET / 200 in 191ms
+ GET / 200 in 110ms
+ GET / 200 in 101ms
+ GET /icon?c5a4c16c2f61c4e9 200 in 285ms
+ ✓ Compiled in 1629ms
+ ✓ Compiled in 653ms
+ ✓ Compiled / in 54ms
+Image with src "/Hero img.jpg" is using quality "90" which is not configured in images.qualities. This config will be required starting in Next.js 16.
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+ GET / 200 in 491ms
+ ✓ Compiled in 123ms
+ ✓ Compiled in 100ms
+ ✓ Compiled in 104ms
+ ✓ Compiled in 140ms
+ ✓ Compiled in 97ms
+ ✓ Compiled in 147ms
+ ✓ Compiled in 111ms
+ ✓ Compiled in 62ms
+ ✓ Compiled in 82ms
+ ✓ Compiled / in 55ms
+ GET / 200 in 209ms
+ ✓ Compiled in 73ms
+ ✓ Compiled in 116ms
+ ✓ Compiled in 84ms
+ ✓ Compiled in 122ms
