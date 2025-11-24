@@ -225,39 +225,6 @@ export function NewPackagesSection() {
           </p>
         </motion.div>
 
-        {/* Add-ons section */}
-        <motion.div
-          className="mt-20 sm:mt-24 pt-20 sm:pt-24 border-t border-gray-200"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy text-center mb-10 sm:mb-12">
-            Tilkøb & Ekstra Services
-          </h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { name: 'Ekstra sider', price: '1.495 kr/side' },
-              { name: 'E-mail opsætning', price: '2.995 kr' },
-              { name: 'Copywriting', price: 'Fra 3.995 kr' },
-              { name: 'Fotografi', price: 'Fra 4.995 kr' }
-            ].map((addon, i) => (
-              <motion.div
-                key={i}
-                className="text-center p-6 sm:p-8 bg-offwhite rounded-2xl"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <h4 className="font-semibold text-navy mb-2">{addon.name}</h4>
-                <p className="text-2xl text-gold font-bold">{addon.price}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

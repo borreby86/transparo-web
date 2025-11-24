@@ -96,6 +96,18 @@ export const caseStudies: CaseStudy[] = [
     author: 'Thomas Kjeldsen',
     role: 'Formand, VAT 85',
   },
+  {
+    id: 7,
+    title: 'Klimakurt - Grøn energi til alle',
+    subtitle: 'Bæredygtige løsninger for en grønnere fremtid',
+    imageUrl: '/portfolio-images/Klimakurt.png',
+    slug: 'klimakurt',
+    labels: ['Branding', 'Website'],
+    quote:
+      'Transparo hjalp os med at formidle vores grønne budskab klart og tydeligt. En fornøjelse at arbejde sammen med.',
+    author: 'Kurt Jensen',
+    role: 'Direktør, Klimakurt',
+  },
 ]
 
 export const caseStudiesDetailed: CaseStudyDetail[] = [
@@ -295,6 +307,38 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'Program-CMS',
       'Nyhedsbrev-integration',
       'Social media integration',
+    ],
+  },
+  {
+    ...caseStudies[6],
+    challenge:
+      'Klimakurt ønskede at nå ud til flere kunder med deres grønne energiløsninger. Udfordringen var at gøre teknisk viden letforståelig for den almindelige forbruger.',
+    solution:
+      'Vi udviklede en informativ og indbydende hjemmeside, der guider kunden gennem deres grønne muligheder. Fokus på klare Call-to-Actions og troværdighed.',
+    results: [
+      {
+        metric: 'Leads',
+        value: '+200%',
+        description: 'Stigning i henvendelser',
+      },
+      {
+        metric: 'Konvertering',
+        value: '5.2%',
+        description: 'Besøgende til lead',
+      },
+      {
+        metric: 'CO2-besparelse',
+        value: '100t',
+        description: 'Estimeret årlig besparelse for kunder',
+      },
+    ],
+    technologies: ['Next.js', 'Tailwind CSS', 'Motion', 'SEO'],
+    timeline: '4 uger',
+    deliverables: [
+      'Hjemmeside',
+      'SEO-optimering',
+      'Tekstforfatning',
+      'Grafisk identitet',
     ],
   },
 ]

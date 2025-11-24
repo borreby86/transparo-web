@@ -11,7 +11,7 @@ const reasons = [
     stat: '01',
     statLabel: '',
     description: 'Vi siger tingene, som de er. Du får fuldt indblik i processer, deadlines og hvad du kan forvente — uden overraskelser undervejs.',
-    image: '/images/unsplash/why-us-1.webp'
+    image: '/images/why-us/why-us-1.jpg'
   },
   {
     icon: Zap,
@@ -19,7 +19,7 @@ const reasons = [
     stat: '02',
     statLabel: '',
     description: 'Dit website skal afspejle din kvalitet, dit brand og dine værdier. Vi designer unikt — aldrig "templates med makeup".',
-    image: '/images/unsplash/why-us-2.webp'
+    image: '/images/why-us/why-us-2.jpg'
   },
   {
     icon: Award,
@@ -27,7 +27,7 @@ const reasons = [
     stat: '03',
     statLabel: '',
     description: 'Personligt, professionelt og ægte. Ingen generisk løsninger — kun design der matcher din identitet.',
-    image: '/images/unsplash/why-us-3.webp'
+    image: '/images/why-us/why-us-3.jpg'
   },
   {
     icon: Clock,
@@ -35,7 +35,7 @@ const reasons = [
     stat: '04',
     statLabel: '',
     description: 'Du skal kunne stole på os. Derfor arbejder vi struktureret, følger en fast projektmodel og leverer, når vi siger, vi gør.',
-    image: '/images/unsplash/why-us-4.webp'
+    image: '/images/why-us/why-us-4.jpg'
   }
 ]
 
@@ -104,17 +104,15 @@ export function WhyUsSection() {
               return (
                 <motion.div
                   key={index}
-                  className={`relative group cursor-pointer ${
-                    isLarge ? 'row-span-2' : ''
-                  }`}
+                  className={`relative group cursor-pointer ${isLarge ? 'row-span-2' : ''
+                    }`}
                   initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
                 >
-                  <div className={`relative overflow-hidden rounded-2xl ${
-                    isLarge ? 'h-[400px] md:h-[450px] laptop:h-[420px] laptop-l:h-[480px] xl:h-[500px]' : 'h-[190px] md:h-[220px] laptop:h-[200px] laptop-l:h-[230px] xl:h-[240px]'
-                  }`}>
+                  <div className={`relative overflow-hidden rounded-2xl ${isLarge ? 'h-[400px] md:h-[450px] laptop:h-[420px] laptop-l:h-[480px] xl:h-[500px]' : 'h-[190px] md:h-[220px] laptop:h-[200px] laptop-l:h-[230px] xl:h-[240px]'
+                    }`}>
                     {/* Image */}
                     <Image
                       src={reason.image}

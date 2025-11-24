@@ -57,7 +57,7 @@ export function HeroSection() {
           src="/hero-optimized.webp"
           alt="Transparo workspace"
           fill
-          className="object-cover"
+          className="object-cover blur-sm"
           priority
           quality={80}
           sizes="100vw"
@@ -179,7 +179,7 @@ export function HeroSection() {
                   <div className="absolute -right-4 top-0 w-1 h-full bg-gradient-to-b from-gold to-transparent opacity-50" />
 
                   <p className="text-lg sm:text-xl laptop:text-xl laptop-l:text-2xl text-white/90 leading-relaxed font-medium px-4 drop-shadow-lg">
-                    High-end webdesign bygget på fuld transparens. <span className="text-gold font-semibold">Ingen skjulte omkostninger,</span> <span className="text-gold font-semibold">ingen scope creep,</span> <span className="text-gold font-semibold">ingen bullshit.</span> Kun resultater du kan måle.
+                    High-end webdesign bygget på fuld transparens. <span className="text-white font-bold">Ingen skjulte omkostninger,</span> <span className="text-white font-bold">ingen scope creep,</span> <span className="text-white font-bold">ingen bullshit.</span> Kun resultater du kan måle.
                   </p>
                 </div>
               </motion.div>
