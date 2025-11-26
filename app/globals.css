@@ -46,14 +46,18 @@
     content-visibility: auto;
   }
 
+  /* H1/H2 use Playfair Display (serif) for authority and premium feel */
   h1,
-  h2,
+  h2 {
+    @apply font-serif font-bold;
+    contain: layout;
+  }
+
   h3,
   h4,
   h5,
   h6 {
     @apply font-sans font-bold;
-    /* Reserve space for headings to prevent layout shift */
     contain: layout;
   }
 }

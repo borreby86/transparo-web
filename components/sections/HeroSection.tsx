@@ -142,7 +142,7 @@ export function HeroSection() {
             <div className="w-full max-w-[1800px] mx-auto text-center">
               {/* Main Headline */}
               <motion.div
-                className="mb-6 md:mb-8"
+                className="mb-10 md:mb-14"
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -151,20 +151,20 @@ export function HeroSection() {
                   ease: [0.16, 1, 0.3, 1]
                 }}
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl laptop:text-6xl laptop-l:text-7xl xl:text-8xl font-bold leading-[1.1] max-w-6xl mx-auto">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl laptop:text-7xl laptop-l:text-8xl xl:text-[9rem] font-bold leading-[1.05] max-w-6xl mx-auto">
                   <span className="text-white drop-shadow-2xl">
-                    Professionelle websites der konverterer.
+                    Professionelle websites.
                   </span>
                   <br />
                   <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent drop-shadow-2xl">
-                    Klare priser. Fast timing.
+                    Klare aftaler.
                   </span>
                 </h1>
               </motion.div>
 
               {/* Subtitle */}
               <motion.div
-                className="mb-12 md:mb-16"
+                className="mb-16 md:mb-24"
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -173,20 +173,14 @@ export function HeroSection() {
                   ease: [0.16, 1, 0.3, 1]
                 }}
               >
-                <div className="relative max-w-4xl mx-auto">
-                  {/* Decorative accent */}
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-gold to-transparent opacity-50" />
-                  <div className="absolute -right-4 top-0 w-1 h-full bg-gradient-to-b from-gold to-transparent opacity-50" />
-
-                  <p className="text-lg sm:text-xl laptop:text-xl laptop-l:text-2xl text-white/90 leading-relaxed font-medium px-4 drop-shadow-lg">
-                    High-end webdesign bygget på fuld transparens. <span className="text-white font-bold">Ingen skjulte omkostninger,</span> <span className="text-white font-bold">ingen scope creep,</span> <span className="text-white font-bold">ingen bullshit.</span> Kun resultater du kan måle.
-                  </p>
-                </div>
+                <p className="text-lg sm:text-xl laptop:text-xl laptop-l:text-2xl text-white/80 leading-relaxed font-medium max-w-2xl mx-auto drop-shadow-lg">
+                  Webdesign bygget på tillid og transparens.
+                </p>
               </motion.div>
 
               {/* CTA Buttons */}
               <motion.div
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+                className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8"
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{

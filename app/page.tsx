@@ -1,32 +1,23 @@
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
 
 // Lazy load all sections below the fold for optimal performance
-const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection').then((mod) => mod.WhyUsSection), {
-  loading: () => <div className="h-screen bg-black" />
-})
-
-const NewPackagesSection = dynamic(() => import('@/components/sections/NewPackagesSection').then((mod) => mod.NewPackagesSection), {
-  loading: () => <div className="h-screen bg-offwhite" />
-})
-
-const CTASection = dynamic(() => import('@/components/sections/CTASection').then((mod) => mod.CTASection), {
-  loading: () => <div className="h-screen bg-navy" />
-})
-
-const SocialProofSection = dynamic(() => import('@/components/sections/SocialProofSection').then((mod) => mod.SocialProofSection), {
-  loading: () => <div className="h-96 bg-offwhite" />
-})
-
 const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection').then((mod) => mod.PortfolioSection), {
   loading: () => <div className="h-96 bg-white" />
 })
 
-const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then((mod) => mod.FAQSection), {
+const PremiumProcessTimeline = dynamic(() => import('@/components/sections/PremiumProcessTimeline').then((mod) => mod.PremiumProcessTimeline), {
+  loading: () => <div className="h-screen bg-navy" />
+})
+
+const InvestmentSection = dynamic(() => import('@/components/sections/InvestmentSection').then((mod) => mod.InvestmentSection), {
+  loading: () => <div className="h-96 bg-navy" />
+})
+
+const AboutContactSection = dynamic(() => import('@/components/sections/AboutContactSection').then((mod) => mod.AboutContactSection), {
   loading: () => <div className="h-96 bg-offwhite" />
 })
 
@@ -48,12 +39,10 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <WhyUsSection />
-        <NewPackagesSection />
-        <CTASection />
-        <SocialProofSection />
         <PortfolioSection />
-        <FAQSection />
+        <PremiumProcessTimeline />
+        <InvestmentSection />
+        <AboutContactSection />
       </main>
       <Footer />
     </>

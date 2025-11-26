@@ -6,7 +6,7 @@ import { caseStudiesDetailed } from '@/data/caseStudies'
 
 export function PortfolioSection() {
   return (
-    <section className="relative w-full bg-white py-24 overflow-hidden">
+    <section className="relative w-full bg-white py-32 md:py-40 overflow-hidden">
       {/* CSS for seamless infinite scroll */}
       <style jsx global>{`
         @keyframes marquee-scroll {
