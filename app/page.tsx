@@ -9,8 +9,12 @@ const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSe
   loading: () => <div className="h-96 bg-white" />
 })
 
+const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection').then((mod) => mod.WhyUsSection), {
+  loading: () => <div className="h-96 bg-black" />
+})
+
 const PremiumProcessTimeline = dynamic(() => import('@/components/sections/PremiumProcessTimeline').then((mod) => mod.PremiumProcessTimeline), {
-  loading: () => <div className="h-screen bg-navy" />
+  loading: () => <div className="h-screen bg-white" />
 })
 
 const InvestmentSection = dynamic(() => import('@/components/sections/InvestmentSection').then((mod) => mod.InvestmentSection), {
@@ -40,6 +44,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <PortfolioSection />
+        <WhyUsSection />
         <PremiumProcessTimeline />
         <InvestmentSection />
         <AboutContactSection />

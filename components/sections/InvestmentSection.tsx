@@ -1,124 +1,219 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export function InvestmentSection() {
   const shouldReduceMotion = useReducedMotion()
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  })
+
+  // Progressive reveal transforms
+  const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0])
+  const y1 = useTransform(scrollYProgress, [0, 0.25], ['0%', '-20%'])
+
+  const opacity2 = useTransform(scrollYProgress, [0.2, 0.35, 0.5], [0, 1, 0])
+  const scale2 = useTransform(scrollYProgress, [0.2, 0.35], [0.8, 1])
+
+  const opacity3 = useTransform(scrollYProgress, [0.45, 0.6, 0.75], [0, 1, 0])
+  const scale3 = useTransform(scrollYProgress, [0.45, 0.6], [0.8, 1])
+
+  const opacity4 = useTransform(scrollYProgress, [0.7, 0.85], [0, 1])
+  const scale4 = useTransform(scrollYProgress, [0.7, 0.85], [0.9, 1])
+  const y4 = useTransform(scrollYProgress, [0.7, 0.85], ['30px', '0px'])
 
   return (
-    <section className="relative py-32 md:py-48 bg-navy overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Large gradient orbs */}
+    <section ref={containerRef} className="relative h-[400vh] bg-navy">
+      {/* Sticky container */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy to-black" />
+
+        {/* Animated background elements */}
         <motion.div
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-gold/5 blur-[150px]"
           animate={shouldReduceMotion ? {} : {
             scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1],
+            x: [0, 50, 0],
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-gold/20 rounded-full blur-[120px]"
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-white/5 blur-[120px]"
           animate={shouldReduceMotion ? {} : {
             scale: [1.2, 1, 1.2],
-            opacity: [0.08, 0.12, 0.08],
+            x: [0, -30, 0],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-40 -left-40 w-[700px] h-[700px] bg-gold/10 rounded-full blur-[150px]"
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Grid pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
-          }}
-        />
-      </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12">
-        {/* Main content */}
+        {/* Screen 1: The Hook */}
         <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{
-            duration: shouldReduceMotion ? 0 : 1.2,
-            ease: [0.16, 1, 0.3, 1]
+          style={{
+            opacity: shouldReduceMotion ? 1 : opacity1,
+            y: shouldReduceMotion ? 0 : y1
           }}
-          className="text-center mb-16"
+          className="absolute inset-0 flex items-center justify-center px-6"
         >
-          {/* Quote */}
-          <motion.p
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.1 }}
-            className="text-gold/80 text-lg md:text-xl italic mb-8 max-w-2xl mx-auto"
-          >
-            "You only have one chance to make a first impression"
-          </motion.p>
-
-          {/* Eyebrow label */}
-          <motion.span
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 text-gold text-sm font-bold uppercase tracking-[0.3em] mb-6"
-          >
-            <Sparkles className="w-4 h-4" />
-            Din Investering
-            <Sparkles className="w-4 h-4" />
-          </motion.span>
-
-          {/* Main price statement */}
-          <h2 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-6 leading-[0.9]">
-            Fra{' '}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
-                DKK 12.000
-              </span>
-              {/* Underline decoration */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: shouldReduceMotion ? 0 : 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-gold/50 via-gold to-gold/50 origin-left rounded-full"
-              />
-            </span>
-          </h2>
-
-          {/* Supporting text */}
-          <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 leading-relaxed">
-            En hjemmeside er dit ansigt udadtil. En investering i dit brand og i din digitale fremtid.
-          </p>
+          <div className="text-center max-w-5xl">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-gold/80 text-lg md:text-xl mb-8 tracking-wide"
+            >
+              Tænk over det...
+            </motion.p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight">
+              Dit website er det første,{' '}
+              <br className="hidden md:block" />
+              dine kunder ser.
+            </h2>
+          </div>
         </motion.div>
 
-        {/* CTA */}
+        {/* Screen 2: The Problem */}
         <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.5 }}
-          className="text-center"
+          style={{
+            opacity: shouldReduceMotion ? 0 : opacity2,
+            scale: shouldReduceMotion ? 1 : scale2
+          }}
+          className="absolute inset-0 flex items-center justify-center px-6"
+        >
+          <div className="text-center max-w-5xl">
+            <p className="text-white/40 text-lg md:text-xl mb-8 tracking-wide">
+              Og alligevel...
+            </p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-8">
+              De fleste websites ser{' '}
+              <span className="text-white/30">ens ud.</span>
+            </h2>
+            <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto">
+              Kedelige templates. Generiske løsninger. Ingen personlighed.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Screen 3: The Solution */}
+        <motion.div
+          style={{
+            opacity: shouldReduceMotion ? 0 : opacity3,
+            scale: shouldReduceMotion ? 1 : scale3
+          }}
+          className="absolute inset-0 flex items-center justify-center px-6"
+        >
+          <div className="text-center max-w-5xl">
+            <p className="text-gold text-lg md:text-xl mb-8 tracking-wide uppercase tracking-[0.2em]">
+              Det ændrer vi
+            </p>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight mb-8">
+              Dit brand.{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-400 to-gold">
+                Dit design.
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto">
+              100% skræddersyet. Ingen templates. Ingen kompromiser.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Screen 4: The Price Reveal */}
+        <motion.div
+          style={{
+            opacity: shouldReduceMotion ? 0 : opacity4,
+            scale: shouldReduceMotion ? 1 : scale4,
+            y: shouldReduceMotion ? 0 : y4
+          }}
+          className="absolute inset-0 flex items-center justify-center px-6"
+        >
+          <div className="text-center max-w-5xl">
+            <motion.span
+              className="inline-block text-gold text-sm md:text-base font-bold uppercase tracking-[0.3em] mb-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Din Investering
+            </motion.span>
+
+            <div className="relative mb-8">
+              {/* Large background number */}
+              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[20vw] font-bold text-white/[0.03] select-none pointer-events-none">
+                12K
+              </span>
+
+              <h2 className="relative text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-[0.9]">
+                <span className="text-white">Fra </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-300 to-gold">
+                  12.000,-
+                </span>
+              </h2>
+            </div>
+
+            <p className="text-xl md:text-2xl text-white/50 max-w-xl mx-auto mb-12">
+              Fast pris. Ingen skjulte gebyrer.
+              <br />
+              Fuld ejerskab fra dag ét.
+            </p>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <Link
+                href="/pakker"
+                className="group inline-flex items-center gap-4 px-10 py-5 bg-white text-navy rounded-full font-bold text-lg hover:bg-gold hover:text-white transition-all duration-500 shadow-2xl shadow-white/10"
+              >
+                <span>Se alle pakker</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+
+            {/* Trust indicators */}
+            <motion.div
+              className="mt-16 flex flex-wrap justify-center gap-8 md:gap-12 text-white/30 text-sm"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-400" />
+                <span>Levering på 2-4 uger</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-gold" />
+                <span>2 feedbackrunder inkl.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-white/50" />
+                <span>100% tilfredshedsgaranti</span>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Scroll indicator - only on first screen */}
+        <motion.div
+          style={{ opacity: opacity1 }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2"
         >
           <motion.div
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -3 }}
-            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            animate={shouldReduceMotion ? {} : { y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2 text-white/30"
           >
-            <Link
-              href="/pakker"
-              className="inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-gold via-gold-light to-gold text-navy rounded-full font-bold text-lg shadow-2xl shadow-gold/30 hover:shadow-gold/50 transition-all duration-300"
-            >
-              <span>Se vores pakker</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+            <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
+            <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent" />
           </motion.div>
         </motion.div>
       </div>
