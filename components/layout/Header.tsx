@@ -32,9 +32,7 @@ export function Header() {
   const navigation = [
     { name: 'Forside', href: '/' },
     { name: 'Pakker', href: '/pakker' },
-    { name: 'Sådan Virker Det', href: '/proces' },
     { name: 'Portfolio', href: '/cases' },
-    { name: 'Om Os', href: '/om-os' },
     { name: 'Kontakt', href: '/kontakt' },
   ]
 
@@ -56,7 +54,7 @@ export function Header() {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center justify-center gap-6 laptop:gap-7 laptop-l:gap-8 xl:gap-8 flex-1 mx-8">
-            {navigation.slice(0, 3).map((item) => (
+            {navigation.slice(0, 2).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -69,7 +67,7 @@ export function Header() {
             {/* Spacer for visual balance */}
             <div className="w-8 laptop:w-10 laptop-l:w-10 xl:w-12" />
 
-            {navigation.slice(3).map((item) => (
+            {navigation.slice(2).map((item) => (
               <Link
                 key={item.name}
                 href={item.href}

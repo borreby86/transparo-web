@@ -36,7 +36,7 @@ export function AboutContactSection() {
   }
 
   return (
-    <section ref={containerRef} className="relative min-h-screen overflow-hidden" style={{ backgroundColor: '#1A1A1A' }}>
+    <section ref={containerRef} className="relative overflow-hidden" style={{ backgroundColor: '#1A1A1A' }}>
       {/* Animated background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -67,10 +67,10 @@ export function AboutContactSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-12 py-32 md:py-48">
+      <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-12 py-20 md:py-28 lg:py-32">
         {/* Top section - Big Statement */}
         <motion.div
-          className="mb-24 md:mb-32"
+          className="mb-16 md:mb-20 lg:mb-24"
           style={{ y: shouldReduceMotion ? 0 : textY, opacity: shouldReduceMotion ? 1 : opacity }}
         >
           <motion.div
@@ -85,7 +85,7 @@ export function AboutContactSection() {
               Lad os skabe noget sammen
             </span>
 
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-[1.1] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight">
               Klar til at{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold to-amber-300">
                 starte?
@@ -95,7 +95,7 @@ export function AboutContactSection() {
         </motion.div>
 
         {/* Main content grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left - About content with stats */}
           <motion.div
@@ -103,16 +103,16 @@ export function AboutContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: shouldReduceMotion ? 0 : 1, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-12"
+            className="space-y-8"
           >
             {/* Mission statement */}
             <div className="relative">
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-gold to-gold/0 rounded-full" />
-              <div className="pl-8 space-y-6">
-                <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+              <div className="pl-8 space-y-4">
+                <p className="text-base md:text-lg text-white/80 leading-relaxed">
                   Vi er et nystartet bureau med én mission: at bringe <span className="text-gold font-semibold">transparens og troværdighed</span> tilbage til webbranchen.
                 </p>
-                <p className="text-lg md:text-xl text-white/60 leading-relaxed">
+                <p className="text-base md:text-lg text-white/60 leading-relaxed">
                   Dit website er dit ansigt udadtil. Vi sørger for, at det afspejler din ambition — uden kompromiser.
                 </p>
               </div>
@@ -157,17 +157,17 @@ export function AboutContactSection() {
             className="relative"
           >
             {/* Form card with glass effect */}
-            <div className="relative rounded-[2rem] bg-white p-8 md:p-12 shadow-2xl shadow-black/20">
+            <div className="relative rounded-[2rem] bg-white p-6 md:p-8 lg:p-10 shadow-2xl shadow-black/20">
               {/* Decorative corner accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-gold/10 to-transparent rounded-tr-[2rem]" />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-navy flex items-center justify-center">
-                    <Send className="w-5 h-5 text-gold" />
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-navy flex items-center justify-center">
+                    <Send className="w-4 h-4 text-gold" />
                   </div>
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-navy">
+                    <h3 className="text-xl md:text-2xl font-bold text-navy">
                       Fortæl os om dit projekt
                     </h3>
                     <p className="text-black/50 text-sm">Vi svarer inden for 24 timer</p>
@@ -194,7 +194,7 @@ export function AboutContactSection() {
                     <p className="text-black/60">Vi glæder os til at høre mere om dit projekt.</p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Name & Email row */}
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="relative">
@@ -342,18 +342,6 @@ export function AboutContactSection() {
           </motion.div>
         </div>
 
-        {/* Bottom large text */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: shouldReduceMotion ? 0 : 1.5, delay: 0.5 }}
-          className="mt-32 md:mt-48"
-        >
-          <div className="text-[9vw] md:text-[8vw] font-bold leading-none tracking-tight select-none text-center bg-gradient-to-r from-gold/[0.08] via-white/[0.04] to-gold/[0.08] bg-clip-text text-transparent">
-            TRANSPARO
-          </div>
-        </motion.div>
       </div>
     </section>
   )

@@ -21,6 +21,10 @@ const InvestmentSection = dynamic(() => import('@/components/sections/Investment
   loading: () => <div className="h-96 bg-navy" />
 })
 
+const ProcessFinalCTA = dynamic(() => import('@/components/sections/ProcessFinalCTA').then((mod) => mod.ProcessFinalCTA), {
+  loading: () => <div className="h-96 bg-navy" />
+})
+
 const AboutContactSection = dynamic(() => import('@/components/sections/AboutContactSection').then((mod) => mod.AboutContactSection), {
   loading: () => <div className="h-96 bg-offwhite" />
 })
@@ -47,6 +51,7 @@ export default function HomePage() {
         <WhyUsSection />
         <PremiumProcessTimeline />
         <InvestmentSection />
+        <ProcessFinalCTA />
         <AboutContactSection />
       </main>
       <Footer />

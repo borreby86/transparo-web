@@ -43,7 +43,7 @@ export function WhyUsSection() {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <section className="bg-black text-white py-32 md:py-48 overflow-hidden">
+    <section className="bg-black text-white py-20 md:py-28 lg:py-32 overflow-hidden">
       <div className="max-w-[1800px] mx-auto px-6 md:px-12">
 
         {/* Main Layout - Split screen */}
@@ -61,7 +61,7 @@ export function WhyUsSection() {
                 Hvorfor Transparo
               </span>
 
-              <h2 className="text-5xl md:text-6xl laptop:text-6xl laptop-l:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
+              <h2 className="text-4xl md:text-5xl laptop:text-5xl laptop-l:text-6xl xl:text-7xl font-bold leading-[0.95] tracking-tight mb-6">
                 Fordi du
                 <br />
                 fortjener et
@@ -74,9 +74,9 @@ export function WhyUsSection() {
               </h2>
 
               {/* Decorative line */}
-              <div className="w-24 h-1 bg-gold mb-8" />
+              <div className="w-24 h-1 bg-gold mb-6" />
 
-              <div className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed space-y-6">
+              <div className="text-white/70 text-sm md:text-base laptop:text-base max-w-xl leading-relaxed space-y-4">
                 <p>
                   Du har sikkert prøvet det før: Et projekt starter fint, men pludselig stiger prisen, deadlines rykker sig, og du ender med et site, der ikke helt rammer det, du så for dig.
                 </p>
@@ -111,7 +111,7 @@ export function WhyUsSection() {
                   viewport={{ once: true }}
                   transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
                 >
-                  <div className={`relative overflow-hidden rounded-2xl ${isLarge ? 'h-[400px] md:h-[450px] laptop:h-[420px] laptop-l:h-[480px] xl:h-[500px]' : 'h-[190px] md:h-[220px] laptop:h-[200px] laptop-l:h-[230px] xl:h-[240px]'
+                  <div className={`relative overflow-hidden rounded-2xl ${isLarge ? 'h-[320px] md:h-[360px] laptop:h-[340px] laptop-l:h-[400px] xl:h-[450px]' : 'h-[150px] md:h-[170px] laptop:h-[162px] laptop-l:h-[192px] xl:h-[217px]'
                     }`}>
                     {/* Image */}
                     <Image
@@ -158,34 +158,6 @@ export function WhyUsSection() {
           </div>
         </div>
 
-        {/* Bottom - What This Means */}
-        <motion.div
-          className="mt-24 pt-12 border-t border-white/10"
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.4 }}
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">Det betyder:</h3>
-          <div className="grid md:grid-cols-2 gap-6 text-white/70">
-            <div className="flex gap-3">
-              <span className="text-gold">—</span>
-              <p>Fast proces, faste aftaler</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-gold">—</span>
-              <p>Klarhed om pris og omfang fra dag ét</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-gold">—</span>
-              <p>Et team, der faktisk lytter</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-gold">—</span>
-              <p>Løsninger der holder — også om to år</p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
