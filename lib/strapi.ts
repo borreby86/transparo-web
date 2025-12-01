@@ -37,9 +37,8 @@ export async function fetchStrapi<T>(
 ): Promise<StrapiResult<T>> {
   const url = `${STRAPI_URL}/api${endpoint}`
 
-  const headers: HeadersInit = {
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
-    ...options.headers,
   }
 
   if (STRAPI_TOKEN) {
@@ -48,7 +47,10 @@ export async function fetchStrapi<T>(
 
   const response = await fetch(url, {
     ...options,
-    headers,
+    headers: {
+      ...headers,
+      ...(options.headers as Record<string, string>),
+    },
   })
 
   const data = await response.json()
