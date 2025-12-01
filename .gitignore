@@ -44,8 +44,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# payload
-/media
+# strapi cms
+/cms/node_modules
+/cms/.cache
+/cms/.tmp
+/cms/build
+/cms/dist
+/cms/public/uploads
 
 # development files
 dev.log
