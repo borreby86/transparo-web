@@ -6,10 +6,4 @@ export default ({ env }) => ({
       },
     },
   },
-  i18n: {
-    config: {
-      defaultLocale: 'da',
-      locales: ['da', 'en'],
-    },
-  },
 })
