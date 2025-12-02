@@ -30,14 +30,6 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/pakker"
-                  className="text-black/70 hover:text-gold transition-colors text-sm"
-                >
-                  Pakker & Priser
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/cases"
                   className="text-black/70 hover:text-gold transition-colors text-sm"
                 >

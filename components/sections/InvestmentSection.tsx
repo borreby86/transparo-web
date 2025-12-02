@@ -125,7 +125,7 @@ export function InvestmentSection() {
           </div>
         </motion.div>
 
-        {/* Screen 4: The Price Reveal */}
+        {/* Screen 4: CTA */}
         <motion.div
           style={{
             opacity: shouldReduceMotion ? 0 : opacity4,
@@ -141,27 +141,20 @@ export function InvestmentSection() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
             >
-              Din Investering
+              Klar til at komme i gang?
             </motion.span>
 
             <div className="relative mb-8">
-              {/* Large background number */}
-              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[20vw] font-bold text-white/[0.03] select-none pointer-events-none">
-                12K
-              </span>
-
-              <h2 className="relative text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-[0.9]">
-                <span className="text-white">Fra </span>
+              <h2 className="relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.9]">
+                <span className="text-white">Lad os </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-300 to-gold">
-                  12.000,-
+                  tale sammen.
                 </span>
               </h2>
             </div>
 
             <p className="text-xl md:text-2xl text-white/50 max-w-xl mx-auto mb-12">
-              Fast pris. Ingen skjulte gebyrer.
-              <br />
-              Fuld ejerskab fra dag ét.
+              Book en uforpligtende samtale og hør hvordan vi kan hjælpe dig.
             </p>
 
             {/* CTA */}
@@ -171,10 +164,10 @@ export function InvestmentSection() {
               transition={{ delay: 0.5 }}
             >
               <Link
-                href="/pakker"
+                href="/kontakt"
                 className="group inline-flex items-center gap-4 px-10 py-5 bg-white text-navy rounded-full font-bold text-lg hover:bg-gold hover:text-white transition-all duration-500 shadow-2xl shadow-white/10"
               >
-                <span>Se alle pakker</span>
+                <span>Book et møde</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
@@ -188,11 +181,11 @@ export function InvestmentSection() {
             >
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400" />
-                <span>Levering på 2-4 uger</span>
+                <span>Hurtig levering</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-gold" />
-                <span>2 feedbackrunder inkl.</span>
+                <span>Feedbackrunder inkl.</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-white/50" />

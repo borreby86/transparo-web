@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
 
   const cursorX = useMotionValue(-100)
@@ -72,12 +72,13 @@ export function CustomCursor() {
     <>
       {/* Main cursor dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-gold rounded-full pointer-events-none z-[9999] mix-blend-difference"
+        className="fixed top-0 left-0 w-3 h-3 bg-gold rounded-full pointer-events-none z-[9999]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
           translateX: '-50%',
           translateY: '-50%',
+          boxShadow: '0 0 10px rgba(218, 165, 32, 0.5)',
         }}
         animate={{
           scale: isHovering ? 0 : 1,
@@ -87,7 +88,7 @@ export function CustomCursor() {
 
       {/* Outer ring */}
       <motion.div
-        className="fixed top-0 left-0 border border-gold/30 rounded-full pointer-events-none z-[9998] mix-blend-difference"
+        className="fixed top-0 left-0 border-2 border-gold rounded-full pointer-events-none z-[9998]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -95,9 +96,9 @@ export function CustomCursor() {
           translateY: '-50%',
         }}
         animate={{
-          width: isHovering ? 60 : 32,
-          height: isHovering ? 60 : 32,
-          borderColor: isHovering ? 'rgba(218, 165, 32, 0.8)' : 'rgba(218, 165, 32, 0.3)',
+          width: isHovering ? 60 : 36,
+          height: isHovering ? 60 : 36,
+          borderColor: isHovering ? 'rgba(218, 165, 32, 1)' : 'rgba(218, 165, 32, 0.6)',
           borderWidth: isHovering ? 2 : 1,
         }}
         transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}

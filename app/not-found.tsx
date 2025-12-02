@@ -80,13 +80,6 @@ export default function NotFound() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
-                  href="/pakker"
-                  className="text-gold hover:text-gold/80 transition-colors font-medium"
-                >
-                  Pakker & Priser
-                </Link>
-                <span className="text-black/20">•</span>
-                <Link
                   href="/proces"
                   className="text-gold hover:text-gold/80 transition-colors font-medium"
                 >

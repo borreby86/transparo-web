@@ -140,12 +140,6 @@ export default function CasesPage() {
               >
                 Kontakt Os
               </Link>
-              <Link
-                href="/pakker"
-                className="w-full sm:w-auto bg-white text-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-white/80 transition-all border-2 border-navy/20"
-              >
-                Se Pakker
-              </Link>
             </div>
           </motion.div>
         </div>

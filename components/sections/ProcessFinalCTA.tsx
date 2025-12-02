@@ -115,49 +115,6 @@ export function ProcessFinalCTA() {
             </motion.button>
           </Link>
 
-          <Link href="/pakker" className="w-full sm:w-auto">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="group w-full sm:w-auto px-10 py-5 border-2 border-white/20 text-white font-bold text-lg hover:border-white/40 transition-colors"
-            >
-              <span className="flex items-center justify-center gap-3">
-                Se Vores Pakker
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </motion.button>
-          </Link>
-        </motion.div>
-
-        {/* Benefits */}
-        <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: shouldReduceMotion ? 0 : 1.0,
-            delay: shouldReduceMotion ? 0 : 1.0,
-            ease: [0.16, 1, 0.3, 1]
-          }}
-          className="flex flex-wrap items-center justify-center gap-8 mb-16"
-        >
-          {['Faste priser', '2-4 ugers levering', '7 godkendelsespunkter', 'Premium kvalitet'].map((item, i) => (
-            <motion.div
-              key={i}
-              className="flex items-center gap-2 text-white/60 text-sm font-medium"
-              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: shouldReduceMotion ? 0 : 0.8,
-                delay: shouldReduceMotion ? 0 : 1.2 + i * 0.1,
-                ease: [0.16, 1, 0.3, 1]
-              }}
-            >
-              <div className="w-1.5 h-1.5 bg-gold" />
-              {item}
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Contact info */}

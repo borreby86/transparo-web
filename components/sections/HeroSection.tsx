@@ -109,7 +109,7 @@ export function HeroSection() {
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: "easeInOut" }}
           >
             <motion.h1
-              className="font-display font-black text-black leading-[0.85] tracking-tighter text-6xl sm:text-7xl md:text-8xl laptop:text-9xl laptop-l:text-[10rem] desktop:text-[12rem]"
+              className="font-sans font-bold text-black leading-[0.85] tracking-tighter text-6xl sm:text-7xl md:text-8xl laptop:text-9xl laptop-l:text-[10rem] desktop:text-[12rem]"
               style={{
                 letterSpacing: '-0.04em',
               }}
