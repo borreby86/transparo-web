@@ -32,6 +32,7 @@ export function Header() {
   const navigation = [
     { name: 'Forside', href: '/' },
     { name: 'Portfolio', href: '/cases' },
+    { name: 'Prisberegner', href: '/prisberegner' },
     { name: 'Kontakt', href: '/kontakt' },
   ]
 
