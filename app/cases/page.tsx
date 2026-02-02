@@ -3,147 +3,133 @@
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { caseStudies } from '@/data/caseStudies'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { caseStudiesDetailed } from '@/data/caseStudies'
+import { ArrowRight } from 'lucide-react'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 export default function CasesPage() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-navy px-4 sm:px-6 md:px-8 lg:px-12 py-20 md:py-28 lg:py-32">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6">
-              Vores <span className="text-gold">Portfolio</span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Fra sundhedsplatforme til kreative porteføl jer – se hvordan vi har hjulpet danske virksomheder med at skabe deres digitale tilstedeværelse.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <>
+      <Header />
+      <main className="min-h-screen bg-white">
+        {/* Header */}
+        <section className="pt-40 pb-20 md:pt-48 md:pb-28 px-6 md:px-12">
+          <div className="max-w-[1400px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+            >
+              <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
+                Portfolio
+              </span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-navy leading-[1] tracking-tight mb-6">
+                Vores arbejde
+              </h1>
+              <p className="text-black/50 text-lg md:text-xl max-w-2xl leading-relaxed">
+                Et udvalg af projekter vi har lavet for danske virksomheder.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-      {/* Cases Grid */}
-      <section className="px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
-            {caseStudies.map((study, index) => (
-              <motion.div
-                key={study.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Link href={`/cases/${study.slug}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500">
-                    {/* Image */}
-                    <div className="relative h-64 sm:h-72 md:h-80 overflow-hidden">
-                      <Image
-                        src={study.imageUrl}
-                        alt={study.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        {/* Projects - 50/50 editorial layout */}
+        <section className="px-6 md:px-12 pb-24 md:pb-32">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="space-y-24 md:space-y-32">
+              {caseStudiesDetailed.map((project, index) => {
+                const isReversed = index % 2 !== 0
 
-                      {/* Labels */}
-                      <div className="absolute top-4 left-4 flex gap-2">
-                        {study.labels.map((label, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-navy uppercase tracking-wide"
-                          >
-                            {label}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Case Number */}
-                      <div className="absolute bottom-4 right-4 w-12 h-12 bg-gold rounded-full flex items-center justify-center">
-                        <span className="text-navy font-bold text-sm">
-                          {study.id.toString().padStart(2, '0')}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 md:p-8">
-                      <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-3 group-hover:text-gold transition-colors duration-300">
-                        {study.title}
-                      </h2>
-                      <p className="text-black/70 text-base md:text-lg mb-6 leading-relaxed">
-                        {study.subtitle}
-                      </p>
-
-                      {/* Testimonial Preview */}
-                      <div className="pt-6 border-t border-gray-200">
-                        <p className="text-sm italic text-black/60 mb-3 line-clamp-2">
-                          "{study.quote}"
-                        </p>
-                        <div>
-                          <p className="font-semibold text-navy text-sm">{study.author}</p>
-                          <p className="text-xs text-black/50">{study.role}</p>
+                return (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+                  >
+                    <Link
+                      href={`/cases/${project.slug}`}
+                      className="group grid md:grid-cols-2 gap-8 md:gap-16 items-center"
+                    >
+                      {/* Image */}
+                      <div className={`relative ${isReversed ? 'md:order-2' : ''}`}>
+                        <div className="relative aspect-[4/3] overflow-hidden">
+                          <Image
+                            src={project.imageUrl}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                            sizes="(max-width: 768px) 100vw, 700px"
+                          />
                         </div>
                       </div>
 
-                      {/* CTA */}
-                      <div className="mt-6 flex items-center text-gold font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
-                        Se case studie
-                        <svg
-                          className="w-4 h-4 ml-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+                      {/* Text */}
+                      <div className={`${isReversed ? 'md:order-1' : ''}`}>
+                        <span className="text-gold/30 text-7xl md:text-8xl font-bold leading-none select-none block mb-6">
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
 
-      {/* CTA Section */}
-      <section className="bg-offwhite px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-navy mb-6">
-              Klar til at blive vores næste <span className="text-gold">succeshistorie?</span>
-            </h2>
-            <p className="text-lg md:text-xl text-black/70 mb-8 max-w-2xl mx-auto">
-              Lad os skabe noget ekstraordinært sammen. Book et uforpligtende møde, og lad os tale om dit projekt.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <div className="flex items-center gap-3 mb-4">
+                          {project.labels.map((label) => (
+                            <span key={label} className="text-xs font-medium uppercase tracking-wider text-black/40">
+                              {label}
+                            </span>
+                          ))}
+                        </div>
+
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mb-4 group-hover:text-gold transition-colors duration-300">
+                          {project.title}
+                        </h2>
+
+                        <p className="text-black/50 text-base md:text-lg leading-relaxed mb-8">
+                          {project.subtitle}
+                        </p>
+
+                        <span className="inline-flex items-center gap-2 text-sm font-semibold text-navy group-hover:text-gold transition-colors duration-300">
+                          Se projektet
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                      </div>
+                    </Link>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Bottom CTA */}
+        <section className="bg-navy px-6 md:px-12 py-24 md:py-32">
+          <div className="max-w-[1400px] mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+                Har du et projekt i tankerne?
+              </h2>
+              <p className="text-white/50 text-lg md:text-xl max-w-xl mx-auto mb-10">
+                Lad os tage en snak om, hvad vi kan gøre for dig.
+              </p>
               <Link
                 href="/kontakt"
-                className="w-full sm:w-auto bg-navy text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-navy/90 transition-all shadow-lg hover:shadow-xl"
+                className="inline-block px-10 py-4 bg-white text-navy rounded-full font-semibold text-lg hover:bg-gold hover:text-white transition-colors duration-300"
               >
-                Kontakt Os
+                Tal med os
               </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </main>
+            </motion.div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 }

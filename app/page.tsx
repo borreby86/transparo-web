@@ -13,15 +13,11 @@ const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection').
   loading: () => <div className="h-96 bg-black" />
 })
 
+const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then((mod) => mod.AboutSection), {
+  loading: () => <div className="h-96 bg-white" />
+})
+
 const PremiumProcessTimeline = dynamic(() => import('@/components/sections/PremiumProcessTimeline').then((mod) => mod.PremiumProcessTimeline), {
-  loading: () => <div className="h-screen bg-white" />
-})
-
-const InvestmentSection = dynamic(() => import('@/components/sections/InvestmentSection').then((mod) => mod.InvestmentSection), {
-  loading: () => <div className="h-96 bg-navy" />
-})
-
-const ProcessFinalCTA = dynamic(() => import('@/components/sections/ProcessFinalCTA').then((mod) => mod.ProcessFinalCTA), {
   loading: () => <div className="h-96 bg-navy" />
 })
 
@@ -49,9 +45,8 @@ export default function HomePage() {
         <HeroSection />
         <PortfolioSection />
         <WhyUsSection />
+        <AboutSection />
         <PremiumProcessTimeline />
-        <InvestmentSection />
-        <ProcessFinalCTA />
         <AboutContactSection />
       </main>
       <Footer />

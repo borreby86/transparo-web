@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useState, useRef } from 'react'
-import { Send, ArrowUpRight, Sparkles } from 'lucide-react'
+import { Send, ArrowUpRight } from 'lucide-react'
 
 export function AboutContactSection() {
   const shouldReduceMotion = useReducedMotion()
@@ -80,15 +80,14 @@ export function AboutContactSection() {
             transition={{ duration: shouldReduceMotion ? 0 : 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-5xl mx-auto text-center"
           >
-            <span className="inline-flex items-center gap-2 text-gold text-sm font-bold uppercase tracking-[0.3em] mb-8">
-              <Sparkles className="w-4 h-4" />
-              Lad os skabe noget sammen
+            <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-8 block">
+              Kontakt
             </span>
 
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight">
-              Klar til at{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold to-amber-300">
-                starte?
+              Fortæl os om{' '}
+              <span className="text-white/50">
+                dit projekt.
               </span>
             </h2>
           </motion.div>
@@ -109,11 +108,11 @@ export function AboutContactSection() {
             <div className="relative">
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-gold to-gold/0 rounded-full" />
               <div className="pl-8 space-y-4">
-                <p className="text-base md:text-lg text-white/80 leading-relaxed">
-                  Vi er et nystartet bureau med én mission: at bringe <span className="text-gold font-semibold">transparens og troværdighed</span> tilbage til webbranchen.
+                <p className="text-base md:text-lg text-white/70 leading-relaxed">
+                  Vi er et dansk webbureau der bygger websites fra bunden. Ingen templates, faste priser og en proces du kan følge med i.
                 </p>
-                <p className="text-base md:text-lg text-white/60 leading-relaxed">
-                  Dit website er dit ansigt udadtil. Vi sørger for, at det afspejler din ambition — uden kompromiser.
+                <p className="text-base md:text-lg text-white/50 leading-relaxed">
+                  Skriv til os, så tager vi en uforpligtende snak om dit projekt.
                 </p>
               </div>
             </div>
@@ -180,18 +179,11 @@ export function AboutContactSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-16"
                   >
-                    <motion.div
-                      className="w-20 h-20 rounded-full bg-gradient-to-br from-gold to-amber-400 flex items-center justify-center mx-auto mb-6"
-                      animate={shouldReduceMotion ? {} : {
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <Sparkles className="w-10 h-10 text-white" />
-                    </motion.div>
-                    <h4 className="text-2xl font-bold text-navy mb-3">Tak for din besked!</h4>
-                    <p className="text-black/60">Vi glæder os til at høre mere om dit projekt.</p>
+                      <div className="w-16 h-16 rounded-full bg-navy flex items-center justify-center mx-auto mb-6">
+                      <Send className="w-7 h-7 text-white" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-navy mb-3">Tak for din besked</h4>
+                    <p className="text-black/60">Vi vender tilbage inden for 24 timer.</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -309,15 +301,7 @@ export function AboutContactSection() {
 
                       <span className="relative z-10 flex items-center justify-center gap-3 group-hover:text-black transition-colors">
                         {isSubmitting ? (
-                          <>
-                            <motion.span
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                            >
-                              <Sparkles className="w-5 h-5" />
-                            </motion.span>
-                            <span>Sender...</span>
-                          </>
+                          <span>Sender...</span>
                         ) : (
                           <>
                             <span>Send besked</span>
@@ -331,14 +315,6 @@ export function AboutContactSection() {
               </div>
             </div>
 
-            {/* Floating badge */}
-            <motion.div
-              className="absolute -bottom-6 -left-6 md:-left-12 bg-gold text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg"
-              animate={shouldReduceMotion ? {} : { y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            >
-              100% Uforpligtende
-            </motion.div>
           </motion.div>
         </div>
 
