@@ -4,22 +4,18 @@ import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import {
-  Monitor,
-  Layers,
-  Sparkles,
-  Zap,
   Check,
   ArrowRight,
   ArrowLeft,
   Mail,
-  Globe,
-  PenTool,
+  Send,
   Search,
   BookOpen,
+  PenTool,
   CalendarCheck,
   Languages,
-  Send,
-  Clock,
+  ChevronDown,
+  Sparkles,
 } from 'lucide-react'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -43,26 +39,53 @@ const WEBSITE_TYPES = [
   {
     id: 'landing' as WebsiteType,
     label: 'Landingsside',
-    description: '1 side — perfekt til kampagner eller lancering',
+    description: '1 side - perfekt til kampagner eller lancering',
     basePrice: 8995,
     pages: '1 side',
-    icon: <Monitor className="w-6 h-6" />,
+    number: '01',
+    details: [
+      'Responsivt design til alle enheder',
+      'Kontaktformular med validering',
+      'Hastigheds-optimeret (90+ Lighthouse)',
+      'SEO-grundopsætning',
+      'SSL-certifikat inkluderet',
+      'Google Analytics integration',
+    ],
   },
   {
     id: 'business' as WebsiteType,
     label: 'Virksomhedssite',
-    description: '3-5 sider — den klassiske virksomhedsprofil',
+    description: '3-5 sider - den klassiske virksomhedsprofil',
     basePrice: 16995,
     pages: '3-5 sider',
-    icon: <Layers className="w-6 h-6" />,
+    number: '02',
+    details: [
+      'Alt fra Landingsside',
+      'Op til 5 undersider',
+      'Blog-mulighed',
+      'Avanceret SEO-setup med meta tags',
+      'Social medie-integration',
+      'Interaktive elementer og animationer',
+      'Content Management System (CMS)',
+    ],
   },
   {
     id: 'large' as WebsiteType,
     label: 'Større website',
-    description: '6-10 sider — til virksomheder med mere indhold',
+    description: '6-10 sider - til virksomheder med mere indhold',
     basePrice: 27995,
     pages: '6-10 sider',
-    icon: <Globe className="w-6 h-6" />,
+    number: '03',
+    details: [
+      'Alt fra Virksomhedssite',
+      'Op til 10 undersider',
+      'Avanceret CMS med multi-collections',
+      'Custom funktioner og integrationer',
+      'Avancerede animationer og transitions',
+      'Flersproget understøttelse mulig',
+      'Prioriteret support i 3 måneder',
+      'Performance-optimering og caching',
+    ],
   },
 ]
 
@@ -72,7 +95,7 @@ const FEATURES: Feature[] = [
     label: 'Kontaktformular',
     description: 'Professionel kontaktformular med validering',
     price: 0,
-    icon: <Mail className="w-5 h-5" />,
+    icon: <Mail className="w-4 h-4" />,
     included: true,
   },
   {
@@ -80,7 +103,7 @@ const FEATURES: Feature[] = [
     label: 'Social medie-integration',
     description: 'Links og feeds fra sociale medier',
     price: 0,
-    icon: <Send className="w-5 h-5" />,
+    icon: <Send className="w-4 h-4" />,
     included: true,
   },
   {
@@ -88,42 +111,42 @@ const FEATURES: Feature[] = [
     label: 'SEO-optimering',
     description: 'Teknisk SEO, meta tags og struktureret data',
     price: 2000,
-    icon: <Search className="w-5 h-5" />,
+    icon: <Search className="w-4 h-4" />,
   },
   {
     id: 'blog',
     label: 'Blog / Nyheder',
     description: 'Blogsektion med kategorier og arkiv',
     price: 2500,
-    icon: <BookOpen className="w-5 h-5" />,
+    icon: <BookOpen className="w-4 h-4" />,
   },
   {
     id: 'cms',
     label: 'CMS (selv-redigering)',
     description: 'Payload CMS så du selv kan opdatere indhold',
     price: 3000,
-    icon: <PenTool className="w-5 h-5" />,
+    icon: <PenTool className="w-4 h-4" />,
   },
   {
     id: 'booking',
     label: 'Booking-system',
     description: 'Online tidsbestilling integreret i sitet',
     price: 2500,
-    icon: <CalendarCheck className="w-5 h-5" />,
+    icon: <CalendarCheck className="w-4 h-4" />,
   },
   {
     id: 'multilang',
     label: 'Flersproget (DK/EN)',
     description: 'Fuld oversættelse med sprogskifter',
     price: 3000,
-    icon: <Languages className="w-5 h-5" />,
+    icon: <Languages className="w-4 h-4" />,
   },
   {
     id: 'newsletter',
     label: 'Nyhedsbrev-integration',
     description: 'Mailchimp, Brevo eller lignende integration',
     price: 1500,
-    icon: <Mail className="w-5 h-5" />,
+    icon: <Mail className="w-4 h-4" />,
   },
 ]
 
@@ -131,16 +154,16 @@ const DESIGN_LEVELS = [
   {
     id: 'standard' as DesignLevel,
     label: 'Standard',
-    description: 'Rent, professionelt design med fokus på brugervenlighed',
+    description: 'Rent, professionelt design der dækker de flestes behov. Du kan altid opgradere til Premium senere.',
+    badge: 'Anbefalet',
     price: 0,
-    icon: <Layers className="w-6 h-6" />,
   },
   {
     id: 'premium' as DesignLevel,
     label: 'Premium',
-    description: 'Custom animationer, unik branding og ekstra detaljegrad',
+    description: 'Til dig der vil have det ekstra. Custom animationer, avancerede hover-effekter og unik branding ned i mindste detalje.',
+    badge: null,
     price: 5000,
-    icon: <Sparkles className="w-6 h-6" />,
   },
 ]
 
@@ -148,16 +171,14 @@ const TIMELINES = [
   {
     id: 'standard' as Timeline,
     label: 'Standard levering',
-    description: '2-4 uger — vores normale leveringstid',
+    description: '2-4 uger - vores normale leveringstid',
     multiplier: 1,
-    icon: <Clock className="w-6 h-6" />,
   },
   {
     id: 'express' as Timeline,
     label: 'Express levering',
-    description: '1-2 uger — prioriteret behandling',
+    description: '1-2 uger - prioriteret behandling',
     multiplier: 1.25,
-    icon: <Zap className="w-6 h-6" />,
   },
 ]
 
@@ -181,6 +202,11 @@ function getRecommendedPackage(total: number): { name: string; match: string } {
   return { name: 'Business', match: 'Vores Business-pakke dækker alt du har brug for' }
 }
 
+function getTraditionalPrice(price: number): number {
+  // Traditional agencies typically charge 2.5-3x — round to nearest 1000 for credibility
+  return Math.ceil((price * 2.8) / 1000) * 1000
+}
+
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function PriceCalculator() {
@@ -190,6 +216,7 @@ export function PriceCalculator() {
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>(['contact', 'social'])
   const [designLevel, setDesignLevel] = useState<DesignLevel | null>(null)
   const [timeline, setTimeline] = useState<Timeline | null>(null)
+  const [expandedType, setExpandedType] = useState<WebsiteType | null>(null)
 
   // Optional contact
   const [showContact, setShowContact] = useState(false)
@@ -221,7 +248,7 @@ export function PriceCalculator() {
 
   const toggleFeature = (id: string) => {
     const feature = FEATURES.find(f => f.id === id)
-    if (feature?.included) return // can't deselect included features
+    if (feature?.included) return
     setSelectedFeatures(prev =>
       prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]
     )
@@ -252,88 +279,134 @@ export function PriceCalculator() {
   // ─── Render Steps ────────────────────────────────────────────────────────
 
   const renderWebsiteType = () => (
-    <motion.div className="grid gap-4 md:gap-6" {...motionProps()}>
+    <motion.div className="grid gap-5 md:gap-6" {...motionProps()}>
       {WEBSITE_TYPES.map((type, i) => (
-        <motion.button
+        <motion.div
           key={type.id}
-          onClick={() => setWebsiteType(type.id)}
-          className={`group relative text-left p-6 md:p-8 rounded-2xl border-2 transition-all duration-300 ${
-            websiteType === type.id
-              ? 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
-              : 'border-warmgray-light/50 bg-white hover:border-gold/40 hover:shadow-md'
-          }`}
+          className="group"
           {...motionProps(i * 0.1)}
-          whileHover={shouldReduceMotion ? {} : { y: -2 }}
-          whileTap={shouldReduceMotion ? {} : { scale: 0.995 }}
         >
-          <div className="flex items-start gap-4 md:gap-6">
-            <div className={`p-3 rounded-xl transition-colors duration-300 ${
-              websiteType === type.id ? 'bg-gold/10 text-gold' : 'bg-offwhite text-warmgray group-hover:text-navy'
-            }`}>
-              {type.icon}
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center justify-between mb-1">
-                <h3 className="text-lg md:text-xl font-bold text-navy">{type.label}</h3>
-                <span className="text-sm md:text-base font-bold text-gold">
-                  fra {formatPrice(type.basePrice)} DKK
+          <div
+            className={`w-full text-left rounded-2xl border transition-all duration-300 ${
+              websiteType === type.id
+                ? 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
+                : 'border-black/[0.06] bg-white hover:border-gold/40 hover:shadow-md'
+            }`}
+          >
+            <button
+              onClick={() => setWebsiteType(type.id)}
+              className="w-full text-left p-7 md:p-9"
+            >
+              <div className="flex items-start gap-5 md:gap-7">
+                {/* Number instead of icon */}
+                <span className={`font-serif text-3xl md:text-4xl font-light leading-none transition-colors duration-300 ${
+                  websiteType === type.id ? 'text-gold' : 'text-black/15 group-hover:text-gold/50'
+                }`}>
+                  {type.number}
                 </span>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <h3 className="text-lg md:text-xl font-bold text-black">{type.label}</h3>
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                      websiteType === type.id ? 'border-gold bg-gold' : 'border-black/10'
+                    }`}>
+                      {websiteType === type.id && <Check className="w-4 h-4 text-white" />}
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base text-warmgray mb-2">{type.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm md:text-base font-bold text-gold">
+                      fra {formatPrice(type.basePrice)} DKK
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setExpandedType(expandedType === type.id ? null : type.id)
+                      }}
+                      className="flex items-center gap-1.5 text-xs font-medium text-gold/60 hover:text-gold transition-colors"
+                    >
+                      <span>Hvad er inkluderet?</span>
+                      <motion.span
+                        animate={{ rotate: expandedType === type.id ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="inline-block"
+                      >
+                        <ArrowRight className="w-3 h-3 rotate-90" />
+                      </motion.span>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <p className="text-sm md:text-base text-warmgray">{type.description}</p>
-            </div>
-            <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-              websiteType === type.id ? 'border-gold bg-gold' : 'border-warmgray-light'
-            }`}>
-              {websiteType === type.id && <Check className="w-4 h-4 text-white" />}
-            </div>
+            </button>
+            {/* Expandable details */}
+            <AnimatePresence>
+              {expandedType === type.id && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-7 md:px-9 pb-6 ml-9 md:ml-12">
+                    <div className="pt-1 space-y-1.5">
+                      {type.details.map((detail, j) => (
+                        <div key={j} className="flex items-start gap-2 text-sm text-warmgray">
+                          <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
+                          <span>{detail}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </motion.button>
+        </motion.div>
       ))}
     </motion.div>
   )
 
   const renderFeatures = () => (
-    <motion.div className="grid gap-3 md:gap-4 sm:grid-cols-2" {...motionProps()}>
+    <motion.div className="grid gap-4 md:gap-5 sm:grid-cols-2" {...motionProps()}>
       {FEATURES.map((feature, i) => (
         <motion.button
           key={feature.id}
           onClick={() => toggleFeature(feature.id)}
-          className={`group relative text-left p-4 md:p-5 rounded-xl border-2 transition-all duration-300 ${
+          className={`group relative text-left p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
             selectedFeatures.includes(feature.id)
               ? feature.included
-                ? 'border-navy/20 bg-navy/5'
-                : 'border-gold bg-gold/5 shadow-md shadow-gold/10'
-              : 'border-warmgray-light/50 bg-white hover:border-gold/40 hover:shadow-sm'
+                ? 'border-gold/20 bg-gold/[0.03]'
+                : 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
+              : 'border-black/[0.06] bg-white hover:border-gold/30 hover:shadow-md'
           } ${feature.included ? 'cursor-default' : ''}`}
           {...motionProps(i * 0.05)}
-          whileHover={shouldReduceMotion || feature.included ? {} : { y: -1 }}
+          whileHover={shouldReduceMotion || feature.included ? {} : { y: -2 }}
           whileTap={shouldReduceMotion || feature.included ? {} : { scale: 0.98 }}
         >
-          <div className="flex items-start gap-3">
-            <div className={`p-2 rounded-lg transition-colors duration-300 ${
+          <div className="flex items-start gap-4">
+            <div className={`p-2.5 rounded-xl transition-all duration-300 ${
               selectedFeatures.includes(feature.id)
-                ? feature.included ? 'bg-navy/10 text-navy' : 'bg-gold/10 text-gold'
-                : 'bg-offwhite text-warmgray'
+                ? 'bg-gradient-to-br from-gold/20 to-gold/5 text-gold'
+                : 'bg-black/[0.03] text-black/20 group-hover:text-gold/60 group-hover:bg-gold/[0.06]'
             }`}>
               {feature.icon}
             </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between gap-2 mb-0.5">
-                <h4 className="font-bold text-navy text-sm md:text-base truncate">{feature.label}</h4>
-                <span className={`text-xs md:text-sm font-bold whitespace-nowrap ${
-                  feature.included ? 'text-navy/60' : 'text-gold'
-                }`}>
-                  {feature.included ? 'Inkluderet' : `+${formatPrice(feature.price)} DKK`}
-                </span>
-              </div>
-              <p className="text-xs md:text-sm text-warmgray leading-snug">{feature.description}</p>
+            <div className="flex-1 min-w-0 pr-5">
+              <h4 className="font-bold text-black text-sm md:text-base mb-1">{feature.label}</h4>
+              <p className="text-xs md:text-sm text-warmgray leading-relaxed mb-2">{feature.description}</p>
+              <span className={`text-xs md:text-sm font-bold ${
+                feature.included ? 'text-gold/50' : 'text-gold'
+              }`}>
+                {feature.included ? 'Inkluderet' : `+${formatPrice(feature.price)} DKK`}
+              </span>
             </div>
           </div>
           {/* Checkmark */}
-          <div className={`absolute top-3 right-3 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+          <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
             selectedFeatures.includes(feature.id)
-              ? feature.included ? 'border-navy bg-navy' : 'border-gold bg-gold'
-              : 'border-warmgray-light/60'
+              ? 'border-gold bg-gold'
+              : 'border-black/10'
           }`}>
             {selectedFeatures.includes(feature.id) && <Check className="w-3 h-3 text-white" />}
           </div>
@@ -343,35 +416,33 @@ export function PriceCalculator() {
   )
 
   const renderDesignLevel = () => (
-    <motion.div className="grid gap-4 md:gap-6 md:grid-cols-2" {...motionProps()}>
+    <motion.div className="grid gap-5 md:gap-6 md:grid-cols-2" {...motionProps()}>
       {DESIGN_LEVELS.map((level, i) => (
         <motion.button
           key={level.id}
           onClick={() => setDesignLevel(level.id)}
-          className={`group relative text-left p-6 md:p-8 rounded-2xl border-2 transition-all duration-300 ${
+          className={`group relative text-left p-7 md:p-9 rounded-2xl border transition-all duration-300 ${
             designLevel === level.id
               ? 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
-              : 'border-warmgray-light/50 bg-white hover:border-gold/40 hover:shadow-md'
+              : 'border-black/[0.06] bg-white hover:border-gold/40 hover:shadow-md'
           }`}
           {...motionProps(i * 0.1)}
           whileHover={shouldReduceMotion ? {} : { y: -2 }}
           whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
         >
           <div className="flex flex-col items-center text-center gap-4">
-            <div className={`p-4 rounded-2xl transition-colors duration-300 ${
-              designLevel === level.id ? 'bg-gold/10 text-gold' : 'bg-offwhite text-warmgray group-hover:text-navy'
-            }`}>
-              {level.icon}
-            </div>
-            <div>
-              <h3 className="text-lg md:text-xl font-bold text-navy mb-1">{level.label}</h3>
-              <p className="text-sm text-warmgray mb-3">{level.description}</p>
-              <span className="text-sm font-bold text-gold">
-                {level.price === 0 ? 'Inkluderet i basispris' : `+${formatPrice(level.price)} DKK`}
+            {level.badge && (
+              <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-gold bg-gold/10 px-3 py-1 rounded-full">
+                {level.badge}
               </span>
-            </div>
+            )}
+            <h3 className="text-xl md:text-2xl font-bold text-black">{level.label}</h3>
+            <p className="text-sm text-warmgray leading-relaxed max-w-[260px]">{level.description}</p>
+            <span className="text-sm font-bold text-gold">
+              {level.price === 0 ? 'Inkluderet i basispris' : `+${formatPrice(level.price)} DKK`}
+            </span>
             <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
-              designLevel === level.id ? 'border-gold bg-gold' : 'border-warmgray-light'
+              designLevel === level.id ? 'border-gold bg-gold' : 'border-black/10'
             }`}>
               {designLevel === level.id && <Check className="w-4 h-4 text-white" />}
             </div>
@@ -382,35 +453,28 @@ export function PriceCalculator() {
   )
 
   const renderTimeline = () => (
-    <motion.div className="grid gap-4 md:gap-6 md:grid-cols-2" {...motionProps()}>
+    <motion.div className="grid gap-5 md:gap-6 md:grid-cols-2" {...motionProps()}>
       {TIMELINES.map((tl, i) => (
         <motion.button
           key={tl.id}
           onClick={() => setTimeline(tl.id)}
-          className={`group relative text-left p-6 md:p-8 rounded-2xl border-2 transition-all duration-300 ${
+          className={`group relative text-left p-7 md:p-9 rounded-2xl border transition-all duration-300 ${
             timeline === tl.id
               ? 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
-              : 'border-warmgray-light/50 bg-white hover:border-gold/40 hover:shadow-md'
+              : 'border-black/[0.06] bg-white hover:border-gold/40 hover:shadow-md'
           }`}
           {...motionProps(i * 0.1)}
           whileHover={shouldReduceMotion ? {} : { y: -2 }}
           whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
         >
           <div className="flex flex-col items-center text-center gap-4">
-            <div className={`p-4 rounded-2xl transition-colors duration-300 ${
-              timeline === tl.id ? 'bg-gold/10 text-gold' : 'bg-offwhite text-warmgray group-hover:text-navy'
-            }`}>
-              {tl.icon}
-            </div>
-            <div>
-              <h3 className="text-lg md:text-xl font-bold text-navy mb-1">{tl.label}</h3>
-              <p className="text-sm text-warmgray mb-3">{tl.description}</p>
-              <span className="text-sm font-bold text-gold">
-                {tl.multiplier === 1 ? 'Ingen tillæg' : '+25% express-tillæg'}
-              </span>
-            </div>
+            <h3 className="text-xl md:text-2xl font-bold text-black">{tl.label}</h3>
+            <p className="text-sm text-warmgray">{tl.description}</p>
+            <span className="text-sm font-bold text-gold">
+              {tl.multiplier === 1 ? 'Ingen tillæg' : '+25% express-tillæg'}
+            </span>
             <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
-              timeline === tl.id ? 'border-gold bg-gold' : 'border-warmgray-light'
+              timeline === tl.id ? 'border-gold bg-gold' : 'border-black/10'
             }`}>
               {timeline === tl.id && <Check className="w-4 h-4 text-white" />}
             </div>
@@ -426,12 +490,14 @@ export function PriceCalculator() {
     const selectedDesign = DESIGN_LEVELS.find(d => d.id === designLevel)!
     const selectedTimeline = TIMELINES.find(t => t.id === timeline)!
     const addedFeatures = FEATURES.filter(f => selectedFeatures.includes(f.id) && !f.included)
+    const traditionalPrice = getTraditionalPrice(totalPrice)
+    const savings = traditionalPrice - totalPrice
 
     return (
       <motion.div className="space-y-8" {...motionProps()}>
         {/* Price display */}
         <motion.div
-          className="text-center p-8 md:p-12 rounded-3xl bg-gradient-to-br from-navy via-navy to-navy-dark relative overflow-hidden"
+          className="text-center p-10 md:p-14 rounded-3xl bg-gradient-to-br from-black via-black to-black/90 relative overflow-hidden"
           {...motionProps(0.1)}
         >
           {/* Decorative orbs */}
@@ -439,65 +505,116 @@ export function PriceCalculator() {
           <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-gold/5 rounded-full blur-3xl" />
 
           <div className="relative z-10">
-            <p className="text-white/60 text-sm uppercase tracking-widest font-bold mb-3">Dit estimat</p>
-            <div className="flex items-baseline justify-center gap-2 mb-2">
-              <span className="text-white/60 text-xl md:text-2xl font-medium">fra ca.</span>
-              <span className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
+            <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-medium mb-4">Dit estimat</p>
+            <div className="flex items-baseline justify-center gap-3 mb-2">
+              <span className="text-white/40 text-base md:text-lg">fra</span>
+              <span className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
                 {formatPrice(totalPrice)}
               </span>
-              <span className="text-white/60 text-xl md:text-2xl font-medium">DKK</span>
+              <span className="text-white/40 text-base md:text-lg">DKK</span>
             </div>
-            <p className="text-white/40 text-sm">ekskl. moms</p>
+            <p className="text-white/30 text-sm">ekskl. moms</p>
           </div>
         </motion.div>
 
-        {/* Recommendation */}
+        {/* Recommendation — integrated into breakdown */}
         <motion.div
-          className="p-6 rounded-2xl bg-gold/5 border-2 border-gold/20"
+          className="rounded-2xl overflow-hidden border border-black/[0.06]"
           {...motionProps(0.2)}
         >
-          <div className="flex items-center gap-3 mb-2">
-            <Sparkles className="w-5 h-5 text-gold" />
-            <h3 className="font-bold text-navy">Anbefalet pakke: {recommendation.name}</h3>
+          {/* Recommendation header */}
+          <div className="flex items-center gap-3 px-7 md:px-9 py-5 bg-gradient-to-r from-gold/10 via-gold/5 to-transparent border-b border-gold/10">
+            <div className="p-1.5 rounded-lg bg-gold/15">
+              <Sparkles className="w-4 h-4 text-gold" />
+            </div>
+            <div>
+              <h3 className="font-bold text-black text-sm">Anbefalet: {recommendation.name}-pakken</h3>
+              <p className="text-xs text-warmgray">{recommendation.match}</p>
+            </div>
           </div>
-          <p className="text-sm text-warmgray">{recommendation.match}</p>
+
+          {/* Breakdown */}
+          <div className="p-7 md:p-9 bg-white">
+            <h3 className="text-xs uppercase tracking-[0.15em] font-medium text-warmgray mb-5">Prissammensætning</h3>
+            <div className="space-y-0">
+              <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                <span className="text-sm text-black">{selectedType.label} ({selectedType.pages})</span>
+                <span className="text-sm font-bold text-black tabular-nums">{formatPrice(selectedType.basePrice)} DKK</span>
+              </div>
+              {addedFeatures.map(f => (
+                <div key={f.id} className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                  <span className="text-sm text-black">{f.label}</span>
+                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(f.price)} DKK</span>
+                </div>
+              ))}
+              {selectedDesign.price > 0 && (
+                <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                  <span className="text-sm text-black">Premium design</span>
+                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(selectedDesign.price)} DKK</span>
+                </div>
+              )}
+              {selectedTimeline.multiplier > 1 && (
+                <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                  <span className="text-sm text-black">Express-levering (+25%)</span>
+                  <span className="text-sm font-bold text-gold tabular-nums">
+                    +{formatPrice(Math.round((totalPrice / selectedTimeline.multiplier) * (selectedTimeline.multiplier - 1)))} DKK
+                  </span>
+                </div>
+              )}
+              <div className="flex justify-between items-center pt-5">
+                <span className="font-bold text-black">Estimeret total</span>
+                <span className="font-bold text-xl text-gold tabular-nums">{formatPrice(totalPrice)} DKK</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Breakdown */}
+        {/* Traditional agency comparison */}
         <motion.div
-          className="p-6 md:p-8 rounded-2xl bg-white border border-warmgray-light/30"
-          {...motionProps(0.3)}
+          className="p-7 md:p-9 rounded-2xl bg-gradient-to-br from-black via-black to-black/90 relative overflow-hidden"
+          {...motionProps(0.35)}
         >
-          <h3 className="font-bold text-navy mb-4">Prissammensætning</h3>
-          <div className="space-y-3">
-            <div className="flex justify-between items-center py-2 border-b border-warmgray-light/30">
-              <span className="text-sm text-navy">{selectedType.label} ({selectedType.pages})</span>
-              <span className="text-sm font-bold text-navy">{formatPrice(selectedType.basePrice)} DKK</span>
+          <div className="absolute -top-16 -right-16 w-32 h-32 bg-gold/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-gold/5 rounded-full blur-3xl" />
+
+          <div className="relative z-10">
+            <p className="text-white/50 text-xs uppercase tracking-[0.15em] font-medium mb-6">Sammenlign med markedet</p>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {/* Traditional price */}
+              <div className="p-5 rounded-xl bg-white/5 border border-white/10">
+                <p className="text-[10px] uppercase tracking-[0.15em] text-white/40 font-medium mb-3">Traditionelt bureau</p>
+                <p className="text-2xl md:text-3xl font-bold text-white/25 line-through tabular-nums">
+                  {formatPrice(traditionalPrice)} DKK
+                </p>
+                <p className="text-xs text-white/30 mt-2">Baseret på gennemsnitspriser fra danske bureauer</p>
+              </div>
+              {/* Transparo price */}
+              <div className="p-5 rounded-xl bg-gold/10 border border-gold/20">
+                <p className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium mb-3">Transparo</p>
+                <p className="text-2xl md:text-3xl font-bold text-white tabular-nums">
+                  {formatPrice(totalPrice)} DKK
+                </p>
+                <p className="text-xs text-gold/60 mt-2">Samme teknologi og kvalitet, AI-drevet proces</p>
+              </div>
             </div>
-            {addedFeatures.map(f => (
-              <div key={f.id} className="flex justify-between items-center py-2 border-b border-warmgray-light/30">
-                <span className="text-sm text-navy">{f.label}</span>
-                <span className="text-sm font-bold text-navy">+{formatPrice(f.price)} DKK</span>
-              </div>
-            ))}
-            {selectedDesign.price > 0 && (
-              <div className="flex justify-between items-center py-2 border-b border-warmgray-light/30">
-                <span className="text-sm text-navy">Premium design</span>
-                <span className="text-sm font-bold text-navy">+{formatPrice(selectedDesign.price)} DKK</span>
-              </div>
-            )}
-            {selectedTimeline.multiplier > 1 && (
-              <div className="flex justify-between items-center py-2 border-b border-warmgray-light/30">
-                <span className="text-sm text-navy">Express-levering (+25%)</span>
-                <span className="text-sm font-bold text-gold">
-                  +{formatPrice(Math.round((totalPrice / selectedTimeline.multiplier) * (selectedTimeline.multiplier - 1)))} DKK
-                </span>
-              </div>
-            )}
-            <div className="flex justify-between items-center pt-3">
-              <span className="font-bold text-navy">Estimeret total</span>
-              <span className="font-bold text-lg text-gold">{formatPrice(totalPrice)} DKK</span>
+
+            {/* Savings bar */}
+            <div className="relative h-1.5 bg-white/10 rounded-full overflow-hidden mb-4">
+              <motion.div
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold to-gold-light rounded-full"
+                initial={{ width: '0%' }}
+                animate={{ width: `${(1 - totalPrice / traditionalPrice) * 100}%` }}
+                transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              />
             </div>
+            <p className="text-sm text-white/50">
+              Du sparer ca. <span className="font-bold text-gold">{formatPrice(savings)} DKK</span> - det er{' '}
+              <span className="font-bold text-gold">{Math.round((savings / traditionalPrice) * 100)}%</span> mindre end markedsprisen.
+            </p>
+            <p className="text-xs text-white/25 mt-3">
+              Prisestimatet for traditionelle bureauer er baseret på branchegennemsnit for sammenlignelige projekter i Danmark.
+            </p>
           </div>
         </motion.div>
 
@@ -515,43 +632,43 @@ export function PriceCalculator() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/kontakt"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-navy rounded-full font-bold text-base hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-black rounded-full font-bold text-base hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
               >
                 Book et uforpligtende møde
                 <ArrowRight className="w-4 h-4" />
               </a>
               <button
                 onClick={() => setShowContact(true)}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-navy text-navy rounded-full font-bold text-base hover:bg-navy hover:text-white transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-black/10 text-black rounded-full font-bold text-base hover:bg-black hover:text-white transition-all duration-300"
               >
                 Send mig estimatet
               </button>
             </div>
           ) : (
             <motion.div
-              className="max-w-md mx-auto p-6 rounded-2xl bg-white border border-warmgray-light/30"
+              className="max-w-md mx-auto p-7 rounded-2xl bg-white border border-black/[0.06]"
               initial={shouldReduceMotion ? {} : { opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h4 className="font-bold text-navy mb-4 text-center">Modtag dit estimat på mail</h4>
+              <h4 className="text-base font-bold text-black mb-5 text-center">Modtag dit estimat på mail</h4>
               <div className="space-y-3">
                 <input
                   type="text"
                   placeholder="Dit navn"
                   value={contactName}
                   onChange={e => setContactName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-warmgray-light/50 bg-offwhite text-navy placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
                 />
                 <input
                   type="email"
                   placeholder="Din email"
                   value={contactEmail}
                   onChange={e => setContactEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-warmgray-light/50 bg-offwhite text-navy placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
                 />
                 <button
-                  className="w-full px-6 py-3 bg-navy text-white rounded-xl font-bold hover:bg-navy-dark transition-all duration-300 disabled:opacity-50"
+                  className="w-full px-6 py-3 bg-black text-white rounded-xl font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
                   disabled={!contactEmail}
                 >
                   Send estimat
@@ -559,7 +676,7 @@ export function PriceCalculator() {
               </div>
               <button
                 onClick={() => setShowContact(false)}
-                className="w-full mt-3 text-sm text-warmgray hover:text-navy transition-colors text-center"
+                className="w-full mt-3 text-sm text-warmgray hover:text-black transition-colors text-center"
               >
                 Annuller
               </button>
@@ -575,16 +692,16 @@ export function PriceCalculator() {
   const stepContent = [renderWebsiteType, renderFeatures, renderDesignLevel, renderTimeline, renderResult]
 
   return (
-    <section className="relative min-h-screen py-24 md:py-32">
+    <section className="relative min-h-screen py-28 md:py-36">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-14 md:mb-20"
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="font-serif text-display-md md:text-display-lg text-navy mb-4">
+          <h1 className="font-serif text-display-md md:text-display-lg text-black mb-4">
             Prisberegner
           </h1>
           <p className="text-warmgray text-lg max-w-xl mx-auto">
@@ -594,7 +711,7 @@ export function PriceCalculator() {
 
         {/* Progress bar */}
         <motion.div
-          className="mb-10 md:mb-14"
+          className="mb-12 md:mb-16"
           initial={shouldReduceMotion ? {} : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.4 }}
@@ -604,15 +721,14 @@ export function PriceCalculator() {
               <button
                 key={i}
                 onClick={() => {
-                  // Allow clicking on completed steps to go back
                   if (i < currentStep) setCurrentStep(i)
                 }}
                 className={`flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full text-xs md:text-sm font-bold transition-all duration-500 ${
                   i === currentStep
                     ? 'bg-gold text-white scale-110 shadow-lg shadow-gold/20'
                     : i < currentStep
-                      ? 'bg-navy text-white cursor-pointer hover:bg-navy-dark'
-                      : 'bg-warmgray-light/40 text-warmgray'
+                      ? 'bg-black text-white cursor-pointer hover:bg-black/80'
+                      : 'bg-black/[0.06] text-warmgray'
                 }`}
               >
                 {i < currentStep ? <Check className="w-4 h-4" /> : i + 1}
@@ -620,17 +736,17 @@ export function PriceCalculator() {
             ))}
           </div>
           {/* Progress line */}
-          <div className="relative h-1 bg-warmgray-light/30 rounded-full overflow-hidden">
+          <div className="relative h-0.5 bg-black/[0.06] rounded-full overflow-hidden">
             <motion.div
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-navy via-gold to-gold rounded-full"
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-black via-gold to-gold rounded-full"
               initial={{ width: '0%' }}
               animate={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             />
           </div>
           {/* Step label */}
-          <div className="mt-4 text-center">
-            <p className="text-xs uppercase tracking-widest font-bold text-gold mb-1">
+          <div className="mt-5 text-center">
+            <p className="text-xs uppercase tracking-[0.2em] font-medium text-gold mb-1">
               Trin {currentStep + 1} af {STEPS.length}
             </p>
             <p className="text-sm text-warmgray">{STEPS[currentStep].subtitle}</p>
@@ -653,7 +769,7 @@ export function PriceCalculator() {
         {/* Navigation */}
         {currentStep < STEPS.length - 1 && (
           <motion.div
-            className="flex items-center justify-between mt-10 md:mt-14"
+            className="flex items-center justify-between mt-12 md:mt-16"
             initial={shouldReduceMotion ? {} : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -661,7 +777,7 @@ export function PriceCalculator() {
             <button
               onClick={back}
               disabled={currentStep === 0}
-              className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-warmgray hover:text-navy transition-colors disabled:opacity-0 disabled:pointer-events-none"
+              className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-warmgray hover:text-black transition-colors disabled:opacity-0 disabled:pointer-events-none"
             >
               <ArrowLeft className="w-4 h-4" />
               Tilbage
@@ -669,7 +785,7 @@ export function PriceCalculator() {
             <button
               onClick={next}
               disabled={!canProceed}
-              className="flex items-center gap-2 px-8 py-3 rounded-full bg-navy text-white text-sm font-bold hover:bg-navy-dark hover:shadow-lg transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-8 py-3 rounded-full bg-black text-white text-sm font-bold hover:bg-black/80 hover:shadow-lg transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Næste
               <ArrowRight className="w-4 h-4" />
@@ -680,14 +796,14 @@ export function PriceCalculator() {
         {/* Back to edit on result page */}
         {currentStep === STEPS.length - 1 && (
           <motion.div
-            className="flex justify-center mt-8"
+            className="flex justify-center mt-10"
             initial={shouldReduceMotion ? {} : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
             <button
               onClick={back}
-              className="flex items-center gap-2 text-sm font-bold text-warmgray hover:text-navy transition-colors"
+              className="flex items-center gap-2 text-sm font-bold text-warmgray hover:text-black transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Rediger dine valg

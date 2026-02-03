@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
 import { ContactSection } from '@/components/sections/ContactSection'
 
 export const metadata: Metadata = {
@@ -20,7 +19,6 @@ export default function KontaktPage() {
       <main>
         <ContactSection />
       </main>
-      <Footer />
     </>
   )
 }

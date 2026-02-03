@@ -65,16 +65,16 @@ export function Footer() {
               <li className="flex items-start space-x-3">
                 <Phone className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
                 <a
-                  href="tel:+4512345678"
+                  href="tel:+4522471247"
                   className="text-black/70 hover:text-gold transition-colors text-sm"
                 >
-                  +45 12 34 56 78
+                  +45 22 47 12 47
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
                 <span className="text-black/70 text-sm">
-                  København, Danmark
+                  Hørsholm, Danmark
                 </span>
               </li>
             </ul>

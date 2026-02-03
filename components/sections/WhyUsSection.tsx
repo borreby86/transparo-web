@@ -1,41 +1,27 @@
 'use client'
 
 import { motion, useReducedMotion } from 'motion/react'
-import Image from 'next/image'
-import { Zap, Shield, Users, TrendingUp, Clock, Award } from 'lucide-react'
 
 const reasons = [
   {
-    icon: Shield,
-    title: 'Transparente aftaler',
-    stat: '01',
-    statLabel: '',
-    description: 'Vi siger tingene, som de er. Du får fuldt indblik i processer, deadlines og hvad du kan forvente — uden overraskelser undervejs.',
-    image: '/images/why-us/why-us-1.jpg'
+    number: '01',
+    title: 'Faste priser',
+    description: 'Du kender den endelige pris fra dag ét. Ingen timeregnskaber, ingen tillæg, ingen "det blev lidt dyrere end forventet".',
   },
   {
-    icon: Zap,
-    title: 'High-end design',
-    stat: '02',
-    statLabel: '',
-    description: 'Dit website skal afspejle din kvalitet, dit brand og dine værdier. Vi designer unikt — aldrig "templates med makeup".',
-    image: '/images/why-us/why-us-2.jpg'
+    number: '02',
+    title: 'Unikt design',
+    description: 'Vi bruger ikke templates. Dit website bliver tegnet fra bunden, så det passer til din virksomhed — ikke omvendt.',
   },
   {
-    icon: Award,
-    title: 'Design der føles som dig',
-    stat: '03',
-    statLabel: '',
-    description: 'Personligt, professionelt og ægte. Ingen generisk løsninger — kun design der matcher din identitet.',
-    image: '/images/why-us/why-us-3.jpg'
+    number: '03',
+    title: 'Du ejer det hele',
+    description: 'Koden, domænet, indholdet. Alt er dit. Du er aldrig låst til os, og du kan tage det med videre, hvis du vil.',
   },
   {
-    icon: Clock,
-    title: 'Levering til tiden',
-    stat: '04',
-    statLabel: '',
-    description: 'Du skal kunne stole på os. Derfor arbejder vi struktureret, følger en fast projektmodel og leverer, når vi siger, vi gør.',
-    image: '/images/why-us/why-us-4.jpg'
+    number: '04',
+    title: 'Klar kommunikation',
+    description: 'Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid — og vi forklarer hvorfor.',
   }
 ]
 
@@ -43,119 +29,60 @@ export function WhyUsSection() {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <section className="bg-black text-white py-20 md:py-28 lg:py-32 overflow-hidden">
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12">
+    <section className="bg-black text-white py-24 md:py-32 overflow-hidden">
 
-        {/* Main Layout - Split screen */}
-        <div className="grid lg:grid-cols-2 gap-16 laptop:gap-16 laptop-l:gap-20 xl:gap-24 items-center">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
 
-          {/* Left - Giant Typography */}
-          <div className="relative">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+          className="mb-20 md:mb-24 max-w-2xl"
+        >
+          <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
+            Hvorfor os
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
+            Vi gør det
+            <br />
+            <span className="text-white/40">anderledes.</span>
+          </h2>
+          <p className="text-white/50 text-lg leading-relaxed">
+            Vi tror på, at et godt samarbejde kræver ærlighed — om hvad der kan lade sig gøre, hvad det koster, og hvornår det er færdigt.
+          </p>
+        </motion.div>
+
+        {/* Cards grid */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          {reasons.map((reason, index) => (
             <motion.div
-              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={index}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
+              className="group relative p-8 md:p-10 border border-white/[0.08] hover:border-white/[0.15] bg-black/30 backdrop-blur-sm hover:bg-black/40 transition-all duration-500"
             >
-              <span className="text-gold text-sm font-bold uppercase tracking-[0.3em] mb-8 block">
-                Hvorfor Transparo
+              {/* Number */}
+              <span className="text-gold/15 text-6xl md:text-7xl font-bold absolute top-6 right-8 select-none group-hover:text-gold/25 transition-colors duration-500">
+                {reason.number}
               </span>
 
-              <h2 className="text-4xl md:text-5xl laptop:text-5xl laptop-l:text-6xl xl:text-7xl font-bold leading-[0.95] tracking-tight mb-6">
-                Fordi du
-                <br />
-                fortjener et
-                <br />
-                <span className="text-gold">webbureau,</span>
-                <br />
-                der spiller med
-                <br />
-                åbne kort.
-              </h2>
+              {/* Gold accent line */}
+              <div className="w-10 h-[2px] bg-gold mb-6 group-hover:w-14 transition-all duration-500" />
 
-              {/* Decorative line */}
-              <div className="w-24 h-1 bg-gold mb-6" />
-
-              <div className="text-white/70 text-sm md:text-base laptop:text-base max-w-xl leading-relaxed space-y-4">
-                <p>
-                  Du har sikkert prøvet det før: Et projekt starter fint, men pludselig stiger prisen, deadlines rykker sig, og du ender med et site, der ikke helt rammer det, du så for dig.
-                </p>
-                <p className="text-white/90 font-medium">
-                  Det er præcis det, vi vil væk fra.
-                </p>
-                <p>
-                  Hos Transparo arbejder vi efter én grundregel: <span className="text-gold font-semibold">Tillid først. Design dernæst.</span>
+              <div className="relative">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  {reason.title}
+                </h3>
+                <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-md">
+                  {reason.description}
                 </p>
               </div>
             </motion.div>
-
-          </div>
-
-          {/* Right - Bento Grid */}
-          <div className="grid grid-cols-2 gap-4 relative">
-            {/* Background number - positioned near 04 card */}
-            <div className="absolute bottom-0 right-0 text-[80px] laptop:text-[90px] laptop-l:text-[100px] xl:text-[120px] font-bold text-white/[0.06] leading-none pointer-events-none select-none z-0">
-              2025
-            </div>
-            {reasons.map((reason, index) => {
-              const Icon = reason.icon
-              const isLarge = index === 0 || index === 3
-
-              return (
-                <motion.div
-                  key={index}
-                  className={`relative group cursor-pointer ${isLarge ? 'row-span-2' : ''
-                    }`}
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
-                >
-                  <div className={`relative overflow-hidden rounded-2xl ${isLarge ? 'h-[320px] md:h-[360px] laptop:h-[340px] laptop-l:h-[400px] xl:h-[450px]' : 'h-[150px] md:h-[170px] laptop:h-[162px] laptop-l:h-[192px] xl:h-[217px]'
-                    }`}>
-                    {/* Image */}
-                    <Image
-                      src={reason.image}
-                      alt={reason.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                    />
-
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-
-                    {/* Content */}
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                      {/* Icon */}
-                      <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-gold group-hover:scale-110 transition-all duration-300">
-                        <Icon className="w-5 h-5 text-white group-hover:text-black transition-colors" strokeWidth={2} />
-                      </div>
-
-                      {/* Number */}
-                      <div className="mb-3">
-                        <span className="text-3xl md:text-4xl font-bold text-gold/60">
-                          {reason.stat}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                        {reason.title}
-                      </h3>
-
-                      {/* Description - only visible on larger cards */}
-                      {isLarge && reason.description && (
-                        <p className="text-sm md:text-base text-white/70 leading-relaxed">
-                          {reason.description}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
+          ))}
         </div>
 
       </div>
