@@ -126,45 +126,7 @@
         "question": "Hvad hvis jeg ikke er teknisk anlagt?",
         "answer": "Det behøver du ikke være! Vores Payload CMS admin-panel er designet så det er intuitivt at bruge - tænk \"WordPress-enkelt\" men med moderne teknologi. Vi giver dig personlig træning i at opdatere tekster, billeder og blogindlæg. Og vores support er altid klar til at hjælpe."
       }
-    ],
-    "label": "Spørgsmål & svar",
-    "items": [
-      {
-        "question": "Kan jeg opgradere min pakke senere?",
-        "answer": "Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner. Downgrade er også muligt, men vi anbefaler at vælge den rigtige pakke fra start for at undgå ekstra arbejde."
-      },
-      {
-        "question": "Hvad er præcis inkluderet i hver pakke?",
-        "answer": "Hver pakke inkluderer forskellige antal sider, funktioner og support. Se vores sammenligningsmatrix ovenfor for en detaljeret oversigt. Alle pakker inkluderer dog: Mobil-responsive design, Payload CMS, moderne teknologi stack (Next.js), og basis SEO."
-      },
-      {
-        "question": "Hvor lang tid tager hver pakke at bygge?",
-        "answer": "Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Dette er fra projektstart til lancering. Timelines kan tilpasses efter dine behov, men hurtigere levering kan påvirke pris."
-      },
-      {
-        "question": "Hvad sker der efter de inkluderede revisionsrunder?",
-        "answer": "Essentials inkluderer 2 revisionsrunder, Professional 3, og Business 4. Efter disse runder koster ændringer ekstra (typisk 995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep."
-      },
-      {
-        "question": "Kan jeg tilføje ekstra funktioner til min pakke?",
-        "answer": "Ja! Vi tilbyder flere tilkøb: Ekstra sider (1.495 kr/side), E-mail opsætning (2.995 kr), Copywriting (fra 3.995 kr), og Fotografi (fra 4.995 kr). Kontakt os for andre specialfunktioner."
-      },
-      {
-        "question": "Hvad hvis jeg har brug for noget der ikke er i nogen pakke?",
-        "answer": "Vi tilbyder custom løsninger! Kontakt os, så laver vi et skræddersyet tilbud baseret på dine behov. Vi kan bygge alt fra komplekse web-apps til specialiserede integrationer."
-      },
-      {
-        "question": "Er der løbende omkostninger efter lancering?",
-        "answer": "Hosting koster typisk 150-300 kr/måned (via Vercel eller lignende). Domæne er ca. 100 kr/år. Vi tilbyder også vedligeholdelsesaftaler fra 1.995 kr/måned hvis du ønsker løbende support og opdateringer."
-      },
-      {
-        "question": "Hvad er jeres garanti mod scope creep?",
-        "answer": "Vi bruger strukturerede revisionsrunder med klare sign-off punkter. Efter design-godkendelse koster ændringer ekstra. Dette sikrer projektet bliver færdigt til tiden og til den aftalte pris. 0% scope creep garanti."
-      }
-    ],
-    "subtitle": "Alt du skal vide om vores pakker",
-    "bottomQuestion": "Har du andre spørgsmål?",
-    "contactButton": "Kontakt os"
+    ]
   },
   "cookie": {
     "title": "Vi værner om dit privatliv",
@@ -1496,7 +1458,101 @@
       }
     }
   },
-  "workshops": {},
+  "workshops": {
+    "intro": {
+      "label": "Hvorfor dette kursus?",
+      "paragraph1": "Den teknologi, du lærer at bruge på dette kursus, er præcis den samme som bureauer tager",
+      "paragraph1Price": "25-40.000 kr.",
+      "paragraph1Suffix": "for.",
+      "paragraph2Prefix": "Forskellen? Du betaler",
+      "paragraph2Price": "6.500 kr.",
+      "paragraph2Suffix": "og ejer det hele selv bagefter.",
+      "benefits": [
+        "Ingen månedlige gebyrer",
+        "Ingen fakturaer for smårettelser",
+        "Fuld kontrol fra dag ét"
+      ],
+      "codeComment": "// Du skriver til AI'en:",
+      "codeLine1": "\"Tilføj en ny side om parterapi",
+      "codeLine2": "med en kort introduktion og",
+      "codeLine3": "et bookinglink i bunden.\"",
+      "codeResult": "// Koden skrives for dig ✓"
+    },
+    "maintenance": {
+      "label": "Løbende vedligeholdelse",
+      "title": "Hold din side opdateret",
+      "subtitle": "Jeg lærer dig flere måder at holde din side opdateret",
+      "options": [
+        {
+          "title": "Små ændringer – helt gratis",
+          "description": "Ret en tekst eller opdater en pris direkte i GitHub via din browser. Ingen abonnementer.",
+          "tag": "Gratis"
+        },
+        {
+          "title": "Større ændringer – med AI-hjælp",
+          "description": "Tilføj en ny side eller ændre layoutet med Claude Code eller lignende værktøjer. En ny underside koster et par kroner i API-forbrug.",
+          "tag": "Få kroner"
+        },
+        {
+          "title": "Videovejledninger inkluderet",
+          "description": "Du får adgang til korte videoer, der viser præcis hvordan du gør de mest almindelige ting.",
+          "tag": "Inkluderet"
+        }
+      ]
+    },
+    "faq": {
+      "label": "Spørgsmål & svar",
+      "title": "Ofte stillede spørgsmål",
+      "items": [
+        {
+          "question": "Skal jeg kunne programmere?",
+          "answer": "Nej. Du lærer at instruere en AI på almindeligt dansk. Koden skrives for dig."
+        },
+        {
+          "question": "Er teknologien virkelig den samme som bureauerne bruger?",
+          "answer": "Ja. Next.js, Tailwind og Vercel er industristandard for moderne, hurtige websites. Det er præcis det, du betaler ekstra for hos et bureau."
+        },
+        {
+          "question": "Hvad koster det at drive siden bagefter?",
+          "answer": "Hosting er gratis. Domæne koster ca. 100 kr. om året. Små ændringer i GitHub er gratis. Større ændringer med AI-hjælp koster få kroner."
+        },
+        {
+          "question": "Hvad hvis jeg går i stå?",
+          "answer": "Du har adgang til videovejledninger og kan tilkøbe klippekort til personlig hjælp."
+        },
+        {
+          "question": "Hvor mange deltager?",
+          "answer": "2-10 personer. Så der er tid til dig."
+        }
+      ]
+    },
+    "courseStructure": {
+      "label": "Kursets forløb",
+      "title": "Kursets opbygning",
+      "steps": [
+        {
+          "phase": "Før kursusdagen",
+          "title": "1 times online intro",
+          "description": "Vi installerer det nødvendige sammen, så du er klar til at gå i gang på selve kursusdagen."
+        },
+        {
+          "phase": "Kursusdag",
+          "title": "Kl. 10.00–16.30",
+          "description": "Vekslen mellem fælles gennemgang og tid til at arbejde på din egen side med personlig hjælp. Vi er 2-10 deltagere, så der er tid til dig. Du går hjem med en fungerende hjemmeside."
+        },
+        {
+          "phase": "Efter kurset",
+          "title": "1 times individuel opfølgning",
+          "description": "Vi gennemgår din side og løser de sidste spørgsmål."
+        },
+        {
+          "phase": "Tilkøb",
+          "title": "Klippekort",
+          "description": "3×30 min til når du vil udvide eller ændre noget."
+        }
+      ]
+    }
+  },
   "common": {
     "bookMeeting": "Book et møde",
     "allRightsReserved": "Alle rettigheder forbeholdes",
@@ -1510,471 +1566,6 @@
     "readMore": "Læs mere",
     "viewAll": "Se alle",
     "close": "Luk"
-  },
-  "intro": {
-    "label": "Hvorfor dette kursus?",
-    "paragraph1": "Den teknologi, du lærer at bruge på dette kursus, er præcis den samme som bureauer tager",
-    "paragraph1Price": "25-40.000 kr.",
-    "paragraph1Suffix": "for.",
-    "paragraph2Prefix": "Forskellen? Du betaler",
-    "paragraph2Price": "6.500 kr.",
-    "paragraph2Suffix": "og ejer det hele selv bagefter.",
-    "benefits": [
-      "Ingen månedlige gebyrer",
-      "Ingen fakturaer for smårettelser",
-      "Fuld kontrol fra dag ét"
-    ],
-    "codeComment": "// Du skriver til AI'en:",
-    "codeLine1": "\"Tilføj en ny side om parterapi",
-    "codeLine2": "med en kort introduktion og",
-    "codeLine3": "et bookinglink i bunden.\"",
-    "codeResult": "// Koden skrives for dig ✓"
-  },
-  "maintenance": {
-    "label": "Løbende vedligeholdelse",
-    "title": "Hold din side opdateret",
-    "subtitle": "Jeg lærer dig flere måder at holde din side opdateret",
-    "options": [
-      {
-        "title": "Små ændringer – helt gratis",
-        "description": "Ret en tekst eller opdater en pris direkte i GitHub via din browser. Ingen abonnementer.",
-        "tag": "Gratis"
-      },
-      {
-        "title": "Større ændringer – med AI-hjælp",
-        "description": "Tilføj en ny side eller ændre layoutet med Claude Code eller lignende værktøjer. En ny underside koster et par kroner i API-forbrug.",
-        "tag": "Få kroner"
-      },
-      {
-        "title": "Videovejledninger inkluderet",
-        "description": "Du får adgang til korte videoer, der viser præcis hvordan du gør de mest almindelige ting.",
-        "tag": "Inkluderet"
-      }
-    ]
-  },
-  "courseStructure": {
-    "label": "Kursets forløb",
-    "title": "Kursets opbygning",
-    "steps": [
-      {
-        "phase": "Før kursusdagen",
-        "title": "1 times online intro",
-        "description": "Vi installerer det nødvendige sammen, så du er klar til at gå i gang på selve kursusdagen."
-      },
-      {
-        "phase": "Kursusdag",
-        "title": "Kl. 10.00–16.30",
-        "description": "Vekslen mellem fælles gennemgang og tid til at arbejde på din egen side med personlig hjælp. Vi er 2-10 deltagere, så der er tid til dig. Du går hjem med en fungerende hjemmeside."
-      },
-      {
-        "phase": "Efter kurset",
-        "title": "1 times individuel opfølgning",
-        "description": "Vi gennemgår din side og løser de sidste spørgsmål."
-      },
-      {
-        "phase": "Tilkøb",
-        "title": "Klippekort",
-        "description": "3×30 min til når du vil udvide eller ændre noget."
-      }
-    ]
-  },
-  "section": {
-    "tagline": "Faste priser • Ingen overraskelser",
-    "title": "Vælg din pakke",
-    "subtitle": "Professionelle websites med AI-drevet udvikling.",
-    "subtitleHint": "Klik på en pakke for at se alle detaljer og funktioner.",
-    "swipeHint": "← Swipe for at se alle pakker →",
-    "compareLink": "Sammenlign alle pakker i detaljer",
-    "addonsTitle": "Tilkøb & Ekstra Services",
-    "addonsSubtitle": "Udvid din pakke med professionelle services",
-    "addons": [
-      {
-        "name": "Ekstra sider",
-        "price": "1.495 kr/side"
-      },
-      {
-        "name": "E-mail opsætning",
-        "price": "2.995 kr"
-      },
-      {
-        "name": "Copywriting",
-        "price": "Fra 3.995 kr"
-      },
-      {
-        "name": "Fotografi",
-        "price": "Fra 4.995 kr"
-      }
-    ]
-  },
-  "cardsThreekit": {
-    "popularBadge": "Most Popular",
-    "ctaButton": "Get started",
-    "packages": [
-      {
-        "tagline": "Vores standard pakke",
-        "description": "Perfekt til startups og små virksomheder der skal i gang",
-        "features": [
-          "5 sider",
-          "Mobil-optimeret",
-          "Basis SEO",
-          "CMS"
-        ]
-      },
-      {
-        "tagline": "Bedst til at tilbyde flere oplevelser",
-        "description": "Den komplette løsning for voksende virksomheder",
-        "features": [
-          "10 sider",
-          "Avancerede animationer",
-          "Blog & portfolio",
-          "Fuld SEO"
-        ]
-      },
-      {
-        "tagline": "Bedst til globale komplekse use cases",
-        "description": "Enterprise-niveau løsning med fuld kontrol",
-        "features": [
-          "20+ sider",
-          "Multi-language",
-          "E-commerce",
-          "Premium support"
-        ]
-      }
-    ]
-  },
-  "faqMinimal": {
-    "title": "Ofte stillede spørgsmål",
-    "bottomQuestion": "Har du andre spørgsmål?",
-    "contactButton": "Kontakt os",
-    "items": [
-      {
-        "question": "Kan jeg opgradere min pakke senere?",
-        "answer": "Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner."
-      },
-      {
-        "question": "Hvad er præcis inkluderet i hver pakke?",
-        "answer": "Hver pakke inkluderer forskellige antal sider, funktioner og support. Alle pakker inkluderer: Mobil-responsive design, Payload CMS, Next.js, og SEO."
-      },
-      {
-        "question": "Hvor lang tid tager hver pakke at bygge?",
-        "answer": "Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Fra projektstart til lancering."
-      },
-      {
-        "question": "Hvad sker der efter de inkluderede revisionsrunder?",
-        "answer": "Efter revisionsrunderne koster ændringer ekstra (995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep."
-      },
-      {
-        "question": "Er der løbende omkostninger efter lancering?",
-        "answer": "Hosting: 150-300 kr/måned. Domæne: ca. 100 kr/år. Vedligeholdelse: fra 1.995 kr/måned (valgfrit)."
-      },
-      {
-        "question": "Hvad er jeres garanti mod scope creep?",
-        "answer": "Strukturerede revisionsrunder med klare sign-off punkter. Efter godkendelse koster ændringer ekstra. 0% scope creep garanti."
-      }
-    ]
-  },
-  "testimonials": {
-    "title": "Vores kunder",
-    "titleAccent": "taler",
-    "subtitle": "Se hvad rigtige kunder siger om deres valgte pakke",
-    "resultsLabel": "Resultater:",
-    "bottomCta": "Klar til at blive vores næste succeshistorie?",
-    "seeCases": "Se alle cases",
-    "bookMeeting": "Book et møde",
-    "items": [
-      {
-        "quote": "Vi gik fra et traditionelt klinikudtryk til en digital oplevelse der føles rolig, professionel og personlig. Transparo tænkte på hver eneste detalje.",
-        "author": "Camilla Højland",
-        "role": "Indehaver",
-        "company": "Flotte Fødder",
-        "package": "Essentials",
-        "results": "+185% online bookinger på 3 måneder"
-      },
-      {
-        "quote": "Transparo oversatte et komplekst sundhedsunivers til et intuitivt digitalt økosystem. Vores brugere føler sig trygge, og platformen performer fra dag ét.",
-        "author": "Louise Kjær",
-        "role": "Produktchef",
-        "company": "Sundhedskonsortiet",
-        "package": "Professional",
-        "results": "94% brugertilfredshed første måned"
-      },
-      {
-        "quote": "Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.",
-        "author": "Thomas Kjeldsen",
-        "role": "Formand",
-        "company": "VAT 85",
-        "package": "Business",
-        "results": "+295% online billetsalg"
-      }
-    ]
-  },
-  "newSection": {
-    "badge": "Faste priser • Ingen overraskelser",
-    "heading": "Vælg din pakke",
-    "subtitle": "Professionelle websites der sælger - leveret på 2-4 uger.",
-    "subtitleSecondary": "100+ virksomheder har allerede boosted deres online tilsteværelse.",
-    "popularBadge": "Mest Populær",
-    "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
-    "deliveryLabel": "Levering: {duration}",
-    "cta": "Vælg denne pakke",
-    "trustHighlight": "98% kundetilfredshed",
-    "trustSuffix": "Ingen binding • Fuld ejendomsret",
-    "packages": [
-      {
-        "id": "essentials",
-        "name": "Essentials",
-        "price": "8.995",
-        "duration": "10-14 dage",
-        "description": "Kom online hurtigt og professionelt",
-        "highlights": [
-          "5 professionelle sider",
-          "Mobil-optimeret (60% af trafik)",
-          "SEO der får dig fundet",
-          "Kontaktformular der konverterer"
-        ]
-      },
-      {
-        "id": "professional",
-        "name": "Professional",
-        "price": "16.995",
-        "duration": "14-21 dage",
-        "description": "For virksomheder der vil dominere online",
-        "popular": true,
-        "highlights": [
-          "10 sider inkluderet",
-          "Animationer der imponerer",
-          "Blog der tiltrækker kunder",
-          "Fuld SEO = flere leads"
-        ]
-      },
-      {
-        "id": "business",
-        "name": "Business",
-        "price": "27.995",
-        "duration": "21-28 dage",
-        "description": "Den ultimative konkurrencefordel",
-        "highlights": [
-          "20+ sider til alt dit indhold",
-          "Multi-sprog = flere markeder",
-          "E-commerce klar til salg",
-          "Premium der skiller dig ud"
-        ]
-      }
-    ]
-  },
-  "newSectionEnhanced": {
-    "badge": "Faste priser • Ingen overraskelser",
-    "heading": "Vælg din pakke",
-    "subtitle": "Professionelle websites med AI-drevet udvikling.",
-    "subtitleSecondary": "Klik på en pakke for at se alle detaljer.",
-    "popularBadge": "Mest Populær",
-    "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
-    "deliveryLabel": "Levering: {duration}",
-    "cta": "Se alle detaljer",
-    "compareLink": "Sammenlign alle pakker i detaljer",
-    "addonsTitle": "Tilkøb & Ekstra Services",
-    "packages": [
-      {
-        "id": "essentials",
-        "name": "Essentials",
-        "price": "8.995",
-        "duration": "10-14 dage",
-        "description": "Perfekt til startups og små virksomheder",
-        "highlights": [
-          "5 professionelle sider",
-          "Mobil-optimeret design",
-          "Basis SEO-opsætning",
-          "Kontaktformular"
-        ]
-      },
-      {
-        "id": "professional",
-        "name": "Professional",
-        "price": "16.995",
-        "duration": "14-21 dage",
-        "description": "Den komplette løsning for voksende virksomheder",
-        "popular": true,
-        "highlights": [
-          "10 sider inkluderet",
-          "Avancerede animationer",
-          "Blog & portfolio",
-          "Fuld SEO-pakke"
-        ]
-      },
-      {
-        "id": "business",
-        "name": "Business",
-        "price": "27.995",
-        "duration": "21-28 dage",
-        "description": "Enterprise-niveau løsning med fuld kontrol",
-        "highlights": [
-          "20+ sider",
-          "Multi-language support",
-          "E-commerce ready",
-          "Premium animationer"
-        ]
-      }
-    ],
-    "addons": [
-      {
-        "name": "Ekstra sider",
-        "price": "1.495 kr/side"
-      },
-      {
-        "name": "E-mail opsætning",
-        "price": "2.995 kr"
-      },
-      {
-        "name": "Copywriting",
-        "price": "Fra 3.995 kr"
-      },
-      {
-        "name": "Fotografi",
-        "price": "Fra 4.995 kr"
-      }
-    ]
-  },
-  "cardsMinimal": {
-    "popularBadge": "Populær",
-    "seeDetails": "Se detaljer",
-    "compareLink": "Sammenlign alle features",
-    "packages": [
-      {
-        "id": "essentials",
-        "name": "Essentials",
-        "price": "8.995",
-        "duration": "10-14 dage",
-        "description": "Perfekt til startups",
-        "features": [
-          "5 professionelle sider",
-          "Mobil-optimeret design",
-          "Basis SEO-opsætning",
-          "Kontaktformular",
-          "Payload CMS",
-          "2 revisionsrunder"
-        ]
-      },
-      {
-        "id": "professional",
-        "name": "Professional",
-        "price": "16.995",
-        "duration": "14-21 dage",
-        "description": "For voksende virksomheder",
-        "popular": true,
-        "features": [
-          "10 sider inkluderet",
-          "Avancerede animationer",
-          "Blog & portfolio",
-          "Fuld SEO-pakke",
-          "Analytics integration",
-          "3 revisionsrunder"
-        ]
-      },
-      {
-        "id": "business",
-        "name": "Business",
-        "price": "27.995",
-        "duration": "21-28 dage",
-        "description": "Enterprise-niveau",
-        "popular": false,
-        "features": [
-          "20+ sider",
-          "Multi-language support",
-          "E-commerce ready",
-          "Premium animationer",
-          "Dedikeret support",
-          "4 revisionsrunder"
-        ]
-      }
-    ]
-  },
-  "detailView": {
-    "backLink": "Tilbage til oversigt",
-    "popularBadge": "Mest Populær",
-    "bestStarter": "Bedste Starter",
-    "essentialsSubtext": "Alt du behøver for at komme online - hurtigt, professionelt og til en fair pris.",
-    "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
-    "deliveryLabel": "Levering: {duration}",
-    "bookMeeting": "Book et møde",
-    "compareAll": "Sammenlign alle pakker",
-    "trustItems": [
-      "100% dansk support",
-      "Ingen binding",
-      "Fuld ejendomsret"
-    ],
-    "perfectForLabel": "Perfekt til dig",
-    "perfectForHeading": "Hvem er Essentials til?",
-    "perfectFor": [
-      {
-        "title": "Startups",
-        "description": "Lancér din første professionelle hjemmeside uden at sprænge budgettet"
-      },
-      {
-        "title": "Freelancere",
-        "description": "Vis dine services frem med en elegant online tilsteværelse"
-      },
-      {
-        "title": "Små virksomheder",
-        "description": "Tag skridtet fra Facebook til din egen professionelle platform"
-      }
-    ],
-    "timelineLabel": "Din rejse",
-    "timelineHeading": "Fra idé til lancering på {days} dage",
-    "timelineDays": "14",
-    "dayLabel": "Dag {day}",
-    "timelineSteps": [
-      {
-        "day": "1-2",
-        "title": "Opdagelse",
-        "description": "Vi lærer din virksomhed at kende"
-      },
-      {
-        "day": "3-6",
-        "title": "Design & Udvikling",
-        "description": "Vi bygger dit website"
-      },
-      {
-        "day": "7-10",
-        "title": "Gennemgang",
-        "description": "Du giver feedback, vi finpudser"
-      },
-      {
-        "day": "11-14",
-        "title": "Lancering",
-        "description": "Dit website går live!"
-      }
-    ],
-    "featuresHeading": "Alt der er inkluderet",
-    "featuresSubtitle": "Få en komplet løsning med alt hvad din virksomhed har brug for",
-    "categoryNames": {
-      "designDevelopment": "Design & Udvikling",
-      "functionality": "Funktionalitet",
-      "seoPerformance": "SEO & Performance",
-      "serviceSupport": "Service & Support"
-    },
-    "testimonialsLabel": "Social proof",
-    "testimonialsHeading": "Hvad vores kunder siger",
-    "testimonials": [
-      {
-        "name": "Louise Kjær",
-        "company": "Sundhedskonsortiet",
-        "quote": "Perfekt til vores behov - professionelt resultat til en fair pris."
-      },
-      {
-        "name": "Thomas Kjeldsen",
-        "company": "VAT 85",
-        "quote": "Hurtig levering og præcis hvad vi havde brug for som startup."
-      }
-    ],
-    "statsPrefix": "Slut dig til",
-    "statsHighlight": "50+ tilfredse kunder",
-    "statsSuffix": "der har valgt Essentials",
-    "addonsHeading": "Udvid med tilkøb",
-    "addonsSubtitle": "Tilpas din pakke med præcis de services du har brug for",
-    "ctaHeading": "Klar til at komme i gang?",
-    "ctaSubtitle": "Book et uforpligtende møde og lad os tale om din vision",
-    "ctaBookMeeting": "Book møde nu",
-    "ctaSeeWork": "Se vores arbejde"
   },
   "trustIndicators": {
     "indicators": [
@@ -2342,5 +1933,446 @@
         ]
       }
     ]
+  },
+  "packages": {
+    "section": {
+      "tagline": "Faste priser • Ingen overraskelser",
+      "title": "Vælg din pakke",
+      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitleHint": "Klik på en pakke for at se alle detaljer og funktioner.",
+      "swipeHint": "← Swipe for at se alle pakker →",
+      "compareLink": "Sammenlign alle pakker i detaljer",
+      "addonsTitle": "Tilkøb & Ekstra Services",
+      "addonsSubtitle": "Udvid din pakke med professionelle services",
+      "addons": [
+        {
+          "name": "Ekstra sider",
+          "price": "1.495 kr/side"
+        },
+        {
+          "name": "E-mail opsætning",
+          "price": "2.995 kr"
+        },
+        {
+          "name": "Copywriting",
+          "price": "Fra 3.995 kr"
+        },
+        {
+          "name": "Fotografi",
+          "price": "Fra 4.995 kr"
+        }
+      ]
+    },
+    "cardsThreekit": {
+      "popularBadge": "Most Popular",
+      "ctaButton": "Get started",
+      "packages": [
+        {
+          "tagline": "Vores standard pakke",
+          "description": "Perfekt til startups og små virksomheder der skal i gang",
+          "features": [
+            "5 sider",
+            "Mobil-optimeret",
+            "Basis SEO",
+            "CMS"
+          ]
+        },
+        {
+          "tagline": "Bedst til at tilbyde flere oplevelser",
+          "description": "Den komplette løsning for voksende virksomheder",
+          "features": [
+            "10 sider",
+            "Avancerede animationer",
+            "Blog & portfolio",
+            "Fuld SEO"
+          ]
+        },
+        {
+          "tagline": "Bedst til globale komplekse use cases",
+          "description": "Enterprise-niveau løsning med fuld kontrol",
+          "features": [
+            "20+ sider",
+            "Multi-language",
+            "E-commerce",
+            "Premium support"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Ofte stillede",
+      "titleAccent": "spørgsmål",
+      "subtitle": "Alt du skal vide om vores pakker",
+      "bottomQuestion": "Har du andre spørgsmål?",
+      "contactButton": "Kontakt os",
+      "items": [
+        {
+          "question": "Kan jeg opgradere min pakke senere?",
+          "answer": "Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner. Downgrade er også muligt, men vi anbefaler at vælge den rigtige pakke fra start for at undgå ekstra arbejde."
+        },
+        {
+          "question": "Hvad er præcis inkluderet i hver pakke?",
+          "answer": "Hver pakke inkluderer forskellige antal sider, funktioner og support. Se vores sammenligningsmatrix ovenfor for en detaljeret oversigt. Alle pakker inkluderer dog: Mobil-responsive design, Payload CMS, moderne teknologi stack (Next.js), og basis SEO."
+        },
+        {
+          "question": "Hvor lang tid tager hver pakke at bygge?",
+          "answer": "Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Dette er fra projektstart til lancering. Timelines kan tilpasses efter dine behov, men hurtigere levering kan påvirke pris."
+        },
+        {
+          "question": "Hvad sker der efter de inkluderede revisionsrunder?",
+          "answer": "Essentials inkluderer 2 revisionsrunder, Professional 3, og Business 4. Efter disse runder koster ændringer ekstra (typisk 995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep."
+        },
+        {
+          "question": "Kan jeg tilføje ekstra funktioner til min pakke?",
+          "answer": "Ja! Vi tilbyder flere tilkøb: Ekstra sider (1.495 kr/side), E-mail opsætning (2.995 kr), Copywriting (fra 3.995 kr), og Fotografi (fra 4.995 kr). Kontakt os for andre specialfunktioner."
+        },
+        {
+          "question": "Hvad hvis jeg har brug for noget der ikke er i nogen pakke?",
+          "answer": "Vi tilbyder custom løsninger! Kontakt os, så laver vi et skræddersyet tilbud baseret på dine behov. Vi kan bygge alt fra komplekse web-apps til specialiserede integrationer."
+        },
+        {
+          "question": "Er der løbende omkostninger efter lancering?",
+          "answer": "Hosting koster typisk 150-300 kr/måned (via Vercel eller lignende). Domæne er ca. 100 kr/år. Vi tilbyder også vedligeholdelsesaftaler fra 1.995 kr/måned hvis du ønsker løbende support og opdateringer."
+        },
+        {
+          "question": "Hvad er jeres garanti mod scope creep?",
+          "answer": "Vi bruger strukturerede revisionsrunder med klare sign-off punkter. Efter design-godkendelse koster ændringer ekstra. Dette sikrer projektet bliver færdigt til tiden og til den aftalte pris. 0% scope creep garanti."
+        }
+      ]
+    },
+    "faqMinimal": {
+      "title": "Ofte stillede spørgsmål",
+      "bottomQuestion": "Har du andre spørgsmål?",
+      "contactButton": "Kontakt os",
+      "items": [
+        {
+          "question": "Kan jeg opgradere min pakke senere?",
+          "answer": "Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner."
+        },
+        {
+          "question": "Hvad er præcis inkluderet i hver pakke?",
+          "answer": "Hver pakke inkluderer forskellige antal sider, funktioner og support. Alle pakker inkluderer: Mobil-responsive design, Payload CMS, Next.js, og SEO."
+        },
+        {
+          "question": "Hvor lang tid tager hver pakke at bygge?",
+          "answer": "Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Fra projektstart til lancering."
+        },
+        {
+          "question": "Hvad sker der efter de inkluderede revisionsrunder?",
+          "answer": "Efter revisionsrunderne koster ændringer ekstra (995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep."
+        },
+        {
+          "question": "Er der løbende omkostninger efter lancering?",
+          "answer": "Hosting: 150-300 kr/måned. Domæne: ca. 100 kr/år. Vedligeholdelse: fra 1.995 kr/måned (valgfrit)."
+        },
+        {
+          "question": "Hvad er jeres garanti mod scope creep?",
+          "answer": "Strukturerede revisionsrunder med klare sign-off punkter. Efter godkendelse koster ændringer ekstra. 0% scope creep garanti."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Vores kunder",
+      "titleAccent": "taler",
+      "subtitle": "Se hvad rigtige kunder siger om deres valgte pakke",
+      "resultsLabel": "Resultater:",
+      "bottomCta": "Klar til at blive vores næste succeshistorie?",
+      "seeCases": "Se alle cases",
+      "bookMeeting": "Book et møde",
+      "items": [
+        {
+          "quote": "Vi gik fra et traditionelt klinikudtryk til en digital oplevelse der føles rolig, professionel og personlig. Transparo tænkte på hver eneste detalje.",
+          "author": "Camilla Højland",
+          "role": "Indehaver",
+          "company": "Flotte Fødder",
+          "package": "Essentials",
+          "results": "+185% online bookinger på 3 måneder"
+        },
+        {
+          "quote": "Transparo oversatte et komplekst sundhedsunivers til et intuitivt digitalt økosystem. Vores brugere føler sig trygge, og platformen performer fra dag ét.",
+          "author": "Louise Kjær",
+          "role": "Produktchef",
+          "company": "Sundhedskonsortiet",
+          "package": "Professional",
+          "results": "94% brugertilfredshed første måned"
+        },
+        {
+          "quote": "Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.",
+          "author": "Thomas Kjeldsen",
+          "role": "Formand",
+          "company": "VAT 85",
+          "package": "Business",
+          "results": "+295% online billetsalg"
+        }
+      ]
+    },
+    "newSection": {
+      "badge": "Faste priser • Ingen overraskelser",
+      "heading": "Vælg din pakke",
+      "subtitle": "Professionelle websites der sælger - leveret på 2-4 uger.",
+      "subtitleSecondary": "100+ virksomheder har allerede boosted deres online tilsteværelse.",
+      "popularBadge": "Mest Populær",
+      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "deliveryLabel": "Levering: {duration}",
+      "cta": "Vælg denne pakke",
+      "trustHighlight": "98% kundetilfredshed",
+      "trustSuffix": "Ingen binding • Fuld ejendomsret",
+      "packages": [
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "price": "8.995",
+          "duration": "10-14 dage",
+          "description": "Kom online hurtigt og professionelt",
+          "highlights": [
+            "5 professionelle sider",
+            "Mobil-optimeret (60% af trafik)",
+            "SEO der får dig fundet",
+            "Kontaktformular der konverterer"
+          ]
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "price": "16.995",
+          "duration": "14-21 dage",
+          "description": "For virksomheder der vil dominere online",
+          "popular": true,
+          "highlights": [
+            "10 sider inkluderet",
+            "Animationer der imponerer",
+            "Blog der tiltrækker kunder",
+            "Fuld SEO = flere leads"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "price": "27.995",
+          "duration": "21-28 dage",
+          "description": "Den ultimative konkurrencefordel",
+          "highlights": [
+            "20+ sider til alt dit indhold",
+            "Multi-sprog = flere markeder",
+            "E-commerce klar til salg",
+            "Premium der skiller dig ud"
+          ]
+        }
+      ]
+    },
+    "newSectionEnhanced": {
+      "badge": "Faste priser • Ingen overraskelser",
+      "heading": "Vælg din pakke",
+      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitleSecondary": "Klik på en pakke for at se alle detaljer.",
+      "popularBadge": "Mest Populær",
+      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "deliveryLabel": "Levering: {duration}",
+      "cta": "Se alle detaljer",
+      "compareLink": "Sammenlign alle pakker i detaljer",
+      "addonsTitle": "Tilkøb & Ekstra Services",
+      "packages": [
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "price": "8.995",
+          "duration": "10-14 dage",
+          "description": "Perfekt til startups og små virksomheder",
+          "highlights": [
+            "5 professionelle sider",
+            "Mobil-optimeret design",
+            "Basis SEO-opsætning",
+            "Kontaktformular"
+          ]
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "price": "16.995",
+          "duration": "14-21 dage",
+          "description": "Den komplette løsning for voksende virksomheder",
+          "popular": true,
+          "highlights": [
+            "10 sider inkluderet",
+            "Avancerede animationer",
+            "Blog & portfolio",
+            "Fuld SEO-pakke"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "price": "27.995",
+          "duration": "21-28 dage",
+          "description": "Enterprise-niveau løsning med fuld kontrol",
+          "highlights": [
+            "20+ sider",
+            "Multi-language support",
+            "E-commerce ready",
+            "Premium animationer"
+          ]
+        }
+      ],
+      "addons": [
+        {
+          "name": "Ekstra sider",
+          "price": "1.495 kr/side"
+        },
+        {
+          "name": "E-mail opsætning",
+          "price": "2.995 kr"
+        },
+        {
+          "name": "Copywriting",
+          "price": "Fra 3.995 kr"
+        },
+        {
+          "name": "Fotografi",
+          "price": "Fra 4.995 kr"
+        }
+      ]
+    },
+    "cardsMinimal": {
+      "popularBadge": "Populær",
+      "seeDetails": "Se detaljer",
+      "compareLink": "Sammenlign alle features",
+      "packages": [
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "price": "8.995",
+          "duration": "10-14 dage",
+          "description": "Perfekt til startups",
+          "features": [
+            "5 professionelle sider",
+            "Mobil-optimeret design",
+            "Basis SEO-opsætning",
+            "Kontaktformular",
+            "Payload CMS",
+            "2 revisionsrunder"
+          ]
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "price": "16.995",
+          "duration": "14-21 dage",
+          "description": "For voksende virksomheder",
+          "popular": true,
+          "features": [
+            "10 sider inkluderet",
+            "Avancerede animationer",
+            "Blog & portfolio",
+            "Fuld SEO-pakke",
+            "Analytics integration",
+            "3 revisionsrunder"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "price": "27.995",
+          "duration": "21-28 dage",
+          "description": "Enterprise-niveau",
+          "popular": false,
+          "features": [
+            "20+ sider",
+            "Multi-language support",
+            "E-commerce ready",
+            "Premium animationer",
+            "Dedikeret support",
+            "4 revisionsrunder"
+          ]
+        }
+      ]
+    },
+    "detailView": {
+      "backLink": "Tilbage til oversigt",
+      "popularBadge": "Mest Populær",
+      "bestStarter": "Bedste Starter",
+      "essentialsSubtext": "Alt du behøver for at komme online - hurtigt, professionelt og til en fair pris.",
+      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "deliveryLabel": "Levering: {duration}",
+      "bookMeeting": "Book et møde",
+      "compareAll": "Sammenlign alle pakker",
+      "trustItems": [
+        "100% dansk support",
+        "Ingen binding",
+        "Fuld ejendomsret"
+      ],
+      "perfectForLabel": "Perfekt til dig",
+      "perfectForHeading": "Hvem er Essentials til?",
+      "perfectFor": [
+        {
+          "title": "Startups",
+          "description": "Lancér din første professionelle hjemmeside uden at sprænge budgettet"
+        },
+        {
+          "title": "Freelancere",
+          "description": "Vis dine services frem med en elegant online tilsteværelse"
+        },
+        {
+          "title": "Små virksomheder",
+          "description": "Tag skridtet fra Facebook til din egen professionelle platform"
+        }
+      ],
+      "timelineLabel": "Din rejse",
+      "timelineHeading": "Fra idé til lancering på {days} dage",
+      "timelineDays": "14",
+      "dayLabel": "Dag {day}",
+      "timelineSteps": [
+        {
+          "day": "1-2",
+          "title": "Opdagelse",
+          "description": "Vi lærer din virksomhed at kende"
+        },
+        {
+          "day": "3-6",
+          "title": "Design & Udvikling",
+          "description": "Vi bygger dit website"
+        },
+        {
+          "day": "7-10",
+          "title": "Gennemgang",
+          "description": "Du giver feedback, vi finpudser"
+        },
+        {
+          "day": "11-14",
+          "title": "Lancering",
+          "description": "Dit website går live!"
+        }
+      ],
+      "featuresHeading": "Alt der er inkluderet",
+      "featuresSubtitle": "Få en komplet løsning med alt hvad din virksomhed har brug for",
+      "categoryNames": {
+        "designDevelopment": "Design & Udvikling",
+        "functionality": "Funktionalitet",
+        "seoPerformance": "SEO & Performance",
+        "serviceSupport": "Service & Support"
+      },
+      "testimonialsLabel": "Social proof",
+      "testimonialsHeading": "Hvad vores kunder siger",
+      "testimonials": [
+        {
+          "name": "Louise Kjær",
+          "company": "Sundhedskonsortiet",
+          "quote": "Perfekt til vores behov - professionelt resultat til en fair pris."
+        },
+        {
+          "name": "Thomas Kjeldsen",
+          "company": "VAT 85",
+          "quote": "Hurtig levering og præcis hvad vi havde brug for som startup."
+        }
+      ],
+      "statsPrefix": "Slut dig til",
+      "statsHighlight": "50+ tilfredse kunder",
+      "statsSuffix": "der har valgt Essentials",
+      "addonsHeading": "Udvid med tilkøb",
+      "addonsSubtitle": "Tilpas din pakke med præcis de services du har brug for",
+      "ctaHeading": "Klar til at komme i gang?",
+      "ctaSubtitle": "Book et uforpligtende møde og lad os tale om din vision",
+      "ctaBookMeeting": "Book møde nu",
+      "ctaSeeWork": "Se vores arbejde"
+    }
   }
 }

@@ -1,14 +1,29 @@
 {
   "nav": {
     "items": [
-      { "number": "01", "name": "Forside", "href": "/" },
-      { "number": "02", "name": "Portfolio", "href": "/cases" },
-      { "number": "03", "name": "Prisberegner", "href": "/prisberegner" },
-      { "number": "04", "name": "Kontakt", "href": "/kontakt" }
+      {
+        "number": "01",
+        "name": "Forside",
+        "href": "/"
+      },
+      {
+        "number": "02",
+        "name": "Portfolio",
+        "href": "/cases"
+      },
+      {
+        "number": "03",
+        "name": "Prisberegner",
+        "href": "/prisberegner"
+      },
+      {
+        "number": "04",
+        "name": "Kontakt",
+        "href": "/kontakt"
+      }
     ],
     "menuLabel": "Menu"
   },
-
   "booking": {
     "label": "Book Møde",
     "heading": "Book et møde",
@@ -28,7 +43,6 @@
     "thankYouMessage": "Vi vender tilbage hurtigst muligt.",
     "mobileBookButton": "Book"
   },
-
   "hero": {
     "headlinePart1": "Hjemmesider der performer",
     "headlinePart2": "– og holder i fremtiden",
@@ -36,7 +50,6 @@
     "ctaPortfolio": "Se portfolio",
     "ctaPricing": "Beregn din pris"
   },
-
   "footer": {
     "tagline": "Unique designs • Built on trust",
     "description": "Professionelt webdesign til danske små virksomheder. Fast pris, hurtig levering, og ingen scope creep.",
@@ -50,7 +63,6 @@
     "cookiePolicy": "Cookiepolitik",
     "terms": "Handelsbetingelser"
   },
-
   "contact": {
     "overline": "Kontakt",
     "heading": "Lad os tale.",
@@ -77,10 +89,9 @@
     "privacyLink": "privatlivspolitik",
     "copyright": "© {year} Transparo. Alle rettigheder forbeholdes."
   },
-
   "faq": {
-    "title": "Frequently",
-    "titleAccent": "Questions",
+    "title": "Ofte stillede",
+    "titleAccent": "spørgsmål",
     "titlePrefix": "Asked",
     "description": "Find svar på almindelige spørgsmål om vores services, projekt proces, og teknisk ekspertise.",
     "prevLabel": "Forrige spørgsmål",
@@ -117,7 +128,6 @@
       }
     ]
   },
-
   "cookie": {
     "title": "Vi værner om dit privatliv",
     "description": "Vi bruger cookies til at forbedre din oplevelse på vores website. Ved at klikke \"Accepter\" samtykker du til vores brug af cookies. Du kan også vælge at afvise unødvendige cookies.",
@@ -126,7 +136,6 @@
     "acceptButton": "Accepter alle",
     "closeLabel": "Luk banner"
   },
-
   "portfolio": {
     "overline": "Udvalgte projekter",
     "headingLine1": "Websites der",
@@ -141,7 +150,6 @@
     "ctaDescription": "Lad os tage en snak om, hvad vi kan gøre for dig.",
     "ctaButton": "Tal med os"
   },
-
   "whyUs": {
     "overline": "Hvorfor os",
     "headingLine1": "Vi gør det",
@@ -170,7 +178,6 @@
       }
     ]
   },
-
   "about": {
     "overline": "Om os",
     "headingLine1": "To mennesker.",
@@ -193,21 +200,82 @@
       }
     ]
   },
-
   "processTimeline": {
     "overline": "Sådan arbejder vi",
     "headingLine1": "Fra samtale",
     "headingLine2": "til lancering.",
     "steps": [
-      { "number": "01", "title": "Samtale", "description": "Vi lytter til dig og forstår din virksomhed." },
-      { "number": "02", "title": "Design", "description": "Du ser de første udkast og giver feedback." },
-      { "number": "03", "title": "Tilretning", "description": "Vi justerer indtil du er tilfreds." },
-      { "number": "04", "title": "Udvikling", "description": "Vi koder og tester på alle enheder." },
-      { "number": "05", "title": "Review", "description": "Du godkender det færdige resultat." },
-      { "number": "06", "title": "Lancering", "description": "Dit website går live. Alt overdrages til dig." }
-    ]
+      {
+        "number": "01",
+        "title": "Samtale",
+        "description": "Vi lytter til dig og forstår din virksomhed."
+      },
+      {
+        "number": "02",
+        "title": "Design",
+        "description": "Du ser de første udkast og giver feedback."
+      },
+      {
+        "number": "03",
+        "title": "Tilretning",
+        "description": "Vi justerer indtil du er tilfreds."
+      },
+      {
+        "number": "04",
+        "title": "Udvikling",
+        "description": "Vi koder og tester på alle enheder."
+      },
+      {
+        "number": "05",
+        "title": "Review",
+        "description": "Du godkender det færdige resultat."
+      },
+      {
+        "number": "06",
+        "title": "Lancering",
+        "description": "Dit website går live. Alt overdrages til dig."
+      }
+    ],
+    "sectionHeading": "Fra idé til lancering",
+    "sectionSubheading": "En struktureret proces på 2-4 uger der sikrer et perfekt resultat",
+    "detailedSteps": [
+      {
+        "title": "Opstart & Opdagelse",
+        "description": "Vi starter med et dybtgående møde for at forstå din vision, mål og målgruppe.",
+        "details": [
+          "Vision & målsætning",
+          "Målgruppeanalyse",
+          "Konkurrentundersøgelse",
+          "Omfangsdefinition"
+        ],
+        "duration": "3-5 dage"
+      },
+      {
+        "title": "Design & Struktur",
+        "description": "Vi skaber et unikt design der matcher dit brand og konverterer besøgende.",
+        "details": [
+          "Stemningstavler & stil",
+          "Wireframe-layouts",
+          "UI/UX-design",
+          "Responsivt design"
+        ],
+        "duration": "5-7 dage"
+      },
+      {
+        "title": "Udvikling & Lancering",
+        "description": "Din hjemmeside bygges med moderne teknologi og lanceres professionelt.",
+        "details": [
+          "Next.js-udvikling",
+          "Payload CMS-opsætning",
+          "Ydelseoptimering",
+          "Lancering & support"
+        ],
+        "duration": "7-10 dage"
+      }
+    ],
+    "ctaText": "Klar til at starte din digitale transformation?",
+    "ctaButton": "Start dit projekt"
   },
-
   "aboutContact": {
     "overline": "Kontakt",
     "heading": "Fortæl os om",
@@ -228,17 +296,31 @@
     "thankYouTitle": "Tak for din besked",
     "thankYouMessage": "Vi vender tilbage inden for 24 timer."
   },
-
   "priceCalculator": {
     "title": "Prisberegner",
     "subtitle": "Få et hurtigt estimat på din nye hjemmeside. Ingen forpligtelser, fuld gennemsigtighed.",
     "stepLabel": "Trin {current} af {total}",
     "steps": [
-      { "title": "Website-type", "subtitle": "Hvad har du brug for?" },
-      { "title": "Funktioner", "subtitle": "Vælg de features du ønsker" },
-      { "title": "Design-niveau", "subtitle": "Hvor unik skal din side være?" },
-      { "title": "Tidslinje", "subtitle": "Hvornår skal det være klar?" },
-      { "title": "Dit estimat", "subtitle": "Her er din cirka-pris" }
+      {
+        "title": "Website-type",
+        "subtitle": "Hvad har du brug for?"
+      },
+      {
+        "title": "Funktioner",
+        "subtitle": "Vælg de features du ønsker"
+      },
+      {
+        "title": "Design-niveau",
+        "subtitle": "Hvor unik skal din side være?"
+      },
+      {
+        "title": "Tidslinje",
+        "subtitle": "Hvornår skal det være klar?"
+      },
+      {
+        "title": "Dit estimat",
+        "subtitle": "Her er din cirka-pris"
+      }
     ],
     "websiteTypes": [
       {
@@ -291,14 +373,48 @@
       }
     ],
     "features": [
-      { "id": "contact", "label": "Kontaktformular", "description": "Professionel kontaktformular med validering", "included": true },
-      { "id": "social", "label": "Social medie-integration", "description": "Links og feeds fra sociale medier", "included": true },
-      { "id": "seo", "label": "SEO-optimering", "description": "Teknisk SEO, meta tags og struktureret data" },
-      { "id": "blog", "label": "Blog / Nyheder", "description": "Blogsektion med kategorier og arkiv" },
-      { "id": "cms", "label": "CMS (selv-redigering)", "description": "Payload CMS så du selv kan opdatere indhold" },
-      { "id": "booking", "label": "Booking-system", "description": "Online tidsbestilling integreret i sitet" },
-      { "id": "multilang", "label": "Flersproget (DK/EN)", "description": "Fuld oversættelse med sprogskifter" },
-      { "id": "newsletter", "label": "Nyhedsbrev-integration", "description": "Mailchimp, Brevo eller lignende integration" }
+      {
+        "id": "contact",
+        "label": "Kontaktformular",
+        "description": "Professionel kontaktformular med validering",
+        "included": true
+      },
+      {
+        "id": "social",
+        "label": "Social medie-integration",
+        "description": "Links og feeds fra sociale medier",
+        "included": true
+      },
+      {
+        "id": "seo",
+        "label": "SEO-optimering",
+        "description": "Teknisk SEO, meta tags og struktureret data"
+      },
+      {
+        "id": "blog",
+        "label": "Blog / Nyheder",
+        "description": "Blogsektion med kategorier og arkiv"
+      },
+      {
+        "id": "cms",
+        "label": "CMS (selv-redigering)",
+        "description": "Payload CMS så du selv kan opdatere indhold"
+      },
+      {
+        "id": "booking",
+        "label": "Booking-system",
+        "description": "Online tidsbestilling integreret i sitet"
+      },
+      {
+        "id": "multilang",
+        "label": "Flersproget (DK/EN)",
+        "description": "Fuld oversættelse med sprogskifter"
+      },
+      {
+        "id": "newsletter",
+        "label": "Nyhedsbrev-integration",
+        "description": "Mailchimp, Brevo eller lignende integration"
+      }
     ],
     "designLevels": [
       {
@@ -315,8 +431,16 @@
       }
     ],
     "timelines": [
-      { "id": "standard", "label": "Standard levering", "description": "2-4 uger - vores normale leveringstid" },
-      { "id": "express", "label": "Express levering", "description": "1-2 uger - prioriteret behandling" }
+      {
+        "id": "standard",
+        "label": "Standard levering",
+        "description": "2-4 uger - vores normale leveringstid"
+      },
+      {
+        "id": "express",
+        "label": "Express levering",
+        "description": "1-2 uger - prioriteret behandling"
+      }
     ],
     "result": {
       "estimateLabel": "Dit estimat",
@@ -361,14 +485,21 @@
     "expressSurcharge": "+25% express-tillæg",
     "whatsIncluded": "Hvad er inkluderet?"
   },
-
   "process": {
     "heroBadge": "Proces / 7 Faser / 2-4 Uger",
     "heroHeadingLine1": "Fra idé",
     "heroHeadingLine2": "til virkelighed",
     "heroDescription": "En gennemsigtig og struktureret proces hvor hver fase er nøje planlagt for at maksimere værdi og minimere tid.",
     "heroCta": "Udforsk processen",
-    "phasePreviewNames": ["Opdagelse", "Struktur", "Design", "Udvikling", "Test", "Lancering", "Support"],
+    "phasePreviewNames": [
+      "Opdagelse",
+      "Struktur",
+      "Design",
+      "Udvikling",
+      "Test",
+      "Lancering",
+      "Support"
+    ],
     "faseLabel": "Fase",
     "phases": [
       {
@@ -475,15 +606,26 @@
       "headingLine2": "jeres projekt?",
       "description": "Professionel udvikling. Faste priser. Lancering på 2-4 uger.",
       "steps": [
-        { "num": "1", "title": "Book møde", "desc": "Gratis 30 min konsultation" },
-        { "num": "2", "title": "Få tilbud", "desc": "Fast pris, ingen skjulte omkostninger" },
-        { "num": "3", "title": "Vi starter", "desc": "Lancering om 2-4 uger" }
+        {
+          "num": "1",
+          "title": "Book møde",
+          "desc": "Gratis 30 min konsultation"
+        },
+        {
+          "num": "2",
+          "title": "Få tilbud",
+          "desc": "Fast pris, ingen skjulte omkostninger"
+        },
+        {
+          "num": "3",
+          "title": "Vi starter",
+          "desc": "Lancering om 2-4 uger"
+        }
       ],
       "ctaButton": "Book Gratis Konsultation",
       "contactNote": "Har du spørgsmål? Kontakt os direkte"
     }
   },
-
   "caseStudy": {
     "challengeLabel": "Udfordringen",
     "solutionLabel": "Løsningen",
@@ -498,7 +640,6 @@
     "ctaButton": "Book et møde",
     "notFoundTitle": "Case ikke fundet - Transparo"
   },
-
   "exclusive": {
     "line1": "Vi bygger websites der",
     "line2": "konverterer besøgende til",
@@ -507,7 +648,6 @@
     "line5": "der vil vokse online.",
     "stats": "100+ projekter leveret. 98% kundetilfredshed. Din succes er vores mission."
   },
-
   "brandStory": {
     "overline": "Vores Historie",
     "heading": "Transparo – Webdesign bygget på tillid, ikke bindinger",
@@ -516,16 +656,27 @@
     "statement": "Vi startede Transparo for at gøre det modsatte.",
     "howWeWork": "Sådan arbejder vi:",
     "cards": [
-      { "title": "Fast pris fra start.", "description": "Ingen skjulte omkostninger. Du ved præcis hvad du betaler for." },
-      { "title": "Du ejer dit website.", "description": "Ingen bindinger. Ingen gidsler-hosting. Dit website, dine rettigheder, fra dag ét." },
-      { "title": "Klar kommunikation.", "description": "Fast kontaktperson. Konkrete milepæle. Ingen gætværk." },
-      { "title": "Deadline vi holder.", "description": "Vi lover kun hvad vi kan levere. Og så leverer vi det." }
+      {
+        "title": "Fast pris fra start.",
+        "description": "Ingen skjulte omkostninger. Du ved præcis hvad du betaler for."
+      },
+      {
+        "title": "Du ejer dit website.",
+        "description": "Ingen bindinger. Ingen gidsler-hosting. Dit website, dine rettigheder, fra dag ét."
+      },
+      {
+        "title": "Klar kommunikation.",
+        "description": "Fast kontaktperson. Konkrete milepæle. Ingen gætværk."
+      },
+      {
+        "title": "Deadline vi holder.",
+        "description": "Vi lover kun hvad vi kan levere. Og så leverer vi det."
+      }
     ],
     "closing": "Det er ikke rocket science. Det er bare ærligt håndværk.",
     "tagline": "Unique designs. Built on trust.",
     "taglineExplanation": "Det er ikke et slogan. Det er vores kontrakt."
   },
-
   "team": {
     "overline": "Holdet",
     "heading": "Mød",
@@ -544,17 +695,28 @@
       }
     ]
   },
-
   "happyClients": {
     "overline": "Vores Kunder",
     "heading": "Hvad Glade Kunder",
     "headingAccent": "Siger",
     "description": "Real kunder. Real resultater. Real transparens.",
     "stats": [
-      { "value": "100+", "label": "Projekter Leveret" },
-      { "value": "98%", "label": "Kundetilfredshed" },
-      { "value": "15", "label": "Dages Gennemsnitlig Levering" },
-      { "value": "0", "label": "Skjulte Omkostninger" }
+      {
+        "value": "100+",
+        "label": "Projekter Leveret"
+      },
+      {
+        "value": "98%",
+        "label": "Kundetilfredshed"
+      },
+      {
+        "value": "15",
+        "label": "Dages Gennemsnitlig Levering"
+      },
+      {
+        "value": "0",
+        "label": "Skjulte Omkostninger"
+      }
     ],
     "testimonials": [
       {
@@ -597,16 +759,27 @@
     "bottomCTA": "Vil du også være en tilfreds kunde?",
     "bottomButton": "Start Dit Projekt"
   },
-
   "finalCTA": {
     "headingLine1": "Du Drømmer,",
     "headingLine2": "Vi Bygger",
     "contactVia": "Kontakt os hurtigt via:",
     "stats": [
-      { "value": "100+", "label": "Projekter\nLeveret" },
-      { "value": "50+", "label": "Glade\nKunder" },
-      { "value": "92%", "label": "Kunde\nFastholdelse" },
-      { "value": "7+", "label": "Års\nPartnerskab" }
+      {
+        "value": "100+",
+        "label": "Projekter\nLeveret"
+      },
+      {
+        "value": "50+",
+        "label": "Glade\nKunder"
+      },
+      {
+        "value": "92%",
+        "label": "Kunde\nFastholdelse"
+      },
+      {
+        "value": "7+",
+        "label": "Års\nPartnerskab"
+      }
     ],
     "formTitle": "Har du visionen?",
     "formSubtitle": "Vi har ekspertisen.",
@@ -617,7 +790,6 @@
     "messagePlaceholder": "Fortæl os lidt om din vision...",
     "submitButton": "SEND"
   },
-
   "notFound": {
     "heading": "Siden blev ikke fundet",
     "description": "Ups! Den side du leder efter eksisterer ikke eller er blevet flyttet.",
@@ -627,7 +799,6 @@
     "howItWorks": "Sådan Virker Det",
     "aboutUs": "Om Os"
   },
-
   "metadata": {
     "home": {
       "title": "Transparo - Webdesign uden Overraskelser | Unique Designs. Built on Trust.",
@@ -673,7 +844,6 @@
       "titleSuffix": "- Case Study | Transparo"
     }
   },
-
   "caseStudies": {
     "items": [
       {
@@ -681,144 +851,330 @@
         "title": "Eskild Ebbesen – High Performance",
         "subtitle": "Personlig brandsite for Danmarks mest vindende OL-atlet og ekspert i high performance",
         "slug": "eskild-ebbesen",
-        "labels": ["Branding", "Website"],
+        "labels": [
+          "Branding",
+          "Website"
+        ],
         "quote": "De forstod præcis, hvad mit brand handler om, og skabte en side der matcher den kvalitet, jeg leverer på scenen.",
         "author": "Eskild Ebbesen",
         "role": "Foredragsholder & OL-guldvinder",
         "challenge": "Eskild havde brug for et personligt website der matchede hans brand som OL-guldvinder og high performance ekspert. Siden skulle udstråle professionalisme og gøre det nemt at booke ham som foredragsholder.",
         "solution": "Vi designede et rent, personligt brandsite med fokus på Eskilds historie, ydelser og troværdighed. Enkel navigation, booking-integration og et visuelt udtryk der matcher hans kaliber.",
         "results": [
-          { "metric": "Performance", "value": "97/100", "description": "Lighthouse performance score" },
-          { "metric": "Accessibility", "value": "100/100", "description": "Lighthouse accessibility score" },
-          { "metric": "Loadtid", "value": "0.8s", "description": "First Contentful Paint" }
+          {
+            "metric": "Performance",
+            "value": "97/100",
+            "description": "Lighthouse performance score"
+          },
+          {
+            "metric": "Accessibility",
+            "value": "100/100",
+            "description": "Lighthouse accessibility score"
+          },
+          {
+            "metric": "Loadtid",
+            "value": "0.8s",
+            "description": "First Contentful Paint"
+          }
         ],
-        "technologies": ["Next.js", "Payload CMS", "Motion", "Tailwind CSS", "Vercel"],
+        "technologies": [
+          "Next.js",
+          "Payload CMS",
+          "Motion",
+          "Tailwind CSS",
+          "Vercel"
+        ],
         "timeline": "4 uger",
-        "deliverables": ["Personligt brandsite", "CMS til indhold", "Booking-integration", "SEO-optimering", "Mobiloptimering"]
+        "deliverables": [
+          "Personligt brandsite",
+          "CMS til indhold",
+          "Booking-integration",
+          "SEO-optimering",
+          "Mobiloptimering"
+        ]
       },
       {
         "id": 2,
         "title": "AI-drevet fodboldanalyse",
         "subtitle": "Præcise forudsigelser, dybe data og taktiske indsigter",
         "slug": "walter-ai",
-        "labels": ["AI", "Fodbold"],
+        "labels": [
+          "AI",
+          "Fodbold"
+        ],
         "quote": "De fangede tempoet og intensiteten i sporten og bragte data til live. Platformen er blevet et fast værktøj på både træningsbanen og stadion.",
         "author": "Mikkel Juul",
         "role": "CEO, WalterAI",
         "challenge": "WalterAI havde brug for en platform der kunne præsentere komplekse AI-analyser og fodbolddata på en måde der var tilgængelig for både trænere og fans. Data skulle være både dyb og let at forstå.",
         "solution": "Vi skabte en interaktiv dataplatform med realtids-visualiseringer, AI-drevne indsigter og en brugervenlig grænseflade. Platformen kombinerer avanceret teknologi med en intuitiv brugeroplevelse der gør komplekse data forståelige.",
         "results": [
-          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
-          { "metric": "Accessibility", "value": "98/100", "description": "Lighthouse accessibility score" },
-          { "metric": "Performance", "value": "98/100", "description": "Lighthouse score trods kompleks data" }
+          {
+            "metric": "SEO",
+            "value": "100/100",
+            "description": "Lighthouse SEO score"
+          },
+          {
+            "metric": "Accessibility",
+            "value": "98/100",
+            "description": "Lighthouse accessibility score"
+          },
+          {
+            "metric": "Performance",
+            "value": "98/100",
+            "description": "Lighthouse score trods kompleks data"
+          }
         ],
-        "technologies": ["Next.js", "AI/ML Integration", "Motion", "D3.js", "Real-time Data"],
+        "technologies": [
+          "Next.js",
+          "AI/ML Integration",
+          "Motion",
+          "D3.js",
+          "Real-time Data"
+        ],
         "timeline": "12 uger",
-        "deliverables": ["Interaktiv dataplatform", "AI-integration", "Real-time dashboards", "Mobilapp", "Admin CMS"]
+        "deliverables": [
+          "Interaktiv dataplatform",
+          "AI-integration",
+          "Real-time dashboards",
+          "Mobilapp",
+          "Admin CMS"
+        ]
       },
       {
         "id": 3,
         "title": "Significanz – Executive Coaching",
         "subtitle": "Et elegant website for et københavnsk coaching-firma med fokus på ledelse og personlig udvikling",
         "slug": "significanz",
-        "labels": ["Branding", "Website"],
+        "labels": [
+          "Branding",
+          "Website"
+        ],
         "quote": "De fangede vores æstetik og skabte en side der udstråler den ro og professionalisme vores klienter forventer.",
         "author": "Significanz",
         "role": "Executive Coaching",
         "challenge": "Significanz havde brug for et website der matchede deres position som executive coaching-firma i København. Udtrykket skulle være roligt, elegant og troværdigt.",
         "solution": "Vi skabte et visuelt stærkt website med atmosfærisk fotografi, ren typografi og en enkel struktur der lader indholdet tale for sig selv.",
         "results": [
-          { "metric": "Performance", "value": "95/100", "description": "Lighthouse performance score" },
-          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
-          { "metric": "Best Practices", "value": "100/100", "description": "Lighthouse best practices" }
+          {
+            "metric": "Performance",
+            "value": "95/100",
+            "description": "Lighthouse performance score"
+          },
+          {
+            "metric": "SEO",
+            "value": "100/100",
+            "description": "Lighthouse SEO score"
+          },
+          {
+            "metric": "Best Practices",
+            "value": "100/100",
+            "description": "Lighthouse best practices"
+          }
         ],
-        "technologies": ["Next.js", "Payload CMS", "Motion", "Tailwind CSS", "Vercel"],
+        "technologies": [
+          "Next.js",
+          "Payload CMS",
+          "Motion",
+          "Tailwind CSS",
+          "Vercel"
+        ],
         "timeline": "3 uger",
-        "deliverables": ["Brandsite", "CMS til indhold", "Kontaktformular", "SEO-optimering", "Mobiloptimering"]
+        "deliverables": [
+          "Brandsite",
+          "CMS til indhold",
+          "Kontaktformular",
+          "SEO-optimering",
+          "Mobiloptimering"
+        ]
       },
       {
         "id": 4,
         "title": "Fotografportefølje med fokus på autenticitet",
         "subtitle": "En elegant og personlig fotowebsite til bryllupper, dåb og livsstil",
         "slug": "alex-morgan-photography",
-        "labels": ["Branding", "Website"],
+        "labels": [
+          "Branding",
+          "Website"
+        ],
         "quote": "Fotografiet fik plads til at ånde, og besøgende glider ubesværet igennem porteføljen. Det føles som et magasin skabt kun til mig.",
         "author": "Alex Morgan",
         "role": "Fotograf",
         "challenge": "Alex Morgan havde brug for en portefølje der kunne vise deres fotografier i bedste lys, samtidig med at oplevelsen skulle være personlig og elegant – som et digitalt magasin.",
         "solution": "Vi skabte en visuel portefølje med fokus på billederne. Med elegante overgange, optimeret billedkvalitet og en enkel navigation der lader fotografierne tale for sig selv.",
         "results": [
-          { "metric": "Accessibility", "value": "100/100", "description": "Lighthouse accessibility score" },
-          { "metric": "Mobil", "value": "94/100", "description": "Mobile performance score" },
-          { "metric": "Performance", "value": "96/100", "description": "Lighthouse score trods høj billedkvalitet" }
+          {
+            "metric": "Accessibility",
+            "value": "100/100",
+            "description": "Lighthouse accessibility score"
+          },
+          {
+            "metric": "Mobil",
+            "value": "94/100",
+            "description": "Mobile performance score"
+          },
+          {
+            "metric": "Performance",
+            "value": "96/100",
+            "description": "Lighthouse score trods høj billedkvalitet"
+          }
         ],
-        "technologies": ["Next.js", "Image Optimization", "Motion", "Tailwind CSS", "Vercel"],
+        "technologies": [
+          "Next.js",
+          "Image Optimization",
+          "Motion",
+          "Tailwind CSS",
+          "Vercel"
+        ],
         "timeline": "3 uger",
-        "deliverables": ["Porteføljewebsite", "Galleri-system", "Kontaktformular", "SEO-optimering", "Billedoptimering"]
+        "deliverables": [
+          "Porteføljewebsite",
+          "Galleri-system",
+          "Kontaktformular",
+          "SEO-optimering",
+          "Billedoptimering"
+        ]
       },
       {
         "id": 5,
         "title": "Autentisk lederudvikling med hesteassisteret coaching",
         "subtitle": "En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab",
         "slug": "christina-borreby",
-        "labels": ["Branding", "Website"],
+        "labels": [
+          "Branding",
+          "Website"
+        ],
         "quote": "De forstod læringsrejsen vi ville skabe og oversatte nærvær til et digitalt univers. Resultatet er både modigt og jordnært.",
         "author": "Christina Borreby",
         "role": "Stifter, Christina Borreby",
         "challenge": "Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching og deres videnskabeligt funderede tilgang til lederudvikling.",
         "solution": "Vi designede en moderne website der balancerer professionalisme med varme. Med fokus på storytelling, klare budskaber og et visuelt udtryk der afspejler både natur og forretning.",
         "results": [
-          { "metric": "Performance", "value": "94/100", "description": "Lighthouse performance score" },
-          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
-          { "metric": "Loadtid", "value": "1.1s", "description": "First Contentful Paint" }
+          {
+            "metric": "Performance",
+            "value": "94/100",
+            "description": "Lighthouse performance score"
+          },
+          {
+            "metric": "SEO",
+            "value": "100/100",
+            "description": "Lighthouse SEO score"
+          },
+          {
+            "metric": "Loadtid",
+            "value": "1.1s",
+            "description": "First Contentful Paint"
+          }
         ],
-        "technologies": ["Next.js", "Payload CMS", "Motion", "Tailwind CSS", "Video Integration"],
+        "technologies": [
+          "Next.js",
+          "Payload CMS",
+          "Motion",
+          "Tailwind CSS",
+          "Video Integration"
+        ],
         "timeline": "5 uger",
-        "deliverables": ["Website med storytelling", "CMS til kurser", "Booking-integration", "SEO-optimering", "Video-integration"]
+        "deliverables": [
+          "Website med storytelling",
+          "CMS til kurser",
+          "Booking-integration",
+          "SEO-optimering",
+          "Video-integration"
+        ]
       },
       {
         "id": 6,
         "title": "40 år med lokal teaterkultur og fællesskab",
         "subtitle": "En moderne teateroplevelse med fokus på revy, dramatik og stærke fortællinger",
         "slug": "vat85",
-        "labels": ["Branding", "Website"],
+        "labels": [
+          "Branding",
+          "Website"
+        ],
         "quote": "Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.",
         "author": "Thomas Kjeldsen",
         "role": "Formand, VAT 85",
         "challenge": "VAT 85 havde brug for en moderne platform til at håndtere billetflow, kommunikere program og fastholde den festivalånd der kendetegner deres 40 år med teaterkultur.",
         "solution": "Vi skabte en dynamisk festival-website med fokus på brugervenlighed, billetflow og storytelling. Med integration af billetsystemer, programoversigt og en visuel identitet der fanger revyånden.",
         "results": [
-          { "metric": "Performance", "value": "96/100", "description": "Lighthouse performance score" },
-          { "metric": "Accessibility", "value": "100/100", "description": "Lighthouse accessibility score" },
-          { "metric": "Loadtid", "value": "0.9s", "description": "First Contentful Paint" }
+          {
+            "metric": "Performance",
+            "value": "96/100",
+            "description": "Lighthouse performance score"
+          },
+          {
+            "metric": "Accessibility",
+            "value": "100/100",
+            "description": "Lighthouse accessibility score"
+          },
+          {
+            "metric": "Loadtid",
+            "value": "0.9s",
+            "description": "First Contentful Paint"
+          }
         ],
-        "technologies": ["Next.js", "Ticket Integration", "Payload CMS", "Motion", "Tailwind CSS"],
+        "technologies": [
+          "Next.js",
+          "Ticket Integration",
+          "Payload CMS",
+          "Motion",
+          "Tailwind CSS"
+        ],
         "timeline": "6 uger",
-        "deliverables": ["Festival-website", "Billetintegration", "Program-CMS", "Nyhedsbrev-integration", "Social media integration"]
+        "deliverables": [
+          "Festival-website",
+          "Billetintegration",
+          "Program-CMS",
+          "Nyhedsbrev-integration",
+          "Social media integration"
+        ]
       },
       {
         "id": 7,
         "title": "Klimakurt - Grøn energi til alle",
         "subtitle": "Bæredygtige løsninger for en grønnere fremtid",
         "slug": "klimakurt",
-        "labels": ["Branding", "Website"],
+        "labels": [
+          "Branding",
+          "Website"
+        ],
         "quote": "Transparo hjalp os med at formidle vores grønne budskab klart og tydeligt. En fornøjelse at arbejde sammen med.",
         "author": "Kurt Jensen",
         "role": "Direktør, Klimakurt",
         "challenge": "Klimakurt ønskede at nå ud til flere kunder med deres grønne energiløsninger. Udfordringen var at gøre teknisk viden letforståelig for den almindelige forbruger.",
         "solution": "Vi udviklede en informativ og indbydende hjemmeside, der guider kunden gennem deres grønne muligheder. Fokus på klare Call-to-Actions og troværdighed.",
         "results": [
-          { "metric": "Performance", "value": "95/100", "description": "Lighthouse performance score" },
-          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
-          { "metric": "Loadtid", "value": "1.0s", "description": "First Contentful Paint" }
+          {
+            "metric": "Performance",
+            "value": "95/100",
+            "description": "Lighthouse performance score"
+          },
+          {
+            "metric": "SEO",
+            "value": "100/100",
+            "description": "Lighthouse SEO score"
+          },
+          {
+            "metric": "Loadtid",
+            "value": "1.0s",
+            "description": "First Contentful Paint"
+          }
         ],
-        "technologies": ["Next.js", "Tailwind CSS", "Motion", "SEO"],
+        "technologies": [
+          "Next.js",
+          "Tailwind CSS",
+          "Motion",
+          "SEO"
+        ],
         "timeline": "4 uger",
-        "deliverables": ["Hjemmeside", "SEO-optimering", "Tekstforfatning", "Grafisk identitet"]
+        "deliverables": [
+          "Hjemmeside",
+          "SEO-optimering",
+          "Tekstforfatning",
+          "Grafisk identitet"
+        ]
       }
     ]
   },
-
   "cookiePolicy": {
     "title": "Cookiepolitik",
     "lastUpdatedPrefix": "Sidst opdateret:",
@@ -868,7 +1224,6 @@
     "relatedDocumentsTitle": "Relaterede dokumenter",
     "contactQuestion": "Har du spørgsmål?"
   },
-
   "privacyPolicy": {
     "title": "Privatlivspolitik",
     "lastUpdated": "Sidst opdateret: November 2025",
@@ -963,7 +1318,6 @@
       }
     }
   },
-
   "terms": {
     "title": "Handelsbetingelser",
     "lastUpdated": "Sidst opdateret: November 2025",
@@ -1104,9 +1458,101 @@
       }
     }
   },
-
-  "workshops": {},
-
+  "workshops": {
+    "intro": {
+      "label": "Hvorfor dette kursus?",
+      "paragraph1": "Den teknologi, du lærer at bruge på dette kursus, er præcis den samme som bureauer tager",
+      "paragraph1Price": "25-40.000 kr.",
+      "paragraph1Suffix": "for.",
+      "paragraph2Prefix": "Forskellen? Du betaler",
+      "paragraph2Price": "6.500 kr.",
+      "paragraph2Suffix": "og ejer det hele selv bagefter.",
+      "benefits": [
+        "Ingen månedlige gebyrer",
+        "Ingen fakturaer for smårettelser",
+        "Fuld kontrol fra dag ét"
+      ],
+      "codeComment": "// Du skriver til AI'en:",
+      "codeLine1": "\"Tilføj en ny side om parterapi",
+      "codeLine2": "med en kort introduktion og",
+      "codeLine3": "et bookinglink i bunden.\"",
+      "codeResult": "// Koden skrives for dig ✓"
+    },
+    "maintenance": {
+      "label": "Løbende vedligeholdelse",
+      "title": "Hold din side opdateret",
+      "subtitle": "Jeg lærer dig flere måder at holde din side opdateret",
+      "options": [
+        {
+          "title": "Små ændringer – helt gratis",
+          "description": "Ret en tekst eller opdater en pris direkte i GitHub via din browser. Ingen abonnementer.",
+          "tag": "Gratis"
+        },
+        {
+          "title": "Større ændringer – med AI-hjælp",
+          "description": "Tilføj en ny side eller ændre layoutet med Claude Code eller lignende værktøjer. En ny underside koster et par kroner i API-forbrug.",
+          "tag": "Få kroner"
+        },
+        {
+          "title": "Videovejledninger inkluderet",
+          "description": "Du får adgang til korte videoer, der viser præcis hvordan du gør de mest almindelige ting.",
+          "tag": "Inkluderet"
+        }
+      ]
+    },
+    "faq": {
+      "label": "Spørgsmål & svar",
+      "title": "Ofte stillede spørgsmål",
+      "items": [
+        {
+          "question": "Skal jeg kunne programmere?",
+          "answer": "Nej. Du lærer at instruere en AI på almindeligt dansk. Koden skrives for dig."
+        },
+        {
+          "question": "Er teknologien virkelig den samme som bureauerne bruger?",
+          "answer": "Ja. Next.js, Tailwind og Vercel er industristandard for moderne, hurtige websites. Det er præcis det, du betaler ekstra for hos et bureau."
+        },
+        {
+          "question": "Hvad koster det at drive siden bagefter?",
+          "answer": "Hosting er gratis. Domæne koster ca. 100 kr. om året. Små ændringer i GitHub er gratis. Større ændringer med AI-hjælp koster få kroner."
+        },
+        {
+          "question": "Hvad hvis jeg går i stå?",
+          "answer": "Du har adgang til videovejledninger og kan tilkøbe klippekort til personlig hjælp."
+        },
+        {
+          "question": "Hvor mange deltager?",
+          "answer": "2-10 personer. Så der er tid til dig."
+        }
+      ]
+    },
+    "courseStructure": {
+      "label": "Kursets forløb",
+      "title": "Kursets opbygning",
+      "steps": [
+        {
+          "phase": "Før kursusdagen",
+          "title": "1 times online intro",
+          "description": "Vi installerer det nødvendige sammen, så du er klar til at gå i gang på selve kursusdagen."
+        },
+        {
+          "phase": "Kursusdag",
+          "title": "Kl. 10.00–16.30",
+          "description": "Vekslen mellem fælles gennemgang og tid til at arbejde på din egen side med personlig hjælp. Vi er 2-10 deltagere, så der er tid til dig. Du går hjem med en fungerende hjemmeside."
+        },
+        {
+          "phase": "Efter kurset",
+          "title": "1 times individuel opfølgning",
+          "description": "Vi gennemgår din side og løser de sidste spørgsmål."
+        },
+        {
+          "phase": "Tilkøb",
+          "title": "Klippekort",
+          "description": "3×30 min til når du vil udvide eller ændre noget."
+        }
+      ]
+    }
+  },
   "common": {
     "bookMeeting": "Book et møde",
     "allRightsReserved": "Alle rettigheder forbeholdes",
@@ -1120,5 +1566,813 @@
     "readMore": "Læs mere",
     "viewAll": "Se alle",
     "close": "Luk"
+  },
+  "trustIndicators": {
+    "indicators": [
+      {
+        "title": "Fast Pris",
+        "description": "Ingen skjulte omkostninger"
+      },
+      {
+        "title": "10-28 Dage",
+        "description": "Leveret som lovet—garanteret"
+      },
+      {
+        "title": "Custom Design",
+        "description": "Ingen skabeloner eller templates"
+      },
+      {
+        "title": "2-4 Revisionsrunder",
+        "description": "Inkluderet i alle pakker"
+      }
+    ]
+  },
+  "trustMarquee": {
+    "primaryMessages": [
+      "Velkommen",
+      "Premium Kvalitet",
+      "Dansk Design",
+      "Professionel Service",
+      "Kreative Løsninger",
+      "Digital Excellence",
+      "Innovation",
+      "Resultater der Holder"
+    ],
+    "trustIndicators": [
+      "Fast Pris",
+      "Ingen Skjulte Gebyrer",
+      "2-4 Ugers Levering",
+      "100% Gennemsigtig",
+      "Garanti",
+      "Lokal Support",
+      "Certificeret",
+      "Troværdig Partner"
+    ],
+    "companyValues": [
+      "Webdesign",
+      "Branding",
+      "Digital Strategi",
+      "SEO Optimering",
+      "Responsive Design",
+      "Custom Udvikling",
+      "UX Design",
+      "Content"
+    ]
+  },
+  "whyUsScroll": {
+    "overline": "Derfor os",
+    "headingLine1": "Hvorfor Vælger",
+    "headingLine2": "SMV'er Os",
+    "reasons": [
+      {
+        "title": "AI-Drevet Udvikling",
+        "subtitle": "Hurtigere levering, lavere pris",
+        "description": "Vi bruger AI-værktøjer som Cursor og Windsurf til at accelerere udviklingen. Det betyder kortere leveringstid og lavere omkostninger - uden at gå på kompromis med kvaliteten.",
+        "stats": "50% hurtigere"
+      },
+      {
+        "title": "Fast Pris Garanti",
+        "subtitle": "Ingen overraskelser",
+        "description": "Med vores strukturerede proces og klare milepæle ved du præcis, hvad du får og hvad det koster. Ingen scope creep, ingen skjulte gebyrer.",
+        "stats": "100% transparent"
+      },
+      {
+        "title": "Dansk Ekspertise",
+        "subtitle": "Lokal forståelse, global kvalitet",
+        "description": "Vi forstår det danske marked og danske SMVers behov. Du får personlig service på dansk med forståelse for din forretning.",
+        "stats": "100+ projekter"
+      },
+      {
+        "title": "Performance Fokus",
+        "subtitle": "Lighthouse 90+ garanti",
+        "description": "Alle websites leveres med minimum 90+ i Lighthouse score. Det betyder hurtige loadtider, bedre SEO og flere konverteringer.",
+        "stats": "90+ score"
+      },
+      {
+        "title": "15 Dages Levering",
+        "subtitle": "Fra brief til lancering",
+        "description": "Vores effektive proces betyder, at du kan have din nye website live inden for 15 arbejdsdage. Ingen måneders ventetid.",
+        "stats": "15 dage"
+      },
+      {
+        "title": "Moderne Teknologi",
+        "subtitle": "Next.js & Payload CMS",
+        "description": "Vi bruger kun den nyeste og bedste teknologi. Det giver dig en fremtidssikret løsning, der er nem at vedligeholde og udvide.",
+        "stats": "Enterprise-grade"
+      }
+    ]
+  },
+  "projectCta": {
+    "headingLine1": "Klar til at starte",
+    "headingLine2": "jeres projekt?",
+    "subtitle": "Professionel udvikling. Faste priser. Lancering på 2-4 uger.",
+    "steps": [
+      {
+        "title": "Book møde",
+        "desc": "Gratis 30 min konsultation"
+      },
+      {
+        "title": "Få tilbud",
+        "desc": "Fast pris, ingen skjulte omkostninger"
+      },
+      {
+        "title": "Vi starter",
+        "desc": "Lancering om 2-4 uger"
+      }
+    ],
+    "benefits": [
+      "Faste priser",
+      "2-4 ugers levering",
+      "7 godkendelsespunkter",
+      "Premium kvalitet"
+    ]
+  },
+  "pricingPhilosophy": {
+    "heading": "Hvorfor vores <gold>filosofi</gold> virker",
+    "subheading": "Vi løser de tre største problemer med traditionelle webdesign bureauer",
+    "principles": [
+      {
+        "title": "Fast Pris",
+        "description": "Én pris. Intet småt. Du ved præcis hvad du betaler, før vi starter. Ingen \"bare lige én ting mere\" opkrævninger."
+      },
+      {
+        "title": "Ingen Scope Creep",
+        "description": "73% af projekter oplever scope creep. Ikke hos os. Strukturerede revisionsrunder og klare sign-off punkter sikrer projektet bliver færdigt."
+      },
+      {
+        "title": "Hurtig Levering",
+        "description": "Bureau-kvalitet på 2-4 uger (vs. 8-16 hos traditionelle bureauer). AI + ekspert hybrid model giver dig det bedste fra begge verdener."
+      },
+      {
+        "title": "Kvalitet Først",
+        "description": "Pakkeprisen bestemmer scope — ikke kvalitet. Alle får Motion animations, Payload CMS, og Next.js. Premium teknologi til alle."
+      }
+    ],
+    "ctaText": "Klar til at opleve forskellen?",
+    "ctaSubtext": "Se vores pakker nedenfor ↓"
+  },
+  "howItWorks": {
+    "heading": "Sådan <gold>Virker Det</gold>",
+    "subheading": "Vores strukturerede 4-ugers proces med klare milepæle og sign-off punkter—derfor får vi projekterne færdige til tiden.",
+    "steps": [
+      {
+        "week": "Uge 1",
+        "title": "Discovery & Design",
+        "description": "Vi starter med et discovery call for at forstå din virksomhed, målgruppe, og vision. Derefter designer vi din hjemmeside.",
+        "signoff": "Sign-off efter design godkendelse",
+        "timeline": "5-7 dage"
+      },
+      {
+        "week": "Uge 2",
+        "title": "Udvikling",
+        "description": "Vi bygger din hjemmeside med moderne teknologi. Du får en test-URL hvor du kan følge med i processen.",
+        "signoff": "Midtvejs tjek",
+        "timeline": "7-10 dage"
+      },
+      {
+        "week": "Uge 3",
+        "title": "Revisioner",
+        "description": "Nu er det tid til dine revisioner (2-4 runder alt efter pakke). Vi finjusterer baseret på din feedback.",
+        "signoff": "Sign-off efter hver revisionsrunde",
+        "timeline": "3-5 dage"
+      },
+      {
+        "week": "Uge 4",
+        "title": "Launch",
+        "description": "Final QA, performance optimering, og så går vi live! Du får en komplet vejledning og fuld adgang til dit site.",
+        "signoff": "Final godkendelse og launch",
+        "timeline": "2-3 dage"
+      }
+    ],
+    "ctaText": "Vil du vide mere om vores proces? Book et uforpligtende discovery call.",
+    "ctaButton": "Book Discovery Call"
+  },
+  "differentiator": {
+    "heading": "Hvorfor Vælge <gold>Transparo?</gold>",
+    "subheading": "Vi løser de tre største problemer med traditionelle webdesign bureauer",
+    "items": [
+      {
+        "title": "Zero Scope Creep Garanti",
+        "description": "73% af webdesign-projekter oplever scope creep—hvor projektet bare fortsætter uden klart slutpunkt.",
+        "solution": "Vores løsning: Strukturerede revisionsrunder (2-4 alt efter pakke) med klare sign-off punkter. Efter design godkendelse koster ændringer ekstra. Klare grænser = projekter der faktisk bliver færdige.",
+        "stat": "0%",
+        "statLabel": "scope creep"
+      },
+      {
+        "title": "AI + Ekspert Hybrid Model",
+        "description": "Vi bruger AI-værktøjer til effektivitet—research, content drafts, kodestruktur.",
+        "solution": "Men eksperter perfektionerer alt. Resultatet: Bureau-kvalitet leveret 3-5x hurtigere end traditionelle bureauer (2-4 uger vs. 8-16 uger). Du får det bedste fra begge verdener.",
+        "stat": "3-5x",
+        "statLabel": "hurtigere"
+      },
+      {
+        "title": "Fast Pris, Fuld Transparens",
+        "description": "Ingen \"bare lige én ting mere\" opkrævninger. Ingen skjulte omkostninger.",
+        "solution": "Vores løfte: Én pris. Alt er inkluderet. Du ved præcis hvad du får, og hvad det koster, før vi starter. Transparens skaber tillid—det er kernen i vores forretningsmodel.",
+        "stat": "100%",
+        "statLabel": "transparent"
+      }
+    ]
+  },
+  "caseStudySection": {
+    "badge": "Portfolio",
+    "heading": "Resultater der taler",
+    "subheading": "Se hvordan vi har hjulpet danske virksomheder med at vokse online",
+    "studies": [
+      {
+        "client": "NORDIC FASHION",
+        "category": "E-commerce",
+        "title": "Fra 0 til 2M DKK på 6 måneder",
+        "description": "Komplet e-commerce løsning med Shopify integration og custom design der øgede konverteringsraten med 240%.",
+        "stats": [
+          {
+            "label": "Konvertering",
+            "value": "+240%"
+          },
+          {
+            "label": "Salg første år",
+            "value": "2M DKK"
+          },
+          {
+            "label": "Leveringstid",
+            "value": "3 uger"
+          }
+        ],
+        "testimonial": {
+          "text": "Transparo leverede langt over vores forventninger. Websitet er ikke bare smukt - det sælger! ROI blev positiv efter kun 6 uger.",
+          "author": "Maria Jensen",
+          "role": "CEO, Nordic Fashion"
+        }
+      },
+      {
+        "client": "TECHSTART COPENHAGEN",
+        "category": "SaaS Platform",
+        "title": "500+ nye B2B kunder på 3 måneder",
+        "description": "Moderne SaaS landing page med avanceret lead generation der transformerede deres online tilstedeværelse og B2B salg.",
+        "stats": [
+          {
+            "label": "Nye kunder",
+            "value": "500+"
+          },
+          {
+            "label": "Lead quality",
+            "value": "+85%"
+          },
+          {
+            "label": "Page speed",
+            "value": "98/100"
+          }
+        ],
+        "testimonial": {
+          "text": "Vores nye website har været en game-changer for vores B2B salg. Websitet fanger virkelig essensen af vores brand.",
+          "author": "Thomas Andersen",
+          "role": "CMO, TechStart"
+        }
+      },
+      {
+        "client": "GOURMET DELIKATESSER",
+        "category": "Restaurant",
+        "title": "150% flere bordreservationer",
+        "description": "Elegant restaurant website med integreret booking system og menu præsentation der øgede online reservationer markant.",
+        "stats": [
+          {
+            "label": "Reservationer",
+            "value": "+150%"
+          },
+          {
+            "label": "Gennemsnitlig ordre",
+            "value": "+45%"
+          },
+          {
+            "label": "Mobile traffic",
+            "value": "73%"
+          }
+        ],
+        "testimonial": {
+          "text": "Websitet fanger virkelig essensen af vores restaurant. Gæsterne roser ofte vores online oplevelse før de kommer.",
+          "author": "Sophie Nielsen",
+          "role": "Ejer, Gourmet Delikatesser"
+        }
+      }
+    ],
+    "ctaText": "Klar til at blive vores næste succeshistorie?",
+    "ctaStartProject": "Start dit projekt",
+    "ctaViewCases": "Se flere cases"
+  },
+  "socialProof": {
+    "heading": "Kunder vælger os, fordi de kan <gold>mærke forskellen</gold>",
+    "testimonials": [
+      {
+        "quote": "Endelig et webbureau der holder, hvad de lover.",
+        "author": "Kommende Kunde",
+        "company": "Dansk Virksomhed",
+        "role": "CEO"
+      },
+      {
+        "quote": "Det føltes som at arbejde med nogen, der havde min ryg hele vejen.",
+        "author": "Kommende Kunde",
+        "company": "SMB Partner",
+        "role": "Marketing Chef"
+      },
+      {
+        "quote": "Ingen skjulte overraskelser — kun klarhed og stærkt design.",
+        "author": "Kommende Kunde",
+        "company": "Startup Danmark",
+        "role": "Founder"
+      }
+    ],
+    "disclaimer": "* Vi er et nyt bureau og arbejder på at opbygge vores case studies. Rigtige testimonials kommer snart!"
+  },
+  "processPhases": {
+    "faseLabel": "Fase {number}",
+    "approvalLabel": "Godkendelse",
+    "phases": [
+      {
+        "title": "Development",
+        "timeline": "Dag 15-20",
+        "description": "Nu koder vi. Vi bygger alle sider i Next.js, integrerer Payload CMS, og sætter formularer og funktionalitet op.",
+        "deliverables": [
+          "Next.js + Payload CMS implementation",
+          "SEO optimering og metadata",
+          "Mobil responsivt design",
+          "Performance optimering"
+        ]
+      },
+      {
+        "title": "Test & Review",
+        "timeline": "Dag 21-23",
+        "description": "Vi deployer til privat test-miljø hvor I kan teste på mobil og desktop. Vi fikser alle bugs gratis.",
+        "deliverables": [
+          "Privat staging miljø",
+          "Cross-device testing",
+          "Bug fixes inkluderet",
+          "Quality assurance"
+        ],
+        "checkpoint": "Pre-Launch Godkendelse"
+      },
+      {
+        "title": "Launch & Training",
+        "timeline": "Dag 24-25",
+        "description": "Launch dag: Vi flytter hjemmesiden til jeres domæne og afholder personlig træning i CMS admin panel.",
+        "deliverables": [
+          "Live på jeres domæne",
+          "Google Analytics setup",
+          "1-3 timers personlig træning",
+          "Video dokumentation"
+        ]
+      },
+      {
+        "title": "Support & Vedligehold",
+        "timeline": "Efter lancering",
+        "description": "I får inkluderet support i 14-60 dage afhængig af pakke. Vi tilbyder også månedlig vedligeholdelse fra 399 kr/måned.",
+        "deliverables": [
+          "14-60 dage support (pakke-afhængig)",
+          "Tekniske bug fixes",
+          "Månedlig vedligehold (valgfri)",
+          "Daglige automatiske backups"
+        ]
+      }
+    ]
+  },
+  "packages": {
+    "section": {
+      "tagline": "Faste priser • Ingen overraskelser",
+      "title": "Vælg din pakke",
+      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitleHint": "Klik på en pakke for at se alle detaljer og funktioner.",
+      "swipeHint": "← Swipe for at se alle pakker →",
+      "compareLink": "Sammenlign alle pakker i detaljer",
+      "addonsTitle": "Tilkøb & Ekstra Services",
+      "addonsSubtitle": "Udvid din pakke med professionelle services",
+      "addons": [
+        {
+          "name": "Ekstra sider",
+          "price": "1.495 kr/side"
+        },
+        {
+          "name": "E-mail opsætning",
+          "price": "2.995 kr"
+        },
+        {
+          "name": "Copywriting",
+          "price": "Fra 3.995 kr"
+        },
+        {
+          "name": "Fotografi",
+          "price": "Fra 4.995 kr"
+        }
+      ]
+    },
+    "cardsThreekit": {
+      "popularBadge": "Most Popular",
+      "ctaButton": "Get started",
+      "packages": [
+        {
+          "tagline": "Vores standard pakke",
+          "description": "Perfekt til startups og små virksomheder der skal i gang",
+          "features": [
+            "5 sider",
+            "Mobil-optimeret",
+            "Basis SEO",
+            "CMS"
+          ]
+        },
+        {
+          "tagline": "Bedst til at tilbyde flere oplevelser",
+          "description": "Den komplette løsning for voksende virksomheder",
+          "features": [
+            "10 sider",
+            "Avancerede animationer",
+            "Blog & portfolio",
+            "Fuld SEO"
+          ]
+        },
+        {
+          "tagline": "Bedst til globale komplekse use cases",
+          "description": "Enterprise-niveau løsning med fuld kontrol",
+          "features": [
+            "20+ sider",
+            "Multi-language",
+            "E-commerce",
+            "Premium support"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Ofte stillede",
+      "titleAccent": "spørgsmål",
+      "subtitle": "Alt du skal vide om vores pakker",
+      "bottomQuestion": "Har du andre spørgsmål?",
+      "contactButton": "Kontakt os",
+      "items": [
+        {
+          "question": "Kan jeg opgradere min pakke senere?",
+          "answer": "Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner. Downgrade er også muligt, men vi anbefaler at vælge den rigtige pakke fra start for at undgå ekstra arbejde."
+        },
+        {
+          "question": "Hvad er præcis inkluderet i hver pakke?",
+          "answer": "Hver pakke inkluderer forskellige antal sider, funktioner og support. Se vores sammenligningsmatrix ovenfor for en detaljeret oversigt. Alle pakker inkluderer dog: Mobil-responsive design, Payload CMS, moderne teknologi stack (Next.js), og basis SEO."
+        },
+        {
+          "question": "Hvor lang tid tager hver pakke at bygge?",
+          "answer": "Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Dette er fra projektstart til lancering. Timelines kan tilpasses efter dine behov, men hurtigere levering kan påvirke pris."
+        },
+        {
+          "question": "Hvad sker der efter de inkluderede revisionsrunder?",
+          "answer": "Essentials inkluderer 2 revisionsrunder, Professional 3, og Business 4. Efter disse runder koster ændringer ekstra (typisk 995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep."
+        },
+        {
+          "question": "Kan jeg tilføje ekstra funktioner til min pakke?",
+          "answer": "Ja! Vi tilbyder flere tilkøb: Ekstra sider (1.495 kr/side), E-mail opsætning (2.995 kr), Copywriting (fra 3.995 kr), og Fotografi (fra 4.995 kr). Kontakt os for andre specialfunktioner."
+        },
+        {
+          "question": "Hvad hvis jeg har brug for noget der ikke er i nogen pakke?",
+          "answer": "Vi tilbyder custom løsninger! Kontakt os, så laver vi et skræddersyet tilbud baseret på dine behov. Vi kan bygge alt fra komplekse web-apps til specialiserede integrationer."
+        },
+        {
+          "question": "Er der løbende omkostninger efter lancering?",
+          "answer": "Hosting koster typisk 150-300 kr/måned (via Vercel eller lignende). Domæne er ca. 100 kr/år. Vi tilbyder også vedligeholdelsesaftaler fra 1.995 kr/måned hvis du ønsker løbende support og opdateringer."
+        },
+        {
+          "question": "Hvad er jeres garanti mod scope creep?",
+          "answer": "Vi bruger strukturerede revisionsrunder med klare sign-off punkter. Efter design-godkendelse koster ændringer ekstra. Dette sikrer projektet bliver færdigt til tiden og til den aftalte pris. 0% scope creep garanti."
+        }
+      ]
+    },
+    "faqMinimal": {
+      "title": "Ofte stillede spørgsmål",
+      "bottomQuestion": "Har du andre spørgsmål?",
+      "contactButton": "Kontakt os",
+      "items": [
+        {
+          "question": "Kan jeg opgradere min pakke senere?",
+          "answer": "Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner."
+        },
+        {
+          "question": "Hvad er præcis inkluderet i hver pakke?",
+          "answer": "Hver pakke inkluderer forskellige antal sider, funktioner og support. Alle pakker inkluderer: Mobil-responsive design, Payload CMS, Next.js, og SEO."
+        },
+        {
+          "question": "Hvor lang tid tager hver pakke at bygge?",
+          "answer": "Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Fra projektstart til lancering."
+        },
+        {
+          "question": "Hvad sker der efter de inkluderede revisionsrunder?",
+          "answer": "Efter revisionsrunderne koster ændringer ekstra (995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep."
+        },
+        {
+          "question": "Er der løbende omkostninger efter lancering?",
+          "answer": "Hosting: 150-300 kr/måned. Domæne: ca. 100 kr/år. Vedligeholdelse: fra 1.995 kr/måned (valgfrit)."
+        },
+        {
+          "question": "Hvad er jeres garanti mod scope creep?",
+          "answer": "Strukturerede revisionsrunder med klare sign-off punkter. Efter godkendelse koster ændringer ekstra. 0% scope creep garanti."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Vores kunder",
+      "titleAccent": "taler",
+      "subtitle": "Se hvad rigtige kunder siger om deres valgte pakke",
+      "resultsLabel": "Resultater:",
+      "bottomCta": "Klar til at blive vores næste succeshistorie?",
+      "seeCases": "Se alle cases",
+      "bookMeeting": "Book et møde",
+      "items": [
+        {
+          "quote": "Vi gik fra et traditionelt klinikudtryk til en digital oplevelse der føles rolig, professionel og personlig. Transparo tænkte på hver eneste detalje.",
+          "author": "Camilla Højland",
+          "role": "Indehaver",
+          "company": "Flotte Fødder",
+          "package": "Essentials",
+          "results": "+185% online bookinger på 3 måneder"
+        },
+        {
+          "quote": "Transparo oversatte et komplekst sundhedsunivers til et intuitivt digitalt økosystem. Vores brugere føler sig trygge, og platformen performer fra dag ét.",
+          "author": "Louise Kjær",
+          "role": "Produktchef",
+          "company": "Sundhedskonsortiet",
+          "package": "Professional",
+          "results": "94% brugertilfredshed første måned"
+        },
+        {
+          "quote": "Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.",
+          "author": "Thomas Kjeldsen",
+          "role": "Formand",
+          "company": "VAT 85",
+          "package": "Business",
+          "results": "+295% online billetsalg"
+        }
+      ]
+    },
+    "newSection": {
+      "badge": "Faste priser • Ingen overraskelser",
+      "heading": "Vælg din pakke",
+      "subtitle": "Professionelle websites der sælger - leveret på 2-4 uger.",
+      "subtitleSecondary": "100+ virksomheder har allerede boosted deres online tilsteværelse.",
+      "popularBadge": "Mest Populær",
+      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "deliveryLabel": "Levering: {duration}",
+      "cta": "Vælg denne pakke",
+      "trustHighlight": "98% kundetilfredshed",
+      "trustSuffix": "Ingen binding • Fuld ejendomsret",
+      "packages": [
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "price": "8.995",
+          "duration": "10-14 dage",
+          "description": "Kom online hurtigt og professionelt",
+          "highlights": [
+            "5 professionelle sider",
+            "Mobil-optimeret (60% af trafik)",
+            "SEO der får dig fundet",
+            "Kontaktformular der konverterer"
+          ]
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "price": "16.995",
+          "duration": "14-21 dage",
+          "description": "For virksomheder der vil dominere online",
+          "popular": true,
+          "highlights": [
+            "10 sider inkluderet",
+            "Animationer der imponerer",
+            "Blog der tiltrækker kunder",
+            "Fuld SEO = flere leads"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "price": "27.995",
+          "duration": "21-28 dage",
+          "description": "Den ultimative konkurrencefordel",
+          "highlights": [
+            "20+ sider til alt dit indhold",
+            "Multi-sprog = flere markeder",
+            "E-commerce klar til salg",
+            "Premium der skiller dig ud"
+          ]
+        }
+      ]
+    },
+    "newSectionEnhanced": {
+      "badge": "Faste priser • Ingen overraskelser",
+      "heading": "Vælg din pakke",
+      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitleSecondary": "Klik på en pakke for at se alle detaljer.",
+      "popularBadge": "Mest Populær",
+      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "deliveryLabel": "Levering: {duration}",
+      "cta": "Se alle detaljer",
+      "compareLink": "Sammenlign alle pakker i detaljer",
+      "addonsTitle": "Tilkøb & Ekstra Services",
+      "packages": [
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "price": "8.995",
+          "duration": "10-14 dage",
+          "description": "Perfekt til startups og små virksomheder",
+          "highlights": [
+            "5 professionelle sider",
+            "Mobil-optimeret design",
+            "Basis SEO-opsætning",
+            "Kontaktformular"
+          ]
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "price": "16.995",
+          "duration": "14-21 dage",
+          "description": "Den komplette løsning for voksende virksomheder",
+          "popular": true,
+          "highlights": [
+            "10 sider inkluderet",
+            "Avancerede animationer",
+            "Blog & portfolio",
+            "Fuld SEO-pakke"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "price": "27.995",
+          "duration": "21-28 dage",
+          "description": "Enterprise-niveau løsning med fuld kontrol",
+          "highlights": [
+            "20+ sider",
+            "Multi-language support",
+            "E-commerce ready",
+            "Premium animationer"
+          ]
+        }
+      ],
+      "addons": [
+        {
+          "name": "Ekstra sider",
+          "price": "1.495 kr/side"
+        },
+        {
+          "name": "E-mail opsætning",
+          "price": "2.995 kr"
+        },
+        {
+          "name": "Copywriting",
+          "price": "Fra 3.995 kr"
+        },
+        {
+          "name": "Fotografi",
+          "price": "Fra 4.995 kr"
+        }
+      ]
+    },
+    "cardsMinimal": {
+      "popularBadge": "Populær",
+      "seeDetails": "Se detaljer",
+      "compareLink": "Sammenlign alle features",
+      "packages": [
+        {
+          "id": "essentials",
+          "name": "Essentials",
+          "price": "8.995",
+          "duration": "10-14 dage",
+          "description": "Perfekt til startups",
+          "features": [
+            "5 professionelle sider",
+            "Mobil-optimeret design",
+            "Basis SEO-opsætning",
+            "Kontaktformular",
+            "Payload CMS",
+            "2 revisionsrunder"
+          ]
+        },
+        {
+          "id": "professional",
+          "name": "Professional",
+          "price": "16.995",
+          "duration": "14-21 dage",
+          "description": "For voksende virksomheder",
+          "popular": true,
+          "features": [
+            "10 sider inkluderet",
+            "Avancerede animationer",
+            "Blog & portfolio",
+            "Fuld SEO-pakke",
+            "Analytics integration",
+            "3 revisionsrunder"
+          ]
+        },
+        {
+          "id": "business",
+          "name": "Business",
+          "price": "27.995",
+          "duration": "21-28 dage",
+          "description": "Enterprise-niveau",
+          "popular": false,
+          "features": [
+            "20+ sider",
+            "Multi-language support",
+            "E-commerce ready",
+            "Premium animationer",
+            "Dedikeret support",
+            "4 revisionsrunder"
+          ]
+        }
+      ]
+    },
+    "detailView": {
+      "backLink": "Tilbage til oversigt",
+      "popularBadge": "Mest Populær",
+      "bestStarter": "Bedste Starter",
+      "essentialsSubtext": "Alt du behøver for at komme online - hurtigt, professionelt og til en fair pris.",
+      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "deliveryLabel": "Levering: {duration}",
+      "bookMeeting": "Book et møde",
+      "compareAll": "Sammenlign alle pakker",
+      "trustItems": [
+        "100% dansk support",
+        "Ingen binding",
+        "Fuld ejendomsret"
+      ],
+      "perfectForLabel": "Perfekt til dig",
+      "perfectForHeading": "Hvem er Essentials til?",
+      "perfectFor": [
+        {
+          "title": "Startups",
+          "description": "Lancér din første professionelle hjemmeside uden at sprænge budgettet"
+        },
+        {
+          "title": "Freelancere",
+          "description": "Vis dine services frem med en elegant online tilsteværelse"
+        },
+        {
+          "title": "Små virksomheder",
+          "description": "Tag skridtet fra Facebook til din egen professionelle platform"
+        }
+      ],
+      "timelineLabel": "Din rejse",
+      "timelineHeading": "Fra idé til lancering på {days} dage",
+      "timelineDays": "14",
+      "dayLabel": "Dag {day}",
+      "timelineSteps": [
+        {
+          "day": "1-2",
+          "title": "Opdagelse",
+          "description": "Vi lærer din virksomhed at kende"
+        },
+        {
+          "day": "3-6",
+          "title": "Design & Udvikling",
+          "description": "Vi bygger dit website"
+        },
+        {
+          "day": "7-10",
+          "title": "Gennemgang",
+          "description": "Du giver feedback, vi finpudser"
+        },
+        {
+          "day": "11-14",
+          "title": "Lancering",
+          "description": "Dit website går live!"
+        }
+      ],
+      "featuresHeading": "Alt der er inkluderet",
+      "featuresSubtitle": "Få en komplet løsning med alt hvad din virksomhed har brug for",
+      "categoryNames": {
+        "designDevelopment": "Design & Udvikling",
+        "functionality": "Funktionalitet",
+        "seoPerformance": "SEO & Performance",
+        "serviceSupport": "Service & Support"
+      },
+      "testimonialsLabel": "Social proof",
+      "testimonialsHeading": "Hvad vores kunder siger",
+      "testimonials": [
+        {
+          "name": "Louise Kjær",
+          "company": "Sundhedskonsortiet",
+          "quote": "Perfekt til vores behov - professionelt resultat til en fair pris."
+        },
+        {
+          "name": "Thomas Kjeldsen",
+          "company": "VAT 85",
+          "quote": "Hurtig levering og præcis hvad vi havde brug for som startup."
+        }
+      ],
+      "statsPrefix": "Slut dig til",
+      "statsHighlight": "50+ tilfredse kunder",
+      "statsSuffix": "der har valgt Essentials",
+      "addonsHeading": "Udvid med tilkøb",
+      "addonsSubtitle": "Tilpas din pakke med præcis de services du har brug for",
+      "ctaHeading": "Klar til at komme i gang?",
+      "ctaSubtitle": "Book et uforpligtende møde og lad os tale om din vision",
+      "ctaBookMeeting": "Book møde nu",
+      "ctaSeeWork": "Se vores arbejde"
+    }
   }
 }
