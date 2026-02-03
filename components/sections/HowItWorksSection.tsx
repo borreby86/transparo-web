@@ -4,46 +4,20 @@ import { Section } from '@/components/ui/Section'
 import { Button } from '@/components/ui/Button'
 import { Calendar, Pencil, Code, Rocket, CheckCircle2 } from 'lucide-react'
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
 
 export function HowItWorksSection() {
-  const steps = [
-    {
-      week: 'Uge 1',
-      icon: Calendar,
-      title: 'Discovery & Design',
-      description:
-        'Vi starter med et discovery call for at forstå din virksomhed, målgruppe, og vision. Derefter designer vi din hjemmeside.',
-      signoff: 'Sign-off efter design godkendelse',
-      timeline: '5-7 dage',
-    },
-    {
-      week: 'Uge 2',
-      icon: Code,
-      title: 'Udvikling',
-      description:
-        'Vi bygger din hjemmeside med moderne teknologi. Du får en test-URL hvor du kan følge med i processen.',
-      signoff: 'Midtvejs tjek',
-      timeline: '7-10 dage',
-    },
-    {
-      week: 'Uge 3',
-      icon: Pencil,
-      title: 'Revisioner',
-      description:
-        'Nu er det tid til dine revisioner (2-4 runder alt efter pakke). Vi finjusterer baseret på din feedback.',
-      signoff: 'Sign-off efter hver revisionsrunde',
-      timeline: '3-5 dage',
-    },
-    {
-      week: 'Uge 4',
-      icon: Rocket,
-      title: 'Launch',
-      description:
-        'Final QA, performance optimering, og så går vi live! Du får en komplet vejledning og fuld adgang til dit site.',
-      signoff: 'Final godkendelse og launch',
-      timeline: '2-3 dage',
-    },
-  ]
+  const t = useTranslations('howItWorks')
+
+  const stepIcons = [Calendar, Code, Pencil, Rocket]
+  const steps = t.raw('steps') as Array<{
+    week: string
+    title: string
+    description: string
+    signoff: string
+    timeline: string
+  }>
 
   return (
     <Section id="proces" background="white" spacing="xl">
@@ -55,11 +29,12 @@ export function HowItWorksSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-navy mb-4">
-            Sådan <span className="text-gold">Virker Det</span>
+            {t.rich('heading', {
+              gold: (chunks) => <span className="text-gold">{chunks}</span>
+            })}
           </h2>
           <p className="text-lg md:text-xl text-black/70 max-w-3xl mx-auto">
-            Vores strukturerede 4-ugers proces med klare milepæle og sign-off
-            punkter—derfor får vi projekterne færdige til tiden.
+            {t('subheading')}
           </p>
         </motion.div>
       </div>
@@ -67,7 +42,7 @@ export function HowItWorksSection() {
       <div className="max-w-5xl mx-auto">
         <div className="space-y-8">
           {steps.map((step, index) => {
-            const Icon = step.icon
+            const Icon = stepIcons[index]
             return (
               <motion.div
                 key={index}
@@ -125,11 +100,10 @@ export function HowItWorksSection() {
         className="text-center mt-12"
       >
         <p className="text-black/60 mb-6">
-          Vil du vide mere om vores proces? Book et uforpligtende discovery
-          call.
+          {t('ctaText')}
         </p>
         <Button href="/kontakt" variant="primary" size="lg">
-          Book Discovery Call
+          {t('ctaButton')}
         </Button>
       </motion.div>
     </Section>

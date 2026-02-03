@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { setRequestLocale } from 'next-intl/server'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
@@ -8,7 +9,10 @@ export const metadata: Metadata = {
   robots: 'noindex, follow',
 }
 
-export default function HandelsbetingelserPage() {
+export default async function HandelsbetingelserPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   return (
     <>
       <Header />
@@ -24,8 +28,8 @@ export default function HandelsbetingelserPage() {
             <section className="mb-12">
               <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-4">1. Generelt</h2>
               <p className="text-black/80 leading-relaxed mb-4">
-                Disse handelsbetingelser gælder for alle aftaler mellem Transparo ("vi", "os", "vores") og kunden
-                ("du", "din", "kunde") vedrørende levering af webdesign, webudvikling og relaterede tjenester.
+                Disse handelsbetingelser gælder for alle aftaler mellem Transparo (&quot;vi&quot;, &quot;os&quot;, &quot;vores&quot;) og kunden
+                (&quot;du&quot;, &quot;din&quot;, &quot;kunde&quot;) vedrørende levering af webdesign, webudvikling og relaterede tjenester.
               </p>
               <p className="text-black/80 leading-relaxed">
                 Ved at acceptere et tilbud eller påbegynde et projekt med Transparo accepterer du disse handelsbetingelser.

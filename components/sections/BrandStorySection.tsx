@@ -2,8 +2,10 @@
 
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 
 export function BrandStorySection() {
+  const t = useTranslations('brandStory')
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -23,7 +25,7 @@ export function BrandStorySection() {
           className="mb-8"
         >
           <span className="text-gold text-sm font-bold uppercase tracking-[0.3em]">
-            Vores Historie
+            {t('overline')}
           </span>
         </motion.div>
 
@@ -35,7 +37,7 @@ export function BrandStorySection() {
           transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.1 }}
           className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-16 leading-tight"
         >
-          Transparo – Webdesign bygget på tillid, ikke bindinger
+          {t('heading')}
         </motion.h2>
 
         {/* Story Content */}
@@ -47,7 +49,7 @@ export function BrandStorySection() {
             transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.2 }}
             className="text-xl md:text-2xl"
           >
-            Alt for mange går igennem webprojekter med en dårlig smag i munden. <span className="text-navy font-semibold">Skjulte omkostninger. Udskudte deadlines. Websites du ikke engang ejer.</span>
+            {t('intro')} <span className="text-navy font-semibold">{t('introHighlight')}</span>
           </motion.p>
 
           <motion.p
@@ -57,7 +59,7 @@ export function BrandStorySection() {
             transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.3 }}
             className="font-bold text-navy text-2xl md:text-3xl"
           >
-            Vi startede Transparo for at gøre det modsatte.
+            {t('statement')}
           </motion.p>
 
           {/* Decorative divider */}
@@ -76,7 +78,7 @@ export function BrandStorySection() {
             transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.5 }}
             className="font-bold text-navy text-xl md:text-2xl"
           >
-            Sådan arbejder vi:
+            {t('howWeWork')}
           </motion.p>
 
           {/* 4 Key Points as Cards */}
@@ -87,25 +89,12 @@ export function BrandStorySection() {
             transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.6 }}
             className="grid md:grid-cols-2 gap-6 my-12"
           >
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-warmgray-light/20">
-              <h3 className="font-bold text-navy text-xl mb-3">Fast pris fra start.</h3>
-              <p className="text-base text-black/70">Ingen skjulte omkostninger. Du ved præcis hvad du betaler for.</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-warmgray-light/20">
-              <h3 className="font-bold text-navy text-xl mb-3">Du ejer dit website.</h3>
-              <p className="text-base text-black/70">Ingen bindinger. Ingen gidsler-hosting. Dit website, dine rettigheder, fra dag ét.</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-warmgray-light/20">
-              <h3 className="font-bold text-navy text-xl mb-3">Klar kommunikation.</h3>
-              <p className="text-base text-black/70">Fast kontaktperson. Konkrete milepæle. Ingen gætværk.</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-warmgray-light/20">
-              <h3 className="font-bold text-navy text-xl mb-3">Deadline vi holder.</h3>
-              <p className="text-base text-black/70">Vi lover kun hvad vi kan levere. Og så leverer vi det.</p>
-            </div>
+            {(t.raw('cards') as Array<{title: string; description: string}>).map((card, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-lg border border-warmgray-light/20">
+                <h3 className="font-bold text-navy text-xl mb-3">{card.title}</h3>
+                <p className="text-base text-black/70">{card.description}</p>
+              </div>
+            ))}
           </motion.div>
 
           <motion.p
@@ -115,7 +104,7 @@ export function BrandStorySection() {
             transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.7 }}
             className="text-xl font-medium text-navy"
           >
-            Det er ikke rocket science. Det er bare ærligt håndværk.
+            {t('closing')}
           </motion.p>
 
           {/* Final Statement */}
@@ -127,10 +116,10 @@ export function BrandStorySection() {
             className="mt-16 pt-12 border-t border-gold/20"
           >
             <p className="text-3xl md:text-4xl font-light text-navy mb-4 italic">
-              Unique designs. Built on trust.
+              {t('tagline')}
             </p>
             <p className="text-2xl font-bold text-gold">
-              Det er ikke et slogan. Det er vores kontrakt.
+              {t('taglineExplanation')}
             </p>
           </motion.div>
         </div>

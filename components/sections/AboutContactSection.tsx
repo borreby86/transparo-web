@@ -2,11 +2,13 @@
 
 import { motion, useScroll, useTransform } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 import { useState, useRef } from 'react'
 import { Send, ArrowUpRight } from 'lucide-react'
 
 export function AboutContactSection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('aboutContact')
   const containerRef = useRef<HTMLDivElement>(null)
   const [formData, setFormData] = useState({
     name: '',
@@ -81,13 +83,13 @@ export function AboutContactSection() {
             className="max-w-5xl mx-auto text-center"
           >
             <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-8 block">
-              Kontakt
+              {t('overline')}
             </span>
 
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight">
-              Fortæl os om{' '}
+              {t('heading')}{' '}
               <span className="text-white/50">
-                dit projekt.
+                {t('headingFaded')}
               </span>
             </h2>
           </motion.div>
@@ -109,10 +111,10 @@ export function AboutContactSection() {
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-gold to-gold/0 rounded-full" />
               <div className="pl-8 space-y-4">
                 <p className="text-base md:text-lg text-white/70 leading-relaxed">
-                  Vi er et dansk webbureau der bygger websites fra bunden. Ingen templates, faste priser og en proces du kan følge med i.
+                  {t('missionText')}
                 </p>
                 <p className="text-base md:text-lg text-white/50 leading-relaxed">
-                  Skriv til os, så tager vi en uforpligtende snak om dit projekt.
+                  {t('ctaText')}
                 </p>
               </div>
             </div>
@@ -125,7 +127,7 @@ export function AboutContactSection() {
                 whileHover={shouldReduceMotion ? {} : { x: 10 }}
               >
                 <div>
-                  <span className="block text-sm text-white/50 group-hover:text-black/50 mb-1 transition-colors">Email</span>
+                  <span className="block text-sm text-white/50 group-hover:text-black/50 mb-1 transition-colors">{t('emailLabel')}</span>
                   <span className="text-lg text-white group-hover:text-black font-medium transition-colors">kontakt@transparo.dk</span>
                 </div>
                 <ArrowUpRight className="w-6 h-6 text-white/30 group-hover:text-black group-hover:rotate-45 transition-all duration-300" />
@@ -139,8 +141,8 @@ export function AboutContactSection() {
                 whileHover={shouldReduceMotion ? {} : { x: 10 }}
               >
                 <div>
-                  <span className="block text-sm text-white/50 group-hover:text-black/50 mb-1 transition-colors">LinkedIn</span>
-                  <span className="text-lg text-white group-hover:text-black font-medium transition-colors">Følg vores rejse</span>
+                  <span className="block text-sm text-white/50 group-hover:text-black/50 mb-1 transition-colors">{t('linkedinLabel')}</span>
+                  <span className="text-lg text-white group-hover:text-black font-medium transition-colors">{t('linkedinText')}</span>
                 </div>
                 <ArrowUpRight className="w-6 h-6 text-white/30 group-hover:text-black group-hover:rotate-45 transition-all duration-300" />
               </motion.a>
@@ -167,9 +169,9 @@ export function AboutContactSection() {
                   </div>
                   <div>
                     <h3 className="text-xl md:text-2xl font-bold text-navy">
-                      Fortæl os om dit projekt
+                      {t('formTitle')}
                     </h3>
-                    <p className="text-black/50 text-sm">Vi svarer inden for 24 timer</p>
+                    <p className="text-black/50 text-sm">{t('formSubtitle')}</p>
                   </div>
                 </div>
 
@@ -182,8 +184,8 @@ export function AboutContactSection() {
                       <div className="w-16 h-16 rounded-full bg-navy flex items-center justify-center mx-auto mb-6">
                       <Send className="w-7 h-7 text-white" />
                     </div>
-                    <h4 className="text-2xl font-bold text-navy mb-3">Tak for din besked</h4>
-                    <p className="text-black/60">Vi vender tilbage inden for 24 timer.</p>
+                    <h4 className="text-2xl font-bold text-navy mb-3">{t('thankYouTitle')}</h4>
+                    <p className="text-black/60">{t('thankYouMessage')}</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -198,7 +200,7 @@ export function AboutContactSection() {
                               : 'top-4 text-black/40'
                           }`}
                         >
-                          Navn *
+                          {t('nameLabel')}
                         </motion.label>
                         <input
                           type="text"
@@ -221,7 +223,7 @@ export function AboutContactSection() {
                               : 'top-4 text-black/40'
                           }`}
                         >
-                          Email *
+                          {t('emailFieldLabel')}
                         </motion.label>
                         <input
                           type="email"
@@ -246,7 +248,7 @@ export function AboutContactSection() {
                             : 'top-4 text-black/40'
                         }`}
                       >
-                        Virksomhed (valgfrit)
+                        {t('companyLabel')}
                       </motion.label>
                       <input
                         type="text"
@@ -269,7 +271,7 @@ export function AboutContactSection() {
                             : 'top-4 text-black/40'
                         }`}
                       >
-                        Fortæl os om dit projekt *
+                        {t('messageLabel')}
                       </motion.label>
                       <textarea
                         id="message"
@@ -301,10 +303,10 @@ export function AboutContactSection() {
 
                       <span className="relative z-10 flex items-center justify-center gap-3 group-hover:text-black transition-colors">
                         {isSubmitting ? (
-                          <span>Sender...</span>
+                          <span>{t('submitting')}</span>
                         ) : (
                           <>
-                            <span>Send besked</span>
+                            <span>{t('submitButton')}</span>
                             <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform duration-300" />
                           </>
                         )}

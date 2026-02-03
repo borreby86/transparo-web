@@ -2,6 +2,8 @@
 
 import { motion } from 'motion/react'
 import { Star } from 'lucide-react'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 interface Testimonial {
   quote: string
@@ -12,37 +14,11 @@ interface Testimonial {
   results: string
 }
 
-const testimonials: Testimonial[] = [
-  {
-    quote:
-      'Vi gik fra et traditionelt klinikudtryk til en digital oplevelse der føles rolig, professionel og personlig. Transparo tænkte på hver eneste detalje.',
-    author: 'Camilla Højland',
-    role: 'Indehaver',
-    company: 'Flotte Fødder',
-    package: 'Essentials',
-    results: '+185% online bookinger på 3 måneder'
-  },
-  {
-    quote:
-      'Transparo oversatte et komplekst sundhedsunivers til et intuitivt digitalt økosystem. Vores brugere føler sig trygge, og platformen performer fra dag ét.',
-    author: 'Louise Kjær',
-    role: 'Produktchef',
-    company: 'Sundhedskonsortiet',
-    package: 'Professional',
-    results: '94% brugertilfredshed første måned'
-  },
-  {
-    quote:
-      'Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.',
-    author: 'Thomas Kjeldsen',
-    role: 'Formand',
-    company: 'VAT 85',
-    package: 'Business',
-    results: '+295% online billetsalg'
-  }
-]
-
 export function PackageTestimonialsSection() {
+  const t = useTranslations('packages.testimonials')
+
+  const testimonials = t.raw('items') as Testimonial[]
+
   const getPackageColor = (pkg: string) => {
     switch (pkg) {
       case 'Essentials':
@@ -81,10 +57,10 @@ export function PackageTestimonialsSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-navy mb-6">
-              Vores kunder <span className="text-gold">taler</span>
+              {t('title')} <span className="text-gold">{t('titleAccent')}</span>
             </h2>
             <p className="text-lg sm:text-xl text-black/70 max-w-3xl mx-auto">
-              Se hvad rigtige kunder siger om deres valgte pakke
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -118,13 +94,13 @@ export function PackageTestimonialsSection() {
                 {/* Quote */}
                 <div className="mb-6 flex-grow">
                   <p className="text-navy text-base md:text-lg italic leading-relaxed">
-                    "{testimonial.quote}"
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </div>
 
                 {/* Results */}
                 <div className="mb-6 p-4 bg-white/60 rounded-lg border border-navy/10">
-                  <p className="text-sm font-semibold text-navy">Resultater:</p>
+                  <p className="text-sm font-semibold text-navy">{t('resultsLabel')}</p>
                   <p className="text-gold font-bold text-lg">{testimonial.results}</p>
                 </div>
 
@@ -157,21 +133,21 @@ export function PackageTestimonialsSection() {
           className="text-center mt-12 md:mt-16"
         >
           <p className="text-lg text-black/70 mb-6">
-            Klar til at blive vores næste succeshistorie?
+            {t('bottomCta')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/cases"
               className="inline-block bg-white border-2 border-navy text-navy px-8 py-4 rounded-full font-semibold hover:bg-offwhite transition-all"
             >
-              Se alle cases
-            </a>
-            <a
+              {t('seeCases')}
+            </Link>
+            <Link
               href="/kontakt"
               className="inline-block bg-navy text-white px-8 py-4 rounded-full font-semibold hover:bg-navy/90 transition-all shadow-lg hover:shadow-xl"
             >
-              Book et møde
-            </a>
+              {t('bookMeeting')}
+            </Link>
           </div>
         </motion.div>
       </div>

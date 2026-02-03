@@ -2,9 +2,12 @@
 
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 
 export function WorkshopsIntroSection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('workshops.intro')
+  const benefits = t.raw('benefits') as string[]
 
   return (
     <section className="relative py-28 md:py-36 lg:py-44 bg-offwhite overflow-hidden">
@@ -30,7 +33,7 @@ export function WorkshopsIntroSection() {
           className="text-center mb-12"
         >
           <span className="text-gold text-sm font-bold uppercase tracking-[0.3em]">
-            Hvorfor dette kursus?
+            {t('label')}
           </span>
         </motion.div>
 
@@ -42,14 +45,14 @@ export function WorkshopsIntroSection() {
           className="space-y-10"
         >
           <p className="text-2xl md:text-3xl lg:text-4xl text-navy leading-[1.4] font-medium text-center">
-            Den teknologi, du lærer at bruge på dette kursus, er præcis den samme som bureauer tager{' '}
-            <span className="text-navy/40">25-40.000 kr.</span> for.
+            {t('paragraph1')}{' '}
+            <span className="text-navy/40">{t('paragraph1Price')}</span> {t('paragraph1Suffix')}
           </p>
 
           <p className="text-2xl md:text-3xl lg:text-4xl text-navy leading-[1.4] text-center">
-            Forskellen? Du betaler{' '}
+            {t('paragraph2Prefix')}{' '}
             <span className="relative inline-block">
-              <span className="relative z-10 text-gold font-bold">6.500 kr.</span>
+              <span className="relative z-10 text-gold font-bold">{t('paragraph2Price')}</span>
               <motion.span
                 className="absolute bottom-1 left-0 right-0 h-3 bg-gold/20 -z-0"
                 initial={{ scaleX: 0 }}
@@ -58,7 +61,7 @@ export function WorkshopsIntroSection() {
                 transition={{ duration: 0.6, delay: 0.5 }}
               />
             </span>
-            {' '}og ejer det hele selv bagefter.
+            {' '}{t('paragraph2Suffix')}
           </p>
         </motion.div>
 
@@ -70,11 +73,7 @@ export function WorkshopsIntroSection() {
           transition={{ duration: shouldReduceMotion ? 0 : 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-16 grid md:grid-cols-3 gap-6"
         >
-          {[
-            'Ingen månedlige gebyrer',
-            'Ingen fakturaer for smårettelser',
-            'Fuld kontrol fra dag ét'
-          ].map((benefit, index) => (
+          {benefits.map((benefit, index) => (
             <motion.div
               key={benefit}
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
@@ -110,15 +109,15 @@ export function WorkshopsIntroSection() {
 
             <pre className="font-mono text-sm md:text-base lg:text-lg leading-relaxed">
               <code>
-                <span className="text-warmgray/60">{"// Du skriver til AI'en:"}</span>
+                <span className="text-warmgray/60">{t('codeComment')}</span>
                 {"\n\n"}
-                <span className="text-gold">{'"Tilføj en ny side om parterapi'}</span>
+                <span className="text-gold">{t('codeLine1')}</span>
                 {"\n"}
-                <span className="text-gold">{"med en kort introduktion og"}</span>
+                <span className="text-gold">{t('codeLine2')}</span>
                 {"\n"}
-                <span className="text-gold">{'et bookinglink i bunden."'}</span>
+                <span className="text-gold">{t('codeLine3')}</span>
                 {"\n\n"}
-                <span className="text-green-400/80">{"// Koden skrives for dig ✓"}</span>
+                <span className="text-green-400/80">{t('codeResult')}</span>
               </code>
             </pre>
           </div>

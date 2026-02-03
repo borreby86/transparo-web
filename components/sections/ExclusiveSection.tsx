@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 type ScrollState = 'before' | 'sticky' | 'after'
 
@@ -13,6 +14,7 @@ const progressBetween = (value: number, start: number, end: number) => {
 }
 
 export function ExclusiveSection() {
+  const t = useTranslations('exclusive')
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollState, setScrollState] = useState<ScrollState>('before')
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -117,7 +119,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              Vi bygger websites der
+              {t('line1')}
             </h1>
 
             <h2
@@ -127,7 +129,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              konverterer besøgende til
+              {t('line2')}
             </h2>
 
             <h2
@@ -137,7 +139,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              betalende kunder for
+              {t('line3')}
             </h2>
 
             <div
@@ -147,7 +149,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              <span className="text-[#c9a961]">ambitiøse virksomheder</span>
+              <span className="text-[#c9a961]">{t('line4')}</span>
             </div>
 
             <h2
@@ -157,7 +159,7 @@ export function ExclusiveSection() {
                 ${visibleElements.line5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
               `}
             >
-              der vil vokse online.
+              {t('line5')}
             </h2>
           </div>
 
@@ -175,8 +177,7 @@ export function ExclusiveSection() {
               ${visibleElements.subtext ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}
             `}
           >
-            100+ projekter leveret. 98% kundetilfredshed.
-            Din succes er vores mission.
+            {t('stats')}
           </p>
         </div>
       </div>

@@ -1,39 +1,39 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { setRequestLocale } from 'next-intl/server'
 import { caseStudiesDetailed, getCaseStudyBySlug } from '@/data/caseStudies'
 import CaseStudyClient from './CaseStudyClient'
 
 interface CaseStudyPageProps {
   params: Promise<{
+    locale: string
     slug: string
   }>
 }
 
-// Generate static params for all case studies
 export async function generateStaticParams() {
   return caseStudiesDetailed.map((study) => ({
     slug: study.slug,
   }))
 }
 
-// Generate metadata for each case study
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
-  const resolvedParams = await params
-  const caseStudy = getCaseStudyBySlug(resolvedParams.slug)
+  const { locale, slug } = await params
+  const caseStudy = getCaseStudyBySlug(slug)
 
   if (!caseStudy) {
     return {
-      title: 'Case ikke fundet - Transparo',
+      title: locale === 'da' ? 'Case ikke fundet - Transparo' : 'Case not found - Transparo',
     }
   }
 
   return {
     title: `${caseStudy.title} - Case Study | Transparo`,
-    description: `${caseStudy.subtitle}. Se hvordan vi hjalp ${caseStudy.author} hos ${caseStudy.role.split(', ')[1] || caseStudy.role} med professionel webudvikling.`,
+    description: `${caseStudy.subtitle}. ${locale === 'da' ? 'Se hvordan vi hjalp' : 'See how we helped'} ${caseStudy.author} ${locale === 'da' ? 'hos' : 'at'} ${caseStudy.role.split(', ')[1] || caseStudy.role} ${locale === 'da' ? 'med professionel webudvikling' : 'with professional web development'}.`,
     keywords: [
       'case study',
-      'webudvikling eksempel',
-      'hjemmeside portfolio',
+      locale === 'da' ? 'webudvikling eksempel' : 'web development example',
+      locale === 'da' ? 'hjemmeside portfolio' : 'website portfolio',
       ...caseStudy.labels.map((l) => l.toLowerCase()),
       ...caseStudy.technologies.map((t) => t.toLowerCase()),
     ],
@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
       title: `${caseStudy.title} - Transparo Case Study`,
       description: caseStudy.subtitle,
       type: 'article',
+      locale: locale === 'da' ? 'da_DK' : 'en_US',
       images: [
         {
           url: caseStudy.imageUrl,
@@ -60,8 +61,10 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
 }
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const resolvedParams = await params
-  const caseStudy = getCaseStudyBySlug(resolvedParams.slug)
+  const { locale, slug } = await params
+  setRequestLocale(locale)
+
+  const caseStudy = getCaseStudyBySlug(slug)
 
   if (!caseStudy) {
     notFound()

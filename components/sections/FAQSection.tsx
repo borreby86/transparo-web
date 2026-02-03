@@ -4,59 +4,16 @@ import { useState, useEffect, useRef } from 'react'
 import type { TouchEvent } from 'react'
 import { motion, useMotionValue, useTransform, animate } from 'motion/react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 interface FAQ {
-  id: number
   question: string
   answer: string
 }
 
-const faqs: FAQ[] = [
-  {
-    id: 1,
-    question: 'Hvorfor er jeres priser så meget lavere end andre bureauer?',
-    answer:
-      'Vi bruger moderne teknologi og AI-assisterede værktøjer, der gør os 3-4 gange hurtigere end traditionelle bureauer. Det betyder lavere omkostninger for os - og for dig. Men vi går aldrig på kompromis med kvaliteten. Alle vores pakker bygges med samme professionelle teknologi (Next.js, Payload CMS), forskellen ligger kun i omfang og features.'
-  },
-  {
-    id: 2,
-    question: 'Hvad mener I med "ingen scope creep"?',
-    answer:
-      'Scope creep er når projekter trækker ud i det uendelige med konstante ændringer og revisioner. Vi stopper det fra starten med: (1) Klare pakker med definerede features, (2) Godkendelsesmøder ved vigtige milepæle, (3) Maksimalt 2 revisionsrunder inkluderet. Når du godkender designet, går vi videre. Det holder projektet på skinner og sikrer levering til tiden.'
-  },
-  {
-    id: 3,
-    question: 'Hvor lang tid tager det at få min hjemmeside?',
-    answer:
-      'Essentials: 2 uger fra signering til lancering, Professional: 3 uger, Business: 4 uger. Dette er garanterede leveringstider, ikke estimater. Vi kan holde dem fordi vi har strukturerede processer og bruger moderne udviklings-værktøjer.'
-  },
-  {
-    id: 4,
-    question: 'Hvad sker der hvis jeg har brug for ændringer efter lanceringen?',
-    answer:
-      'Du får 30 dages support efter lancering for fejlrettelser. Derefter tilbyder vi en vedligeholdelsespakke fra 495 kr/måned der dækker mindre opdateringer, sikkerhedsopdateringer og teknisk support. Større ændringer eller nye features kan tilkøbes efter behov.'
-  },
-  {
-    id: 5,
-    question: 'Hvorfor bruger I ikke WordPress?',
-    answer:
-      'WordPress er godt til nogle ting, men det har begrænsninger: langsom performance, sikkerhedsproblemer, dyre plugins, og det er svært at integrere med AI-værktøjer. Vi bruger Next.js og Payload CMS - moderne teknologi der er hurtigere, mere sikker, og giver jer bedre SEO. Bonus: Det er også gratis at hoste (0-75 kr/måned vs. 200-500 kr for WordPress).'
-  },
-  {
-    id: 6,
-    question: 'Skal jeg selv skrive alt indholdet?',
-    answer:
-      'Nej! Vi guider dig gennem indholdsprocessen med vores Content Checklist. Du skal levere grundlæggende info om din virksomhed, billeder/logo, og godkende tekster - men vi hjælper med strukturering og optimering til SEO. Du ved bedst hvad din virksomhed laver, vi ved hvordan det skal præsenteres online.'
-  },
-  {
-    id: 7,
-    question: 'Hvad hvis jeg ikke er teknisk anlagt?',
-    answer:
-      'Det behøver du ikke være! Vores Payload CMS admin-panel er designet så det er intuitivt at bruge - tænk "WordPress-enkelt" men med moderne teknologi. Vi giver dig personlig træning i at opdatere tekster, billeder og blogindlæg. Og vores support er altid klar til at hjælpe.'
-  }
-]
-
 export function FAQSection() {
+  const t = useTranslations('faq')
+  const faqs = t.raw('questions') as FAQ[]
   const [activeIndex, setActiveIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const x = useMotionValue(0)
@@ -167,9 +124,9 @@ export function FAQSection() {
               transition={{ duration: 0.6 }}
               className="font-display font-bold text-4xl leading-tight tracking-tight text-navy sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              Frequently
+              {t('title')}
               <br />
-              Asked <span className="text-gold">Questions</span>
+              {t('titlePrefix')} <span className="text-gold">{t('titleAccent')}</span>
             </motion.h2>
           </div>
 
@@ -182,8 +139,7 @@ export function FAQSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-6 max-w-md text-left text-base sm:text-lg text-black/70"
             >
-              Find svar på almindelige spørgsmål om vores services, projekt proces, og teknisk
-              ekspertise.
+              {t('description')}
             </motion.p>
 
             {/* Navigation Buttons */}
@@ -198,7 +154,7 @@ export function FAQSection() {
                 onClick={handlePrev}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                aria-label="Forrige spørgsmål"
+                aria-label={t('prevLabel')}
                 className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-navy/20 bg-white shadow-md transition-all hover:border-gold hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <ChevronLeft className="h-4 w-4 text-navy sm:h-5 sm:w-5" />
@@ -207,7 +163,7 @@ export function FAQSection() {
                 onClick={handleNext}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                aria-label="Næste spørgsmål"
+                aria-label={t('nextLabel')}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-navy shadow-md transition-all hover:bg-navy/90 hover:shadow-lg sm:h-12 sm:w-12"
               >
                 <ChevronRight className="h-4 w-4 text-white sm:h-5 sm:w-5" />
@@ -225,7 +181,7 @@ export function FAQSection() {
 
               return (
                 <motion.div
-                  key={faq.id}
+                  key={index}
                   animate={{
                     width: isActive
                       ? (isMobile ? '75vw' : '400px')
@@ -329,7 +285,7 @@ export function FAQSection() {
               whileTap={{ scale: 0.9 }}
               className={`h-1.5 rounded-full transition-all sm:h-2 ${index === activeIndex ? 'w-6 bg-gold sm:w-8' : 'w-1.5 bg-navy/30 sm:w-2'
                 }`}
-              aria-label={`Gå til spørgsmål ${index + 1}`}
+              aria-label={t('goToLabel', { number: index + 1 })}
             />
           ))}
         </motion.div>

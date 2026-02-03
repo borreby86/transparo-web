@@ -1,8 +1,10 @@
 'use client'
 
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
 export function ProcessHeroSection() {
+  const t = useTranslations('process')
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center bg-offwhite overflow-hidden pt-32 pb-0">
       {/* Subtle noise texture */}
@@ -40,7 +42,7 @@ export function ProcessHeroSection() {
               className="mb-8 md:mb-12"
             >
               <span className="inline-block px-4 py-2 rounded-full border border-navy/10 bg-white/50 backdrop-blur-sm text-sm md:text-base text-navy/80 uppercase tracking-[0.2em] font-bold">
-                Proces / 7 Faser / 2-4 Uger
+                {t('heroBadge')}
               </span>
             </motion.div>
 
@@ -59,13 +61,13 @@ export function ProcessHeroSection() {
                 className="block text-navy"
                 style={{ fontSize: 'clamp(4rem, 15vw, 18rem)' }}
               >
-                Fra idé
+                {t('heroHeadingLine1')}
               </span>
               <span
                 className="block text-navy"
                 style={{ fontSize: 'clamp(4rem, 15vw, 18rem)' }}
               >
-                til virkelighed
+                {t('heroHeadingLine2')}
               </span>
             </motion.h1>
 
@@ -80,8 +82,7 @@ export function ProcessHeroSection() {
               }}
               className="max-w-2xl mx-auto text-lg md:text-xl lg:text-2xl text-navy/80 font-medium leading-relaxed mb-12"
             >
-              En gennemsigtig og struktureret proces hvor hver fase
-              er nøje planlagt for at maksimere værdi og minimere tid.
+              {t('heroDescription')}
             </motion.p>
 
             {/* Minimal CTA */}
@@ -106,7 +107,7 @@ export function ProcessHeroSection() {
                   }
                 }}
               >
-                <span className="text-base md:text-lg font-bold tracking-wide">Udforsk processen</span>
+                <span className="text-base md:text-lg font-bold tracking-wide">{t('heroCta')}</span>
                 <div>
                   <svg
                     className="w-5 h-5 md:w-6 md:h-6"
@@ -149,16 +150,16 @@ export function ProcessHeroSection() {
 
                 <div className="grid grid-cols-7 gap-1 md:gap-2 lg:gap-4">
                   {[
-                    { name: 'Opdagelse', icon: '🎯' },
-                    { name: 'Struktur', icon: '📐' },
-                    { name: 'Design', icon: '🎨' },
-                    { name: 'Udvikling', icon: '⚡' },
-                    { name: 'Test', icon: '🔍' },
-                    { name: 'Lancering', icon: '🚀' },
-                    { name: 'Support', icon: '💫' }
+                    { icon: '🎯' },
+                    { icon: '📐' },
+                    { icon: '🎨' },
+                    { icon: '⚡' },
+                    { icon: '🔍' },
+                    { icon: '🚀' },
+                    { icon: '💫' }
                   ].map((phase, index) => (
                     <motion.div
-                      key={phase.name}
+                      key={index}
                       className="relative group cursor-pointer"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -201,7 +202,7 @@ export function ProcessHeroSection() {
                               {phase.icon}
                             </div>
                             <div className="text-[10px] md:text-xs text-navy/60 group-hover:text-navy uppercase tracking-wider font-bold transition-colors duration-300">
-                              {phase.name}
+                              {t(`phasePreviewNames.${index}`)}
                             </div>
                           </div>
                         </div>

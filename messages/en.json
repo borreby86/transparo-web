@@ -1,0 +1,1124 @@
+{
+  "nav": {
+    "items": [
+      { "number": "01", "name": "Forside", "href": "/" },
+      { "number": "02", "name": "Portfolio", "href": "/cases" },
+      { "number": "03", "name": "Prisberegner", "href": "/prisberegner" },
+      { "number": "04", "name": "Kontakt", "href": "/kontakt" }
+    ],
+    "menuLabel": "Menu"
+  },
+
+  "booking": {
+    "label": "Book Møde",
+    "heading": "Book et møde",
+    "subheading": "Lad os tale om",
+    "subheadingFaded": "dit projekt.",
+    "description": "Udfyld formularen, så vender vi tilbage inden for 24 timer.",
+    "nameLabel": "Navn",
+    "namePlaceholder": "Dit fulde navn",
+    "emailLabel": "Email",
+    "emailPlaceholder": "din@email.dk",
+    "phoneLabel": "Telefon",
+    "phonePlaceholder": "+45 00 00 00 00",
+    "messageLabel": "Besked",
+    "messagePlaceholder": "Fortæl kort om dit projekt...",
+    "submitButton": "Send henvendelse",
+    "thankYouTitle": "Tak for din henvendelse",
+    "thankYouMessage": "Vi vender tilbage hurtigst muligt.",
+    "mobileBookButton": "Book"
+  },
+
+  "hero": {
+    "headlinePart1": "Hjemmesider der performer",
+    "headlinePart2": "– og holder i fremtiden",
+    "subtitle": "Fast pris. Tydelig proces. Ingen overraskelser.",
+    "ctaPortfolio": "Se portfolio",
+    "ctaPricing": "Beregn din pris"
+  },
+
+  "footer": {
+    "tagline": "Unique designs • Built on trust",
+    "description": "Professionelt webdesign til danske små virksomheder. Fast pris, hurtig levering, og ingen scope creep.",
+    "quickLinksTitle": "Hurtige Links",
+    "portfolio": "Portfolio",
+    "kontakt": "Kontakt",
+    "contactTitle": "Kontakt",
+    "location": "Hørsholm, Danmark",
+    "copyright": "© {year} Transparo. Alle rettigheder forbeholdes.",
+    "privacyPolicy": "Privatlivspolitik",
+    "cookiePolicy": "Cookiepolitik",
+    "terms": "Handelsbetingelser"
+  },
+
+  "contact": {
+    "overline": "Kontakt",
+    "heading": "Lad os tale.",
+    "description": "Send os en besked eller ring direkte. Vi svarer inden for 24 timer.",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefon",
+    "locationLabel": "Lokation",
+    "location": "Hørsholm, Danmark",
+    "teamNote": "Vi er et lille team, så du taler altid direkte med dem der bygger dit website. Ingen mellemled, ingen ventetid.",
+    "nameLabel": "Navn *",
+    "namePlaceholder": "Dit fulde navn",
+    "emailFieldLabel": "Email *",
+    "emailPlaceholder": "din@email.dk",
+    "phoneFieldLabel": "Telefon",
+    "phonePlaceholder": "+45 00 00 00 00",
+    "messageLabel": "Besked *",
+    "messagePlaceholder": "Fortæl kort om dit projekt...",
+    "errorMessage": "Der skete en fejl. Prøv venligst igen.",
+    "submitButton": "Send besked",
+    "submitting": "Sender...",
+    "thankYouTitle": "Tak for din besked",
+    "thankYouMessage": "Vi vender tilbage hurtigst muligt.",
+    "privacyNote": "Ved at indsende accepterer du vores",
+    "privacyLink": "privatlivspolitik",
+    "copyright": "© {year} Transparo. Alle rettigheder forbeholdes."
+  },
+
+  "faq": {
+    "title": "Frequently",
+    "titleAccent": "Questions",
+    "titlePrefix": "Asked",
+    "description": "Find svar på almindelige spørgsmål om vores services, projekt proces, og teknisk ekspertise.",
+    "prevLabel": "Forrige spørgsmål",
+    "nextLabel": "Næste spørgsmål",
+    "goToLabel": "Gå til spørgsmål {number}",
+    "questions": [
+      {
+        "question": "Hvorfor er jeres priser så meget lavere end andre bureauer?",
+        "answer": "Vi bruger moderne teknologi og AI-assisterede værktøjer, der gør os 3-4 gange hurtigere end traditionelle bureauer. Det betyder lavere omkostninger for os - og for dig. Men vi går aldrig på kompromis med kvaliteten. Alle vores pakker bygges med samme professionelle teknologi (Next.js, Payload CMS), forskellen ligger kun i omfang og features."
+      },
+      {
+        "question": "Hvad mener I med \"ingen scope creep\"?",
+        "answer": "Scope creep er når projekter trækker ud i det uendelige med konstante ændringer og revisioner. Vi stopper det fra starten med: (1) Klare pakker med definerede features, (2) Godkendelsesmøder ved vigtige milepæle, (3) Maksimalt 2 revisionsrunder inkluderet. Når du godkender designet, går vi videre. Det holder projektet på skinner og sikrer levering til tiden."
+      },
+      {
+        "question": "Hvor lang tid tager det at få min hjemmeside?",
+        "answer": "Essentials: 2 uger fra signering til lancering, Professional: 3 uger, Business: 4 uger. Dette er garanterede leveringstider, ikke estimater. Vi kan holde dem fordi vi har strukturerede processer og bruger moderne udviklings-værktøjer."
+      },
+      {
+        "question": "Hvad sker der hvis jeg har brug for ændringer efter lanceringen?",
+        "answer": "Du får 30 dages support efter lancering for fejlrettelser. Derefter tilbyder vi en vedligeholdelsespakke fra 495 kr/måned der dækker mindre opdateringer, sikkerhedsopdateringer og teknisk support. Større ændringer eller nye features kan tilkøbes efter behov."
+      },
+      {
+        "question": "Hvorfor bruger I ikke WordPress?",
+        "answer": "WordPress er godt til nogle ting, men det har begrænsninger: langsom performance, sikkerhedsproblemer, dyre plugins, og det er svært at integrere med AI-værktøjer. Vi bruger Next.js og Payload CMS - moderne teknologi der er hurtigere, mere sikker, og giver jer bedre SEO. Bonus: Det er også gratis at hoste (0-75 kr/måned vs. 200-500 kr for WordPress)."
+      },
+      {
+        "question": "Skal jeg selv skrive alt indholdet?",
+        "answer": "Nej! Vi guider dig gennem indholdsprocessen med vores Content Checklist. Du skal levere grundlæggende info om din virksomhed, billeder/logo, og godkende tekster - men vi hjælper med strukturering og optimering til SEO. Du ved bedst hvad din virksomhed laver, vi ved hvordan det skal præsenteres online."
+      },
+      {
+        "question": "Hvad hvis jeg ikke er teknisk anlagt?",
+        "answer": "Det behøver du ikke være! Vores Payload CMS admin-panel er designet så det er intuitivt at bruge - tænk \"WordPress-enkelt\" men med moderne teknologi. Vi giver dig personlig træning i at opdatere tekster, billeder og blogindlæg. Og vores support er altid klar til at hjælpe."
+      }
+    ]
+  },
+
+  "cookie": {
+    "title": "Vi værner om dit privatliv",
+    "description": "Vi bruger cookies til at forbedre din oplevelse på vores website. Ved at klikke \"Accepter\" samtykker du til vores brug af cookies. Du kan også vælge at afvise unødvendige cookies.",
+    "learnMore": "Læs mere om vores cookiepolitik",
+    "rejectButton": "Kun nødvendige",
+    "acceptButton": "Accepter alle",
+    "closeLabel": "Luk banner"
+  },
+
+  "portfolio": {
+    "overline": "Udvalgte projekter",
+    "headingLine1": "Websites der",
+    "headingLine2": "arbejder for dig.",
+    "description1": "Hvert projekt starter med en forståelse af din virksomhed — hvem dine kunder er, og hvad dit website skal gøre for dem.",
+    "description2": "Vi designer og bygger fra bunden, så resultatet passer til dig — ikke til et template.",
+    "viewAll": "Se alle projekter",
+    "pageOverline": "Portfolio",
+    "pageTitle": "Vores arbejde",
+    "pageDescription": "Et udvalg af projekter vi har lavet for danske virksomheder.",
+    "ctaTitle": "Har du et projekt i tankerne?",
+    "ctaDescription": "Lad os tage en snak om, hvad vi kan gøre for dig.",
+    "ctaButton": "Tal med os"
+  },
+
+  "whyUs": {
+    "overline": "Hvorfor os",
+    "headingLine1": "Vi gør det",
+    "headingLine2": "anderledes.",
+    "description": "Vi tror på, at et godt samarbejde kræver ærlighed — om hvad der kan lade sig gøre, hvad det koster, og hvornår det er færdigt.",
+    "reasons": [
+      {
+        "number": "01",
+        "title": "Faste priser",
+        "description": "Du kender den endelige pris fra dag ét. Ingen timeregnskaber, ingen tillæg, ingen \"det blev lidt dyrere end forventet\"."
+      },
+      {
+        "number": "02",
+        "title": "Unikt design",
+        "description": "Vi bruger ikke templates. Dit website bliver tegnet fra bunden, så det passer til din virksomhed — ikke omvendt."
+      },
+      {
+        "number": "03",
+        "title": "Du ejer det hele",
+        "description": "Koden, domænet, indholdet. Alt er dit. Du er aldrig låst til os, og du kan tage det med videre, hvis du vil."
+      },
+      {
+        "number": "04",
+        "title": "Klar kommunikation",
+        "description": "Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid — og vi forklarer hvorfor."
+      }
+    ]
+  },
+
+  "about": {
+    "overline": "Om os",
+    "headingLine1": "To mennesker.",
+    "headingLine2": "Ét mål.",
+    "descriptions": [
+      "Transparo er os to. Vi startede bureauet, fordi vi selv har oplevet, hvor frustrerende det kan være at købe en hjemmeside — uklare priser, manglende kommunikation og et resultat der ikke ligner det, man blev lovet.",
+      "Derfor bygger vi Transparo på gennemsigtighed. Du ved præcis hvad du får, hvad det koster, og hvornår det er klar. Ingen skjulte gebyrer, ingen overraskelser.",
+      "Vi kombinerer moderne teknologi med gennemtænkt design og leverer websites, der ikke bare ser professionelle ud — men rent faktisk skaber resultater for din forretning."
+    ],
+    "team": [
+      {
+        "name": "Dennis Enghave",
+        "role": "Co-founder & Lead Developer",
+        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med Next.js, TypeScript og AI-assisteret udvikling for at levere resultater, der både ser godt ud og kører lynhurtigt."
+      },
+      {
+        "name": "Christina Borreby",
+        "role": "Co-founder & Design Director",
+        "bio": "Christina sikrer, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Med erfaring inden for design, branding og digital strategi styrer hun hele processen fra første møde til færdigt resultat. Hun er bindeledet mellem kunde og produkt og sørger for, at intet bliver tabt i oversættelsen."
+      }
+    ]
+  },
+
+  "processTimeline": {
+    "overline": "Sådan arbejder vi",
+    "headingLine1": "Fra samtale",
+    "headingLine2": "til lancering.",
+    "steps": [
+      { "number": "01", "title": "Samtale", "description": "Vi lytter til dig og forstår din virksomhed." },
+      { "number": "02", "title": "Design", "description": "Du ser de første udkast og giver feedback." },
+      { "number": "03", "title": "Tilretning", "description": "Vi justerer indtil du er tilfreds." },
+      { "number": "04", "title": "Udvikling", "description": "Vi koder og tester på alle enheder." },
+      { "number": "05", "title": "Review", "description": "Du godkender det færdige resultat." },
+      { "number": "06", "title": "Lancering", "description": "Dit website går live. Alt overdrages til dig." }
+    ]
+  },
+
+  "aboutContact": {
+    "overline": "Kontakt",
+    "heading": "Fortæl os om",
+    "headingFaded": "dit projekt.",
+    "missionText": "Vi er et dansk webbureau der bygger websites fra bunden. Ingen templates, faste priser og en proces du kan følge med i.",
+    "ctaText": "Skriv til os, så tager vi en uforpligtende snak om dit projekt.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "linkedinText": "Følg vores rejse",
+    "formTitle": "Fortæl os om dit projekt",
+    "formSubtitle": "Vi svarer inden for 24 timer",
+    "nameLabel": "Navn *",
+    "emailFieldLabel": "Email *",
+    "companyLabel": "Virksomhed (valgfrit)",
+    "messageLabel": "Fortæl os om dit projekt *",
+    "submitButton": "Send besked",
+    "submitting": "Sender...",
+    "thankYouTitle": "Tak for din besked",
+    "thankYouMessage": "Vi vender tilbage inden for 24 timer."
+  },
+
+  "priceCalculator": {
+    "title": "Prisberegner",
+    "subtitle": "Få et hurtigt estimat på din nye hjemmeside. Ingen forpligtelser, fuld gennemsigtighed.",
+    "stepLabel": "Trin {current} af {total}",
+    "steps": [
+      { "title": "Website-type", "subtitle": "Hvad har du brug for?" },
+      { "title": "Funktioner", "subtitle": "Vælg de features du ønsker" },
+      { "title": "Design-niveau", "subtitle": "Hvor unik skal din side være?" },
+      { "title": "Tidslinje", "subtitle": "Hvornår skal det være klar?" },
+      { "title": "Dit estimat", "subtitle": "Her er din cirka-pris" }
+    ],
+    "websiteTypes": [
+      {
+        "id": "landing",
+        "label": "Landingsside",
+        "description": "1 side - perfekt til kampagner eller lancering",
+        "pages": "1 side",
+        "number": "01",
+        "details": [
+          "Responsivt design til alle enheder",
+          "Kontaktformular med validering",
+          "Hastigheds-optimeret (90+ Lighthouse)",
+          "SEO-grundopsætning",
+          "SSL-certifikat inkluderet",
+          "Google Analytics integration"
+        ]
+      },
+      {
+        "id": "business",
+        "label": "Virksomhedssite",
+        "description": "3-5 sider - den klassiske virksomhedsprofil",
+        "pages": "3-5 sider",
+        "number": "02",
+        "details": [
+          "Alt fra Landingsside",
+          "Op til 5 undersider",
+          "Blog-mulighed",
+          "Avanceret SEO-setup med meta tags",
+          "Social medie-integration",
+          "Interaktive elementer og animationer",
+          "Content Management System (CMS)"
+        ]
+      },
+      {
+        "id": "large",
+        "label": "Større website",
+        "description": "6-10 sider - til virksomheder med mere indhold",
+        "pages": "6-10 sider",
+        "number": "03",
+        "details": [
+          "Alt fra Virksomhedssite",
+          "Op til 10 undersider",
+          "Avanceret CMS med multi-collections",
+          "Custom funktioner og integrationer",
+          "Avancerede animationer og transitions",
+          "Flersproget understøttelse mulig",
+          "Prioriteret support i 3 måneder",
+          "Performance-optimering og caching"
+        ]
+      }
+    ],
+    "features": [
+      { "id": "contact", "label": "Kontaktformular", "description": "Professionel kontaktformular med validering", "included": true },
+      { "id": "social", "label": "Social medie-integration", "description": "Links og feeds fra sociale medier", "included": true },
+      { "id": "seo", "label": "SEO-optimering", "description": "Teknisk SEO, meta tags og struktureret data" },
+      { "id": "blog", "label": "Blog / Nyheder", "description": "Blogsektion med kategorier og arkiv" },
+      { "id": "cms", "label": "CMS (selv-redigering)", "description": "Payload CMS så du selv kan opdatere indhold" },
+      { "id": "booking", "label": "Booking-system", "description": "Online tidsbestilling integreret i sitet" },
+      { "id": "multilang", "label": "Flersproget (DK/EN)", "description": "Fuld oversættelse med sprogskifter" },
+      { "id": "newsletter", "label": "Nyhedsbrev-integration", "description": "Mailchimp, Brevo eller lignende integration" }
+    ],
+    "designLevels": [
+      {
+        "id": "standard",
+        "label": "Standard",
+        "description": "Rent, professionelt design der dækker de flestes behov. Du kan altid opgradere til Premium senere.",
+        "badge": "Anbefalet"
+      },
+      {
+        "id": "premium",
+        "label": "Premium",
+        "description": "Til dig der vil have det ekstra. Custom animationer, avancerede hover-effekter og unik branding ned i mindste detalje.",
+        "badge": null
+      }
+    ],
+    "timelines": [
+      { "id": "standard", "label": "Standard levering", "description": "2-4 uger - vores normale leveringstid" },
+      { "id": "express", "label": "Express levering", "description": "1-2 uger - prioriteret behandling" }
+    ],
+    "result": {
+      "estimateLabel": "Dit estimat",
+      "from": "fra",
+      "currency": "DKK",
+      "exclVat": "ekskl. moms",
+      "recommendedPrefix": "Anbefalet:",
+      "recommendedSuffix": "-pakken",
+      "recommendations": {
+        "essentials": "Vores Essentials-pakke passer godt til dit behov",
+        "professional": "Vores Professional-pakke er et godt match",
+        "business": "Vores Business-pakke dækker alt du har brug for"
+      },
+      "breakdownTitle": "Prissammensætning",
+      "estimatedTotal": "Estimeret total",
+      "premiumDesign": "Premium design",
+      "expressDelivery": "Express-levering (+25%)",
+      "compareTitle": "Sammenlign med markedet",
+      "traditionalAgency": "Traditionelt bureau",
+      "traditionalNote": "Baseret på gennemsnitspriser fra danske bureauer",
+      "transparoLabel": "Transparo",
+      "transparoNote": "Samme teknologi og kvalitet, AI-drevet proces",
+      "savingsText": "Du sparer ca. {savings} DKK - det er {percent}% mindre end markedsprisen.",
+      "savingsDisclaimer": "Prisestimatet for traditionelle bureauer er baseret på branchegennemsnit for sammenlignelige projekter i Danmark.",
+      "disclaimer": "Den endelige pris aftales ved en uforpligtende samtale, hvor vi gennemgår dine behov i detaljer.",
+      "ctaBookMeeting": "Book et uforpligtende møde",
+      "ctaSendEstimate": "Send mig estimatet",
+      "emailFormTitle": "Modtag dit estimat på mail",
+      "emailNamePlaceholder": "Dit navn",
+      "emailPlaceholder": "Din email",
+      "emailSubmitButton": "Send estimat",
+      "emailCancel": "Annuller"
+    },
+    "navigation": {
+      "next": "Næste",
+      "back": "Tilbage",
+      "editChoices": "Rediger dine valg"
+    },
+    "included": "Inkluderet",
+    "includedInBase": "Inkluderet i basispris",
+    "noSurcharge": "Ingen tillæg",
+    "expressSurcharge": "+25% express-tillæg",
+    "whatsIncluded": "Hvad er inkluderet?"
+  },
+
+  "process": {
+    "heroBadge": "Proces / 7 Faser / 2-4 Uger",
+    "heroHeadingLine1": "Fra idé",
+    "heroHeadingLine2": "til virkelighed",
+    "heroDescription": "En gennemsigtig og struktureret proces hvor hver fase er nøje planlagt for at maksimere værdi og minimere tid.",
+    "heroCta": "Udforsk processen",
+    "phasePreviewNames": ["Opdagelse", "Struktur", "Design", "Udvikling", "Test", "Lancering", "Support"],
+    "faseLabel": "Fase",
+    "phases": [
+      {
+        "phaseNumber": 1,
+        "title": "Opdagelse & Planlægning",
+        "subtitle": "Vi sætter grundstenene for succes",
+        "timeline": "Dag 1-2",
+        "description": "Vi starter med et dybtgående opdagelsesmøde, hvor vi lærer din virksomhed at kende. Vi afdækker dine mål, målgruppe, konkurrentlandskab og unikke styrker. Dette sikrer, at vi bygger en website, der ikke bare ser godt ud, men også leverer konkrete forretningsresultater.",
+        "keyPoints": [
+          "Forretningsanalyse & målsætning",
+          "Konkurrent- og markedsanalyse",
+          "Målgruppe- og persona-udvikling",
+          "Teknisk behovsafdækning"
+        ],
+        "checkpointText": "Godkendelse af brief"
+      },
+      {
+        "phaseNumber": 2,
+        "title": "Struktur & Skitser",
+        "subtitle": "Brugeroplevelse og navigation designes",
+        "timeline": "Dag 3-4",
+        "description": "Med afsæt i opdagelsesfasen designer vi strukturelle skitser af din website. Her fokuserer vi på brugerrejsen, informationsarkitektur og konverteringsoptimering. Du får et klart billede af, hvordan din website vil fungere.",
+        "keyPoints": [
+          "Sitemap & navigation",
+          "Layout for alle sidetyper",
+          "Brugerflow & interaktioner",
+          "Mobil-først tilgang"
+        ],
+        "checkpointText": "Struktur godkendt"
+      },
+      {
+        "phaseNumber": 3,
+        "title": "Design",
+        "subtitle": "Dit brand kommer til live",
+        "timeline": "Dag 5-7",
+        "description": "Nu giver vi din website personlighed. Vi udvikler et unikt visuelt design, der afspejler dit brand og appellerer til din målgruppe. Hver detalje er gennemtænkt - fra farver og typografi til billeder og animationer.",
+        "keyPoints": [
+          "Visuel identitet & brandguide",
+          "UI design for alle sider",
+          "Responsivt design (mobil/tablet/desktop)",
+          "Interaktive elementer & animationer"
+        ],
+        "checkpointText": "Design godkendt"
+      },
+      {
+        "phaseNumber": 4,
+        "title": "Udvikling",
+        "subtitle": "Teknisk implementering starter",
+        "timeline": "Dag 8-12",
+        "description": "Med godkendt design går vi i gang med udviklingen. Vi bygger din website med moderne teknologi - Next.js for performance og Payload CMS for nem content-håndtering. Alt kodes med fokus på hastighed, SEO og brugeroplevelse.",
+        "keyPoints": [
+          "Frontend udvikling i Next.js",
+          "Payload CMS opsætning",
+          "API integrationer",
+          "Performance optimering"
+        ],
+        "checkpointText": "Udvikling påbegyndt"
+      },
+      {
+        "phaseNumber": 5,
+        "title": "Test & Revision",
+        "subtitle": "Kvalitetssikring på alle niveauer",
+        "timeline": "Dag 13-14",
+        "description": "Vi tester din website grundigt på tværs af enheder, browsere og skærmstørrelser. Du får adgang til et testmiljø, hvor du kan gennemgå alt indhold og funktionalitet. Feedback implementeres løbende for at sikre perfektion.",
+        "keyPoints": [
+          "Test på tværs af browsere",
+          "Responsiv test på alle enheder",
+          "Hastighed & ydeevnetest",
+          "Feedback & justeringer"
+        ],
+        "checkpointText": "Test gennemført"
+      },
+      {
+        "phaseNumber": 6,
+        "title": "Lancering",
+        "subtitle": "Din website går live",
+        "timeline": "Dag 15",
+        "description": "Det er tid til at gå live! Vi håndterer hele lanceringen professionelt - fra DNS-opsætning til SSL-certifikater. Vi sikrer en sømløs overgang uden nedetid. Din nye website er nu tilgængelig for hele verden.",
+        "keyPoints": [
+          "Hosting på Vercel",
+          "DNS & domæneopsætning",
+          "SSL-certifikat & sikkerhed",
+          "Analyseværktøjer & sporing"
+        ],
+        "checkpointText": "Website lanceret"
+      },
+      {
+        "phaseNumber": 7,
+        "title": "Support & Træning",
+        "subtitle": "Vi sikrer din fortsatte succes",
+        "timeline": "Dag 16+",
+        "description": "Efter lanceringen står vi klar med support og træning. Du får en grundig gennemgang af Payload CMS, så du selv kan opdatere indhold. Vi tilbyder også løbende support og vedligeholdelse for at sikre optimal ydeevne.",
+        "keyPoints": [
+          "CMS-træning (30-45 min)",
+          "30 dages gratis support",
+          "Dokumentation & vejledninger",
+          "Vedligeholdelsesaftale tilgængelig"
+        ],
+        "checkpointText": "Overdragelse komplet"
+      }
+    ],
+    "finalCta": {
+      "headingLine1": "Klar til at starte",
+      "headingLine2": "jeres projekt?",
+      "description": "Professionel udvikling. Faste priser. Lancering på 2-4 uger.",
+      "steps": [
+        { "num": "1", "title": "Book møde", "desc": "Gratis 30 min konsultation" },
+        { "num": "2", "title": "Få tilbud", "desc": "Fast pris, ingen skjulte omkostninger" },
+        { "num": "3", "title": "Vi starter", "desc": "Lancering om 2-4 uger" }
+      ],
+      "ctaButton": "Book Gratis Konsultation",
+      "contactNote": "Har du spørgsmål? Kontakt os direkte"
+    }
+  },
+
+  "caseStudy": {
+    "challengeLabel": "Udfordringen",
+    "solutionLabel": "Løsningen",
+    "resultsLabel": "Resultater",
+    "resultsHeading": "Det vi leverede.",
+    "technologiesLabel": "Teknologier",
+    "timelineLabel": "Tidslinje",
+    "deliverablesLabel": "Leverancer",
+    "nextStepLabel": "Næste skridt",
+    "ctaTitle": "Har du et projekt i tankerne?",
+    "ctaDescription": "Lad os tage en snak om, hvad vi kan gøre for dig.",
+    "ctaButton": "Book et møde",
+    "notFoundTitle": "Case ikke fundet - Transparo"
+  },
+
+  "exclusive": {
+    "line1": "Vi bygger websites der",
+    "line2": "konverterer besøgende til",
+    "line3": "betalende kunder for",
+    "line4": "ambitiøse virksomheder",
+    "line5": "der vil vokse online.",
+    "stats": "100+ projekter leveret. 98% kundetilfredshed. Din succes er vores mission."
+  },
+
+  "brandStory": {
+    "overline": "Vores Historie",
+    "heading": "Transparo – Webdesign bygget på tillid, ikke bindinger",
+    "intro": "Alt for mange går igennem webprojekter med en dårlig smag i munden.",
+    "introHighlight": "Skjulte omkostninger. Udskudte deadlines. Websites du ikke engang ejer.",
+    "statement": "Vi startede Transparo for at gøre det modsatte.",
+    "howWeWork": "Sådan arbejder vi:",
+    "cards": [
+      { "title": "Fast pris fra start.", "description": "Ingen skjulte omkostninger. Du ved præcis hvad du betaler for." },
+      { "title": "Du ejer dit website.", "description": "Ingen bindinger. Ingen gidsler-hosting. Dit website, dine rettigheder, fra dag ét." },
+      { "title": "Klar kommunikation.", "description": "Fast kontaktperson. Konkrete milepæle. Ingen gætværk." },
+      { "title": "Deadline vi holder.", "description": "Vi lover kun hvad vi kan levere. Og så leverer vi det." }
+    ],
+    "closing": "Det er ikke rocket science. Det er bare ærligt håndværk.",
+    "tagline": "Unique designs. Built on trust.",
+    "taglineExplanation": "Det er ikke et slogan. Det er vores kontrakt."
+  },
+
+  "team": {
+    "overline": "Holdet",
+    "heading": "Mød",
+    "headingAccent": "Holdet",
+    "description": "To mennesker med én fælles mission: at gøre webdesign til en gennemsigtig og positiv oplevelse for danske virksomheder.",
+    "members": [
+      {
+        "name": "Dennis Enghave",
+        "role": "Co-founder & Lead Developer",
+        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med Next.js, TypeScript og AI-assisteret udvikling for at levere resultater, der både ser godt ud og kører lynhurtigt."
+      },
+      {
+        "name": "Christina Borreby",
+        "role": "Co-founder & Design Director",
+        "bio": "Christina sikrer, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Med erfaring inden for design, branding og digital strategi styrer hun hele processen fra første møde til færdigt resultat. Hun er bindeledet mellem kunde og produkt og sørger for, at intet bliver tabt i oversættelsen."
+      }
+    ]
+  },
+
+  "happyClients": {
+    "overline": "Vores Kunder",
+    "heading": "Hvad Glade Kunder",
+    "headingAccent": "Siger",
+    "description": "Real kunder. Real resultater. Real transparens.",
+    "stats": [
+      { "value": "100+", "label": "Projekter Leveret" },
+      { "value": "98%", "label": "Kundetilfredshed" },
+      { "value": "15", "label": "Dages Gennemsnitlig Levering" },
+      { "value": "0", "label": "Skjulte Omkostninger" }
+    ],
+    "testimonials": [
+      {
+        "name": "Louise Kjær",
+        "company": "Sundhedskonsortiet",
+        "role": "CEO",
+        "quote": "Transparo leverede langt over forventning. Processen var transparent fra start til slut, og de holdt alle deadlines. Det er sjældent at opleve sådan et professionelt samarbejde."
+      },
+      {
+        "name": "Mikkel Juul",
+        "company": "WalterAI",
+        "role": "Founder",
+        "quote": "Endelig et bureau der forstår betydningen af klare aftaler. Ingen overraskelser, kun fremragende resultater."
+      },
+      {
+        "name": "Camilla Højland",
+        "company": "Flotte Fødder",
+        "role": "Indehaver",
+        "quote": "Min nye hjemmeside er perfekt! De lyttede til mine ønsker og leverede præcis hvad vi aftalte - intet mere, intet mindre."
+      },
+      {
+        "name": "Thomas Kjeldsen",
+        "company": "VAT 85",
+        "role": "Partner",
+        "quote": "Bedste investering i år. Fast pris, hurtig levering, og kvalitet der matcher store bureauer til en brøkdel af prisen."
+      },
+      {
+        "name": "Alex Morgan",
+        "company": "Fotograf",
+        "role": "Selvstændig",
+        "quote": "Fantastisk resultat på rekordtid. De forstod min vision med det samme og udførte den til perfektion."
+      },
+      {
+        "name": "Christina Borreby",
+        "company": "Coach & Konsulent",
+        "role": "Konsulent",
+        "quote": "De forstod præcis hvad jeg havde brug for. Kommunikationen var klar, processen smidig, og resultatet overraskende godt."
+      }
+    ],
+    "bottomCTA": "Vil du også være en tilfreds kunde?",
+    "bottomButton": "Start Dit Projekt"
+  },
+
+  "finalCTA": {
+    "headingLine1": "Du Drømmer,",
+    "headingLine2": "Vi Bygger",
+    "contactVia": "Kontakt os hurtigt via:",
+    "stats": [
+      { "value": "100+", "label": "Projekter\nLeveret" },
+      { "value": "50+", "label": "Glade\nKunder" },
+      { "value": "92%", "label": "Kunde\nFastholdelse" },
+      { "value": "7+", "label": "Års\nPartnerskab" }
+    ],
+    "formTitle": "Har du visionen?",
+    "formSubtitle": "Vi har ekspertisen.",
+    "formDescription": "Fortæl os lidt om dig selv og hvad du har i tankerne.",
+    "namePlaceholder": "Dit fulde navn",
+    "phonePlaceholder": "Dit telefonnummer",
+    "emailPlaceholder": "Din email",
+    "messagePlaceholder": "Fortæl os lidt om din vision...",
+    "submitButton": "SEND"
+  },
+
+  "notFound": {
+    "heading": "Siden blev ikke fundet",
+    "description": "Ups! Den side du leder efter eksisterer ikke eller er blevet flyttet.",
+    "goHome": "Gå til Forsiden",
+    "contactUs": "Kontakt Os",
+    "popularPages": "Populære Sider",
+    "howItWorks": "Sådan Virker Det",
+    "aboutUs": "Om Os"
+  },
+
+  "metadata": {
+    "home": {
+      "title": "Transparo - Webdesign uden Overraskelser | Unique Designs. Built on Trust.",
+      "description": "Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger — bygget på tillid.",
+      "ogTitle": "Transparo - Webdesign uden Overraskelser",
+      "ogDescription": "High-end websites bygget på tillid. Ingen overraskelser, kun resultater."
+    },
+    "layout": {
+      "defaultTitle": "Transparo | Professionel Webudvikling Danmark",
+      "titleTemplate": "%s | Transparo",
+      "description": "Professionel hjemmeside udvikling til danske virksomheder. Fast pris (8.995-27.995 kr), 2-4 ugers levering. Webbureau København specialiseret i moderne hjemmesider med SEO, responsivt design og Payload CMS.",
+      "ogTitle": "Transparo | Professionel Webudvikling Danmark",
+      "ogDescription": "Webbureau København specialiseret i moderne hjemmesider. Fast pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder."
+    },
+    "kontakt": {
+      "title": "Kontakt Os - Book et Møde | Transparo",
+      "description": "Kontakt Transparo i dag. Book et uforpligtende discovery call eller send os en besked. Vi svarer inden for 24 timer på hverdage.",
+      "ogTitle": "Kontakt Transparo",
+      "ogDescription": "Book et møde eller send os en besked. Vi svarer inden for 24 timer."
+    },
+    "omOs": {
+      "title": "Om Os - Professionelt Webdesign til Små Virksomheder | Transparo",
+      "description": "Transparo bygger professionelle websites til danske små virksomheder. Fast pris, hurtig levering, og ingen scope creep. Lær mere om vores mission og værdier.",
+      "ogTitle": "Om Transparo - Webdesign med Tillid",
+      "ogDescription": "Vi bygger professionelle websites til små virksomheder med fast pris og hurtig levering."
+    },
+    "prisberegner": {
+      "title": "Prisberegner",
+      "description": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov — helt uforpligtende og med fuld gennemsigtighed.",
+      "ogTitle": "Prisberegner | Transparo",
+      "ogDescription": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov — helt uforpligtende."
+    },
+    "privatlivspolitik": {
+      "title": "Privatlivspolitik | Transparo",
+      "description": "Transparo's privatlivspolitik. Læs hvordan vi indsamler, bruger og beskytter dine personlige oplysninger i overensstemmelse med GDPR."
+    },
+    "handelsbetingelser": {
+      "title": "Handelsbetingelser | Transparo",
+      "description": "Transparo's handelsbetingelser. Læs vores vilkår og betingelser for webdesign og udvikling services."
+    },
+    "caseStudy": {
+      "notFoundTitle": "Case ikke fundet - Transparo",
+      "titleSuffix": "- Case Study | Transparo"
+    }
+  },
+
+  "caseStudies": {
+    "items": [
+      {
+        "id": 1,
+        "title": "Eskild Ebbesen – High Performance",
+        "subtitle": "Personlig brandsite for Danmarks mest vindende OL-atlet og ekspert i high performance",
+        "slug": "eskild-ebbesen",
+        "labels": ["Branding", "Website"],
+        "quote": "De forstod præcis, hvad mit brand handler om, og skabte en side der matcher den kvalitet, jeg leverer på scenen.",
+        "author": "Eskild Ebbesen",
+        "role": "Foredragsholder & OL-guldvinder",
+        "challenge": "Eskild havde brug for et personligt website der matchede hans brand som OL-guldvinder og high performance ekspert. Siden skulle udstråle professionalisme og gøre det nemt at booke ham som foredragsholder.",
+        "solution": "Vi designede et rent, personligt brandsite med fokus på Eskilds historie, ydelser og troværdighed. Enkel navigation, booking-integration og et visuelt udtryk der matcher hans kaliber.",
+        "results": [
+          { "metric": "Performance", "value": "97/100", "description": "Lighthouse performance score" },
+          { "metric": "Accessibility", "value": "100/100", "description": "Lighthouse accessibility score" },
+          { "metric": "Loadtid", "value": "0.8s", "description": "First Contentful Paint" }
+        ],
+        "technologies": ["Next.js", "Payload CMS", "Motion", "Tailwind CSS", "Vercel"],
+        "timeline": "4 uger",
+        "deliverables": ["Personligt brandsite", "CMS til indhold", "Booking-integration", "SEO-optimering", "Mobiloptimering"]
+      },
+      {
+        "id": 2,
+        "title": "AI-drevet fodboldanalyse",
+        "subtitle": "Præcise forudsigelser, dybe data og taktiske indsigter",
+        "slug": "walter-ai",
+        "labels": ["AI", "Fodbold"],
+        "quote": "De fangede tempoet og intensiteten i sporten og bragte data til live. Platformen er blevet et fast værktøj på både træningsbanen og stadion.",
+        "author": "Mikkel Juul",
+        "role": "CEO, WalterAI",
+        "challenge": "WalterAI havde brug for en platform der kunne præsentere komplekse AI-analyser og fodbolddata på en måde der var tilgængelig for både trænere og fans. Data skulle være både dyb og let at forstå.",
+        "solution": "Vi skabte en interaktiv dataplatform med realtids-visualiseringer, AI-drevne indsigter og en brugervenlig grænseflade. Platformen kombinerer avanceret teknologi med en intuitiv brugeroplevelse der gør komplekse data forståelige.",
+        "results": [
+          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
+          { "metric": "Accessibility", "value": "98/100", "description": "Lighthouse accessibility score" },
+          { "metric": "Performance", "value": "98/100", "description": "Lighthouse score trods kompleks data" }
+        ],
+        "technologies": ["Next.js", "AI/ML Integration", "Motion", "D3.js", "Real-time Data"],
+        "timeline": "12 uger",
+        "deliverables": ["Interaktiv dataplatform", "AI-integration", "Real-time dashboards", "Mobilapp", "Admin CMS"]
+      },
+      {
+        "id": 3,
+        "title": "Significanz – Executive Coaching",
+        "subtitle": "Et elegant website for et københavnsk coaching-firma med fokus på ledelse og personlig udvikling",
+        "slug": "significanz",
+        "labels": ["Branding", "Website"],
+        "quote": "De fangede vores æstetik og skabte en side der udstråler den ro og professionalisme vores klienter forventer.",
+        "author": "Significanz",
+        "role": "Executive Coaching",
+        "challenge": "Significanz havde brug for et website der matchede deres position som executive coaching-firma i København. Udtrykket skulle være roligt, elegant og troværdigt.",
+        "solution": "Vi skabte et visuelt stærkt website med atmosfærisk fotografi, ren typografi og en enkel struktur der lader indholdet tale for sig selv.",
+        "results": [
+          { "metric": "Performance", "value": "95/100", "description": "Lighthouse performance score" },
+          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
+          { "metric": "Best Practices", "value": "100/100", "description": "Lighthouse best practices" }
+        ],
+        "technologies": ["Next.js", "Payload CMS", "Motion", "Tailwind CSS", "Vercel"],
+        "timeline": "3 uger",
+        "deliverables": ["Brandsite", "CMS til indhold", "Kontaktformular", "SEO-optimering", "Mobiloptimering"]
+      },
+      {
+        "id": 4,
+        "title": "Fotografportefølje med fokus på autenticitet",
+        "subtitle": "En elegant og personlig fotowebsite til bryllupper, dåb og livsstil",
+        "slug": "alex-morgan-photography",
+        "labels": ["Branding", "Website"],
+        "quote": "Fotografiet fik plads til at ånde, og besøgende glider ubesværet igennem porteføljen. Det føles som et magasin skabt kun til mig.",
+        "author": "Alex Morgan",
+        "role": "Fotograf",
+        "challenge": "Alex Morgan havde brug for en portefølje der kunne vise deres fotografier i bedste lys, samtidig med at oplevelsen skulle være personlig og elegant – som et digitalt magasin.",
+        "solution": "Vi skabte en visuel portefølje med fokus på billederne. Med elegante overgange, optimeret billedkvalitet og en enkel navigation der lader fotografierne tale for sig selv.",
+        "results": [
+          { "metric": "Accessibility", "value": "100/100", "description": "Lighthouse accessibility score" },
+          { "metric": "Mobil", "value": "94/100", "description": "Mobile performance score" },
+          { "metric": "Performance", "value": "96/100", "description": "Lighthouse score trods høj billedkvalitet" }
+        ],
+        "technologies": ["Next.js", "Image Optimization", "Motion", "Tailwind CSS", "Vercel"],
+        "timeline": "3 uger",
+        "deliverables": ["Porteføljewebsite", "Galleri-system", "Kontaktformular", "SEO-optimering", "Billedoptimering"]
+      },
+      {
+        "id": 5,
+        "title": "Autentisk lederudvikling med hesteassisteret coaching",
+        "subtitle": "En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab",
+        "slug": "christina-borreby",
+        "labels": ["Branding", "Website"],
+        "quote": "De forstod læringsrejsen vi ville skabe og oversatte nærvær til et digitalt univers. Resultatet er både modigt og jordnært.",
+        "author": "Christina Borreby",
+        "role": "Stifter, Christina Borreby",
+        "challenge": "Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching og deres videnskabeligt funderede tilgang til lederudvikling.",
+        "solution": "Vi designede en moderne website der balancerer professionalisme med varme. Med fokus på storytelling, klare budskaber og et visuelt udtryk der afspejler både natur og forretning.",
+        "results": [
+          { "metric": "Performance", "value": "94/100", "description": "Lighthouse performance score" },
+          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
+          { "metric": "Loadtid", "value": "1.1s", "description": "First Contentful Paint" }
+        ],
+        "technologies": ["Next.js", "Payload CMS", "Motion", "Tailwind CSS", "Video Integration"],
+        "timeline": "5 uger",
+        "deliverables": ["Website med storytelling", "CMS til kurser", "Booking-integration", "SEO-optimering", "Video-integration"]
+      },
+      {
+        "id": 6,
+        "title": "40 år med lokal teaterkultur og fællesskab",
+        "subtitle": "En moderne teateroplevelse med fokus på revy, dramatik og stærke fortællinger",
+        "slug": "vat85",
+        "labels": ["Branding", "Website"],
+        "quote": "Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.",
+        "author": "Thomas Kjeldsen",
+        "role": "Formand, VAT 85",
+        "challenge": "VAT 85 havde brug for en moderne platform til at håndtere billetflow, kommunikere program og fastholde den festivalånd der kendetegner deres 40 år med teaterkultur.",
+        "solution": "Vi skabte en dynamisk festival-website med fokus på brugervenlighed, billetflow og storytelling. Med integration af billetsystemer, programoversigt og en visuel identitet der fanger revyånden.",
+        "results": [
+          { "metric": "Performance", "value": "96/100", "description": "Lighthouse performance score" },
+          { "metric": "Accessibility", "value": "100/100", "description": "Lighthouse accessibility score" },
+          { "metric": "Loadtid", "value": "0.9s", "description": "First Contentful Paint" }
+        ],
+        "technologies": ["Next.js", "Ticket Integration", "Payload CMS", "Motion", "Tailwind CSS"],
+        "timeline": "6 uger",
+        "deliverables": ["Festival-website", "Billetintegration", "Program-CMS", "Nyhedsbrev-integration", "Social media integration"]
+      },
+      {
+        "id": 7,
+        "title": "Klimakurt - Grøn energi til alle",
+        "subtitle": "Bæredygtige løsninger for en grønnere fremtid",
+        "slug": "klimakurt",
+        "labels": ["Branding", "Website"],
+        "quote": "Transparo hjalp os med at formidle vores grønne budskab klart og tydeligt. En fornøjelse at arbejde sammen med.",
+        "author": "Kurt Jensen",
+        "role": "Direktør, Klimakurt",
+        "challenge": "Klimakurt ønskede at nå ud til flere kunder med deres grønne energiløsninger. Udfordringen var at gøre teknisk viden letforståelig for den almindelige forbruger.",
+        "solution": "Vi udviklede en informativ og indbydende hjemmeside, der guider kunden gennem deres grønne muligheder. Fokus på klare Call-to-Actions og troværdighed.",
+        "results": [
+          { "metric": "Performance", "value": "95/100", "description": "Lighthouse performance score" },
+          { "metric": "SEO", "value": "100/100", "description": "Lighthouse SEO score" },
+          { "metric": "Loadtid", "value": "1.0s", "description": "First Contentful Paint" }
+        ],
+        "technologies": ["Next.js", "Tailwind CSS", "Motion", "SEO"],
+        "timeline": "4 uger",
+        "deliverables": ["Hjemmeside", "SEO-optimering", "Tekstforfatning", "Grafisk identitet"]
+      }
+    ]
+  },
+
+  "cookiePolicy": {
+    "title": "Cookiepolitik",
+    "lastUpdatedPrefix": "Sidst opdateret:",
+    "whatAreCookiesTitle": "Hvad er cookies?",
+    "whatAreCookiesP1": "Cookies er små tekstfiler, der gemmes på din computer, tablet eller mobiltelefon, når du besøger et website. Cookies bruges til at gøre websites mere brugervenlige og til at hjælpe os med at forbedre din oplevelse.",
+    "whatAreCookiesP2": "Denne cookiepolitik forklarer, hvilke cookies vi bruger på transparo.dk, hvorfor vi bruger dem, og hvordan du kan administrere dine cookie-præferencer.",
+    "typesTitle": "Hvilke typer cookies bruger vi?",
+    "necessaryCookiesTitle": "Nødvendige cookies",
+    "necessaryCookiesBadge": "Kan ikke deaktiveres",
+    "necessaryCookiesDescription": "Disse cookies er nødvendige for, at websitet kan fungere korrekt. De kan ikke slås fra i vores systemer.",
+    "necessaryCookiesExamplesTitle": "Eksempler:",
+    "necessaryCookiesExamples": [
+      "transparo_cookie_consent: Husker dit cookie-samtykke (365 dage)",
+      "Session cookies: Sikrer sikker navigation (slettes ved lukning)"
+    ],
+    "analyticsCookiesTitle": "Analyse og statistik cookies",
+    "analyticsCookiesBadge": "Valgfri - Kræver samtykke",
+    "analyticsCookiesDescription": "Disse cookies hjælper os med at forstå, hvordan besøgende bruger vores website, så vi kan forbedre funktionalitet og indhold.",
+    "analyticsCookiesExamplesTitle": "Eksempler:",
+    "analyticsCookiesExamples": [
+      "Google Analytics: Anonymiseret besøgsstatistik (90 dage)",
+      "Page views: Registrerer hvilke sider du besøger",
+      "Traffic sources: Hvordan du fandt vores website"
+    ],
+    "marketingCookiesTitle": "Marketing cookies",
+    "marketingCookiesBadge": "Valgfri - Kræver samtykke",
+    "marketingCookiesDescription": "Disse cookies bruges til at vise dig relevante reklamer og marketing-materialer baseret på dine interesser.",
+    "marketingCookiesStatus": "Vi bruger i øjeblikket ikke marketing cookies på transparo.dk.",
+    "managementTitle": "Sådan administrerer du cookies",
+    "managementDescription": "Du har fuld kontrol over cookies på vores website. Her er dine muligheder:",
+    "managementOption1Title": "Via cookie-banneret",
+    "managementOption1Description": "Når du først besøger vores website, vises et cookie-banner, hvor du kan acceptere eller afvise unødvendige cookies.",
+    "managementOption2Title": "I din browser",
+    "managementOption2Description": "De fleste browsere giver dig mulighed for at administrere cookies. Find vejledninger her:",
+    "managementOption3Title": "Kontakt os",
+    "managementOption3Description": "Har du spørgsmål om vores brug af cookies? Kontakt os på kontakt@transparo.dk",
+    "gdprTitle": "GDPR og databeskyttelse",
+    "gdprDescription": "Vi overholder EU's databeskyttelsesforordning (GDPR) og dansk lovgivning om cookies og privatlivsbeskyttelse. Det betyder:",
+    "gdprPoints": [
+      "Vi indsamler kun data med dit samtykke (undtagen nødvendige cookies)",
+      "Du kan til enhver tid trække dit samtykke tilbage",
+      "Dine data bruges kun til de formål, du har givet samtykke til",
+      "Vi deler ikke dine data med tredjeparter uden dit samtykke"
+    ],
+    "updatesTitle": "Opdateringer af denne politik",
+    "updatesDescription": "Vi kan opdatere denne cookiepolitik fra tid til anden for at afspejle ændringer i vores praksis eller lovkrav. Vi anbefaler, at du regelmæssigt gennemgår denne side for at holde dig informeret. Datoen for den seneste opdatering er angivet øverst på siden.",
+    "relatedDocumentsTitle": "Relaterede dokumenter",
+    "contactQuestion": "Har du spørgsmål?"
+  },
+
+  "privacyPolicy": {
+    "title": "Privatlivspolitik",
+    "lastUpdated": "Sidst opdateret: November 2025",
+    "sections": {
+      "introduction": {
+        "title": "1. Introduktion",
+        "p1": "Transparo (\"vi\", \"os\", \"vores\") respekterer dit privatliv og er forpligtet til at beskytte dine personoplysninger. Denne privatlivspolitik forklarer, hvordan vi indsamler, bruger, videregiver og beskytter dine oplysninger, når du besøger vores website eller bruger vores tjenester.",
+        "p2": "Denne politik er i overensstemmelse med EU's Databeskyttelsesforordning (GDPR) og dansk lovgivning."
+      },
+      "dataController": {
+        "title": "2. Dataansvarlig",
+        "content": "Transparo\nKøbenhavn, Danmark\nEmail: kontakt@transparo.dk\nTelefon: +45 12 34 56 78"
+      },
+      "dataCollected": {
+        "title": "3. Hvilke oplysninger indsamler vi?",
+        "description": "Vi kan indsamle følgende typer af personoplysninger:",
+        "items": [
+          "Kontaktoplysninger: Navn, email, telefonnummer, virksomhedsnavn",
+          "Tekniske data: IP-adresse, browsertype, enhedstype, operativsystem",
+          "Brugsdata: Hvordan du interagerer med vores website",
+          "Kommunikation: Beskeder du sender til os via formularer eller email",
+          "Cookies: Se vores cookiepolitik for detaljer"
+        ]
+      },
+      "dataUsage": {
+        "title": "4. Hvordan bruger vi dine oplysninger?",
+        "description": "Vi bruger dine personoplysninger til:",
+        "items": [
+          "At levere og vedligeholde vores tjenester",
+          "At kommunikere med dig om projekter, tilbud og opdateringer",
+          "At forbedre vores website og tjenester",
+          "At overholde juridiske forpligtelser",
+          "At analysere brugen af vores website (anonymiseret)"
+        ]
+      },
+      "legalBasis": {
+        "title": "5. Retsgrundlag for behandling",
+        "description": "Vi behandler dine personoplysninger baseret på:",
+        "items": [
+          "Samtykke: Når du giver os tilladelse til at behandle dine data",
+          "Kontraktopfyldelse: For at levere de tjenester du har bestilt",
+          "Legitime interesser: For at forbedre vores tjenester og kommunikere med dig",
+          "Juridiske forpligtelser: Når loven kræver det"
+        ]
+      },
+      "dataSharing": {
+        "title": "6. Videregivelse af data",
+        "description": "Vi videregiver ikke dine personoplysninger til tredjeparter, undtagen:",
+        "items": [
+          "Når du har givet dit udtrykkelige samtykke",
+          "Til serviceudvydere der hjælper os med at drive vores forretning (f.eks. hosting, email)",
+          "Når det er påkrævet ved lov",
+          "For at beskytte vores rettigheder og sikkerhed"
+        ],
+        "note": "Alle tredjeparter er forpligtet til at overholde GDPR og beskytte dine data."
+      },
+      "dataRetention": {
+        "title": "7. Opbevaring af data",
+        "content": "Vi opbevarer kun dine personoplysninger så længe det er nødvendigt for de formål, de blev indsamlet til, eller som krævet af loven. Kontaktoplysninger fra henvendelser gemmes typisk i op til 2 år, medmindre du anmoder om sletning tidligere."
+      },
+      "yourRights": {
+        "title": "8. Dine rettigheder",
+        "description": "Under GDPR har du følgende rettigheder:",
+        "items": [
+          "Ret til indsigt: Du kan anmode om en kopi af de personoplysninger vi har om dig",
+          "Ret til berigtigelse: Du kan anmode om at få rettet forkerte oplysninger",
+          "Ret til sletning: Du kan anmode om at få slettet dine personoplysninger",
+          "Ret til begrænsning: Du kan anmode om at begrænse behandlingen af dine data",
+          "Ret til dataportabilitet: Du kan anmode om at få dine data i et struktureret format",
+          "Ret til indsigelse: Du kan gøre indsigelse mod behandlingen af dine data",
+          "Ret til at trække samtykke tilbage: Når behandling er baseret på samtykke"
+        ],
+        "contactNote": "For at udøve disse rettigheder, kontakt os på kontakt@transparo.dk."
+      },
+      "security": {
+        "title": "9. Sikkerhed",
+        "content": "Vi implementerer passende tekniske og organisatoriske sikkerhedsforanstaltninger for at beskytte dine personoplysninger mod uautoriseret adgang, tab, misbrug eller ændring. Dette inkluderer kryptering, sikker hosting og adgangskontrol."
+      },
+      "cookies": {
+        "title": "10. Cookies",
+        "content": "Vores website bruger cookies til at forbedre din brugeroplevelse. For detaljerede oplysninger om vores brug af cookies, se vores cookiepolitik."
+      },
+      "changes": {
+        "title": "11. Ændringer til denne politik",
+        "content": "Vi kan opdatere denne privatlivspolitik fra tid til anden. Væsentlige ændringer vil blive kommunikeret på vores website med en opdateret \"Sidst opdateret\" dato."
+      },
+      "contact": {
+        "title": "12. Kontakt",
+        "description": "Hvis du har spørgsmål om denne privatlivspolitik eller hvordan vi behandler dine personoplysninger, er du velkommen til at kontakte os:",
+        "details": "Email: kontakt@transparo.dk\nTelefon: +45 12 34 56 78",
+        "complaintNote": "Du har også ret til at klage til Datatilsynet, hvis du mener, at vi behandler dine personoplysninger i strid med GDPR."
+      }
+    }
+  },
+
+  "terms": {
+    "title": "Handelsbetingelser",
+    "lastUpdated": "Sidst opdateret: November 2025",
+    "sections": {
+      "general": {
+        "title": "1. Generelt",
+        "p1": "Disse handelsbetingelser gælder for alle aftaler mellem Transparo (\"vi\", \"os\", \"vores\") og kunden (\"du\", \"din\", \"kunde\") vedrørende levering af webdesign, webudvikling og relaterede tjenester.",
+        "p2": "Ved at acceptere et tilbud eller påbegynde et projekt med Transparo accepterer du disse handelsbetingelser."
+      },
+      "offers": {
+        "title": "2. Tilbud og Accept",
+        "p1": "Alle tilbud fra Transparo er gyldige i 30 dage fra udstedelsesdatoen, medmindre andet er angivet.",
+        "p2": "En aftale er indgået, når kunden har accepteret vores tilbud skriftligt (email eller digital signatur) og betalt depositum.",
+        "p3": "Vi forbeholder os retten til at afvise projekter efter vores vurdering."
+      },
+      "pricing": {
+        "title": "3. Priser og Betaling",
+        "description": "Alle priser er angivet i danske kroner (DKK) ekskl. moms, medmindre andet er angivet.",
+        "paymentTermsTitle": "Betalingsbetingelser:",
+        "paymentTerms": [
+          "50% depositum ved projektstart",
+          "25% ved levering af design til godkendelse",
+          "25% ved final godkendelse og lancering"
+        ],
+        "paymentDeadline": "Betalingsfrist er 14 dage fra fakturadato. Ved forsinket betaling tillægges renter i henhold til renteloven.",
+        "fixedPriceGuarantee": "Fast Pris Garanti: Den aftalte pris er fast og kan ikke ændres, medmindre kunden anmoder om ekstra funktioner eller ændringer uden for det oprindelige scope."
+      },
+      "scope": {
+        "title": "4. Projektomfang og Ændringer",
+        "description": "Projektomfanget defineres i den oprindelige aftale og inkluderer de funktioner og sider som specificeret i den valgte pakke.",
+        "revisions": "Revisioner: Antallet af revisionsrunder er specificeret i din pakke (2-5 runder afhængig af pakke). Revisioner skal være inden for det oprindelige scope.",
+        "scopeChanges": "Scope Changes: Anmodninger om funktioner eller ændringer uden for det oprindelige scope vil blive faktureret separat baseret på timepriser eller en særskilt aftale."
+      },
+      "delivery": {
+        "title": "5. Leveringstid",
+        "description": "Estimeret leveringstid er angivet i din pakke (10-28 dage afhængig af pakke). Leveringstiden starter fra det tidspunkt hvor:",
+        "conditions": [
+          "Depositum er modtaget",
+          "Alle nødvendige materialer er leveret af kunden (tekst, billeder, logoer, etc.)",
+          "Discovery call er gennemført"
+        ],
+        "delayNote": "Leveringstiden kan forlænges, hvis kunden er forsinket med feedback, materialer eller godkendelser."
+      },
+      "clientObligations": {
+        "title": "6. Kundens Forpligtelser",
+        "description": "Kunden forpligter sig til at:",
+        "items": [
+          "Levere alle nødvendige materialer (tekst, billeder, logoer) rettidigt",
+          "Give feedback og godkendelser inden for 5 arbejdsdage",
+          "Deltage i planlagte møder og calls",
+          "Sikre at leverede materialer ikke krænker ophavsret eller andre rettigheder",
+          "Betale fakturaer til tiden"
+        ]
+      },
+      "ip": {
+        "title": "7. Immaterielle Rettigheder",
+        "clientGetsTitle": "Kunden erhverver:",
+        "clientGets": [
+          "Fuld ejerskab til det færdige website design",
+          "Rettigheder til al custom kode udviklet specifikt til projektet",
+          "Rettigheder til at bruge, modificere og vedligeholde websitet"
+        ],
+        "transparoRetainsTitle": "Transparo forbeholder sig:",
+        "transparoRetains": [
+          "Rettigheder til generiske komponenter og kode-biblioteker udviklet af Transparo",
+          "Ret til at bruge projektet i vores portfolio",
+          "Ret til at genbruge generiske design-mønstre og teknikker"
+        ],
+        "transferNote": "Overdragelse af rettigheder sker først når fuld betaling er modtaget."
+      },
+      "hosting": {
+        "title": "8. Hosting og Domæne",
+        "p1": "Hosting og domæneregistrering er ikke inkluderet i vores pakkepriser, medmindre andet er specificeret.",
+        "p2": "Vi kan hjælpe med opsætning af hosting og domæne, men kunden er ansvarlig for løbende omkostninger til disse tjenester.",
+        "p3": "Vi anbefaler hosting-løsninger, men kunden vælger selv udbyder og står for betaling."
+      },
+      "support": {
+        "title": "9. Support og Vedligeholdelse",
+        "description": "Support efter lancering: Din pakke inkluderer support i 30-90 dage efter lancering (afhængig af pakke).",
+        "coversTitle": "Support dækker:",
+        "covers": [
+          "Hjælp til at bruge CMS",
+          "Fejlrettelser af problemer forårsaget af vores kode",
+          "Mindre justeringer inden for det oprindelige scope"
+        ],
+        "doesNotCoverTitle": "Support dækker ikke:",
+        "doesNotCover": [
+          "Nye funktioner eller ændringer",
+          "Problemer forårsaget af tredjeparts plugins eller services",
+          "Hosting eller server-problemer",
+          "Skader forårsaget af kunden eller tredjeparter"
+        ],
+        "afterSupport": "Efter support-perioden kan løbende vedligeholdelse aftales separat."
+      },
+      "warranty": {
+        "title": "10. Garanti og Ansvarsfraskrivelse",
+        "guaranteeText": "Garanti: Vi garanterer at det leverede arbejde er udført professionelt og i overensstemmelse med industristandarder.",
+        "disclaimerTitle": "Ansvarsfraskrivelse:",
+        "disclaimerItems": [
+          "Vi garanterer ikke specifikke forretningsresultater eller trafik til websitet",
+          "Vi er ikke ansvarlige for tab af data, medmindre det skyldes grov uagtsomhed",
+          "Vi er ikke ansvarlige for problemer forårsaget af tredjeparts services",
+          "Vores maksimale ansvar er begrænset til det beløb kunden har betalt for projektet"
+        ]
+      },
+      "cancellation": {
+        "title": "11. Annullering og Refusion",
+        "clientCancellationTitle": "Annullering af kunden:",
+        "clientCancellation": [
+          "Inden projektstart: Fuld refusion minus 10% administrationsgebyr",
+          "Under design-fase: Depositum er ikke refunderbart, men allerede udført arbejde betales",
+          "Efter design-godkendelse: Ingen refusion, men kunden modtager alle filer fra projektet"
+        ],
+        "transparoCancellation": "Annullering af Transparo: Hvis vi annullerer et projekt, refunderes alle betalte beløb fuldt ud."
+      },
+      "confidentiality": {
+        "title": "12. Fortrolighed",
+        "p1": "Begge parter forpligter sig til at behandle fortrolige oplysninger med omhu og ikke videregive disse til tredjeparter uden skriftligt samtykke.",
+        "p2": "Fortrolighedsforpligtelsen gælder under projektet og 2 år efter projektets afslutning."
+      },
+      "forceMajeure": {
+        "title": "13. Force Majeure",
+        "content": "Ingen af parterne er ansvarlige for forsinkelser eller manglende opfyldelse af forpligtelser forårsaget af omstændigheder uden for deres kontrol (naturkatastrofer, krig, strejke, pandemier, etc.)."
+      },
+      "jurisdiction": {
+        "title": "14. Lovvalg og Værneting",
+        "p1": "Disse handelsbetingelser er underlagt dansk ret.",
+        "p2": "Eventuelle tvister skal søges løst i mindelighed. Hvis dette ikke er muligt, skal tvisten afgøres ved de danske domstole."
+      },
+      "changes": {
+        "title": "15. Ændringer af Betingelser",
+        "content": "Vi forbeholder os retten til at ændre disse handelsbetingelser. Ændringer gælder for nye projekter indgået efter ændringsdatoen. Igangværende projekter følger de betingelser der var gældende ved projektstart."
+      },
+      "contact": {
+        "title": "16. Kontakt",
+        "description": "Hvis du har spørgsmål til disse handelsbetingelser, er du velkommen til at kontakte os:",
+        "details": "Transparo\nEmail: kontakt@transparo.dk\nTelefon: +45 12 34 56 78\nKøbenhavn, Danmark"
+      }
+    }
+  },
+
+  "workshops": {},
+
+  "common": {
+    "bookMeeting": "Book et møde",
+    "allRightsReserved": "Alle rettigheder forbeholdes",
+    "next": "Næste",
+    "back": "Tilbage",
+    "send": "Send",
+    "sending": "Sender...",
+    "email": "kontakt@transparo.dk",
+    "phone": "+45 22 47 12 47",
+    "companyName": "Transparo",
+    "readMore": "Læs mere",
+    "viewAll": "Se alle",
+    "close": "Luk"
+  }
+}

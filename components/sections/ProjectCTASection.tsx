@@ -2,9 +2,16 @@
 
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
+
+const stepNumbers = ['1', '2', '3']
 
 export function ProjectCTASection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('projectCta')
+
+  const steps = t.raw('steps') as Array<{ title: string; desc: string }>
+  const benefits = t.raw('benefits') as string[]
 
   return (
     <section className="relative overflow-hidden mt-24 md:mt-32 laptop:mt-24 laptop-l:mt-32 py-24 md:py-32 laptop:py-24 laptop-l:py-28" style={{ backgroundColor: '#1A1A1A' }}>
@@ -47,13 +54,13 @@ export function ProjectCTASection() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl laptop:text-5xl laptop-l:text-6xl font-bold text-white mb-6 leading-tight">
-            Klar til at starte
+            {t('headingLine1')}
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold to-amber-300">jeres projekt?</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold to-amber-300">{t('headingLine2')}</span>
           </h2>
 
           <p className="text-lg md:text-xl text-white/60 font-light max-w-2xl mx-auto leading-relaxed">
-            Professionel udvikling. Faste priser. Lancering på 2-4 uger.
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -65,13 +72,9 @@ export function ProjectCTASection() {
           transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.2 }}
           className="grid md:grid-cols-3 gap-px bg-white/10 max-w-4xl mx-auto mb-10"
         >
-          {[
-            { num: '1', title: 'Book møde', desc: 'Gratis 30 min konsultation' },
-            { num: '2', title: 'Få tilbud', desc: 'Fast pris, ingen skjulte omkostninger' },
-            { num: '3', title: 'Vi starter', desc: 'Lancering om 2-4 uger' }
-          ].map((step, i) => (
+          {steps.map((step, i) => (
             <div key={i} className="bg-[#1A1A1A] p-6 text-center">
-              <div className="text-4xl font-bold text-white/10 mb-3">{step.num}</div>
+              <div className="text-4xl font-bold text-white/10 mb-3">{stepNumbers[i]}</div>
               <div className="text-base font-bold text-white mb-1">{step.title}</div>
               <div className="text-sm text-white/50">{step.desc}</div>
             </div>
@@ -86,7 +89,7 @@ export function ProjectCTASection() {
           transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.4 }}
           className="flex flex-wrap items-center justify-center gap-6"
         >
-          {['Faste priser', '2-4 ugers levering', '7 godkendelsespunkter', 'Premium kvalitet'].map((item, i) => (
+          {benefits.map((item, i) => (
             <div key={i} className="flex items-center gap-2 text-white/60 text-sm font-medium">
               <div className="w-1.5 h-1.5 bg-gold" />
               {item}

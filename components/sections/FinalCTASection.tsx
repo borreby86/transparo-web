@@ -2,9 +2,13 @@
 
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 export function FinalCTASection() {
+  const t = useTranslations('finalCTA')
   const shouldReduceMotion = useReducedMotion()
+
+  const stats = (t.raw('stats') as Array<{value: string; label: string}>) || []
 
   return (
     <section className="relative bg-gradient-to-b from-navy-dark via-navy to-black py-40 md:py-56 lg:py-64 overflow-hidden">
@@ -22,13 +26,13 @@ export function FinalCTASection() {
             transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
           >
             <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.05] mb-8">
-              Du Drømmer,
+              {t('headingLine1')},
               <br />
-              <span className="font-bold italic text-white">Vi Bygger</span>
+              <span className="font-bold italic text-white">{t('headingLine2')}</span>
             </h2>
 
             {/* Quick connect */}
-            <p className="text-white/60 text-base mb-5">Kontakt os hurtigt via:</p>
+            <p className="text-white/60 text-base mb-5">{t('contactVia')}</p>
             <div className="flex gap-4 mb-16">
               <a href="tel:+4512345678" className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -54,22 +58,12 @@ export function FinalCTASection() {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-8 lg:gap-10">
-              <div>
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-gold">100+</div>
-                <div className="text-white/60 text-base mt-2">Projekter<br />Leveret</div>
-              </div>
-              <div>
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-gold">50+</div>
-                <div className="text-white/60 text-base mt-2">Glade<br />Kunder</div>
-              </div>
-              <div>
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-gold">92%</div>
-                <div className="text-white/60 text-base mt-2">Kunde<br />Fastholdelse</div>
-              </div>
-              <div>
-                <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-gold">7+</div>
-                <div className="text-white/60 text-base mt-2">Års<br />Partnerskab</div>
-              </div>
+              {stats.map((stat, index) => (
+                <div key={index}>
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-gold">{stat.value}</div>
+                  <div className="text-white/60 text-base mt-2" dangerouslySetInnerHTML={{ __html: stat.label.replace(/\n/g, '<br />') }} />
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -82,37 +76,37 @@ export function FinalCTASection() {
           >
             <div className="bg-white rounded-3xl p-10 md:p-12 lg:p-14 shadow-2xl">
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3">
-                Har du visionen? <span className="font-normal text-black/60">Vi har ekspertisen.</span>
+                {t('formTitle')} <span className="font-normal text-black/60">{t('formSubtitle')}</span>
               </h3>
               <p className="text-black/50 text-base md:text-lg mb-10">
-                Fortæl os lidt om dig selv og hvad du har i tankerne.
+                {t('formDescription')}
               </p>
 
               <form className="space-y-8">
                 <div>
                   <input
                     type="text"
-                    placeholder="Dit fulde navn"
+                    placeholder={t('namePlaceholder')}
                     className="w-full px-0 py-4 border-b-2 border-black/20 focus:border-gold bg-transparent text-black text-lg placeholder:text-black/40 focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
                   <input
                     type="tel"
-                    placeholder="Dit telefonnummer"
+                    placeholder={t('phonePlaceholder')}
                     className="w-full px-0 py-4 border-b-2 border-black/20 focus:border-gold bg-transparent text-black text-lg placeholder:text-black/40 focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
                   <input
                     type="email"
-                    placeholder="Din email"
+                    placeholder={t('emailPlaceholder')}
                     className="w-full px-0 py-4 border-b-2 border-black/20 focus:border-gold bg-transparent text-black text-lg placeholder:text-black/40 focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
                   <textarea
-                    placeholder="Fortæl os lidt om din vision..."
+                    placeholder={t('messagePlaceholder')}
                     rows={4}
                     className="w-full px-0 py-4 border-b-2 border-black/20 focus:border-gold bg-transparent text-black text-lg placeholder:text-black/40 focus:outline-none transition-colors resize-none"
                   />
@@ -122,7 +116,7 @@ export function FinalCTASection() {
                   type="submit"
                   className="w-full bg-black hover:bg-black/90 text-white font-bold py-5 px-8 rounded-full flex items-center justify-center gap-3 text-lg transition-all duration-300 hover:scale-[1.02]"
                 >
-                  SEND
+                  {t('submitButton')}
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </form>

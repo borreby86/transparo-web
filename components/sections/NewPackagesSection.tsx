@@ -2,56 +2,26 @@
 
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { Check, Star, ArrowRight, Clock, Sparkles } from 'lucide-react';
 import { Button } from '../ui/Button';
 
-// Package data
-const packages = [
-  {
-    id: 'essentials',
-    name: 'Essentials',
-    price: '8.995',
-    duration: '10-14 dage',
-    description: 'Kom online hurtigt og professionelt',
-    highlights: [
-      '5 professionelle sider',
-      'Mobil-optimeret (60% af trafik)',
-      'SEO der får dig fundet',
-      'Kontaktformular der konverterer'
-    ]
-  },
-  {
-    id: 'professional',
-    name: 'Professional',
-    price: '16.995',
-    duration: '14-21 dage',
-    description: 'For virksomheder der vil dominere online',
-    popular: true,
-    highlights: [
-      '10 sider inkluderet',
-      'Animationer der imponerer',
-      'Blog der tiltrækker kunder',
-      'Fuld SEO = flere leads'
-    ]
-  },
-  {
-    id: 'business',
-    name: 'Business',
-    price: '27.995',
-    duration: '21-28 dage',
-    description: 'Den ultimative konkurrencefordel',
-    highlights: [
-      '20+ sider til alt dit indhold',
-      'Multi-sprog = flere markeder',
-      'E-commerce klar til salg',
-      'Premium der skiller dig ud'
-    ]
-  }
-];
+interface PackageData {
+  id: string;
+  name: string;
+  price: string;
+  duration: string;
+  description: string;
+  popular?: boolean;
+  highlights: string[];
+}
 
 export function NewPackagesSection() {
   const shouldReduceMotion = useReducedMotion();
+  const t = useTranslations('packages.newSection');
+
+  const packages = t.raw('packages') as PackageData[];
 
   return (
     <section id="pakker" className="py-20 sm:py-24 md:py-32 lg:py-40 bg-offwhite relative overflow-hidden">
@@ -79,18 +49,18 @@ export function NewPackagesSection() {
           >
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
             <span className="text-sm sm:text-base font-medium text-gold uppercase tracking-wider">
-              Faste priser • Ingen overraskelser
+              {t('badge')}
             </span>
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
           </motion.div>
 
           <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl laptop-l:text-[68px] text-navy mb-5">
-            Vælg din pakke
+            {t('heading')}
           </h2>
           <p className="text-lg sm:text-xl lg:text-xl laptop-l:text-2xl text-warmgray max-w-4xl mx-auto">
-            Professionelle websites der sælger - leveret på 2-4 uger.
+            {t('subtitle')}
             <span className="block mt-3 text-base sm:text-lg text-warmgray/80">
-              100+ virksomheder har allerede boosted deres online tilstedeværelse.
+              {t('subtitleSecondary')}
             </span>
           </p>
         </motion.div>
@@ -115,7 +85,7 @@ export function NewPackagesSection() {
                 <div className="absolute -top-2 sm:-top-3 lg:-top-4 left-1/2 -translate-x-1/2 z-10">
                   <div className="bg-gold text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-1 sm:gap-1.5 shadow-lg">
                     <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-white" />
-                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Mest Populær</span>
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">{t('popularBadge')}</span>
                   </div>
                 </div>
               )}
@@ -160,7 +130,7 @@ export function NewPackagesSection() {
                     <p className={`text-sm mt-3 ${
                       pkg.popular ? 'text-white/60' : 'text-warmgray/80'
                     }`}>
-                      Fast pris • Ingen skjulte gebyrer
+                      {t('fixedPrice')}
                     </p>
                   </div>
 
@@ -174,7 +144,7 @@ export function NewPackagesSection() {
                     <span className={`text-base ${
                       pkg.popular ? 'text-white/80' : 'text-warmgray'
                     }`}>
-                      Levering: {pkg.duration}
+                      {t('deliveryLabel', { duration: pkg.duration })}
                     </span>
                   </div>
 
@@ -203,7 +173,7 @@ export function NewPackagesSection() {
                       : 'bg-navy text-white hover:bg-navy/90'
                     }
                   `}>
-                    <span>Vælg denne pakke</span>
+                    <span>{t('cta')}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -221,7 +191,7 @@ export function NewPackagesSection() {
           transition={{ delay: 0.6 }}
         >
           <p className="text-warmgray text-lg">
-            <span className="text-gold font-semibold">98% kundetilfredshed</span> • Ingen binding • Fuld ejendomsret
+            <span className="text-gold font-semibold">{t('trustHighlight')}</span> &bull; {t('trustSuffix')}
           </p>
         </motion.div>
 

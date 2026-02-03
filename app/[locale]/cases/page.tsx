@@ -20,6 +20,7 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
   const imgY = useMotionValue(0)
   const springImgX = useSpring(imgX, { damping: 30, stiffness: 200 })
   const springImgY = useSpring(imgY, { damping: 30, stiffness: 200 })
+  const number = String(index + 1).padStart(2, '0')
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (shouldReduceMotion || !cardRef.current) return
@@ -41,7 +42,7 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
-      className={`mb-16 md:mb-24 ${isOffset ? 'md:pt-32' : ''}`}
+      className={`mb-20 md:mb-32 ${isOffset ? 'md:pt-32' : ''}`}
     >
       <Link
         href={`/cases/${project.slug}`}
@@ -51,10 +52,15 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
         <div
           ref={cardRef}
           data-project-card
-          className="relative overflow-hidden bg-black/[0.03]"
+          className="relative overflow-hidden rounded-2xl border border-white/10 shadow-sm transition-shadow duration-500 group-hover:shadow-xl group-hover:shadow-black/10"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
+          {/* Gold number */}
+          <span className="absolute top-5 left-5 z-10 text-sm font-semibold tracking-wider text-white/90 bg-gradient-to-r from-gold to-amber-500 px-3 py-1 rounded-full">
+            {number}
+          </span>
+
           <div className="relative aspect-[4/3] overflow-hidden">
             <motion.div
               className="absolute inset-[-1.5rem]"
@@ -71,15 +77,17 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
           </div>
         </div>
 
-        {/* Title + category below image */}
+        {/* Title + labels below image */}
         <div className="mt-6">
-          <h2 className="text-xl md:text-2xl font-bold text-navy group-hover:text-gold transition-colors duration-300 mb-1">
+          <h2 className="text-xl md:text-2xl font-bold text-black group-hover:text-gold transition-colors duration-300 mb-3">
             {project.title}
           </h2>
-          <div className="flex items-center gap-2">
-            {project.labels.map((label, i) => (
-              <span key={label} className="text-sm text-black/40">
-                {i > 0 && <span className="mr-2">·</span>}
+          <div className="flex items-center gap-2 flex-wrap">
+            {project.labels.map((label) => (
+              <span
+                key={label}
+                className="text-xs font-medium uppercase tracking-wider text-black/50 border border-black/10 rounded-full px-3 py-1"
+              >
                 {label}
               </span>
             ))}
@@ -98,20 +106,20 @@ export default function CasesPage() {
       <Header />
       <main className="min-h-screen bg-white">
         {/* Header */}
-        <section className="pt-40 pb-20 md:pt-48 md:pb-28 px-6 md:px-12">
+        <section className="pt-44 pb-24 md:pt-56 md:pb-36 px-6 md:px-12">
           <div className="max-w-[1400px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             >
-              <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
+              <span className="inline-block text-gold text-xs font-semibold uppercase tracking-[0.3em] mb-8 border border-gold/30 rounded-full px-4 py-1.5">
                 Portfolio
               </span>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-navy leading-[1] tracking-tight mb-6">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-black leading-[1] tracking-tight mb-8">
                 Vores arbejde
               </h1>
-              <p className="text-black/50 text-lg md:text-xl max-w-2xl leading-relaxed">
+              <p className="text-black/40 text-lg md:text-xl max-w-2xl leading-relaxed">
                 Et udvalg af projekter vi har lavet for danske virksomheder.
               </p>
             </motion.div>
@@ -119,9 +127,9 @@ export default function CasesPage() {
         </section>
 
         {/* Projects */}
-        <section className="px-6 md:px-12 pb-24 md:pb-32">
+        <section className="px-6 md:px-12 pb-32 md:pb-40">
           <div className="max-w-[1400px] mx-auto">
-            <div className="grid md:grid-cols-2 gap-x-8 lg:gap-x-12">
+            <div className="grid md:grid-cols-2 gap-x-8 lg:gap-x-16">
               {caseStudiesDetailed.map((project, index) => (
                 <ProjectCard
                   key={project.id}
@@ -134,24 +142,28 @@ export default function CasesPage() {
           </div>
         </section>
 
-        {/* Bottom CTA */}
-        <section className="bg-navy px-6 md:px-12 py-24 md:py-32">
-          <div className="max-w-[1400px] mx-auto text-center">
+        {/* Bottom CTA — sort/guld */}
+        <section className="relative overflow-hidden px-6 md:px-12 py-28 md:py-40 bg-black">
+          {/* Guld orbs */}
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-gold/10 blur-[120px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/8 blur-[100px] pointer-events-none" />
+
+          <div className="relative max-w-[1400px] mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
                 Har du et projekt i tankerne?
               </h2>
-              <p className="text-white/50 text-lg md:text-xl max-w-xl mx-auto mb-10">
+              <p className="text-white/40 text-lg md:text-xl max-w-xl mx-auto mb-12">
                 Lad os tage en snak om, hvad vi kan gøre for dig.
               </p>
               <Link
                 href="/kontakt"
-                className="inline-block px-10 py-4 bg-white text-navy font-semibold text-lg hover:bg-gold hover:text-white transition-colors duration-300"
+                className="inline-block px-12 py-4 bg-gradient-to-r from-gold to-amber-500 text-black font-semibold text-lg rounded-full hover:opacity-90 transition-opacity duration-300"
               >
                 Tal med os
               </Link>

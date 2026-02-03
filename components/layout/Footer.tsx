@@ -1,8 +1,12 @@
-import Link from 'next/link'
+'use client'
+
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const t = useTranslations('footer')
 
   return (
     <footer className="bg-white text-black">
@@ -14,18 +18,17 @@ export function Footer() {
               transparo<span className="text-gold">.</span>
             </div>
             <p className="text-sm text-black/50 mb-4">
-              Unique designs • Built on trust
+              {t('tagline')}
             </p>
             <p className="text-black/70 text-sm max-w-md">
-              Professionelt webdesign til danske små virksomheder. Fast pris,
-              hurtig levering, og ingen scope creep.
+              {t('description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="font-display font-semibold text-lg mb-4">
-              Hurtige Links
+              {t('quickLinksTitle')}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -33,7 +36,7 @@ export function Footer() {
                   href="/cases"
                   className="text-black/70 hover:text-gold transition-colors text-sm"
                 >
-                  Portfolio
+                  {t('portfolio')}
                 </Link>
               </li>
               <li>
@@ -41,7 +44,7 @@ export function Footer() {
                   href="/kontakt"
                   className="text-black/70 hover:text-gold transition-colors text-sm"
                 >
-                  Kontakt
+                  {t('kontakt')}
                 </Link>
               </li>
             </ul>
@@ -50,7 +53,7 @@ export function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="font-display font-semibold text-lg mb-4">
-              Kontakt
+              {t('contactTitle')}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
@@ -74,7 +77,7 @@ export function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
                 <span className="text-black/70 text-sm">
-                  Hørsholm, Danmark
+                  {t('location')}
                 </span>
               </li>
             </ul>
@@ -84,26 +87,26 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-black/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-black/50 text-sm">
-            © {currentYear} Transparo. Alle rettigheder forbeholdes.
+            {t('copyright', { year: currentYear })}
           </p>
           <div className="flex space-x-6">
             <Link
               href="/privatlivspolitik"
               className="text-black/50 hover:text-gold transition-colors text-sm"
             >
-              Privatlivspolitik
+              {t('privacyPolicy')}
             </Link>
             <Link
               href="/cookiepolitik"
               className="text-black/50 hover:text-gold transition-colors text-sm"
             >
-              Cookiepolitik
+              {t('cookiePolicy')}
             </Link>
             <Link
               href="/handelsbetingelser"
               className="text-black/50 hover:text-gold transition-colors text-sm"
             >
-              Handelsbetingelser
+              {t('terms')}
             </Link>
           </div>
         </div>

@@ -1,25 +1,49 @@
 import { MetadataRoute } from 'next'
+import { locales } from '@/i18n/config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://transparo.dk'
   const currentDate = new Date()
 
-  // Static pages
-  const staticPages = [
-    '',
-    '/om-os',
-    '/pakker',
-    '/cases',
-    '/kontakt',
-    '/proces',
-    '/privatlivspolitik',
-    '/cookiepolitik',
-    '/handelsbetingelser',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
+  // Route mapping: internal path -> { da slug, en slug }
+  const routes = [
+    { path: '', priority: 1.0 },
+    { path: '/om-os', enPath: '/about-us', priority: 0.8 },
+    { path: '/cases', enPath: '/cases', priority: 0.9 },
+    { path: '/kontakt', enPath: '/contact', priority: 0.8 },
+    { path: '/proces', enPath: '/process', priority: 0.8 },
+    { path: '/prisberegner', enPath: '/price-calculator', priority: 0.8 },
+    { path: '/workshops', enPath: '/workshops', priority: 0.8 },
+    { path: '/privatlivspolitik', enPath: '/privacy-policy', priority: 0.5 },
+    { path: '/cookiepolitik', enPath: '/cookie-policy', priority: 0.5 },
+    { path: '/handelsbetingelser', enPath: '/terms', priority: 0.5 },
+  ]
+
+  const staticPages = routes.map((route) => ({
+    url: `${baseUrl}/da${route.path}`,
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1.0 : route === '/pakker' || route === '/cases' ? 0.9 : 0.8,
+    priority: route.priority,
+    alternates: {
+      languages: {
+        da: `${baseUrl}/da${route.path}`,
+        en: `${baseUrl}/en${route.enPath || route.path}`,
+      },
+    },
+  }))
+
+  // English versions
+  const enPages = routes.map((route) => ({
+    url: `${baseUrl}/en${route.enPath || route.path}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: route.priority,
+    alternates: {
+      languages: {
+        da: `${baseUrl}/da${route.path}`,
+        en: `${baseUrl}/en${route.enPath || route.path}`,
+      },
+    },
   }))
 
   // Case study slugs
@@ -32,22 +56,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'vat85',
   ]
 
-  const casePages = caseSlugs.map((slug) => ({
-    url: `${baseUrl}/cases/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  const casePages = caseSlugs.flatMap((slug) =>
+    locales.map((locale) => ({
+      url: `${baseUrl}/${locale}/cases/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+      alternates: {
+        languages: {
+          da: `${baseUrl}/da/cases/${slug}`,
+          en: `${baseUrl}/en/cases/${slug}`,
+        },
+      },
+    }))
+  )
 
-  // Package slugs
-  const packageSlugs = ['essentials', 'professional', 'business']
-
-  const packagePages = packageSlugs.map((slug) => ({
-    url: `${baseUrl}/packages/${slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.9,
-  }))
-
-  return [...staticPages, ...casePages, ...packagePages]
+  return [...staticPages, ...enPages, ...casePages]
 }
