@@ -95,11 +95,11 @@ export function HeroSection() {
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight">
               <span className="text-white">
-                Vi designer websites
+                Hjemmesider der performer
               </span>
               <br />
-              <span className="text-white/60">
-                du kan stå inde for.
+              <span className="text-gold">
+                – og holder i fremtiden
               </span>
             </h1>
           </motion.div>
