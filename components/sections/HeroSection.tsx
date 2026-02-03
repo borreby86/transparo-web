@@ -1,11 +1,45 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
+import { useState, useEffect } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import Image from 'next/image'
 
 export function HeroSection() {
   const shouldReduceMotion = useReducedMotion()
+  const word = 'transparo.'
+  const [displayedText, setDisplayedText] = useState('')
+  const [charIndex, setCharIndex] = useState(0)
+  const [showLoader, setShowLoader] = useState(true)
+  const [showHero, setShowHero] = useState(false)
+
+  // Typewriter
+  useEffect(() => {
+    if (shouldReduceMotion) {
+      setDisplayedText(word)
+      setCharIndex(word.length)
+      return
+    }
+
+    if (charIndex < word.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(word.slice(0, charIndex + 1))
+        setCharIndex(charIndex + 1)
+      }, 120)
+      return () => clearTimeout(timeout)
+    }
+  }, [charIndex, shouldReduceMotion, word])
+
+  // After typing, fade out loader → show hero
+  useEffect(() => {
+    if (charIndex >= word.length) {
+      const timeout = setTimeout(() => {
+        setShowLoader(false)
+        setTimeout(() => setShowHero(true), 200)
+      }, shouldReduceMotion ? 0 : 600)
+      return () => clearTimeout(timeout)
+    }
+  }, [charIndex, shouldReduceMotion, word.length])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -23,6 +57,29 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
+      {/* Loader: "transparo." typewriter on black */}
+      <AnimatePresence>
+        {showLoader && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-white flex items-center justify-center"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="font-sans font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-black tracking-tight">
+              {displayedText.slice(0, -1)}
+              <span className="text-gold">
+                {displayedText.endsWith('.') ? '.' : ''}
+              </span>
+              <motion.span
+                className="inline-block w-[3px] h-14 sm:h-16 md:h-20 lg:h-24 bg-gold ml-2 align-middle"
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}
+              />
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Main Hero Content */}
       <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-6 sm:px-8 md:px-12">
         <div className="w-full max-w-[1400px] mx-auto text-center">
@@ -30,10 +87,9 @@ export function HeroSection() {
           <motion.div
             className="mb-8 md:mb-12"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={showHero ? { opacity: 1, y: 0 } : {}}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.1,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
@@ -52,10 +108,10 @@ export function HeroSection() {
           <motion.div
             className="mb-12 md:mb-16"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={showHero ? { opacity: 1, y: 0 } : {}}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.3,
+              delay: shouldReduceMotion ? 0 : 0.15,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
@@ -68,10 +124,10 @@ export function HeroSection() {
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={showHero ? { opacity: 1, y: 0 } : {}}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.5,
+              delay: shouldReduceMotion ? 0 : 0.3,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
@@ -99,8 +155,8 @@ export function HeroSection() {
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 1 }}
+        animate={showHero ? { opacity: 1 } : {}}
+        transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.6 }}
       >
         <motion.div
           animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}

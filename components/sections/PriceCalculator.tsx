@@ -39,7 +39,7 @@ const WEBSITE_TYPES = [
   {
     id: 'landing' as WebsiteType,
     label: 'Landingsside',
-    description: '1 side — perfekt til kampagner eller lancering',
+    description: '1 side - perfekt til kampagner eller lancering',
     basePrice: 8995,
     pages: '1 side',
     number: '01',
@@ -55,7 +55,7 @@ const WEBSITE_TYPES = [
   {
     id: 'business' as WebsiteType,
     label: 'Virksomhedssite',
-    description: '3-5 sider — den klassiske virksomhedsprofil',
+    description: '3-5 sider - den klassiske virksomhedsprofil',
     basePrice: 16995,
     pages: '3-5 sider',
     number: '02',
@@ -72,7 +72,7 @@ const WEBSITE_TYPES = [
   {
     id: 'large' as WebsiteType,
     label: 'Større website',
-    description: '6-10 sider — til virksomheder med mere indhold',
+    description: '6-10 sider - til virksomheder med mere indhold',
     basePrice: 27995,
     pages: '6-10 sider',
     number: '03',
@@ -154,13 +154,15 @@ const DESIGN_LEVELS = [
   {
     id: 'standard' as DesignLevel,
     label: 'Standard',
-    description: 'Rent, professionelt design med fokus på brugervenlighed',
+    description: 'Rent, professionelt design der dækker de flestes behov. Du kan altid opgradere til Premium senere.',
+    badge: 'Anbefalet',
     price: 0,
   },
   {
     id: 'premium' as DesignLevel,
     label: 'Premium',
-    description: 'Custom animationer, unik branding og ekstra detaljegrad',
+    description: 'Til dig der vil have det ekstra. Custom animationer, avancerede hover-effekter og unik branding ned i mindste detalje.',
+    badge: null,
     price: 5000,
   },
 ]
@@ -169,13 +171,13 @@ const TIMELINES = [
   {
     id: 'standard' as Timeline,
     label: 'Standard levering',
-    description: '2-4 uger — vores normale leveringstid',
+    description: '2-4 uger - vores normale leveringstid',
     multiplier: 1,
   },
   {
     id: 'express' as Timeline,
     label: 'Express levering',
-    description: '1-2 uger — prioriteret behandling',
+    description: '1-2 uger - prioriteret behandling',
     multiplier: 1.25,
   },
 ]
@@ -201,8 +203,8 @@ function getRecommendedPackage(total: number): { name: string; match: string } {
 }
 
 function getTraditionalPrice(price: number): number {
-  // Traditional agencies typically charge 2.5-3x
-  return Math.round(price * 2.8)
+  // Traditional agencies typically charge 2.5-3x — round to nearest 1000 for credibility
+  return Math.ceil((price * 2.8) / 1000) * 1000
 }
 
 // ─── Component ───────────────────────────────────────────────────────────────
@@ -284,72 +286,79 @@ export function PriceCalculator() {
           className="group"
           {...motionProps(i * 0.1)}
         >
-          <button
-            onClick={() => setWebsiteType(type.id)}
-            className={`w-full text-left p-7 md:p-9 rounded-2xl border transition-all duration-300 ${
+          <div
+            className={`w-full text-left rounded-2xl border transition-all duration-300 ${
               websiteType === type.id
                 ? 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
                 : 'border-black/[0.06] bg-white hover:border-gold/40 hover:shadow-md'
             }`}
           >
-            <div className="flex items-start gap-5 md:gap-7">
-              {/* Number instead of icon */}
-              <span className={`font-serif text-3xl md:text-4xl font-light leading-none transition-colors duration-300 ${
-                websiteType === type.id ? 'text-gold' : 'text-black/15 group-hover:text-gold/50'
-              }`}>
-                {type.number}
-              </span>
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-1.5">
-                  <h3 className="text-lg md:text-xl font-bold text-black">{type.label}</h3>
-                  <span className="text-sm md:text-base font-bold text-gold">
-                    fra {formatPrice(type.basePrice)} DKK
-                  </span>
-                </div>
-                <p className="text-sm md:text-base text-warmgray">{type.description}</p>
-              </div>
-              <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                websiteType === type.id ? 'border-gold bg-gold' : 'border-black/10'
-              }`}>
-                {websiteType === type.id && <Check className="w-4 h-4 text-white" />}
-              </div>
-            </div>
-          </button>
-          {/* Read more toggle */}
-          <div className="mt-2 ml-14 md:ml-[4.5rem]">
             <button
-              onClick={(e) => {
-                e.stopPropagation()
-                setExpandedType(expandedType === type.id ? null : type.id)
-              }}
-              className="flex items-center gap-1.5 text-xs font-medium text-warmgray hover:text-black transition-colors"
+              onClick={() => setWebsiteType(type.id)}
+              className="w-full text-left p-7 md:p-9"
             >
-              <span>Hvad er inkluderet?</span>
-              <motion.span
-                animate={{ rotate: expandedType === type.id ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <ChevronDown className="w-3.5 h-3.5" />
-              </motion.span>
+              <div className="flex items-start gap-5 md:gap-7">
+                {/* Number instead of icon */}
+                <span className={`font-serif text-3xl md:text-4xl font-light leading-none transition-colors duration-300 ${
+                  websiteType === type.id ? 'text-gold' : 'text-black/15 group-hover:text-gold/50'
+                }`}>
+                  {type.number}
+                </span>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <h3 className="text-lg md:text-xl font-bold text-black">{type.label}</h3>
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                      websiteType === type.id ? 'border-gold bg-gold' : 'border-black/10'
+                    }`}>
+                      {websiteType === type.id && <Check className="w-4 h-4 text-white" />}
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base text-warmgray mb-2">{type.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm md:text-base font-bold text-gold">
+                      fra {formatPrice(type.basePrice)} DKK
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setExpandedType(expandedType === type.id ? null : type.id)
+                      }}
+                      className="flex items-center gap-1.5 text-xs font-medium text-gold/60 hover:text-gold transition-colors"
+                    >
+                      <span>Hvad er inkluderet?</span>
+                      <motion.span
+                        animate={{ rotate: expandedType === type.id ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="inline-block"
+                      >
+                        <ArrowRight className="w-3 h-3 rotate-90" />
+                      </motion.span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </button>
+            {/* Expandable details */}
             <AnimatePresence>
               {expandedType === type.id && (
-                <motion.ul
+                <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="pt-3 pb-1 space-y-1.5">
-                    {type.details.map((detail, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-warmgray">
-                        <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
+                  <div className="px-7 md:px-9 pb-6 ml-9 md:ml-12">
+                    <div className="pt-1 space-y-1.5">
+                      {type.details.map((detail, j) => (
+                        <div key={j} className="flex items-start gap-2 text-sm text-warmgray">
+                          <Check className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
+                          <span>{detail}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </motion.ul>
+                </motion.div>
               )}
             </AnimatePresence>
           </div>
@@ -359,46 +368,44 @@ export function PriceCalculator() {
   )
 
   const renderFeatures = () => (
-    <motion.div className="grid gap-3 md:gap-4 sm:grid-cols-2" {...motionProps()}>
+    <motion.div className="grid gap-4 md:gap-5 sm:grid-cols-2" {...motionProps()}>
       {FEATURES.map((feature, i) => (
         <motion.button
           key={feature.id}
           onClick={() => toggleFeature(feature.id)}
-          className={`group relative text-left p-4 md:p-5 rounded-xl border transition-all duration-300 ${
+          className={`group relative text-left p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
             selectedFeatures.includes(feature.id)
               ? feature.included
-                ? 'border-black/10 bg-black/[0.02]'
-                : 'border-gold bg-gold/5 shadow-md shadow-gold/10'
-              : 'border-black/[0.06] bg-white hover:border-gold/40 hover:shadow-sm'
+                ? 'border-gold/20 bg-gold/[0.03]'
+                : 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
+              : 'border-black/[0.06] bg-white hover:border-gold/30 hover:shadow-md'
           } ${feature.included ? 'cursor-default' : ''}`}
           {...motionProps(i * 0.05)}
-          whileHover={shouldReduceMotion || feature.included ? {} : { y: -1 }}
+          whileHover={shouldReduceMotion || feature.included ? {} : { y: -2 }}
           whileTap={shouldReduceMotion || feature.included ? {} : { scale: 0.98 }}
         >
-          <div className="flex items-start gap-3">
-            <div className={`p-2 rounded-lg transition-colors duration-300 ${
+          <div className="flex items-start gap-4">
+            <div className={`p-2.5 rounded-xl transition-all duration-300 ${
               selectedFeatures.includes(feature.id)
-                ? feature.included ? 'bg-black/5 text-black/40' : 'bg-gold/10 text-gold'
-                : 'bg-offwhite text-warmgray'
+                ? 'bg-gradient-to-br from-gold/20 to-gold/5 text-gold'
+                : 'bg-black/[0.03] text-black/20 group-hover:text-gold/60 group-hover:bg-gold/[0.06]'
             }`}>
               {feature.icon}
             </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between gap-2 mb-0.5">
-                <h4 className="font-bold text-black text-sm md:text-base truncate">{feature.label}</h4>
-                <span className={`text-xs md:text-sm font-bold whitespace-nowrap ${
-                  feature.included ? 'text-black/40' : 'text-gold'
-                }`}>
-                  {feature.included ? 'Inkluderet' : `+${formatPrice(feature.price)} DKK`}
-                </span>
-              </div>
-              <p className="text-xs md:text-sm text-warmgray leading-snug">{feature.description}</p>
+            <div className="flex-1 min-w-0 pr-5">
+              <h4 className="font-bold text-black text-sm md:text-base mb-1">{feature.label}</h4>
+              <p className="text-xs md:text-sm text-warmgray leading-relaxed mb-2">{feature.description}</p>
+              <span className={`text-xs md:text-sm font-bold ${
+                feature.included ? 'text-gold/50' : 'text-gold'
+              }`}>
+                {feature.included ? 'Inkluderet' : `+${formatPrice(feature.price)} DKK`}
+              </span>
             </div>
           </div>
           {/* Checkmark */}
-          <div className={`absolute top-3 right-3 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+          <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
             selectedFeatures.includes(feature.id)
-              ? feature.included ? 'border-black/30 bg-black/30' : 'border-gold bg-gold'
+              ? 'border-gold bg-gold'
               : 'border-black/10'
           }`}>
             {selectedFeatures.includes(feature.id) && <Check className="w-3 h-3 text-white" />}
@@ -423,9 +430,14 @@ export function PriceCalculator() {
           whileHover={shouldReduceMotion ? {} : { y: -2 }}
           whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
         >
-          <div className="flex flex-col items-center text-center gap-5">
-            <h3 className="font-serif text-2xl md:text-3xl font-light text-black">{level.label}</h3>
-            <p className="text-sm text-warmgray">{level.description}</p>
+          <div className="flex flex-col items-center text-center gap-4">
+            {level.badge && (
+              <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-gold bg-gold/10 px-3 py-1 rounded-full">
+                {level.badge}
+              </span>
+            )}
+            <h3 className="text-xl md:text-2xl font-bold text-black">{level.label}</h3>
+            <p className="text-sm text-warmgray leading-relaxed max-w-[260px]">{level.description}</p>
             <span className="text-sm font-bold text-gold">
               {level.price === 0 ? 'Inkluderet i basispris' : `+${formatPrice(level.price)} DKK`}
             </span>
@@ -455,8 +467,8 @@ export function PriceCalculator() {
           whileHover={shouldReduceMotion ? {} : { y: -2 }}
           whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
         >
-          <div className="flex flex-col items-center text-center gap-5">
-            <h3 className="font-serif text-2xl md:text-3xl font-light text-black">{tl.label}</h3>
+          <div className="flex flex-col items-center text-center gap-4">
+            <h3 className="text-xl md:text-2xl font-bold text-black">{tl.label}</h3>
             <p className="text-sm text-warmgray">{tl.description}</p>
             <span className="text-sm font-bold text-gold">
               {tl.multiplier === 1 ? 'Ingen tillæg' : '+25% express-tillæg'}
@@ -494,104 +506,116 @@ export function PriceCalculator() {
 
           <div className="relative z-10">
             <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-medium mb-4">Dit estimat</p>
-            <div className="flex items-baseline justify-center gap-2 mb-2">
-              <span className="text-white/40 text-lg md:text-xl font-light">fra ca.</span>
-              <span className="text-5xl md:text-7xl font-serif font-light bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
+            <div className="flex items-baseline justify-center gap-3 mb-2">
+              <span className="text-white/40 text-base md:text-lg">fra</span>
+              <span className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
                 {formatPrice(totalPrice)}
               </span>
-              <span className="text-white/40 text-lg md:text-xl font-light">DKK</span>
+              <span className="text-white/40 text-base md:text-lg">DKK</span>
             </div>
             <p className="text-white/30 text-sm">ekskl. moms</p>
           </div>
         </motion.div>
 
-        {/* Recommendation */}
+        {/* Recommendation — integrated into breakdown */}
         <motion.div
-          className="p-6 rounded-2xl bg-gold/5 border border-gold/20"
+          className="rounded-2xl overflow-hidden border border-black/[0.06]"
           {...motionProps(0.2)}
         >
-          <div className="flex items-center gap-3 mb-2">
-            <Sparkles className="w-5 h-5 text-gold" />
-            <h3 className="font-bold text-black">Anbefalet pakke: {recommendation.name}</h3>
-          </div>
-          <p className="text-sm text-warmgray">{recommendation.match}</p>
-        </motion.div>
-
-        {/* Breakdown */}
-        <motion.div
-          className="p-7 md:p-9 rounded-2xl bg-white border border-black/[0.06]"
-          {...motionProps(0.3)}
-        >
-          <h3 className="font-serif text-xl text-black mb-5">Prissammensætning</h3>
-          <div className="space-y-3">
-            <div className="flex justify-between items-center py-2.5 border-b border-black/[0.06]">
-              <span className="text-sm text-black">{selectedType.label} ({selectedType.pages})</span>
-              <span className="text-sm font-bold text-black">{formatPrice(selectedType.basePrice)} DKK</span>
+          {/* Recommendation header */}
+          <div className="flex items-center gap-3 px-7 md:px-9 py-5 bg-gradient-to-r from-gold/10 via-gold/5 to-transparent border-b border-gold/10">
+            <div className="p-1.5 rounded-lg bg-gold/15">
+              <Sparkles className="w-4 h-4 text-gold" />
             </div>
-            {addedFeatures.map(f => (
-              <div key={f.id} className="flex justify-between items-center py-2.5 border-b border-black/[0.06]">
-                <span className="text-sm text-black">{f.label}</span>
-                <span className="text-sm font-bold text-black">+{formatPrice(f.price)} DKK</span>
+            <div>
+              <h3 className="font-bold text-black text-sm">Anbefalet: {recommendation.name}-pakken</h3>
+              <p className="text-xs text-warmgray">{recommendation.match}</p>
+            </div>
+          </div>
+
+          {/* Breakdown */}
+          <div className="p-7 md:p-9 bg-white">
+            <h3 className="text-xs uppercase tracking-[0.15em] font-medium text-warmgray mb-5">Prissammensætning</h3>
+            <div className="space-y-0">
+              <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                <span className="text-sm text-black">{selectedType.label} ({selectedType.pages})</span>
+                <span className="text-sm font-bold text-black tabular-nums">{formatPrice(selectedType.basePrice)} DKK</span>
               </div>
-            ))}
-            {selectedDesign.price > 0 && (
-              <div className="flex justify-between items-center py-2.5 border-b border-black/[0.06]">
-                <span className="text-sm text-black">Premium design</span>
-                <span className="text-sm font-bold text-black">+{formatPrice(selectedDesign.price)} DKK</span>
+              {addedFeatures.map(f => (
+                <div key={f.id} className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                  <span className="text-sm text-black">{f.label}</span>
+                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(f.price)} DKK</span>
+                </div>
+              ))}
+              {selectedDesign.price > 0 && (
+                <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                  <span className="text-sm text-black">Premium design</span>
+                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(selectedDesign.price)} DKK</span>
+                </div>
+              )}
+              {selectedTimeline.multiplier > 1 && (
+                <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
+                  <span className="text-sm text-black">Express-levering (+25%)</span>
+                  <span className="text-sm font-bold text-gold tabular-nums">
+                    +{formatPrice(Math.round((totalPrice / selectedTimeline.multiplier) * (selectedTimeline.multiplier - 1)))} DKK
+                  </span>
+                </div>
+              )}
+              <div className="flex justify-between items-center pt-5">
+                <span className="font-bold text-black">Estimeret total</span>
+                <span className="font-bold text-xl text-gold tabular-nums">{formatPrice(totalPrice)} DKK</span>
               </div>
-            )}
-            {selectedTimeline.multiplier > 1 && (
-              <div className="flex justify-between items-center py-2.5 border-b border-black/[0.06]">
-                <span className="text-sm text-black">Express-levering (+25%)</span>
-                <span className="text-sm font-bold text-gold">
-                  +{formatPrice(Math.round((totalPrice / selectedTimeline.multiplier) * (selectedTimeline.multiplier - 1)))} DKK
-                </span>
-              </div>
-            )}
-            <div className="flex justify-between items-center pt-4">
-              <span className="font-bold text-black">Estimeret total</span>
-              <span className="font-bold text-lg text-gold">{formatPrice(totalPrice)} DKK</span>
             </div>
           </div>
         </motion.div>
 
         {/* Traditional agency comparison */}
         <motion.div
-          className="p-7 md:p-9 rounded-2xl bg-black/[0.02] border border-black/[0.06]"
+          className="p-7 md:p-9 rounded-2xl bg-gradient-to-br from-black via-black to-black/90 relative overflow-hidden"
           {...motionProps(0.35)}
         >
-          <h3 className="font-serif text-xl text-black mb-6">Hvad ville dette koste hos et traditionelt bureau?</h3>
-          <div className="grid md:grid-cols-2 gap-4 mb-6">
-            {/* Traditional price */}
-            <div className="p-5 rounded-xl bg-white border border-black/[0.06]">
-              <p className="text-xs uppercase tracking-[0.15em] text-warmgray font-medium mb-2">Traditionelt bureau</p>
-              <p className="text-2xl md:text-3xl font-serif font-light text-black/30 line-through">
-                {formatPrice(traditionalPrice)} DKK
-              </p>
-              <p className="text-xs text-warmgray mt-1">Estimeret markedspris</p>
+          <div className="absolute -top-16 -right-16 w-32 h-32 bg-gold/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-gold/5 rounded-full blur-3xl" />
+
+          <div className="relative z-10">
+            <p className="text-white/50 text-xs uppercase tracking-[0.15em] font-medium mb-6">Sammenlign med markedet</p>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {/* Traditional price */}
+              <div className="p-5 rounded-xl bg-white/5 border border-white/10">
+                <p className="text-[10px] uppercase tracking-[0.15em] text-white/40 font-medium mb-3">Traditionelt bureau</p>
+                <p className="text-2xl md:text-3xl font-bold text-white/25 line-through tabular-nums">
+                  {formatPrice(traditionalPrice)} DKK
+                </p>
+                <p className="text-xs text-white/30 mt-2">Baseret på gennemsnitspriser fra danske bureauer</p>
+              </div>
+              {/* Transparo price */}
+              <div className="p-5 rounded-xl bg-gold/10 border border-gold/20">
+                <p className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium mb-3">Transparo</p>
+                <p className="text-2xl md:text-3xl font-bold text-white tabular-nums">
+                  {formatPrice(totalPrice)} DKK
+                </p>
+                <p className="text-xs text-gold/60 mt-2">Samme teknologi og kvalitet, AI-drevet proces</p>
+              </div>
             </div>
-            {/* Transparo price */}
-            <div className="p-5 rounded-xl bg-gold/5 border border-gold/20">
-              <p className="text-xs uppercase tracking-[0.15em] text-gold font-medium mb-2">Transparo</p>
-              <p className="text-2xl md:text-3xl font-serif font-light text-black">
-                {formatPrice(totalPrice)} DKK
-              </p>
-              <p className="text-xs text-warmgray mt-1">Samme kvalitet, smartere proces</p>
+
+            {/* Savings bar */}
+            <div className="relative h-1.5 bg-white/10 rounded-full overflow-hidden mb-4">
+              <motion.div
+                className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold to-gold-light rounded-full"
+                initial={{ width: '0%' }}
+                animate={{ width: `${(1 - totalPrice / traditionalPrice) * 100}%` }}
+                transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              />
             </div>
+            <p className="text-sm text-white/50">
+              Du sparer ca. <span className="font-bold text-gold">{formatPrice(savings)} DKK</span> - det er{' '}
+              <span className="font-bold text-gold">{Math.round((savings / traditionalPrice) * 100)}%</span> mindre end markedsprisen.
+            </p>
+            <p className="text-xs text-white/25 mt-3">
+              Prisestimatet for traditionelle bureauer er baseret på branchegennemsnit for sammenlignelige projekter i Danmark.
+            </p>
           </div>
-          {/* Savings bar */}
-          <div className="relative h-2 bg-black/5 rounded-full overflow-hidden mb-3">
-            <motion.div
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-gold to-gold-light rounded-full"
-              initial={{ width: '0%' }}
-              animate={{ width: `${(1 - totalPrice / traditionalPrice) * 100}%` }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </div>
-          <p className="text-sm text-warmgray">
-            Du sparer ca. <span className="font-bold text-gold">{formatPrice(savings)} DKK</span> — det er{' '}
-            <span className="font-bold text-gold">{Math.round((savings / traditionalPrice) * 100)}%</span> mindre end markedsprisen.
-          </p>
         </motion.div>
 
         {/* Disclaimer */}
@@ -627,7 +651,7 @@ export function PriceCalculator() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h4 className="font-serif text-lg text-black mb-5 text-center">Modtag dit estimat på mail</h4>
+              <h4 className="text-base font-bold text-black mb-5 text-center">Modtag dit estimat på mail</h4>
               <div className="space-y-3">
                 <input
                   type="text"
