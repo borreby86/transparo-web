@@ -2,19 +2,21 @@
 
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-
-const steps = [
-  { number: '01', title: 'Samtale', description: 'Vi lytter til dig og forstår din virksomhed.' },
-  { number: '02', title: 'Design', description: 'Du ser de første udkast og giver feedback.' },
-  { number: '03', title: 'Tilretning', description: 'Vi justerer indtil du er tilfreds.' },
-  { number: '04', title: 'Udvikling', description: 'Vi koder og tester på alle enheder.' },
-  { number: '05', title: 'Review', description: 'Du godkender det færdige resultat.' },
-  { number: '06', title: 'Lancering', description: 'Dit website går live. Alt overdrages til dig.' },
-]
 
 export function PremiumProcessTimeline() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('processTimeline')
+
+  const steps = [
+    { number: t('steps.0.number'), title: t('steps.0.title'), description: t('steps.0.description') },
+    { number: t('steps.1.number'), title: t('steps.1.title'), description: t('steps.1.description') },
+    { number: t('steps.2.number'), title: t('steps.2.title'), description: t('steps.2.description') },
+    { number: t('steps.3.number'), title: t('steps.3.title'), description: t('steps.3.description') },
+    { number: t('steps.4.number'), title: t('steps.4.title'), description: t('steps.4.description') },
+    { number: t('steps.5.number'), title: t('steps.5.title'), description: t('steps.5.description') },
+  ]
 
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
@@ -39,12 +41,12 @@ export function PremiumProcessTimeline() {
           className="mb-16 md:mb-20"
         >
           <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
-            Sådan arbejder vi
+            {t('overline')}
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight">
-            Fra samtale
+            {t('headingLine1')}
             <br />
-            <span className="text-white/40">til lancering.</span>
+            <span className="text-white/40">{t('headingLine2')}</span>
           </h2>
         </motion.div>
 

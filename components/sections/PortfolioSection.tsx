@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { caseStudiesDetailed } from '@/data/caseStudies'
@@ -9,6 +10,7 @@ import { ArrowRight } from 'lucide-react'
 
 export function PortfolioSection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('portfolio')
   const projects = caseStudiesDetailed.slice(0, 6)
 
   return (
@@ -27,21 +29,21 @@ export function PortfolioSection() {
             className="lg:sticky lg:top-32 lg:self-start"
           >
             <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
-              Udvalgte projekter
+              {t('overline')}
             </span>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05] tracking-tight mb-8">
-              Websites der
+              {t('headingLine1')}
               <br />
-              <span className="text-navy/40">arbejder for dig.</span>
+              <span className="text-navy/40">{t('headingLine2')}</span>
             </h2>
 
             <div className="space-y-4 text-black/50 text-base md:text-lg leading-relaxed mb-10">
               <p>
-                Hvert projekt starter med en forståelse af din virksomhed — hvem dine kunder er, og hvad dit website skal gøre for dem.
+                {t('description1')}
               </p>
               <p>
-                Vi designer og bygger fra bunden, så resultatet passer til dig — ikke til et template.
+                {t('description2')}
               </p>
             </div>
 
@@ -49,7 +51,7 @@ export function PortfolioSection() {
               href="/cases"
               className="group inline-flex items-center gap-3 text-navy font-semibold text-lg hover:text-gold transition-colors duration-300"
             >
-              <span>Se alle projekter</span>
+              <span>{t('viewAll')}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
@@ -63,7 +65,7 @@ export function PortfolioSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.7 }}
             >
-              <Link href={`/cases/${projects[0].slug}`} className="group block">
+              <Link href={{ pathname: '/cases/[slug]', params: { slug: projects[0].slug } }} className="group block">
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
                     src={projects[0].imageUrl}
@@ -87,7 +89,7 @@ export function PortfolioSection() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: shouldReduceMotion ? 0 : 0.7, delay: i * 0.1 }}
                 >
-                  <Link href={`/cases/${project.slug}`} className="group block">
+                  <Link href={{ pathname: '/cases/[slug]', params: { slug: project.slug } }} className="group block">
                     <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
                       <Image
                         src={project.imageUrl}
@@ -112,7 +114,7 @@ export function PortfolioSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.7 }}
               >
-                <Link href={`/cases/${projects[4].slug}`} className="group block">
+                <Link href={{ pathname: '/cases/[slug]', params: { slug: projects[4].slug } }} className="group block">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <Image
                       src={projects[4].imageUrl}
@@ -133,7 +135,7 @@ export function PortfolioSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.7, delay: 0.1 }}
               >
-                <Link href={`/cases/${projects[3].slug}`} className="group block h-full">
+                <Link href={{ pathname: '/cases/[slug]', params: { slug: projects[3].slug } }} className="group block h-full">
                   <div className="relative aspect-[16/10] md:aspect-auto md:h-full overflow-hidden">
                     <Image
                       src={projects[3].imageUrl}

@@ -2,61 +2,14 @@
 
 import { motion, useReducedMotion } from 'motion/react'
 import { Star, Quote } from 'lucide-react'
-
-const testimonials = [
-  {
-    name: 'Louise Kjær',
-    company: 'Sundhedskonsortiet',
-    role: 'CEO',
-    quote: 'Transparo leverede langt over forventning. Processen var transparent fra start til slut, og de holdt alle deadlines. Det er sjældent at opleve sådan et professionelt samarbejde.',
-    rating: 5
-  },
-  {
-    name: 'Mikkel Juul',
-    company: 'WalterAI',
-    role: 'Founder',
-    quote: 'Endelig et bureau der forstår betydningen af klare aftaler. Ingen overraskelser, kun fremragende resultater.',
-    rating: 5
-  },
-  {
-    name: 'Camilla Højland',
-    company: 'Flotte Fødder',
-    role: 'Indehaver',
-    quote: 'Min nye hjemmeside er perfekt! De lyttede til mine ønsker og leverede præcis hvad vi aftalte - intet mere, intet mindre.',
-    rating: 5
-  },
-  {
-    name: 'Thomas Kjeldsen',
-    company: 'VAT 85',
-    role: 'Partner',
-    quote: 'Bedste investering i år. Fast pris, hurtig levering, og kvalitet der matcher store bureauer til en brøkdel af prisen.',
-    rating: 5
-  },
-  {
-    name: 'Alex Morgan',
-    company: 'Fotograf',
-    role: 'Selvstændig',
-    quote: 'Fantastisk resultat på rekordtid. De forstod min vision med det samme og udførte den til perfektion.',
-    rating: 5
-  },
-  {
-    name: 'Christina Borreby',
-    company: 'Coach & Konsulent',
-    role: 'Konsulent',
-    quote: 'De forstod præcis hvad jeg havde brug for. Kommunikationen var klar, processen smidig, og resultatet overraskende godt.',
-    rating: 5
-  }
-]
-
-const stats = [
-  { value: '100+', label: 'Projekter Leveret' },
-  { value: '98%', label: 'Kundetilfredshed' },
-  { value: '15', label: 'Dages Gennemsnitlig Levering' },
-  { value: '0', label: 'Skjulte Omkostninger' }
-]
+import { useTranslations } from 'next-intl'
 
 export function HappyClientsSection() {
+  const t = useTranslations('happyClients')
   const shouldReduceMotion = useReducedMotion()
+
+  const testimonials = (t.raw('testimonials') as Array<{name: string; company: string; role: string; quote: string}>) || []
+  const stats = (t.raw('stats') as Array<{value: string; label: string}>) || []
 
   return (
     <section className="relative bg-gradient-to-b from-offwhite via-white to-offwhite py-24 md:py-32 overflow-hidden">
@@ -74,7 +27,7 @@ export function HappyClientsSection() {
             viewport={{ once: true }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
           >
-            Vores Kunder
+            {t('overline')}
           </motion.span>
           <motion.h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight mb-6"
@@ -83,7 +36,7 @@ export function HappyClientsSection() {
             viewport={{ once: true }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.1 }}
           >
-            Hvad Glade Kunder <span className="text-gold">Siger</span>
+            {t('heading')} <span className="text-gold">{t('headingAccent')}</span>
           </motion.h2>
           <motion.p
             className="text-lg md:text-xl text-black/70 max-w-2xl mx-auto"
@@ -92,7 +45,7 @@ export function HappyClientsSection() {
             viewport={{ once: true }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.2 }}
           >
-            Real kunder. Real resultater. Real transparens.
+            {t('description')}
           </motion.p>
         </div>
 
@@ -135,7 +88,7 @@ export function HappyClientsSection() {
 
               {/* Stars */}
               <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
+                {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     className="w-4 h-4 fill-gold text-gold"
@@ -178,13 +131,13 @@ export function HappyClientsSection() {
           transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: 0.8 }}
         >
           <p className="text-black/70 text-lg mb-6">
-            Vil du også være en tilfreds kunde?
+            {t('bottomCTA')}
           </p>
           <a
             href="/kontakt"
             className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-navy rounded-full font-bold text-lg shadow-xl shadow-gold/20 hover:shadow-2xl hover:shadow-gold/30 hover:scale-105 transition-all duration-300"
           >
-            Start Dit Projekt
+            {t('bottomButton')}
           </a>
         </motion.div>
       </div>

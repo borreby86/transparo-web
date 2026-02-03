@@ -2,34 +2,14 @@
 
 import { motion, AnimatePresence } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 
-const faqs = [
-  {
-    question: 'Skal jeg kunne programmere?',
-    answer: 'Nej. Du lærer at instruere en AI på almindeligt dansk. Koden skrives for dig.',
-  },
-  {
-    question: 'Er teknologien virkelig den samme som bureauerne bruger?',
-    answer: 'Ja. Next.js, Tailwind og Vercel er industristandard for moderne, hurtige websites. Det er præcis det, du betaler ekstra for hos et bureau.',
-  },
-  {
-    question: 'Hvad koster det at drive siden bagefter?',
-    answer: 'Hosting er gratis. Domæne koster ca. 100 kr. om året. Små ændringer i GitHub er gratis. Større ændringer med AI-hjælp koster få kroner.',
-  },
-  {
-    question: 'Hvad hvis jeg går i stå?',
-    answer: 'Du har adgang til videovejledninger og kan tilkøbe klippekort til personlig hjælp.',
-  },
-  {
-    question: 'Hvor mange deltager?',
-    answer: '2-10 personer. Så der er tid til dig.',
-  },
-]
-
 export function WorkshopsFAQSection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('workshops.faq')
+  const faqs = t.raw('items') as Array<{ question: string; answer: string }>
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
@@ -56,10 +36,10 @@ export function WorkshopsFAQSection() {
           className="text-center mb-16"
         >
           <span className="text-gold text-sm font-bold uppercase tracking-[0.3em] mb-6 block">
-            Spørgsmål & svar
+            {t('label')}
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy">
-            Ofte stillede spørgsmål
+            {t('title')}
           </h2>
         </motion.div>
 

@@ -1,68 +1,30 @@
 'use client'
 
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
-const phases = [
-  {
-    number: 4,
-    title: 'Development',
-    timeline: 'Dag 15-20',
-    description: 'Nu koder vi. Vi bygger alle sider i Next.js, integrerer Payload CMS, og sætter formularer og funktionalitet op.',
-    deliverables: [
-      'Next.js + Payload CMS implementation',
-      'SEO optimering og metadata',
-      'Mobil responsivt design',
-      'Performance optimering'
-    ]
-  },
-  {
-    number: 5,
-    title: 'Test & Review',
-    timeline: 'Dag 21-23',
-    description: 'Vi deployer til privat test-miljø hvor I kan teste på mobil og desktop. Vi fikser alle bugs gratis.',
-    deliverables: [
-      'Privat staging miljø',
-      'Cross-device testing',
-      'Bug fixes inkluderet',
-      'Quality assurance'
-    ],
-    checkpoint: 'Pre-Launch Godkendelse'
-  },
-  {
-    number: 6,
-    title: 'Launch & Training',
-    timeline: 'Dag 24-25',
-    description: 'Launch dag: Vi flytter hjemmesiden til jeres domæne og afholder personlig træning i CMS admin panel.',
-    deliverables: [
-      'Live på jeres domæne',
-      'Google Analytics setup',
-      '1-3 timers personlig træning',
-      'Video dokumentation'
-    ]
-  },
-  {
-    number: 7,
-    title: 'Support & Vedligehold',
-    timeline: 'Efter lancering',
-    description: 'I får inkluderet support i 14-60 dage afhængig af pakke. Vi tilbyder også månedlig vedligeholdelse fra 399 kr/måned.',
-    deliverables: [
-      '14-60 dage support (pakke-afhængig)',
-      'Tekniske bug fixes',
-      'Månedlig vedligehold (valgfri)',
-      'Daglige automatiske backups'
-    ]
-  }
-]
+interface Phase {
+  title: string
+  timeline: string
+  description: string
+  deliverables: string[]
+  checkpoint?: string
+}
 
 export function ProcessPhases4to7() {
+  const t = useTranslations('processPhases')
+
+  const phases = t.raw('phases') as Phase[]
+
   return (
     <>
       {phases.map((phase, index) => {
+        const phaseNumber = index + 4
         const isLeft = index % 2 === 0
 
         return (
           <section
-            key={phase.number}
+            key={phaseNumber}
             className="relative bg-white px-6 md:px-12 lg:px-24 py-32 md:py-48 border-t border-navy/10"
           >
             <div className="max-w-7xl mx-auto">
@@ -75,8 +37,8 @@ export function ProcessPhases4to7() {
                     viewport={{ once: true }}
                     className="sticky top-32"
                   >
-                    <div className="text-8xl font-bold text-navy/5 mb-4">{String(phase.number).padStart(2, '0')}</div>
-                    <h3 className="text-sm uppercase tracking-[0.2em] text-navy/40 mb-2">Fase {phase.number}</h3>
+                    <div className="text-8xl font-bold text-navy/5 mb-4">{String(phaseNumber).padStart(2, '0')}</div>
+                    <h3 className="text-sm uppercase tracking-[0.2em] text-navy/40 mb-2">{t('faseLabel', { number: phaseNumber })}</h3>
                     <p className="text-navy/60">{phase.timeline}</p>
                   </motion.div>
                 </div>
@@ -126,7 +88,7 @@ export function ProcessPhases4to7() {
                         className="inline-block"
                       >
                         <div className="px-6 py-3 bg-navy text-white">
-                          <div className="text-xs uppercase tracking-wider mb-1 opacity-60">Godkendelse</div>
+                          <div className="text-xs uppercase tracking-wider mb-1 opacity-60">{t('approvalLabel')}</div>
                           <div className="font-medium">{phase.checkpoint}</div>
                         </div>
                       </motion.div>

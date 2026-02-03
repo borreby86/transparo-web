@@ -2,45 +2,15 @@
 
 import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useState, useRef } from 'react'
+import { useTranslations } from 'next-intl'
 
 export function TrustMarquee() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('trustMarquee')
 
-  // Danish business excellence messages
-  const primaryMessages = [
-    'Velkommen',
-    'Premium Kvalitet',
-    'Dansk Design',
-    'Professionel Service',
-    'Kreative Løsninger',
-    'Digital Excellence',
-    'Innovation',
-    'Resultater der Holder',
-  ]
-
-  // Trust indicators in Danish
-  const trustIndicators = [
-    'Fast Pris',
-    'Ingen Skjulte Gebyrer',
-    '2-4 Ugers Levering',
-    '100% Gennemsigtig',
-    'Garanti',
-    'Lokal Support',
-    'Certificeret',
-    'Troværdig Partner',
-  ]
-
-  // Company values and offerings
-  const companyValues = [
-    'Webdesign',
-    'Branding',
-    'Digital Strategi',
-    'SEO Optimering',
-    'Responsive Design',
-    'Custom Udvikling',
-    'UX Design',
-    'Content',
-  ]
+  const primaryMessages = t.raw('primaryMessages') as string[]
+  const trustIndicators = t.raw('trustIndicators') as string[]
+  const companyValues = t.raw('companyValues') as string[]
 
   return (
     <section className="relative bg-gradient-to-b from-white via-white to-gray-50/30 overflow-hidden border-b border-black/5">

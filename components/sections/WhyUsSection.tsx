@@ -1,32 +1,18 @@
 'use client'
 
 import { motion, useReducedMotion } from 'motion/react'
-
-const reasons = [
-  {
-    number: '01',
-    title: 'Faste priser',
-    description: 'Du kender den endelige pris fra dag ét. Ingen timeregnskaber, ingen tillæg, ingen "det blev lidt dyrere end forventet".',
-  },
-  {
-    number: '02',
-    title: 'Unikt design',
-    description: 'Vi bruger ikke templates. Dit website bliver tegnet fra bunden, så det passer til din virksomhed — ikke omvendt.',
-  },
-  {
-    number: '03',
-    title: 'Du ejer det hele',
-    description: 'Koden, domænet, indholdet. Alt er dit. Du er aldrig låst til os, og du kan tage det med videre, hvis du vil.',
-  },
-  {
-    number: '04',
-    title: 'Klar kommunikation',
-    description: 'Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid — og vi forklarer hvorfor.',
-  }
-]
+import { useTranslations } from 'next-intl'
 
 export function WhyUsSection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('whyUs')
+
+  const reasons = [
+    { number: t('reasons.0.number'), title: t('reasons.0.title'), description: t('reasons.0.description') },
+    { number: t('reasons.1.number'), title: t('reasons.1.title'), description: t('reasons.1.description') },
+    { number: t('reasons.2.number'), title: t('reasons.2.title'), description: t('reasons.2.description') },
+    { number: t('reasons.3.number'), title: t('reasons.3.title'), description: t('reasons.3.description') },
+  ]
 
   return (
     <section className="bg-black text-white py-24 md:py-32 overflow-hidden">
@@ -42,15 +28,15 @@ export function WhyUsSection() {
           className="mb-20 md:mb-24 max-w-2xl"
         >
           <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
-            Hvorfor os
+            {t('overline')}
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-            Vi gør det
+            {t('headingLine1')}
             <br />
-            <span className="text-white/40">anderledes.</span>
+            <span className="text-white/40">{t('headingLine2')}</span>
           </h2>
           <p className="text-white/50 text-lg leading-relaxed">
-            Vi tror på, at et godt samarbejde kræver ærlighed — om hvad der kan lade sig gøre, hvad det koster, og hvornår det er færdigt.
+            {t('description')}
           </p>
         </motion.div>
 

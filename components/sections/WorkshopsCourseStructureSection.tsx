@@ -2,43 +2,18 @@
 
 import { motion, useScroll, useTransform, useSpring } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 import { useRef } from 'react'
 import { Video, Calendar, UserCheck, Plus } from 'lucide-react'
 
-const courseSteps = [
-  {
-    icon: Video,
-    phase: 'Før kursusdagen',
-    title: '1 times online intro',
-    description: 'Vi installerer det nødvendige sammen, så du er klar til at gå i gang på selve kursusdagen.',
-    color: 'gold',
-  },
-  {
-    icon: Calendar,
-    phase: 'Kursusdag',
-    title: 'Kl. 10.00–16.30',
-    description: 'Vekslen mellem fælles gennemgang og tid til at arbejde på din egen side med personlig hjælp. Vi er 2-10 deltagere, så der er tid til dig. Du går hjem med en fungerende hjemmeside.',
-    color: 'navy',
-  },
-  {
-    icon: UserCheck,
-    phase: 'Efter kurset',
-    title: '1 times individuel opfølgning',
-    description: 'Vi gennemgår din side og løser de sidste spørgsmål.',
-    color: 'gold',
-  },
-  {
-    icon: Plus,
-    phase: 'Tilkøb',
-    title: 'Klippekort',
-    description: '3×30 min til når du vil udvide eller ændre noget.',
-    color: 'navy',
-    isAddOn: true,
-  },
-]
+const ICONS = [Video, Calendar, UserCheck, Plus] as const
+const COLORS = ['gold', 'navy', 'gold', 'navy'] as const
+const IS_ADD_ON = [false, false, false, true] as const
 
 export function WorkshopsCourseStructureSection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('workshops.courseStructure')
+  const steps = t.raw('steps') as Array<{ phase: string; title: string; description: string }>
   const containerRef = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -78,10 +53,10 @@ export function WorkshopsCourseStructureSection() {
           className="text-center mb-20"
         >
           <span className="text-gold text-sm font-bold uppercase tracking-[0.3em] mb-6 block">
-            Kursets forløb
+            {t('label')}
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy">
-            Kursets opbygning
+            {t('title')}
           </h2>
         </motion.div>
 
@@ -102,9 +77,12 @@ export function WorkshopsCourseStructureSection() {
           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gold via-gold/50 to-navy/20 md:hidden" />
 
           <div className="space-y-12 md:space-y-16">
-            {courseSteps.map((step, index) => {
+            {steps.map((step, index) => {
               const isEven = index % 2 === 0
-              const accentColor = step.color === 'gold' ? '#B89245' : '#0E1D3D'
+              const color = COLORS[index]
+              const accentColor = color === 'gold' ? '#B89245' : '#0E1D3D'
+              const Icon = ICONS[index]
+              const isAddOn = IS_ADD_ON[index]
 
               return (
                 <motion.div
@@ -124,7 +102,7 @@ export function WorkshopsCourseStructureSection() {
                     <div className="absolute left-[18px] top-10 w-4 h-4 rounded-full bg-white border-2 shadow-lg z-10"
                       style={{ borderColor: accentColor }}
                     />
-                    <StepCard step={step} Icon={step.icon} accentColor={accentColor} shouldReduceMotion={shouldReduceMotion} />
+                    <StepCard step={step} Icon={Icon} accentColor={accentColor} shouldReduceMotion={shouldReduceMotion} color={color} isAddOn={isAddOn} />
                   </div>
 
                   {/* Desktop layout */}
@@ -132,10 +110,12 @@ export function WorkshopsCourseStructureSection() {
                     <div className={isEven ? 'md:pr-16' : 'md:order-2 md:pl-16'}>
                       <StepCard
                         step={step}
-                        Icon={step.icon}
+                        Icon={Icon}
                         accentColor={accentColor}
                         shouldReduceMotion={shouldReduceMotion}
                         alignRight={isEven}
+                        color={color}
+                        isAddOn={isAddOn}
                       />
                     </div>
 
@@ -180,13 +160,17 @@ function StepCard({
   Icon,
   accentColor,
   shouldReduceMotion,
-  alignRight = false
+  alignRight = false,
+  color,
+  isAddOn,
 }: {
-  step: typeof courseSteps[0]
+  step: { phase: string; title: string; description: string }
   Icon: typeof Video
   accentColor: string
   shouldReduceMotion: boolean | null
   alignRight?: boolean
+  color: string
+  isAddOn: boolean
 }) {
   return (
     <motion.div
@@ -194,7 +178,7 @@ function StepCard({
       whileHover={shouldReduceMotion ? {} : { y: -5 }}
       transition={{ duration: 0.3 }}
     >
-      <div className={`relative bg-white rounded-3xl p-8 shadow-lg overflow-hidden ${step.isAddOn ? 'border-2 border-dashed border-gold/30' : ''}`}>
+      <div className={`relative bg-white rounded-3xl p-8 shadow-lg overflow-hidden ${isAddOn ? 'border-2 border-dashed border-gold/30' : ''}`}>
         {/* Accent line */}
         <motion.div
           className={`absolute ${alignRight ? 'right-0' : 'left-0'} top-0 bottom-0 w-1 rounded-full`}
@@ -209,7 +193,7 @@ function StepCard({
         <div
           className="absolute inset-0 opacity-30 pointer-events-none"
           style={{
-            background: step.color === 'gold'
+            background: color === 'gold'
               ? 'linear-gradient(135deg, rgba(184,146,69,0.05) 0%, transparent 60%)'
               : 'linear-gradient(135deg, rgba(14,29,61,0.05) 0%, transparent 60%)'
           }}

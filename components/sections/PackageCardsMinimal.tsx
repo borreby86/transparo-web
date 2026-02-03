@@ -1,59 +1,25 @@
 'use client'
 
 import { motion } from 'motion/react'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 import { Check, ArrowRight } from 'lucide-react'
 
-const packages = [
-  {
-    id: 'essentials',
-    name: 'Essentials',
-    price: '8.995',
-    duration: '10-14 dage',
-    description: 'Perfekt til startups',
-    features: [
-      '5 professionelle sider',
-      'Mobil-optimeret design',
-      'Basis SEO-opsætning',
-      'Kontaktformular',
-      'Payload CMS',
-      '2 revisionsrunder'
-    ]
-  },
-  {
-    id: 'professional',
-    name: 'Professional',
-    price: '16.995',
-    duration: '14-21 dage',
-    description: 'For voksende virksomheder',
-    popular: true,
-    features: [
-      '10 sider inkluderet',
-      'Avancerede animationer',
-      'Blog & portfolio',
-      'Fuld SEO-pakke',
-      'Analytics integration',
-      '3 revisionsrunder'
-    ]
-  },
-  {
-    id: 'business',
-    name: 'Business',
-    price: '27.995',
-    duration: '21-28 dage',
-    description: 'Enterprise-niveau',
-    features: [
-      '20+ sider',
-      'Multi-language support',
-      'E-commerce ready',
-      'Premium animationer',
-      'Dedikeret support',
-      '4 revisionsrunder'
-    ]
-  }
-]
+interface PackageData {
+  id: string;
+  name: string;
+  price: string;
+  duration: string;
+  description: string;
+  popular?: boolean;
+  features: string[];
+}
 
 export function PackageCardsMinimal() {
+  const t = useTranslations('packages.cardsMinimal')
+
+  const packages = t.raw('packages') as PackageData[]
+
   return (
     <section className="bg-white px-6 md:px-12 py-24 md:py-32 lg:py-40">
       <div className="max-w-7xl mx-auto">
@@ -68,7 +34,7 @@ export function PackageCardsMinimal() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative group"
             >
-              <Link href={`/packages/${pkg.id}`}>
+              <Link href="/pakker">
                 <div
                   className={`
                     relative p-8 md:p-10 lg:p-12
@@ -85,7 +51,7 @@ export function PackageCardsMinimal() {
                   {pkg.popular && (
                     <div className="absolute -top-px left-8 md:left-10 lg:left-12">
                       <span className="inline-block bg-gold text-navy px-4 py-1 text-xs font-bold uppercase tracking-wider">
-                        Populær
+                        {t('popularBadge')}
                       </span>
                     </div>
                   )}
@@ -168,7 +134,7 @@ export function PackageCardsMinimal() {
                         pkg.popular ? 'text-white' : 'text-navy'
                       }`}
                     >
-                      Se detaljer
+                      {t('seeDetails')}
                     </span>
                     <ArrowRight
                       className={`w-5 h-5 ${
@@ -191,10 +157,10 @@ export function PackageCardsMinimal() {
           className="text-center mt-16"
         >
           <Link
-            href="/packages/compare"
+            href="/pakker"
             className="inline-flex items-center gap-2 text-navy/60 hover:text-navy transition-colors text-sm font-medium"
           >
-            <span>Sammenlign alle features</span>
+            <span>{t('compareLink')}</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>

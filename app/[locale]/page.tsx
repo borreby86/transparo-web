@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { setRequestLocale, getTranslations } from 'next-intl/server'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
 
-// Lazy load all sections below the fold for optimal performance
 const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection').then((mod) => mod.PortfolioSection), {
   loading: () => <div className="h-96 bg-white" />
 })
@@ -25,19 +25,26 @@ const AboutContactSection = dynamic(() => import('@/components/sections/AboutCon
   loading: () => <div className="h-96 bg-offwhite" />
 })
 
-export const metadata: Metadata = {
-  title: 'Transparo - Webdesign uden Overraskelser | Unique Designs. Built on Trust.',
-  description: 'Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger — bygget på tillid.',
-  keywords: ['webdesign', 'Danmark', 'små virksomheder', 'fast pris', 'website udvikling', 'professionelt webdesign', 'transparens', 'tillid'],
-  openGraph: {
-    title: 'Transparo - Webdesign uden Overraskelser',
-    description: 'High-end websites bygget på tillid. Ingen overraskelser, kun resultater.',
-    type: 'website',
-    locale: 'da_DK',
-  },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'metadata.home' })
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    openGraph: {
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      type: 'website',
+      locale: locale === 'da' ? 'da_DK' : 'en_US',
+    },
+  }
 }
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   return (
     <>
       <Header />

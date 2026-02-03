@@ -1,17 +1,12 @@
 'use client'
 
-import Link from 'next/link'
+import { Link, type Pathnames } from '@/i18n/routing'
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname } from '@/i18n/routing'
 import { motion, AnimatePresence } from 'motion/react'
 import { Menu, X, ArrowRight } from 'lucide-react'
-
-const navigation = [
-  { number: '01', name: 'Forside', href: '/' },
-  { number: '02', name: 'Portfolio', href: '/cases' },
-  { number: '03', name: 'Prisberegner', href: '/prisberegner' },
-  { number: '04', name: 'Kontakt', href: '/kontakt' },
-]
+import { useTranslations } from 'next-intl'
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -19,6 +14,16 @@ export function Header() {
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const pathname = usePathname()
+
+  const t = useTranslations('nav')
+  const tBooking = useTranslations('booking')
+
+  const navigation = [
+    { number: '01', name: t('items.0.name'), href: '/' as const },
+    { number: '02', name: t('items.1.name'), href: '/cases' as const },
+    { number: '03', name: t('items.2.name'), href: '/prisberegner' as const },
+    { number: '04', name: t('items.3.name'), href: '/kontakt' as const },
+  ]
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -38,20 +43,24 @@ export function Header() {
           t<span className="text-gold">.</span>
         </Link>
 
-        <button
-          onClick={() => { setMenuOpen(!menuOpen); setBookingOpen(false) }}
-          className="text-black hover:text-gold transition-colors duration-300"
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? (
-            <X className="w-6 h-6" strokeWidth={1.5} />
-          ) : (
-            <Menu className="w-6 h-6" strokeWidth={1.5} />
-          )}
-        </button>
+        <div className="flex flex-col items-center gap-6">
+          <LanguageSwitcher />
+
+          <button
+            onClick={() => { setMenuOpen(!menuOpen); setBookingOpen(false) }}
+            className="text-black hover:text-gold transition-colors duration-300"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <X className="w-6 h-6" strokeWidth={1.5} />
+            ) : (
+              <Menu className="w-6 h-6" strokeWidth={1.5} />
+            )}
+          </button>
+        </div>
 
         <span className="text-[9px] font-semibold uppercase tracking-[0.25em] text-black/30 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap select-none">
-          Menu
+          {t('menuLabel')}
         </span>
       </aside>
 
@@ -63,7 +72,7 @@ export function Header() {
           aria-label="Toggle booking"
         >
           <span className="text-xs font-black uppercase tracking-[0.3em] text-gold group-hover:text-white transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
-            Book Møde
+            {tBooking('label')}
           </span>
           {bookingOpen ? (
             <X className="w-5 h-5 text-white" strokeWidth={1.5} />
@@ -84,12 +93,14 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-3">
+            <LanguageSwitcher />
+
             <button
               type="button"
               className="px-4 py-2 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full"
               onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false) }}
             >
-              Book
+              {tBooking('mobileBookButton')}
             </button>
             <button
               type="button"
@@ -188,15 +199,15 @@ export function Header() {
             >
               <div className="p-10 md:p-14 min-h-full flex flex-col justify-center">
                 <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
-                  Book et møde
+                  {tBooking('heading')}
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-                  Lad os tale om
+                  {tBooking('subheading')}
                   <br />
-                  <span className="text-white/40">dit projekt.</span>
+                  <span className="text-white/40">{tBooking('subheadingFaded')}</span>
                 </h2>
                 <p className="text-white/40 text-sm leading-relaxed mb-10">
-                  Udfyld formularen, så vender vi tilbage inden for 24 timer.
+                  {tBooking('description')}
                 </p>
 
                 {submitted ? (
@@ -206,14 +217,14 @@ export function Header() {
                     className="text-center py-16"
                   >
                     <div className="w-12 h-[2px] bg-gold mx-auto mb-6" />
-                    <h3 className="text-2xl font-bold mb-3">Tak for din henvendelse</h3>
-                    <p className="text-white/40 text-sm">Vi vender tilbage hurtigst muligt.</p>
+                    <h3 className="text-2xl font-bold mb-3">{tBooking('thankYouTitle')}</h3>
+                    <p className="text-white/40 text-sm">{tBooking('thankYouMessage')}</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
-                        Navn
+                        {tBooking('nameLabel')}
                       </label>
                       <input
                         type="text"
@@ -221,13 +232,13 @@ export function Header() {
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
-                        placeholder="Dit fulde navn"
+                        placeholder={tBooking('namePlaceholder')}
                       />
                     </div>
 
                     <div>
                       <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
-                        Email
+                        {tBooking('emailLabel')}
                       </label>
                       <input
                         type="email"
@@ -235,33 +246,33 @@ export function Header() {
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
-                        placeholder="din@email.dk"
+                        placeholder={tBooking('emailPlaceholder')}
                       />
                     </div>
 
                     <div>
                       <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
-                        Telefon
+                        {tBooking('phoneLabel')}
                       </label>
                       <input
                         type="tel"
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                         className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
-                        placeholder="+45 00 00 00 00"
+                        placeholder={tBooking('phonePlaceholder')}
                       />
                     </div>
 
                     <div>
                       <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
-                        Besked
+                        {tBooking('messageLabel')}
                       </label>
                       <textarea
                         rows={3}
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                         className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 resize-none placeholder:text-white/20"
-                        placeholder="Fortæl kort om dit projekt..."
+                        placeholder={tBooking('messagePlaceholder')}
                       />
                     </div>
 
@@ -269,7 +280,7 @@ export function Header() {
                       type="submit"
                       className="w-full bg-gold text-black py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-gold/90 transition-colors duration-300 mt-4"
                     >
-                      Send henvendelse
+                      {tBooking('submitButton')}
                     </button>
                   </form>
                 )}

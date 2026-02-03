@@ -2,37 +2,20 @@
 
 import { DollarSign, Clock, Sparkles, RefreshCcw } from 'lucide-react'
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
+
+const icons = [DollarSign, Clock, Sparkles, RefreshCcw]
 
 export function TrustIndicators() {
-  const indicators = [
-    {
-      icon: DollarSign,
-      title: 'Fast Pris',
-      description: 'Ingen skjulte omkostninger',
-    },
-    {
-      icon: Clock,
-      title: '10-28 Dage',
-      description: 'Leveret som lovet—garanteret',
-    },
-    {
-      icon: Sparkles,
-      title: 'Custom Design',
-      description: 'Ingen skabeloner eller templates',
-    },
-    {
-      icon: RefreshCcw,
-      title: '2-4 Revisionsrunder',
-      description: 'Inkluderet i alle pakker',
-    },
-  ]
+  const t = useTranslations('trustIndicators')
+  const indicators = t.raw('indicators') as Array<{ title: string; description: string }>
 
   return (
     <section className="py-12 md:py-16 bg-white border-b border-warmgray-light/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {indicators.map((indicator, index) => {
-            const Icon = indicator.icon
+            const Icon = icons[index]
             return (
               <motion.div
                 key={index}

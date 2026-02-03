@@ -2,36 +2,17 @@
 
 import { motion, useReducedMotion } from 'motion/react'
 import Image from 'next/image'
-
-const teamMembers = [
-  {
-    name: 'Alexander Nielsen',
-    role: 'Founder & Lead Developer',
-    bio: 'Full-stack udvikler med passion for moderne webteknologi og AI-drevet udvikling.',
-    image: '/images/unsplash/team-1.webp'
-  },
-  {
-    name: 'Maria Christensen',
-    role: 'Creative Director',
-    bio: 'Designer med øje for detaljer og 10+ års erfaring med brand identitet.',
-    image: '/images/unsplash/team-2.webp'
-  },
-  {
-    name: 'Thomas Andersen',
-    role: 'Senior Developer',
-    bio: 'Ekspert i Next.js og performance optimering. Lighthouse-nørd.',
-    image: '/images/unsplash/team-3.webp'
-  },
-  {
-    name: 'Sophie Larsen',
-    role: 'Project Manager',
-    bio: 'Holder styr på deadlines og sikrer glade kunder hver gang.',
-    image: '/images/unsplash/team-4.webp'
-  }
-]
+import { useTranslations } from 'next-intl'
 
 export function TeamSection() {
+  const t = useTranslations('team')
   const shouldReduceMotion = useReducedMotion()
+
+  const teamMembers = (t.raw('members') as Array<{name: string; role: string; bio: string}>) || []
+  const teamMemberImages = [
+    '/images/team/dennis.jpg',
+    '/images/team/christina.jpg'
+  ]
 
   return (
     <section className="bg-offwhite py-32 md:py-48">
@@ -45,7 +26,7 @@ export function TeamSection() {
             viewport={{ once: true }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
           >
-            Holdet
+            {t('overline')}
           </motion.span>
           <motion.h2
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-navy tracking-tight"
@@ -54,7 +35,7 @@ export function TeamSection() {
             viewport={{ once: true }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: 0.1 }}
           >
-            Mød <span className="text-gold">Holdet</span>
+            {t('heading')} <span className="text-gold">{t('headingAccent')}</span>
           </motion.h2>
           <motion.p
             className="mt-6 text-navy/60 text-lg max-w-2xl mx-auto"
@@ -63,12 +44,12 @@ export function TeamSection() {
             viewport={{ once: true }}
             transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: 0.2 }}
           >
-            Et dedikeret team af eksperter der brænder for at skabe exceptionelle digitale oplevelser
+            {t('description')}
           </motion.p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
@@ -81,11 +62,11 @@ export function TeamSection() {
               {/* Image Container */}
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6">
                 <Image
-                  src={member.image}
+                  src={teamMemberImages[index] || '/images/unsplash/team-1.webp'}
                   alt={member.name}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors duration-300" />

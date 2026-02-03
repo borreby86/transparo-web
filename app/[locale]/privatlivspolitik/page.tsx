@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
+import { setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/routing'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
@@ -9,7 +10,10 @@ export const metadata: Metadata = {
   robots: 'noindex, follow',
 }
 
-export default function PrivatlivspolitikPage() {
+export default async function PrivatlivspolitikPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   return (
     <>
       <Header />
@@ -25,12 +29,12 @@ export default function PrivatlivspolitikPage() {
             <section className="mb-12">
               <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-4">1. Introduktion</h2>
               <p className="text-black/80 leading-relaxed mb-4">
-                Transparo ("vi", "os", "vores") respekterer dit privatliv og er forpligtet til at beskytte dine personoplysninger.
+                Transparo (&quot;vi&quot;, &quot;os&quot;, &quot;vores&quot;) respekterer dit privatliv og er forpligtet til at beskytte dine personoplysninger.
                 Denne privatlivspolitik forklarer, hvordan vi indsamler, bruger, videregiver og beskytter dine oplysninger, når du besøger
                 vores website eller bruger vores tjenester.
               </p>
               <p className="text-black/80 leading-relaxed">
-                Denne politik er i overensstemmelse med EU's Databeskyttelsesforordning (GDPR) og dansk lovgivning.
+                Denne politik er i overensstemmelse med EU&apos;s Databeskyttelsesforordning (GDPR) og dansk lovgivning.
               </p>
             </section>
 
@@ -150,7 +154,7 @@ export default function PrivatlivspolitikPage() {
               <h2 className="font-display font-bold text-2xl md:text-3xl text-navy mb-4">11. Ændringer til denne politik</h2>
               <p className="text-black/80 leading-relaxed">
                 Vi kan opdatere denne privatlivspolitik fra tid til anden. Væsentlige ændringer vil blive kommunikeret
-                på vores website med en opdateret "Sidst opdateret" dato.
+                på vores website med en opdateret &quot;Sidst opdateret&quot; dato.
               </p>
             </section>
 

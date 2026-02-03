@@ -5,11 +5,13 @@ import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import PackageCard from '../packages/PackageCard';
 import { packages } from '../packages/packageData';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 
 export function PackagesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
+  const t = useTranslations('packages.section');
 
   // Parallax scroll effects
   const { scrollYProgress } = useScroll({
@@ -19,6 +21,8 @@ export function PackagesSection() {
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const textY = useTransform(scrollYProgress, [0, 0.5], [0, -30]);
+
+  const addons = t.raw('addons') as Array<{ name: string; price: string }>;
 
   return (
     <section
@@ -59,7 +63,7 @@ export function PackagesSection() {
             >
               <Sparkles className="w-5 h-5 text-gold" />
               <span className="text-sm font-medium text-gold uppercase tracking-wider">
-                Faste priser • Ingen overraskelser
+                {t('tagline')}
               </span>
               <Sparkles className="w-5 h-5 text-gold" />
             </motion.div>
@@ -73,7 +77,7 @@ export function PackagesSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               >
-                Vælg din pakke
+                {t('title')}
               </motion.span>
             </h2>
 
@@ -85,9 +89,9 @@ export function PackagesSection() {
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Professionelle websites med AI-drevet udvikling.
+              {t('subtitle')}
               <span className="block mt-2 text-base md:text-lg text-warmgray/80">
-                Klik på en pakke for at se alle detaljer og funktioner.
+                {t('subtitleHint')}
               </span>
             </motion.p>
           </motion.div>
@@ -141,7 +145,7 @@ export function PackagesSection() {
               transition={{ delay: 1 }}
             >
               <p className="text-sm text-warmgray">
-                ← Swipe for at se alle pakker →
+                {t('swipeHint')}
               </p>
             </motion.div>
           </div>
@@ -156,10 +160,10 @@ export function PackagesSection() {
           transition={{ duration: 0.6 }}
         >
           <Link
-            href="/packages/compare"
+            href="/pakker"
             className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors group"
           >
-            <span className="text-lg font-medium">Sammenlign alle pakker i detaljer</span>
+            <span className="text-lg font-medium">{t('compareLink')}</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
@@ -174,19 +178,14 @@ export function PackagesSection() {
         >
           <div className="max-w-6xl mx-auto text-center">
             <h3 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Tilkøb & Ekstra Services
+              {t('addonsTitle')}
             </h3>
             <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto">
-              Udvid din pakke med professionelle services
+              {t('addonsSubtitle')}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { name: 'Ekstra sider', price: '1.495 kr/side' },
-                { name: 'E-mail opsætning', price: '2.995 kr' },
-                { name: 'Copywriting', price: 'Fra 3.995 kr' },
-                { name: 'Fotografi', price: 'Fra 4.995 kr' },
-              ].map((addon, i) => (
+              {addons.map((addon, i) => (
                 <motion.div
                   key={i}
                   className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-colors"

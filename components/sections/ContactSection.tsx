@@ -4,10 +4,12 @@ import { motion } from 'motion/react'
 import { Mail, Phone, MapPin, ArrowRight, Linkedin } from 'lucide-react'
 import { useState } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 
 export function ContactSection() {
   const shouldReduceMotion = useReducedMotion()
   const dur = shouldReduceMotion ? 0 : 0.6
+  const t = useTranslations('contact')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,13 +42,13 @@ export function ContactSection() {
             transition={{ duration: dur }}
           >
             <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
-              Kontakt
+              {t('overline')}
             </span>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] tracking-tight mb-6">
-              Lad os tale.
+              {t('heading')}
             </h1>
             <p className="text-white/40 text-lg md:text-xl max-w-xl leading-relaxed">
-              Send os en besked eller ring direkte. Vi svarer inden for 24 timer.
+              {t('description')}
             </p>
           </motion.div>
         </div>
@@ -66,7 +68,7 @@ export function ContactSection() {
               <div className="space-y-10 mb-16">
                 <div>
                   <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
-                    Email
+                    {t('emailLabel')}
                   </span>
                   <a
                     href="mailto:kontakt@transparo.dk"
@@ -78,7 +80,7 @@ export function ContactSection() {
 
                 <div>
                   <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
-                    Telefon
+                    {t('phoneLabel')}
                   </span>
                   <a
                     href="tel:+4522471247"
@@ -90,17 +92,17 @@ export function ContactSection() {
 
                 <div>
                   <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
-                    Lokation
+                    {t('locationLabel')}
                   </span>
                   <p className="text-2xl md:text-3xl font-bold text-black">
-                    Hørsholm, Danmark
+                    {t('location')}
                   </p>
                 </div>
               </div>
 
               <div className="border-t border-black/[0.06] pt-10">
                 <p className="text-black/40 text-sm leading-relaxed max-w-md">
-                  Vi er et lille team, så du taler altid direkte med dem der bygger dit website. Ingen mellemled, ingen ventetid.
+                  {t('teamNote')}
                 </p>
               </div>
             </motion.div>
@@ -114,14 +116,14 @@ export function ContactSection() {
               {status === 'success' ? (
                 <div className="flex flex-col items-start justify-center h-full">
                   <div className="w-12 h-[2px] bg-gold mb-8" />
-                  <h3 className="text-3xl font-bold text-black mb-4">Tak for din besked</h3>
-                  <p className="text-black/40 text-lg">Vi vender tilbage hurtigst muligt.</p>
+                  <h3 className="text-3xl font-bold text-black mb-4">{t('thankYouTitle')}</h3>
+                  <p className="text-black/40 text-lg">{t('thankYouMessage')}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div>
                     <label className="text-black/40 text-xs uppercase tracking-[0.15em] block mb-3">
-                      Navn *
+                      {t('nameLabel')}
                     </label>
                     <input
                       type="text"
@@ -130,13 +132,13 @@ export function ContactSection() {
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full bg-transparent border-b border-black/10 focus:border-gold text-black py-3 text-lg outline-none transition-colors duration-300 placeholder:text-black/20"
-                      placeholder="Dit fulde navn"
+                      placeholder={t('namePlaceholder')}
                     />
                   </div>
 
                   <div>
                     <label className="text-black/40 text-xs uppercase tracking-[0.15em] block mb-3">
-                      Email *
+                      {t('emailFieldLabel')}
                     </label>
                     <input
                       type="email"
@@ -145,13 +147,13 @@ export function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full bg-transparent border-b border-black/10 focus:border-gold text-black py-3 text-lg outline-none transition-colors duration-300 placeholder:text-black/20"
-                      placeholder="din@email.dk"
+                      placeholder={t('emailPlaceholder')}
                     />
                   </div>
 
                   <div>
                     <label className="text-black/40 text-xs uppercase tracking-[0.15em] block mb-3">
-                      Telefon
+                      {t('phoneFieldLabel')}
                     </label>
                     <input
                       type="tel"
@@ -159,13 +161,13 @@ export function ContactSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full bg-transparent border-b border-black/10 focus:border-gold text-black py-3 text-lg outline-none transition-colors duration-300 placeholder:text-black/20"
-                      placeholder="+45 00 00 00 00"
+                      placeholder={t('phonePlaceholder')}
                     />
                   </div>
 
                   <div>
                     <label className="text-black/40 text-xs uppercase tracking-[0.15em] block mb-3">
-                      Besked *
+                      {t('messageLabel')}
                     </label>
                     <textarea
                       name="message"
@@ -174,12 +176,12 @@ export function ContactSection() {
                       onChange={handleChange}
                       rows={4}
                       className="w-full bg-transparent border-b border-black/10 focus:border-gold text-black py-3 text-lg outline-none transition-colors duration-300 resize-none placeholder:text-black/20"
-                      placeholder="Fortæl kort om dit projekt..."
+                      placeholder={t('messagePlaceholder')}
                     />
                   </div>
 
                   {status === 'error' && (
-                    <p className="text-red-600 text-sm">Der skete en fejl. Prøv venligst igen.</p>
+                    <p className="text-red-600 text-sm">{t('errorMessage')}</p>
                   )}
 
                   <button
@@ -187,14 +189,14 @@ export function ContactSection() {
                     disabled={status === 'submitting'}
                     className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 font-bold text-sm uppercase tracking-[0.15em] hover:bg-black/80 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === 'submitting' ? 'Sender...' : 'Send besked'}
+                    {status === 'submitting' ? t('submitting') : t('submitButton')}
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
                   <p className="text-black/30 text-xs">
-                    Ved at indsende accepterer du vores{' '}
+                    {t('privacyNote')}{' '}
                     <a href="/privatlivspolitik" className="text-gold hover:underline">
-                      privatlivspolitik
+                      {t('privacyLink')}
                     </a>
                     .
                   </p>
@@ -209,7 +211,7 @@ export function ContactSection() {
       <div className="px-6 md:px-12 py-8 border-t border-black/[0.06]">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           <p className="text-black/30 text-xs">
-            © {new Date().getFullYear()} Transparo. Alle rettigheder forbeholdes.
+            {t('copyright', { year: new Date().getFullYear() })}
           </p>
           <a
             href="https://www.linkedin.com/company/transparo"

@@ -5,31 +5,17 @@ import { Card } from '@/components/ui/Card'
 import { Quote } from 'lucide-react'
 import { motion } from 'motion/react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 export function SocialProofSection() {
-  const testimonials = [
-    {
-      quote: 'Endelig et webbureau der holder, hvad de lover.',
-      author: 'Kommende Kunde',
-      company: 'Dansk Virksomhed',
-      role: 'CEO',
-      image: null, // Placeholder for customer portrait
-    },
-    {
-      quote: 'Det føltes som at arbejde med nogen, der havde min ryg hele vejen.',
-      author: 'Kommende Kunde',
-      company: 'SMB Partner',
-      role: 'Marketing Chef',
-      image: null,
-    },
-    {
-      quote: 'Ingen skjulte overraskelser — kun klarhed og stærkt design.',
-      author: 'Kommende Kunde',
-      company: 'Startup Danmark',
-      role: 'Founder',
-      image: null,
-    },
-  ]
+  const t = useTranslations('socialProof')
+
+  const testimonials = t.raw('testimonials') as Array<{
+    quote: string
+    author: string
+    company: string
+    role: string
+  }>
 
   const mockups = [
     '/images/cases/mockup1.webp',
@@ -47,7 +33,9 @@ export function SocialProofSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-navy mb-6">
-            Kunder vælger os, fordi de kan <span className="text-gold">mærke forskellen</span>
+            {t.rich('heading', {
+              gold: (chunks) => <span className="text-gold">{chunks}</span>
+            })}
           </h2>
         </motion.div>
       </div>
@@ -64,27 +52,18 @@ export function SocialProofSection() {
           >
             <Card padding="lg" className="h-full relative flex flex-col">
               <Quote className="h-8 w-8 text-gold/20 absolute top-6 right-6" />
-              
+
               <div className="flex-grow">
                 <p className="text-lg text-black/80 mb-8 relative z-10 italic leading-relaxed">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
               </div>
 
               <div className="flex items-center gap-4 pt-6 border-t border-warmgray-light/20">
                 <div className="h-12 w-12 rounded-full bg-warmgray-light/30 flex items-center justify-center overflow-hidden relative">
-                  {testimonial.image ? (
-                     <Image 
-                       src={testimonial.image} 
-                       alt={testimonial.author}
-                       fill
-                       className="object-cover"
-                     />
-                  ) : (
-                    <span className="text-navy/40 font-bold text-sm">
-                      {testimonial.author.charAt(0)}
-                    </span>
-                  )}
+                  <span className="text-navy/40 font-bold text-sm">
+                    {testimonial.author.charAt(0)}
+                  </span>
                 </div>
                 <div>
                   <p className="font-display font-semibold text-navy text-sm">
@@ -125,7 +104,7 @@ export function SocialProofSection() {
              </motion.div>
            ))}
         </div>
-        
+
         {/* Decorative background elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gold/5 blur-[120px] -z-10 rounded-full pointer-events-none" />
       </div>
@@ -138,8 +117,7 @@ export function SocialProofSection() {
         className="text-center mt-20"
       >
         <p className="text-sm text-black/50 italic">
-          * Vi er et nyt bureau og arbejder på at opbygge vores case studies.
-          Rigtige testimonials kommer snart!
+          {t('disclaimer')}
         </p>
       </motion.div>
     </Section>

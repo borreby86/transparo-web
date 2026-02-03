@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { Package, commonAddOns } from './packageData';
 import { Button } from '@/components/ui/Button';
 import {
@@ -30,8 +31,38 @@ interface PackageDetailViewProps {
   pkg: Package;
 }
 
+interface PerfectForItem {
+  title: string;
+  description: string;
+}
+
+interface TimelineStepData {
+  day: string;
+  title: string;
+  description: string;
+}
+
+interface TestimonialData {
+  name: string;
+  company: string;
+  quote: string;
+}
+
+// Icon mapping for perfectFor items
+const perfectForIcons = [Lightbulb, Users, Briefcase];
+
+// Icon mapping for timeline steps
+const timelineIcons = [Lightbulb, Palette, FileCheck, Send];
+
+// Testimonial images (non-translatable)
+const testimonialImages = [
+  '/images/unsplash/package-1.webp',
+  '/images/unsplash/package-2.webp',
+];
+
 export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
   const shouldReduceMotion = useReducedMotion();
+  const t = useTranslations('packages.detailView');
   const isEssentials = pkg.slug === 'essentials';
 
   // Icon mapping for feature categories
@@ -42,48 +73,10 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
     'Service & Support': Shield,
   };
 
-  // Perfect For data for Essentials
-  const perfectFor = [
-    {
-      icon: Lightbulb,
-      title: 'Startups',
-      description: 'Lancér din første professionelle hjemmeside uden at sprænge budgettet',
-    },
-    {
-      icon: Users,
-      title: 'Freelancere',
-      description: 'Vis dine services frem med en elegant online tilstedeværelse',
-    },
-    {
-      icon: Briefcase,
-      title: 'Små virksomheder',
-      description: 'Tag skridtet fra Facebook til din egen professionelle platform',
-    },
-  ];
-
-  // Timeline steps for Essentials
-  const timelineSteps = [
-    { day: '1-2', title: 'Opdagelse', description: 'Vi lærer din virksomhed at kende', icon: Lightbulb },
-    { day: '3-6', title: 'Design & Udvikling', description: 'Vi bygger dit website', icon: Palette },
-    { day: '7-10', title: 'Gennemgang', description: 'Du giver feedback, vi finpudser', icon: FileCheck },
-    { day: '11-14', title: 'Lancering', description: 'Dit website går live!', icon: Send },
-  ];
-
-  // Testimonials for Essentials
-  const testimonials = [
-    {
-      name: 'Louise Kjær',
-      company: 'Sundhedskonsortiet',
-      quote: 'Perfekt til vores behov - professionelt resultat til en fair pris.',
-      image: '/images/unsplash/package-1.webp',
-    },
-    {
-      name: 'Thomas Kjeldsen',
-      company: 'VAT 85',
-      quote: 'Hurtig levering og præcis hvad vi havde brug for som startup.',
-      image: '/images/unsplash/package-2.webp',
-    },
-  ];
+  const perfectFor = t.raw('perfectFor') as PerfectForItem[];
+  const timelineSteps = t.raw('timelineSteps') as TimelineStepData[];
+  const testimonials = t.raw('testimonials') as TestimonialData[];
+  const trustItems = t.raw('trustItems') as string[];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-offwhite to-white">
@@ -113,11 +106,11 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
             transition={{ duration: 0.5 }}
           >
             <Link
-              href="/#pakker"
+              href="/pakker"
               className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors mb-8 sm:mb-12"
             >
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-sm sm:text-base font-medium">Tilbage til oversigt</span>
+              <span className="text-sm sm:text-base font-medium">{t('backLink')}</span>
             </Link>
           </motion.div>
 
@@ -132,7 +125,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                   transition={{ delay: 0.1 }}
                 >
                   <Star className="w-4 h-4 fill-current" />
-                  <span className="text-sm font-bold uppercase tracking-wider">Mest Populær</span>
+                  <span className="text-sm font-bold uppercase tracking-wider">{t('popularBadge')}</span>
                 </motion.div>
               )}
 
@@ -144,7 +137,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                   transition={{ delay: 0.1 }}
                 >
                   <Rocket className="w-4 h-4" />
-                  <span className="text-sm font-bold uppercase tracking-wider">Bedste Starter</span>
+                  <span className="text-sm font-bold uppercase tracking-wider">{t('bestStarter')}</span>
                 </motion.div>
               )}
 
@@ -177,7 +170,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 }}
                 >
-                  Alt du behøver for at komme online - hurtigt, professionelt og til en fair pris.
+                  {t('essentialsSubtext')}
                 </motion.p>
               )}
 
@@ -238,13 +231,13 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                     </span>
                     <span className="ml-2 sm:ml-3 text-lg sm:text-xl opacity-80">DKK</span>
                   </div>
-                  <p className="text-sm mt-2 opacity-80">Fast pris • Ingen skjulte gebyrer</p>
+                  <p className="text-sm mt-2 opacity-80">{t('fixedPrice')}</p>
                 </div>
 
                 {/* Delivery time */}
                 <div className="flex items-center space-x-2 mb-8 pb-8 border-b border-current/10">
                   <Clock className={`w-5 h-5 ${isEssentials ? 'text-cyan-600' : 'opacity-70'}`} />
-                  <span className="font-medium">Levering: {pkg.duration}</span>
+                  <span className="font-medium">{t('deliveryLabel', { duration: pkg.duration })}</span>
                 </div>
 
                 {/* CTAs */}
@@ -258,25 +251,25 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                       isEssentials ? 'bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700' : ''
                     }`}
                   >
-                    <span>Book et møde</span>
+                    <span>{t('bookMeeting')}</span>
                     <ArrowRight className="w-5 h-5" />
                   </Button>
 
                   <Button
-                    href="/packages/compare"
+                    href="/pakker"
                     variant="outline"
                     size="md"
                     fullWidth
                   >
-                    Sammenlign alle pakker
+                    {t('compareAll')}
                   </Button>
                 </div>
 
                 {/* Trust indicators */}
                 <div className="mt-8 pt-8 border-t border-current/10 space-y-2">
-                  <p className="text-sm opacity-80">✓ 100% dansk support</p>
-                  <p className="text-sm opacity-80">✓ Ingen binding</p>
-                  <p className="text-sm opacity-80">✓ Fuld ejendomsret</p>
+                  {trustItems.map((item, i) => (
+                    <p key={i} className="text-sm opacity-80">{'\u2713'} {item}</p>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -295,16 +288,16 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
               viewport={{ once: true }}
             >
               <span className="inline-block text-cyan-600 text-sm font-bold uppercase tracking-[0.3em] mb-4">
-                Perfekt til dig
+                {t('perfectForLabel')}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-navy">
-                Hvem er Essentials til?
+                {t('perfectForHeading')}
               </h2>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {perfectFor.map((item, i) => {
-                const Icon = item.icon;
+                const Icon = perfectForIcons[i] || Lightbulb;
                 return (
                   <motion.div
                     key={i}
@@ -344,10 +337,10 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
               viewport={{ once: true }}
             >
               <span className="inline-block text-cyan-400 text-sm font-bold uppercase tracking-[0.3em] mb-4">
-                Din rejse
+                {t('timelineLabel')}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold">
-                Fra idé til lancering på <span className="text-cyan-400">14 dage</span>
+                {t('timelineHeading', { days: t('timelineDays') })}
               </h2>
             </motion.div>
 
@@ -357,7 +350,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
 
               <div className="grid md:grid-cols-4 gap-8">
                 {timelineSteps.map((step, i) => {
-                  const Icon = step.icon;
+                  const Icon = timelineIcons[i] || Lightbulb;
                   return (
                     <motion.div
                       key={i}
@@ -372,7 +365,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                         <Icon className="w-8 h-8 text-white" />
                       </div>
 
-                      <div className="text-cyan-400 font-bold text-sm mb-2">Dag {step.day}</div>
+                      <div className="text-cyan-400 font-bold text-sm mb-2">{t('dayLabel', { day: step.day })}</div>
                       <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                       <p className="text-white/70 text-sm">{step.description}</p>
                     </motion.div>
@@ -394,10 +387,10 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy mb-4">
-              Alt der er inkluderet
+              {t('featuresHeading')}
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-warmgray max-w-3xl mx-auto">
-              Få en komplet løsning med alt hvad din virksomhed har brug for
+              {t('featuresSubtitle')}
             </p>
           </motion.div>
 
@@ -492,10 +485,10 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
               viewport={{ once: true }}
             >
               <span className="inline-block text-cyan-600 text-sm font-bold uppercase tracking-[0.3em] mb-4">
-                Social proof
+                {t('testimonialsLabel')}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy">
-                Hvad vores kunder siger
+                {t('testimonialsHeading')}
               </h2>
             </motion.div>
 
@@ -513,7 +506,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                   <p className="text-lg text-navy mb-6 italic">&ldquo;{testimonial.quote}&rdquo;</p>
                   <div className="flex items-center space-x-4">
                     <img
-                      src={testimonial.image}
+                      src={testimonialImages[i] || testimonialImages[0]}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover"
                     />
@@ -534,7 +527,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
               viewport={{ once: true }}
             >
               <p className="text-warmgray">
-                Slut dig til <span className="text-cyan-600 font-bold">50+ tilfredse kunder</span> der har valgt Essentials
+                {t('statsPrefix')} <span className="text-cyan-600 font-bold">{t('statsHighlight')}</span> {t('statsSuffix')}
               </p>
             </motion.div>
           </div>
@@ -551,10 +544,10 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl lg:text-4xl font-display font-bold text-navy mb-4">
-              Udvid med tilkøb
+              {t('addonsHeading')}
             </h2>
             <p className="text-lg text-warmgray">
-              Tilpas din pakke med præcis de services du har brug for
+              {t('addonsSubtitle')}
             </p>
           </motion.div>
 
@@ -597,10 +590,10 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-6xl font-display font-bold mb-6">
-              Klar til at komme i gang?
+              {t('ctaHeading')}
             </h2>
             <p className="text-xl mb-12 opacity-90">
-              Book et uforpligtende møde og lad os tale om din vision
+              {t('ctaSubtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -610,7 +603,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                 size="lg"
                 className="inline-flex items-center space-x-2"
               >
-                <span>Book møde nu</span>
+                <span>{t('ctaBookMeeting')}</span>
                 <ArrowRight className="w-5 h-5" />
               </Button>
 
@@ -620,7 +613,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                 size="lg"
                 className="border-white text-white hover:bg-white hover:text-navy"
               >
-                Se vores arbejde
+                {t('ctaSeeWork')}
               </Button>
             </div>
           </motion.div>

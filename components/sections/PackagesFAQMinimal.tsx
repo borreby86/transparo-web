@@ -3,47 +3,19 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Plus, Minus } from 'lucide-react'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 interface FAQ {
   question: string
   answer: string
 }
 
-const faqs: FAQ[] = [
-  {
-    question: 'Kan jeg opgradere min pakke senere?',
-    answer:
-      'Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner.'
-  },
-  {
-    question: 'Hvad er præcis inkluderet i hver pakke?',
-    answer:
-      'Hver pakke inkluderer forskellige antal sider, funktioner og support. Alle pakker inkluderer: Mobil-responsive design, Payload CMS, Next.js, og SEO.'
-  },
-  {
-    question: 'Hvor lang tid tager hver pakke at bygge?',
-    answer:
-      'Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Fra projektstart til lancering.'
-  },
-  {
-    question: 'Hvad sker der efter de inkluderede revisionsrunder?',
-    answer:
-      'Efter revisionsrunderne koster ændringer ekstra (995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep.'
-  },
-  {
-    question: 'Er der løbende omkostninger efter lancering?',
-    answer:
-      'Hosting: 150-300 kr/måned. Domæne: ca. 100 kr/år. Vedligeholdelse: fra 1.995 kr/måned (valgfrit).'
-  },
-  {
-    question: 'Hvad er jeres garanti mod scope creep?',
-    answer:
-      'Strukturerede revisionsrunder med klare sign-off punkter. Efter godkendelse koster ændringer ekstra. 0% scope creep garanti.'
-  }
-]
-
 export function PackagesFAQMinimal() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const t = useTranslations('packages.faqMinimal')
+
+  const faqs = t.raw('items') as FAQ[]
 
   return (
     <section className="bg-white px-6 md:px-12 py-24 md:py-32">
@@ -51,7 +23,7 @@ export function PackagesFAQMinimal() {
         {/* Header - Minimal */}
         <div className="mb-16 md:mb-20">
           <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-navy mb-4">
-            Ofte stillede spørgsmål
+            {t('title')}
           </h2>
         </div>
 
@@ -106,14 +78,14 @@ export function PackagesFAQMinimal() {
         {/* Simple CTA */}
         <div className="mt-16 md:mt-20 pt-16 md:pt-20 border-t border-gray-100 text-center">
           <p className="text-lg text-navy/60 mb-6">
-            Har du andre spørgsmål?
+            {t('bottomQuestion')}
           </p>
-          <a
+          <Link
             href="/kontakt"
             className="inline-block px-8 py-4 bg-navy text-white font-semibold hover:bg-navy/90 transition-colors"
           >
-            Kontakt os
-          </a>
+            {t('contactButton')}
+          </Link>
         </div>
       </div>
     </section>

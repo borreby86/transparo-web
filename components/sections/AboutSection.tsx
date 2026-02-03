@@ -2,25 +2,27 @@
 
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-
-const team = [
-  {
-    name: 'Dennis Enghave',
-    role: 'Udvikler',
-    image: '/images/team/dennis.jpg',
-    bio: 'Dennis bygger det hele. Han sørger for, at dit website er hurtigt, sikkert og kodet fra bunden — ingen genveje.',
-  },
-  {
-    name: 'Christina Borreby',
-    role: 'Design & Strategi',
-    image: '/images/team/christina.png',
-    bio: 'Christina sikrer, at dit website ser rigtigt ud og taler til de rigtige. Hun styrer proces, design og kundekontakt.',
-  },
-]
 
 export function AboutSection() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('about')
+
+  const team = [
+    {
+      name: t('team.0.name'),
+      role: t('team.0.role'),
+      image: '/images/team/dennis.jpg',
+      bio: t('team.0.bio'),
+    },
+    {
+      name: t('team.1.name'),
+      role: t('team.1.role'),
+      image: '/images/team/christina.jpg',
+      bio: t('team.1.bio'),
+    },
+  ]
 
   return (
     <section className="bg-white py-24 md:py-32 overflow-hidden">
@@ -36,21 +38,24 @@ export function AboutSection() {
             transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
           >
             <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
-              Om os
+              {t('overline')}
             </span>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05] tracking-tight mb-8">
-              To mennesker.
+              {t('headingLine1')}
               <br />
-              <span className="text-navy/40">Ét mål.</span>
+              <span className="text-navy/40">{t('headingLine2')}</span>
             </h2>
 
             <div className="space-y-4 text-black/50 text-base md:text-lg leading-relaxed">
               <p>
-                Transparo er os to. Vi startede bureauet, fordi vi selv har oplevet, hvor frustrerende det kan være at købe en hjemmeside — uklare priser, manglende kommunikation og et resultat der ikke ligner det, man blev lovet.
+                {t('descriptions.0')}
               </p>
               <p>
-                Vi gør det anderledes. Du får én fast pris, en proces du kan følge med i, og et website du rent faktisk er stolt af.
+                {t('descriptions.1')}
+              </p>
+              <p>
+                {t('descriptions.2')}
               </p>
             </div>
           </motion.div>
@@ -67,13 +72,13 @@ export function AboutSection() {
                 className="flex items-start gap-6"
               >
                 {/* Photo */}
-                <div className="relative w-24 h-24 md:w-28 md:h-28 flex-shrink-0 overflow-hidden">
+                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl flex-shrink-0 overflow-hidden">
                   <Image
                     src={person.image}
                     alt={person.name}
                     fill
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                    sizes="112px"
+                    sizes="144px"
                   />
                 </div>
 

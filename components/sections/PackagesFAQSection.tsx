@@ -3,57 +3,19 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Plus, Minus } from 'lucide-react'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 interface FAQ {
   question: string
   answer: string
 }
 
-const faqs: FAQ[] = [
-  {
-    question: 'Kan jeg opgradere min pakke senere?',
-    answer:
-      'Ja, absolut! Du kan altid opgradere til en højere pakke. Vi beregner differenceprisen og tilføjer de ekstra funktioner. Downgrade er også muligt, men vi anbefaler at vælge den rigtige pakke fra start for at undgå ekstra arbejde.'
-  },
-  {
-    question: 'Hvad er præcis inkluderet i hver pakke?',
-    answer:
-      'Hver pakke inkluderer forskellige antal sider, funktioner og support. Se vores sammenligningsmatrix ovenfor for en detaljeret oversigt. Alle pakker inkluderer dog: Mobil-responsive design, Payload CMS, moderne teknologi stack (Next.js), og basis SEO.'
-  },
-  {
-    question: 'Hvor lang tid tager hver pakke at bygge?',
-    answer:
-      'Essentials: 10-14 dage. Professional: 14-21 dage. Business: 21-28 dage. Dette er fra projektstart til lancering. Timelines kan tilpasses efter dine behov, men hurtigere levering kan påvirke pris.'
-  },
-  {
-    question: 'Hvad sker der efter de inkluderede revisionsrunder?',
-    answer:
-      'Essentials inkluderer 2 revisionsrunder, Professional 3, og Business 4. Efter disse runder koster ændringer ekstra (typisk 995 DKK/time). Dette sikrer projektet bliver færdigt og forhindrer scope creep.'
-  },
-  {
-    question: 'Kan jeg tilføje ekstra funktioner til min pakke?',
-    answer:
-      'Ja! Vi tilbyder flere tilkøb: Ekstra sider (1.495 kr/side), E-mail opsætning (2.995 kr), Copywriting (fra 3.995 kr), og Fotografi (fra 4.995 kr). Kontakt os for andre specialfunktioner.'
-  },
-  {
-    question: 'Hvad hvis jeg har brug for noget der ikke er i nogen pakke?',
-    answer:
-      'Vi tilbyder custom løsninger! Kontakt os, så laver vi et skræddersyet tilbud baseret på dine behov. Vi kan bygge alt fra komplekse web-apps til specialiserede integrationer.'
-  },
-  {
-    question: 'Er der løbende omkostninger efter lancering?',
-    answer:
-      'Hosting koster typisk 150-300 kr/måned (via Vercel eller lignende). Domæne er ca. 100 kr/år. Vi tilbyder også vedligeholdelsesaftaler fra 1.995 kr/måned hvis du ønsker løbende support og opdateringer.'
-  },
-  {
-    question: 'Hvad er jeres garanti mod scope creep?',
-    answer:
-      'Vi bruger strukturerede revisionsrunder med klare sign-off punkter. Efter design-godkendelse koster ændringer ekstra. Dette sikrer projektet bliver færdigt til tiden og til den aftalte pris. 0% scope creep garanti.'
-  }
-]
-
 export function PackagesFAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const t = useTranslations('packages.faq')
+
+  const faqs = t.raw('items') as FAQ[]
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -71,10 +33,10 @@ export function PackagesFAQSection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-navy mb-6">
-              Ofte stillede <span className="text-gold">spørgsmål</span>
+              {t('title')} <span className="text-gold">{t('titleAccent')}</span>
             </h2>
             <p className="text-lg sm:text-xl text-black/70">
-              Alt du skal vide om vores pakker
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -140,14 +102,14 @@ export function PackagesFAQSection() {
           className="text-center mt-12 md:mt-16"
         >
           <p className="text-lg text-black/70 mb-4">
-            Har du andre spørgsmål?
+            {t('bottomQuestion')}
           </p>
-          <a
+          <Link
             href="/kontakt"
             className="inline-block bg-navy text-white px-8 py-4 rounded-full font-semibold hover:bg-navy/90 transition-all shadow-lg hover:shadow-xl"
           >
-            Kontakt os
-          </a>
+            {t('contactButton')}
+          </Link>
         </motion.div>
       </div>
     </section>

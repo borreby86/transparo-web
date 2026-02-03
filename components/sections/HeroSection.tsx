@@ -3,9 +3,12 @@
 import { motion, AnimatePresence } from 'motion/react'
 import { useState, useEffect } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
 import Image from 'next/image'
 
 export function HeroSection() {
+  const t = useTranslations('hero')
   const shouldReduceMotion = useReducedMotion()
   const word = 'transparo.'
   const [displayedText, setDisplayedText] = useState('')
@@ -95,11 +98,11 @@ export function HeroSection() {
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight">
               <span className="text-white">
-                Hjemmesider der performer
+                {t('headlinePart1')}
               </span>
               <br />
               <span className="text-gold">
-                – og holder i fremtiden
+                {t('headlinePart2')}
               </span>
             </h1>
           </motion.div>
@@ -116,7 +119,7 @@ export function HeroSection() {
             }}
           >
             <p className="text-lg sm:text-xl md:text-2xl text-white/50 leading-relaxed max-w-2xl mx-auto">
-              Fast pris. Tydelig proces. Ingen overraskelser.
+              {t('subtitle')}
             </p>
           </motion.div>
 
@@ -131,22 +134,28 @@ export function HeroSection() {
               ease: [0.16, 1, 0.3, 1]
             }}
           >
-            <motion.a
-              href="/cases"
-              className="inline-block px-10 py-4 bg-white text-black font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
+            <motion.div
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
-              Se portfolio
-            </motion.a>
-            <motion.a
-              href="/prisberegner"
-              className="inline-block px-10 py-4 border border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-colors duration-300"
+              <Link
+                href="/cases"
+                className="inline-block px-10 py-4 bg-white text-black font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
+              >
+                {t('ctaPortfolio')}
+              </Link>
+            </motion.div>
+            <motion.div
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
-              Beregn din pris
-            </motion.a>
+              <Link
+                href="/prisberegner"
+                className="inline-block px-10 py-4 border border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-colors duration-300"
+              >
+                {t('ctaPricing')}
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>

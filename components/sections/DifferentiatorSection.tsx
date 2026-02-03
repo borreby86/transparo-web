@@ -4,40 +4,19 @@ import { Section } from '@/components/ui/Section'
 import { Card } from '@/components/ui/Card'
 import { Shield, Zap, DollarSign } from 'lucide-react'
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
 export function DifferentiatorSection() {
-  const differentiators = [
-    {
-      icon: Shield,
-      title: 'Zero Scope Creep Garanti',
-      description:
-        '73% af webdesign-projekter oplever scope creep—hvor projektet bare fortsætter uden klart slutpunkt.',
-      solution:
-        'Vores løsning: Strukturerede revisionsrunder (2-4 alt efter pakke) med klare sign-off punkter. Efter design godkendelse koster ændringer ekstra. Klare grænser = projekter der faktisk bliver færdige.',
-      stat: '0%',
-      statLabel: 'scope creep',
-    },
-    {
-      icon: Zap,
-      title: 'AI + Ekspert Hybrid Model',
-      description:
-        'Vi bruger AI-værktøjer til effektivitet—research, content drafts, kodestruktur.',
-      solution:
-        'Men eksperter perfektionerer alt. Resultatet: Bureau-kvalitet leveret 3-5x hurtigere end traditionelle bureauer (2-4 uger vs. 8-16 uger). Du får det bedste fra begge verdener.',
-      stat: '3-5x',
-      statLabel: 'hurtigere',
-    },
-    {
-      icon: DollarSign,
-      title: 'Fast Pris, Fuld Transparens',
-      description:
-        'Ingen "bare lige én ting mere" opkrævninger. Ingen skjulte omkostninger.',
-      solution:
-        'Vores løfte: Én pris. Alt er inkluderet. Du ved præcis hvad du får, og hvad det koster, før vi starter. Transparens skaber tillid—det er kernen i vores forretningsmodel.',
-      stat: '100%',
-      statLabel: 'transparent',
-    },
-  ]
+  const t = useTranslations('differentiator')
+
+  const icons = [Shield, Zap, DollarSign]
+  const items = t.raw('items') as Array<{
+    title: string
+    description: string
+    solution: string
+    stat: string
+    statLabel: string
+  }>
 
   return (
     <Section id="differentiators" background="navy" spacing="xl">
@@ -49,18 +28,19 @@ export function DifferentiatorSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-4">
-            Hvorfor Vælge <span className="text-gold">Transparo?</span>
+            {t.rich('heading', {
+              gold: (chunks) => <span className="text-gold">{chunks}</span>
+            })}
           </h2>
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
-            Vi løser de tre største problemer med traditionelle webdesign
-            bureauer
+            {t('subheading')}
           </p>
         </motion.div>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {differentiators.map((diff, index) => {
-          const Icon = diff.icon
+        {items.map((diff, index) => {
+          const Icon = icons[index]
           return (
             <motion.div
               key={index}

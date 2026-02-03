@@ -3,6 +3,8 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
 import {
   Check,
   ArrowRight,
@@ -24,171 +26,47 @@ type WebsiteType = 'landing' | 'business' | 'large'
 type DesignLevel = 'standard' | 'premium'
 type Timeline = 'standard' | 'express'
 
-interface Feature {
-  id: string
-  label: string
-  description: string
-  price: number
-  icon: React.ReactNode
-  included?: boolean
+// ─── Config (non-translatable) ──────────────────────────────────────────────
+
+const BASE_PRICES: Record<WebsiteType, number> = {
+  landing: 8995,
+  business: 16995,
+  large: 27995,
 }
 
-// ─── Config ──────────────────────────────────────────────────────────────────
+const FEATURE_PRICES: Record<string, number> = {
+  contact: 0,
+  social: 0,
+  seo: 2000,
+  blog: 2500,
+  cms: 3000,
+  booking: 2500,
+  multilang: 3000,
+  newsletter: 1500,
+}
 
-const WEBSITE_TYPES = [
-  {
-    id: 'landing' as WebsiteType,
-    label: 'Landingsside',
-    description: '1 side - perfekt til kampagner eller lancering',
-    basePrice: 8995,
-    pages: '1 side',
-    number: '01',
-    details: [
-      'Responsivt design til alle enheder',
-      'Kontaktformular med validering',
-      'Hastigheds-optimeret (90+ Lighthouse)',
-      'SEO-grundopsætning',
-      'SSL-certifikat inkluderet',
-      'Google Analytics integration',
-    ],
-  },
-  {
-    id: 'business' as WebsiteType,
-    label: 'Virksomhedssite',
-    description: '3-5 sider - den klassiske virksomhedsprofil',
-    basePrice: 16995,
-    pages: '3-5 sider',
-    number: '02',
-    details: [
-      'Alt fra Landingsside',
-      'Op til 5 undersider',
-      'Blog-mulighed',
-      'Avanceret SEO-setup med meta tags',
-      'Social medie-integration',
-      'Interaktive elementer og animationer',
-      'Content Management System (CMS)',
-    ],
-  },
-  {
-    id: 'large' as WebsiteType,
-    label: 'Større website',
-    description: '6-10 sider - til virksomheder med mere indhold',
-    basePrice: 27995,
-    pages: '6-10 sider',
-    number: '03',
-    details: [
-      'Alt fra Virksomhedssite',
-      'Op til 10 undersider',
-      'Avanceret CMS med multi-collections',
-      'Custom funktioner og integrationer',
-      'Avancerede animationer og transitions',
-      'Flersproget understøttelse mulig',
-      'Prioriteret support i 3 måneder',
-      'Performance-optimering og caching',
-    ],
-  },
-]
+const INCLUDED_FEATURES = ['contact', 'social']
 
-const FEATURES: Feature[] = [
-  {
-    id: 'contact',
-    label: 'Kontaktformular',
-    description: 'Professionel kontaktformular med validering',
-    price: 0,
-    icon: <Mail className="w-4 h-4" />,
-    included: true,
-  },
-  {
-    id: 'social',
-    label: 'Social medie-integration',
-    description: 'Links og feeds fra sociale medier',
-    price: 0,
-    icon: <Send className="w-4 h-4" />,
-    included: true,
-  },
-  {
-    id: 'seo',
-    label: 'SEO-optimering',
-    description: 'Teknisk SEO, meta tags og struktureret data',
-    price: 2000,
-    icon: <Search className="w-4 h-4" />,
-  },
-  {
-    id: 'blog',
-    label: 'Blog / Nyheder',
-    description: 'Blogsektion med kategorier og arkiv',
-    price: 2500,
-    icon: <BookOpen className="w-4 h-4" />,
-  },
-  {
-    id: 'cms',
-    label: 'CMS (selv-redigering)',
-    description: 'Payload CMS så du selv kan opdatere indhold',
-    price: 3000,
-    icon: <PenTool className="w-4 h-4" />,
-  },
-  {
-    id: 'booking',
-    label: 'Booking-system',
-    description: 'Online tidsbestilling integreret i sitet',
-    price: 2500,
-    icon: <CalendarCheck className="w-4 h-4" />,
-  },
-  {
-    id: 'multilang',
-    label: 'Flersproget (DK/EN)',
-    description: 'Fuld oversættelse med sprogskifter',
-    price: 3000,
-    icon: <Languages className="w-4 h-4" />,
-  },
-  {
-    id: 'newsletter',
-    label: 'Nyhedsbrev-integration',
-    description: 'Mailchimp, Brevo eller lignende integration',
-    price: 1500,
-    icon: <Mail className="w-4 h-4" />,
-  },
-]
+const FEATURE_ICONS: Record<string, React.ReactNode> = {
+  contact: <Mail className="w-4 h-4" />,
+  social: <Send className="w-4 h-4" />,
+  seo: <Search className="w-4 h-4" />,
+  blog: <BookOpen className="w-4 h-4" />,
+  cms: <PenTool className="w-4 h-4" />,
+  booking: <CalendarCheck className="w-4 h-4" />,
+  multilang: <Languages className="w-4 h-4" />,
+  newsletter: <Mail className="w-4 h-4" />,
+}
 
-const DESIGN_LEVELS = [
-  {
-    id: 'standard' as DesignLevel,
-    label: 'Standard',
-    description: 'Rent, professionelt design der dækker de flestes behov. Du kan altid opgradere til Premium senere.',
-    badge: 'Anbefalet',
-    price: 0,
-  },
-  {
-    id: 'premium' as DesignLevel,
-    label: 'Premium',
-    description: 'Til dig der vil have det ekstra. Custom animationer, avancerede hover-effekter og unik branding ned i mindste detalje.',
-    badge: null,
-    price: 5000,
-  },
-]
+const DESIGN_PRICES: Record<DesignLevel, number> = {
+  standard: 0,
+  premium: 5000,
+}
 
-const TIMELINES = [
-  {
-    id: 'standard' as Timeline,
-    label: 'Standard levering',
-    description: '2-4 uger - vores normale leveringstid',
-    multiplier: 1,
-  },
-  {
-    id: 'express' as Timeline,
-    label: 'Express levering',
-    description: '1-2 uger - prioriteret behandling',
-    multiplier: 1.25,
-  },
-]
-
-const STEPS = [
-  { title: 'Website-type', subtitle: 'Hvad har du brug for?' },
-  { title: 'Funktioner', subtitle: 'Vælg de features du ønsker' },
-  { title: 'Design-niveau', subtitle: 'Hvor unik skal din side være?' },
-  { title: 'Tidslinje', subtitle: 'Hvornår skal det være klar?' },
-  { title: 'Dit estimat', subtitle: 'Her er din cirka-pris' },
-]
+const TIMELINE_MULTIPLIERS: Record<Timeline, number> = {
+  standard: 1,
+  express: 1.25,
+}
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -196,14 +74,7 @@ function formatPrice(price: number): string {
   return price.toLocaleString('da-DK')
 }
 
-function getRecommendedPackage(total: number): { name: string; match: string } {
-  if (total <= 12000) return { name: 'Essentials', match: 'Vores Essentials-pakke passer godt til dit behov' }
-  if (total <= 22000) return { name: 'Professional', match: 'Vores Professional-pakke er et godt match' }
-  return { name: 'Business', match: 'Vores Business-pakke dækker alt du har brug for' }
-}
-
 function getTraditionalPrice(price: number): number {
-  // Traditional agencies typically charge 2.5-3x — round to nearest 1000 for credibility
   return Math.ceil((price * 2.8) / 1000) * 1000
 }
 
@@ -211,6 +82,8 @@ function getTraditionalPrice(price: number): number {
 
 export function PriceCalculator() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('priceCalculator')
+
   const [currentStep, setCurrentStep] = useState(0)
   const [websiteType, setWebsiteType] = useState<WebsiteType | null>(null)
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>(['contact', 'social'])
@@ -223,10 +96,17 @@ export function PriceCalculator() {
   const [contactName, setContactName] = useState('')
   const [contactEmail, setContactEmail] = useState('')
 
+  // Load translated data
+  const websiteTypes = t.raw('websiteTypes') as Array<{ id: WebsiteType; label: string; description: string; pages: string; number: string; details: string[] }>
+  const features = t.raw('features') as Array<{ id: string; label: string; description: string; included?: boolean }>
+  const designLevels = t.raw('designLevels') as Array<{ id: DesignLevel; label: string; description: string; badge: string | null }>
+  const timelines = t.raw('timelines') as Array<{ id: Timeline; label: string; description: string }>
+  const steps = t.raw('steps') as Array<{ title: string; subtitle: string }>
+
   const canProceed = useMemo(() => {
     switch (currentStep) {
       case 0: return websiteType !== null
-      case 1: return true // features are optional
+      case 1: return true
       case 2: return designLevel !== null
       case 3: return timeline !== null
       default: return true
@@ -236,26 +116,25 @@ export function PriceCalculator() {
   const totalPrice = useMemo(() => {
     if (!websiteType || !designLevel || !timeline) return 0
 
-    const base = WEBSITE_TYPES.find(t => t.id === websiteType)!.basePrice
-    const featuresCost = FEATURES
-      .filter(f => selectedFeatures.includes(f.id) && !f.included)
-      .reduce((sum, f) => sum + f.price, 0)
-    const design = DESIGN_LEVELS.find(d => d.id === designLevel)!.price
-    const timelineMultiplier = TIMELINES.find(t => t.id === timeline)!.multiplier
+    const base = BASE_PRICES[websiteType]
+    const featuresCost = Object.entries(FEATURE_PRICES)
+      .filter(([id]) => selectedFeatures.includes(id) && !INCLUDED_FEATURES.includes(id))
+      .reduce((sum, [, price]) => sum + price, 0)
+    const design = DESIGN_PRICES[designLevel]
+    const timelineMultiplier = TIMELINE_MULTIPLIERS[timeline]
 
     return Math.round((base + featuresCost + design) * timelineMultiplier)
   }, [websiteType, selectedFeatures, designLevel, timeline])
 
   const toggleFeature = (id: string) => {
-    const feature = FEATURES.find(f => f.id === id)
-    if (feature?.included) return
+    if (INCLUDED_FEATURES.includes(id)) return
     setSelectedFeatures(prev =>
       prev.includes(id) ? prev.filter(f => f !== id) : [...prev, id]
     )
   }
 
   const next = () => {
-    if (canProceed && currentStep < STEPS.length - 1) {
+    if (canProceed && currentStep < steps.length - 1) {
       setCurrentStep(prev => prev + 1)
     }
   }
@@ -276,11 +155,17 @@ export function PriceCalculator() {
           transition: { duration: 0.4, delay, ease: [0.16, 1, 0.3, 1] as const },
         }
 
+  function getRecommendedPackage(total: number): { name: string; match: string } {
+    if (total <= 12000) return { name: 'Essentials', match: t('result.recommendations.essentials') }
+    if (total <= 22000) return { name: 'Professional', match: t('result.recommendations.professional') }
+    return { name: 'Business', match: t('result.recommendations.business') }
+  }
+
   // ─── Render Steps ────────────────────────────────────────────────────────
 
   const renderWebsiteType = () => (
     <motion.div className="grid gap-5 md:gap-6" {...motionProps()}>
-      {WEBSITE_TYPES.map((type, i) => (
+      {websiteTypes.map((type, i) => (
         <motion.div
           key={type.id}
           className="group"
@@ -298,7 +183,6 @@ export function PriceCalculator() {
               className="w-full text-left p-7 md:p-9"
             >
               <div className="flex items-start gap-5 md:gap-7">
-                {/* Number instead of icon */}
                 <span className={`font-serif text-3xl md:text-4xl font-light leading-none transition-colors duration-300 ${
                   websiteType === type.id ? 'text-gold' : 'text-black/15 group-hover:text-gold/50'
                 }`}>
@@ -316,7 +200,7 @@ export function PriceCalculator() {
                   <p className="text-sm md:text-base text-warmgray mb-2">{type.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm md:text-base font-bold text-gold">
-                      fra {formatPrice(type.basePrice)} DKK
+                      {t('result.from')} {formatPrice(BASE_PRICES[type.id])} {t('result.currency')}
                     </span>
                     <button
                       onClick={(e) => {
@@ -325,7 +209,7 @@ export function PriceCalculator() {
                       }}
                       className="flex items-center gap-1.5 text-xs font-medium text-gold/60 hover:text-gold transition-colors"
                     >
-                      <span>Hvad er inkluderet?</span>
+                      <span>{t('whatsIncluded')}</span>
                       <motion.span
                         animate={{ rotate: expandedType === type.id ? 180 : 0 }}
                         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -369,55 +253,58 @@ export function PriceCalculator() {
 
   const renderFeatures = () => (
     <motion.div className="grid gap-4 md:gap-5 sm:grid-cols-2" {...motionProps()}>
-      {FEATURES.map((feature, i) => (
-        <motion.button
-          key={feature.id}
-          onClick={() => toggleFeature(feature.id)}
-          className={`group relative text-left p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
-            selectedFeatures.includes(feature.id)
-              ? feature.included
-                ? 'border-gold/20 bg-gold/[0.03]'
-                : 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
-              : 'border-black/[0.06] bg-white hover:border-gold/30 hover:shadow-md'
-          } ${feature.included ? 'cursor-default' : ''}`}
-          {...motionProps(i * 0.05)}
-          whileHover={shouldReduceMotion || feature.included ? {} : { y: -2 }}
-          whileTap={shouldReduceMotion || feature.included ? {} : { scale: 0.98 }}
-        >
-          <div className="flex items-start gap-4">
-            <div className={`p-2.5 rounded-xl transition-all duration-300 ${
+      {features.map((feature, i) => {
+        const isIncluded = INCLUDED_FEATURES.includes(feature.id)
+        return (
+          <motion.button
+            key={feature.id}
+            onClick={() => toggleFeature(feature.id)}
+            className={`group relative text-left p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
               selectedFeatures.includes(feature.id)
-                ? 'bg-gradient-to-br from-gold/20 to-gold/5 text-gold'
-                : 'bg-black/[0.03] text-black/20 group-hover:text-gold/60 group-hover:bg-gold/[0.06]'
-            }`}>
-              {feature.icon}
-            </div>
-            <div className="flex-1 min-w-0 pr-5">
-              <h4 className="font-bold text-black text-sm md:text-base mb-1">{feature.label}</h4>
-              <p className="text-xs md:text-sm text-warmgray leading-relaxed mb-2">{feature.description}</p>
-              <span className={`text-xs md:text-sm font-bold ${
-                feature.included ? 'text-gold/50' : 'text-gold'
+                ? isIncluded
+                  ? 'border-gold/20 bg-gold/[0.03]'
+                  : 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
+                : 'border-black/[0.06] bg-white hover:border-gold/30 hover:shadow-md'
+            } ${isIncluded ? 'cursor-default' : ''}`}
+            {...motionProps(i * 0.05)}
+            whileHover={shouldReduceMotion || isIncluded ? {} : { y: -2 }}
+            whileTap={shouldReduceMotion || isIncluded ? {} : { scale: 0.98 }}
+          >
+            <div className="flex items-start gap-4">
+              <div className={`p-2.5 rounded-xl transition-all duration-300 ${
+                selectedFeatures.includes(feature.id)
+                  ? 'bg-gradient-to-br from-gold/20 to-gold/5 text-gold'
+                  : 'bg-black/[0.03] text-black/20 group-hover:text-gold/60 group-hover:bg-gold/[0.06]'
               }`}>
-                {feature.included ? 'Inkluderet' : `+${formatPrice(feature.price)} DKK`}
-              </span>
+                {FEATURE_ICONS[feature.id]}
+              </div>
+              <div className="flex-1 min-w-0 pr-5">
+                <h4 className="font-bold text-black text-sm md:text-base mb-1">{feature.label}</h4>
+                <p className="text-xs md:text-sm text-warmgray leading-relaxed mb-2">{feature.description}</p>
+                <span className={`text-xs md:text-sm font-bold ${
+                  isIncluded ? 'text-gold/50' : 'text-gold'
+                }`}>
+                  {isIncluded ? t('included') : `+${formatPrice(FEATURE_PRICES[feature.id])} ${t('result.currency')}`}
+                </span>
+              </div>
             </div>
-          </div>
-          {/* Checkmark */}
-          <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
-            selectedFeatures.includes(feature.id)
-              ? 'border-gold bg-gold'
-              : 'border-black/10'
-          }`}>
-            {selectedFeatures.includes(feature.id) && <Check className="w-3 h-3 text-white" />}
-          </div>
-        </motion.button>
-      ))}
+            {/* Checkmark */}
+            <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+              selectedFeatures.includes(feature.id)
+                ? 'border-gold bg-gold'
+                : 'border-black/10'
+            }`}>
+              {selectedFeatures.includes(feature.id) && <Check className="w-3 h-3 text-white" />}
+            </div>
+          </motion.button>
+        )
+      })}
     </motion.div>
   )
 
   const renderDesignLevel = () => (
     <motion.div className="grid gap-5 md:gap-6 md:grid-cols-2" {...motionProps()}>
-      {DESIGN_LEVELS.map((level, i) => (
+      {designLevels.map((level, i) => (
         <motion.button
           key={level.id}
           onClick={() => setDesignLevel(level.id)}
@@ -439,7 +326,7 @@ export function PriceCalculator() {
             <h3 className="text-xl md:text-2xl font-bold text-black">{level.label}</h3>
             <p className="text-sm text-warmgray leading-relaxed max-w-[260px]">{level.description}</p>
             <span className="text-sm font-bold text-gold">
-              {level.price === 0 ? 'Inkluderet i basispris' : `+${formatPrice(level.price)} DKK`}
+              {DESIGN_PRICES[level.id] === 0 ? t('includedInBase') : `+${formatPrice(DESIGN_PRICES[level.id])} ${t('result.currency')}`}
             </span>
             <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
               designLevel === level.id ? 'border-gold bg-gold' : 'border-black/10'
@@ -454,10 +341,10 @@ export function PriceCalculator() {
 
   const renderTimeline = () => (
     <motion.div className="grid gap-5 md:gap-6 md:grid-cols-2" {...motionProps()}>
-      {TIMELINES.map((tl, i) => (
+      {timelines.map((tl, i) => (
         <motion.button
           key={tl.id}
-          onClick={() => setTimeline(tl.id)}
+          onClick={() => setTimeline(tl.id as Timeline)}
           className={`group relative text-left p-7 md:p-9 rounded-2xl border transition-all duration-300 ${
             timeline === tl.id
               ? 'border-gold bg-gold/5 shadow-lg shadow-gold/10'
@@ -471,7 +358,7 @@ export function PriceCalculator() {
             <h3 className="text-xl md:text-2xl font-bold text-black">{tl.label}</h3>
             <p className="text-sm text-warmgray">{tl.description}</p>
             <span className="text-sm font-bold text-gold">
-              {tl.multiplier === 1 ? 'Ingen tillæg' : '+25% express-tillæg'}
+              {TIMELINE_MULTIPLIERS[tl.id as Timeline] === 1 ? t('noSurcharge') : t('expressSurcharge')}
             </span>
             <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
               timeline === tl.id ? 'border-gold bg-gold' : 'border-black/10'
@@ -486,10 +373,10 @@ export function PriceCalculator() {
 
   const renderResult = () => {
     const recommendation = getRecommendedPackage(totalPrice)
-    const selectedType = WEBSITE_TYPES.find(t => t.id === websiteType)!
-    const selectedDesign = DESIGN_LEVELS.find(d => d.id === designLevel)!
-    const selectedTimeline = TIMELINES.find(t => t.id === timeline)!
-    const addedFeatures = FEATURES.filter(f => selectedFeatures.includes(f.id) && !f.included)
+    const selectedType = websiteTypes.find(wt => wt.id === websiteType)!
+    const selectedDesign = designLevels.find(d => d.id === designLevel)!
+    const selectedTimeline = timelines.find(tl => tl.id === timeline)!
+    const addedFeatures = features.filter(f => selectedFeatures.includes(f.id) && !INCLUDED_FEATURES.includes(f.id))
     const traditionalPrice = getTraditionalPrice(totalPrice)
     const savings = traditionalPrice - totalPrice
 
@@ -500,70 +387,68 @@ export function PriceCalculator() {
           className="text-center p-10 md:p-14 rounded-3xl bg-gradient-to-br from-black via-black to-black/90 relative overflow-hidden"
           {...motionProps(0.1)}
         >
-          {/* Decorative orbs */}
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-gold/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-gold/5 rounded-full blur-3xl" />
 
           <div className="relative z-10">
-            <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-medium mb-4">Dit estimat</p>
+            <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-medium mb-4">{t('result.estimateLabel')}</p>
             <div className="flex items-baseline justify-center gap-3 mb-2">
-              <span className="text-white/40 text-base md:text-lg">fra</span>
+              <span className="text-white/40 text-base md:text-lg">{t('result.from')}</span>
               <span className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
                 {formatPrice(totalPrice)}
               </span>
-              <span className="text-white/40 text-base md:text-lg">DKK</span>
+              <span className="text-white/40 text-base md:text-lg">{t('result.currency')}</span>
             </div>
-            <p className="text-white/30 text-sm">ekskl. moms</p>
+            <p className="text-white/30 text-sm">{t('result.exclVat')}</p>
           </div>
         </motion.div>
 
-        {/* Recommendation — integrated into breakdown */}
+        {/* Recommendation */}
         <motion.div
           className="rounded-2xl overflow-hidden border border-black/[0.06]"
           {...motionProps(0.2)}
         >
-          {/* Recommendation header */}
           <div className="flex items-center gap-3 px-7 md:px-9 py-5 bg-gradient-to-r from-gold/10 via-gold/5 to-transparent border-b border-gold/10">
             <div className="p-1.5 rounded-lg bg-gold/15">
               <Sparkles className="w-4 h-4 text-gold" />
             </div>
             <div>
-              <h3 className="font-bold text-black text-sm">Anbefalet: {recommendation.name}-pakken</h3>
+              <h3 className="font-bold text-black text-sm">{t('result.recommendedPrefix')} {recommendation.name}{t('result.recommendedSuffix')}</h3>
               <p className="text-xs text-warmgray">{recommendation.match}</p>
             </div>
           </div>
 
           {/* Breakdown */}
           <div className="p-7 md:p-9 bg-white">
-            <h3 className="text-xs uppercase tracking-[0.15em] font-medium text-warmgray mb-5">Prissammensætning</h3>
+            <h3 className="text-xs uppercase tracking-[0.15em] font-medium text-warmgray mb-5">{t('result.breakdownTitle')}</h3>
             <div className="space-y-0">
               <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
                 <span className="text-sm text-black">{selectedType.label} ({selectedType.pages})</span>
-                <span className="text-sm font-bold text-black tabular-nums">{formatPrice(selectedType.basePrice)} DKK</span>
+                <span className="text-sm font-bold text-black tabular-nums">{formatPrice(BASE_PRICES[websiteType!])} {t('result.currency')}</span>
               </div>
               {addedFeatures.map(f => (
                 <div key={f.id} className="flex justify-between items-center py-3 border-b border-black/[0.04]">
                   <span className="text-sm text-black">{f.label}</span>
-                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(f.price)} DKK</span>
+                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(FEATURE_PRICES[f.id])} {t('result.currency')}</span>
                 </div>
               ))}
-              {selectedDesign.price > 0 && (
+              {DESIGN_PRICES[designLevel!] > 0 && (
                 <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
-                  <span className="text-sm text-black">Premium design</span>
-                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(selectedDesign.price)} DKK</span>
+                  <span className="text-sm text-black">{t('result.premiumDesign')}</span>
+                  <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(DESIGN_PRICES[designLevel!])} {t('result.currency')}</span>
                 </div>
               )}
-              {selectedTimeline.multiplier > 1 && (
+              {TIMELINE_MULTIPLIERS[timeline!] > 1 && (
                 <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
-                  <span className="text-sm text-black">Express-levering (+25%)</span>
+                  <span className="text-sm text-black">{t('result.expressDelivery')}</span>
                   <span className="text-sm font-bold text-gold tabular-nums">
-                    +{formatPrice(Math.round((totalPrice / selectedTimeline.multiplier) * (selectedTimeline.multiplier - 1)))} DKK
+                    +{formatPrice(Math.round((totalPrice / TIMELINE_MULTIPLIERS[timeline!]) * (TIMELINE_MULTIPLIERS[timeline!] - 1)))} {t('result.currency')}
                   </span>
                 </div>
               )}
               <div className="flex justify-between items-center pt-5">
-                <span className="font-bold text-black">Estimeret total</span>
-                <span className="font-bold text-xl text-gold tabular-nums">{formatPrice(totalPrice)} DKK</span>
+                <span className="font-bold text-black">{t('result.estimatedTotal')}</span>
+                <span className="font-bold text-xl text-gold tabular-nums">{formatPrice(totalPrice)} {t('result.currency')}</span>
               </div>
             </div>
           </div>
@@ -578,24 +463,22 @@ export function PriceCalculator() {
           <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-gold/5 rounded-full blur-3xl" />
 
           <div className="relative z-10">
-            <p className="text-white/50 text-xs uppercase tracking-[0.15em] font-medium mb-6">Sammenlign med markedet</p>
+            <p className="text-white/50 text-xs uppercase tracking-[0.15em] font-medium mb-6">{t('result.compareTitle')}</p>
 
             <div className="grid md:grid-cols-2 gap-4 mb-6">
-              {/* Traditional price */}
               <div className="p-5 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-[10px] uppercase tracking-[0.15em] text-white/40 font-medium mb-3">Traditionelt bureau</p>
+                <p className="text-[10px] uppercase tracking-[0.15em] text-white/40 font-medium mb-3">{t('result.traditionalAgency')}</p>
                 <p className="text-2xl md:text-3xl font-bold text-white/25 line-through tabular-nums">
-                  {formatPrice(traditionalPrice)} DKK
+                  {formatPrice(traditionalPrice)} {t('result.currency')}
                 </p>
-                <p className="text-xs text-white/30 mt-2">Baseret på gennemsnitspriser fra danske bureauer</p>
+                <p className="text-xs text-white/30 mt-2">{t('result.traditionalNote')}</p>
               </div>
-              {/* Transparo price */}
               <div className="p-5 rounded-xl bg-gold/10 border border-gold/20">
-                <p className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium mb-3">Transparo</p>
+                <p className="text-[10px] uppercase tracking-[0.15em] text-gold font-medium mb-3">{t('result.transparoLabel')}</p>
                 <p className="text-2xl md:text-3xl font-bold text-white tabular-nums">
-                  {formatPrice(totalPrice)} DKK
+                  {formatPrice(totalPrice)} {t('result.currency')}
                 </p>
-                <p className="text-xs text-gold/60 mt-2">Samme teknologi og kvalitet, AI-drevet proces</p>
+                <p className="text-xs text-gold/60 mt-2">{t('result.transparoNote')}</p>
               </div>
             </div>
 
@@ -609,11 +492,10 @@ export function PriceCalculator() {
               />
             </div>
             <p className="text-sm text-white/50">
-              Du sparer ca. <span className="font-bold text-gold">{formatPrice(savings)} DKK</span> - det er{' '}
-              <span className="font-bold text-gold">{Math.round((savings / traditionalPrice) * 100)}%</span> mindre end markedsprisen.
+              {t('result.savingsText', { savings: formatPrice(savings), percent: Math.round((savings / traditionalPrice) * 100) })}
             </p>
             <p className="text-xs text-white/25 mt-3">
-              Prisestimatet for traditionelle bureauer er baseret på branchegennemsnit for sammenlignelige projekter i Danmark.
+              {t('result.savingsDisclaimer')}
             </p>
           </div>
         </motion.div>
@@ -623,25 +505,25 @@ export function PriceCalculator() {
           className="text-center text-sm text-warmgray"
           {...motionProps(0.4)}
         >
-          Den endelige pris aftales ved en uforpligtende samtale, hvor vi gennemgår dine behov i detaljer.
+          {t('result.disclaimer')}
         </motion.p>
 
         {/* Optional contact */}
         <motion.div className="space-y-4" {...motionProps(0.5)}>
           {!showContact ? (
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/kontakt"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-black rounded-full font-bold text-base hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
               >
-                Book et uforpligtende møde
+                {t('result.ctaBookMeeting')}
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
               <button
                 onClick={() => setShowContact(true)}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-black/10 text-black rounded-full font-bold text-base hover:bg-black hover:text-white transition-all duration-300"
               >
-                Send mig estimatet
+                {t('result.ctaSendEstimate')}
               </button>
             </div>
           ) : (
@@ -651,18 +533,18 @@ export function PriceCalculator() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h4 className="text-base font-bold text-black mb-5 text-center">Modtag dit estimat på mail</h4>
+              <h4 className="text-base font-bold text-black mb-5 text-center">{t('result.emailFormTitle')}</h4>
               <div className="space-y-3">
                 <input
                   type="text"
-                  placeholder="Dit navn"
+                  placeholder={t('result.emailNamePlaceholder')}
                   value={contactName}
                   onChange={e => setContactName(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
                 />
                 <input
                   type="email"
-                  placeholder="Din email"
+                  placeholder={t('result.emailPlaceholder')}
                   value={contactEmail}
                   onChange={e => setContactEmail(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
@@ -671,14 +553,14 @@ export function PriceCalculator() {
                   className="w-full px-6 py-3 bg-black text-white rounded-xl font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
                   disabled={!contactEmail}
                 >
-                  Send estimat
+                  {t('result.emailSubmitButton')}
                 </button>
               </div>
               <button
                 onClick={() => setShowContact(false)}
                 className="w-full mt-3 text-sm text-warmgray hover:text-black transition-colors text-center"
               >
-                Annuller
+                {t('result.emailCancel')}
               </button>
             </motion.div>
           )}
@@ -702,10 +584,10 @@ export function PriceCalculator() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1 className="font-serif text-display-md md:text-display-lg text-black mb-4">
-            Prisberegner
+            {t('title')}
           </h1>
           <p className="text-warmgray text-lg max-w-xl mx-auto">
-            Få et hurtigt estimat på din nye hjemmeside. Ingen forpligtelser, fuld gennemsigtighed.
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -717,7 +599,7 @@ export function PriceCalculator() {
           transition={{ delay: 0.2, duration: 0.4 }}
         >
           <div className="flex items-center justify-between mb-3">
-            {STEPS.map((step, i) => (
+            {steps.map((step, i) => (
               <button
                 key={i}
                 onClick={() => {
@@ -740,16 +622,16 @@ export function PriceCalculator() {
             <motion.div
               className="absolute inset-y-0 left-0 bg-gradient-to-r from-black via-gold to-gold rounded-full"
               initial={{ width: '0%' }}
-              animate={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
+              animate={{ width: `${(currentStep / (steps.length - 1)) * 100}%` }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             />
           </div>
           {/* Step label */}
           <div className="mt-5 text-center">
             <p className="text-xs uppercase tracking-[0.2em] font-medium text-gold mb-1">
-              Trin {currentStep + 1} af {STEPS.length}
+              {t('stepLabel', { current: currentStep + 1, total: steps.length })}
             </p>
-            <p className="text-sm text-warmgray">{STEPS[currentStep].subtitle}</p>
+            <p className="text-sm text-warmgray">{steps[currentStep].subtitle}</p>
           </div>
         </motion.div>
 
@@ -767,7 +649,7 @@ export function PriceCalculator() {
         </AnimatePresence>
 
         {/* Navigation */}
-        {currentStep < STEPS.length - 1 && (
+        {currentStep < steps.length - 1 && (
           <motion.div
             className="flex items-center justify-between mt-12 md:mt-16"
             initial={shouldReduceMotion ? {} : { opacity: 0 }}
@@ -780,21 +662,21 @@ export function PriceCalculator() {
               className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-warmgray hover:text-black transition-colors disabled:opacity-0 disabled:pointer-events-none"
             >
               <ArrowLeft className="w-4 h-4" />
-              Tilbage
+              {t('navigation.back')}
             </button>
             <button
               onClick={next}
               disabled={!canProceed}
               className="flex items-center gap-2 px-8 py-3 rounded-full bg-black text-white text-sm font-bold hover:bg-black/80 hover:shadow-lg transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              Næste
+              {t('navigation.next')}
               <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
         )}
 
         {/* Back to edit on result page */}
-        {currentStep === STEPS.length - 1 && (
+        {currentStep === steps.length - 1 && (
           <motion.div
             className="flex justify-center mt-10"
             initial={shouldReduceMotion ? {} : { opacity: 0 }}
@@ -806,7 +688,7 @@ export function PriceCalculator() {
               className="flex items-center gap-2 text-sm font-bold text-warmgray hover:text-black transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Rediger dine valg
+              {t('navigation.editChoices')}
             </button>
           </motion.div>
         )}

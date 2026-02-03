@@ -2,7 +2,8 @@
 
 import React from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 import { Check, Star, ArrowRight, Clock, Sparkles } from 'lucide-react'
 
 // Custom geometric icons for each package tier
@@ -61,61 +62,46 @@ const BusinessIcon = () => (
   </svg>
 )
 
-// Package data
-const packages = [
-  {
-    id: 'essentials',
-    name: 'Essentials',
-    price: '8.995',
-    duration: '10-14 dage',
-    description: 'Perfekt til startups og små virksomheder',
-    highlights: [
-      '5 professionelle sider',
-      'Mobil-optimeret design',
-      'Basis SEO-opsætning',
-      'Kontaktformular'
-    ],
-    icon: EssentialsIcon,
-    accentColor: 'navy',
-    pattern: 'dots'
-  },
-  {
-    id: 'professional',
-    name: 'Professional',
-    price: '16.995',
-    duration: '14-21 dage',
-    description: 'Den komplette løsning for voksende virksomheder',
-    popular: true,
-    highlights: [
-      '10 sider inkluderet',
-      'Avancerede animationer',
-      'Blog & portfolio',
-      'Fuld SEO-pakke'
-    ],
-    icon: ProfessionalIcon,
-    accentColor: 'gold',
-    pattern: 'hexagons'
-  },
-  {
-    id: 'business',
-    name: 'Business',
-    price: '27.995',
-    duration: '21-28 dage',
-    description: 'Enterprise-niveau løsning med fuld kontrol',
-    highlights: [
-      '20+ sider',
-      'Multi-language support',
-      'E-commerce ready',
-      'Premium animationer'
-    ],
-    icon: BusinessIcon,
-    accentColor: 'navy',
-    pattern: 'octagons'
-  }
-]
+interface PackageData {
+  id: string;
+  name: string;
+  price: string;
+  duration: string;
+  description: string;
+  popular?: boolean;
+  highlights: string[];
+}
+
+interface AddonData {
+  name: string;
+  price: string;
+}
+
+// Icon mapping by package id
+const iconMap: Record<string, React.FC> = {
+  essentials: EssentialsIcon,
+  professional: ProfessionalIcon,
+  business: BusinessIcon,
+}
+
+const accentColorMap: Record<string, string> = {
+  essentials: 'navy',
+  professional: 'gold',
+  business: 'navy',
+}
+
+const patternMap: Record<string, string> = {
+  essentials: 'dots',
+  professional: 'hexagons',
+  business: 'octagons',
+}
 
 export function NewPackagesSectionEnhanced() {
   const shouldReduceMotion = useReducedMotion()
+  const t = useTranslations('packages.newSectionEnhanced')
+
+  const packages = t.raw('packages') as PackageData[]
+  const addons = t.raw('addons') as AddonData[]
 
   return (
     <section id="pakker" className="py-20 sm:py-24 md:py-32 lg:py-40 bg-offwhite relative overflow-hidden">
@@ -143,18 +129,18 @@ export function NewPackagesSectionEnhanced() {
           >
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
             <span className="text-sm sm:text-base font-medium text-gold uppercase tracking-wider">
-              Faste priser • Ingen overraskelser
+              {t('badge')}
             </span>
             <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
           </motion.div>
 
           <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[68px] text-navy mb-5">
-            Vælg din pakke
+            {t('heading')}
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-warmgray max-w-4xl mx-auto">
-            Professionelle websites med AI-drevet udvikling.
+            {t('subtitle')}
             <span className="block mt-3 text-base sm:text-lg text-warmgray/80">
-              Klik på en pakke for at se alle detaljer.
+              {t('subtitleSecondary')}
             </span>
           </p>
         </motion.div>
@@ -162,7 +148,9 @@ export function NewPackagesSectionEnhanced() {
         {/* Package Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
           {packages.map((pkg, index) => {
-            const Icon = pkg.icon
+            const Icon = iconMap[pkg.id] || EssentialsIcon
+            const accentColor = accentColorMap[pkg.id] || 'navy'
+            const pattern = patternMap[pkg.id] || 'dots'
             return (
               <motion.div
                 key={pkg.id}
@@ -181,13 +169,13 @@ export function NewPackagesSectionEnhanced() {
                     <div className="bg-gold text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full flex items-center gap-1 sm:gap-1.5 shadow-lg">
                       <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-white" />
                       <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                        Mest Populær
+                        {t('popularBadge')}
                       </span>
                     </div>
                   </div>
                 )}
 
-                <Link href={`/packages/${pkg.id}`}>
+                <Link href="/pakker">
                   <div
                     className={`
                     relative h-full min-h-[500px] sm:min-h-[550px] lg:min-h-[620px] p-6 sm:p-8 lg:p-10 xl:p-12 rounded-[28px] overflow-hidden transition-all duration-500
@@ -201,7 +189,7 @@ export function NewPackagesSectionEnhanced() {
                   >
                     {/* Subtle background pattern */}
                     <div className={`absolute inset-0 opacity-[0.03] pointer-events-none ${pkg.popular ? 'opacity-[0.05]' : ''}`}>
-                      <div className={`w-full h-full ${pkg.pattern === 'dots' ? 'bg-[radial-gradient(circle,currentColor_1px,transparent_1px)] bg-[size:20px_20px]' : pkg.pattern === 'hexagons' ? 'bg-[url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M20 0l10 5.77v11.54L20 23.08l-10-5.77V5.77z\' fill=\'%23000\' /%3E%3C/svg%3E")]' : 'bg-[url("data:image/svg+xml,%3Csvg width=\'50\' height=\'50\' viewBox=\'0 0 50 50\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'25,5 45,15 45,35 25,45 5,35 5,15\' fill=\'%23000\' /%3E%3C/svg%3E")]'}`} />
+                      <div className={`w-full h-full ${pattern === 'dots' ? 'bg-[radial-gradient(circle,currentColor_1px,transparent_1px)] bg-[size:20px_20px]' : pattern === 'hexagons' ? 'bg-[url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M20 0l10 5.77v11.54L20 23.08l-10-5.77V5.77z\' fill=\'%23000\' /%3E%3C/svg%3E")]' : 'bg-[url("data:image/svg+xml,%3Csvg width=\'50\' height=\'50\' viewBox=\'0 0 50 50\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpolygon points=\'25,5 45,15 45,35 25,45 5,35 5,15\' fill=\'%23000\' /%3E%3C/svg%3E")]'}`} />
                     </div>
 
                     {/* Custom Geometric Icon */}
@@ -244,7 +232,7 @@ export function NewPackagesSectionEnhanced() {
                         </span>
                       </div>
                       <p className={`text-sm mt-3 ${pkg.popular ? 'text-white/60' : 'text-warmgray/80'}`}>
-                        Fast pris • Ingen skjulte gebyrer
+                        {t('fixedPrice')}
                       </p>
                     </div>
 
@@ -256,7 +244,7 @@ export function NewPackagesSectionEnhanced() {
                     >
                       <Clock className={`w-4 h-4 ${pkg.popular ? 'text-white/60' : 'text-warmgray'}`} />
                       <span className={`text-base ${pkg.popular ? 'text-white/80' : 'text-warmgray'}`}>
-                        Levering: {pkg.duration}
+                        {t('deliveryLabel', { duration: pkg.duration })}
                       </span>
                     </div>
 
@@ -280,7 +268,7 @@ export function NewPackagesSectionEnhanced() {
                       ${pkg.popular ? 'bg-gold text-navy hover:bg-gold/90' : 'bg-navy text-white hover:bg-navy/90'}
                     `}
                     >
-                      <span>Se alle detaljer</span>
+                      <span>{t('cta')}</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
 
@@ -303,8 +291,8 @@ export function NewPackagesSectionEnhanced() {
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Link href="/packages/compare" className="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors group">
-            <span className="text-lg sm:text-xl font-medium">Sammenlign alle pakker i detaljer</span>
+          <Link href="/pakker" className="inline-flex items-center gap-2 text-navy hover:text-gold transition-colors group">
+            <span className="text-lg sm:text-xl font-medium">{t('compareLink')}</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
@@ -318,16 +306,11 @@ export function NewPackagesSectionEnhanced() {
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-navy text-center mb-10 sm:mb-12">
-            Tilkøb & Ekstra Services
+            {t('addonsTitle')}
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              { name: 'Ekstra sider', price: '1.495 kr/side' },
-              { name: 'E-mail opsætning', price: '2.995 kr' },
-              { name: 'Copywriting', price: 'Fra 3.995 kr' },
-              { name: 'Fotografi', price: 'Fra 4.995 kr' }
-            ].map((addon, i) => (
+            {addons.map((addon, i) => (
               <motion.div
                 key={i}
                 className="text-center p-6 sm:p-8 bg-white rounded-2xl border border-gray-200 hover:border-gold/40 hover:shadow-lg transition-all"
