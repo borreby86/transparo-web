@@ -28,7 +28,7 @@ export const caseStudies: CaseStudy[] = [
     id: 1,
     title: 'Eskild Ebbesen – High Performance',
     subtitle: 'Personlig brandsite for Danmarks mest vindende OL-atlet og ekspert i high performance',
-    imageUrl: '/portfolio-images/eskild-ebbesen.png',
+    imageUrl: '/portfolio-images/eskild-ebbesen.webp',
     slug: 'eskild-ebbesen',
     labels: ['Branding', 'Website'],
     quote:
@@ -52,7 +52,7 @@ export const caseStudies: CaseStudy[] = [
     id: 3,
     title: 'Significanz – Executive Coaching',
     subtitle: 'Et elegant website for et københavnsk coaching-firma med fokus på ledelse og personlig udvikling',
-    imageUrl: '/portfolio-images/significanz-2.png',
+    imageUrl: '/portfolio-images/significanz-2.webp',
     slug: 'significanz',
     labels: ['Branding', 'Website'],
     quote:
@@ -76,7 +76,7 @@ export const caseStudies: CaseStudy[] = [
     id: 5,
     title: 'Autentisk lederudvikling med hesteassisteret coaching',
     subtitle: 'En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab',
-    imageUrl: '/portfolio-images/christina-borreby-new.png',
+    imageUrl: '/portfolio-images/christina-borreby-new.webp',
     slug: 'christina-borreby',
     labels: ['Branding', 'Website'],
     quote:
