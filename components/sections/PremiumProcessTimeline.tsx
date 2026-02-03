@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import Image from 'next/image'
 
 const steps = [
   { number: '01', title: 'Samtale', description: 'Vi lytter til dig og forstår din virksomhed.' },
@@ -16,8 +17,18 @@ export function PremiumProcessTimeline() {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <section className="bg-navy py-24 md:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="relative py-24 md:py-32 overflow-hidden">
+      {/* Full-section background image */}
+      <Image
+        src="/images/workspace-dennis.webp"
+        alt=""
+        fill
+        className="object-cover"
+        sizes="100vw"
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/85" />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
 
         {/* Header */}
         <motion.div
@@ -38,7 +49,7 @@ export function PremiumProcessTimeline() {
         </motion.div>
 
         {/* Horizontal steps */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -46,12 +57,16 @@ export function PremiumProcessTimeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: index * 0.08 }}
-              className="bg-navy p-6 md:p-8"
+              className="group relative p-8 md:p-10 border-r border-b border-white/[0.06] last:border-r-0 lg:[&:nth-child(n+4)]:border-b-0 hover:bg-white/[0.03] transition-all duration-500"
             >
-              <span className="text-gold/30 text-4xl md:text-5xl font-bold block mb-4 select-none">
+              {/* Gold accent line */}
+              <div className="w-8 h-[2px] bg-gold/40 mb-8 group-hover:w-12 group-hover:bg-gold transition-all duration-500" />
+
+              <span className="text-gold/25 text-5xl md:text-6xl font-bold absolute top-6 right-6 select-none group-hover:text-gold/40 transition-colors duration-500">
                 {step.number}
               </span>
-              <h3 className="text-white font-bold text-lg mb-2">
+
+              <h3 className="text-white font-semibold text-lg tracking-tight mb-3">
                 {step.title}
               </h3>
               <p className="text-white/40 text-sm leading-relaxed">

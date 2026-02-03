@@ -199,7 +199,9 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-offwhite text-black cursor-none" suppressHydrationWarning>
         <ClientProviders>
-          {children}
+          <div className="lg:ml-16 xl:ml-20 lg:mr-16 xl:mr-20">
+            {children}
+          </div>
         </ClientProviders>
         <CookieBanner />
       </body>
