@@ -64,8 +64,9 @@ export function HeroSection() {
             </p>
           </motion.div>
 
-          {/* Single CTA */}
+          {/* CTAs */}
           <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -75,12 +76,20 @@ export function HeroSection() {
             }}
           >
             <motion.a
-              href="/kontakt"
-              className="inline-block px-10 py-4 bg-white text-black rounded-full font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
+              href="/cases"
+              className="inline-block px-10 py-4 bg-white text-black font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
-              Tal med os
+              Se portfolio
+            </motion.a>
+            <motion.a
+              href="/prisberegner"
+              className="inline-block px-10 py-4 border border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-colors duration-300"
+              whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            >
+              Beregn din pris
             </motion.a>
           </motion.div>
         </div>
