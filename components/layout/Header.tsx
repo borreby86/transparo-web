@@ -1,7 +1,7 @@
 'use client'
 
 import { Link, type Pathnames } from '@/i18n/routing'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { usePathname } from '@/i18n/routing'
 import { motion, AnimatePresence } from 'motion/react'
 import { Menu, X, ArrowRight, Palette } from 'lucide-react'
@@ -14,6 +14,8 @@ export function Header() {
   const [bookingOpen, setBookingOpen] = useState(false)
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [showRightSidebar, setShowRightSidebar] = useState(false)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const { open: openDesignProposal, close: closeDesignProposal } = useDesignProposal()
   const pathname = usePathname()
 
@@ -27,6 +29,34 @@ export function Header() {
     { number: '03', name: t('items.2.name'), href: '/prisberegner' as const },
     { number: '04', name: t('items.3.name'), href: '/kontakt' as const },
   ]
+
+  // Smart sidebar visibility based on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
+      // Show sidebar after scrolling 400px
+      if (currentScrollY > 400 && !showRightSidebar) {
+        setShowRightSidebar(true)
+      }
+
+      // Optional: Hide when scrolling down, show when scrolling up (for cleaner UX)
+      if (currentScrollY > 400) {
+        if (currentScrollY > lastScrollY && showRightSidebar) {
+          // Scrolling down - hide sidebar
+          setShowRightSidebar(false)
+        } else if (currentScrollY < lastScrollY && !showRightSidebar) {
+          // Scrolling up - show sidebar
+          setShowRightSidebar(true)
+        }
+      }
+
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY, showRightSidebar])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -96,40 +126,50 @@ export function Header() {
       </aside>
 
       {/* Right sidebar — book møde + gratis design */}
-      <aside className="hidden lg:flex fixed top-0 right-0 h-screen w-16 xl:w-20 z-[60] flex-col items-center justify-between py-8 bg-black border-l border-white/[0.06]">
-        <div className="flex flex-col items-center gap-8">
-          <button
-            onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false); closeDesignProposal() }}
-            className="flex flex-col items-center gap-4 group"
-            aria-label="Toggle booking"
+      <AnimatePresence>
+        {showRightSidebar && (
+          <motion.aside
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+            className="hidden lg:flex fixed top-0 right-0 h-screen w-16 xl:w-20 z-[60] flex-col items-center justify-between py-8 bg-black border-l border-white/[0.06]"
           >
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-gold group-hover:text-white transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
-              {tBooking('label')}
-            </span>
-            {bookingOpen ? (
-              <X className="w-5 h-5 text-white" strokeWidth={1.5} />
-            ) : (
-              <ArrowRight className="w-4 h-4 text-gold rotate-180 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
-            )}
-          </button>
+            <div className="flex flex-col items-center gap-8">
+              <button
+                onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false); closeDesignProposal() }}
+                className="flex flex-col items-center gap-4 group"
+                aria-label="Toggle booking"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.3em] text-gold group-hover:text-white transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
+                  {tBooking('label')}
+                </span>
+                {bookingOpen ? (
+                  <X className="w-5 h-5 text-white" strokeWidth={1.5} />
+                ) : (
+                  <ArrowRight className="w-4 h-4 text-gold rotate-180 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+                )}
+              </button>
 
-          <div className="w-6 h-px bg-white/10" />
+              <div className="w-6 h-px bg-white/10" />
 
-          <button
-            onClick={() => { setBookingOpen(false); setMenuOpen(false); openDesignProposal() }}
-            className="flex flex-col items-center gap-4 group"
-            aria-label="Toggle design proposal"
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-gold transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
-              {tDesign('label')}
-            </span>
-            <Palette className="w-4 h-4 text-white/50 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
-          </button>
-        </div>
+              <button
+                onClick={() => { setBookingOpen(false); setMenuOpen(false); openDesignProposal() }}
+                className="flex flex-col items-center gap-4 group"
+                aria-label="Toggle design proposal"
+              >
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-gold transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
+                  {tDesign('label')}
+                </span>
+                <Palette className="w-4 h-4 text-white/50 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+              </button>
+            </div>
 
-        <div />
-        <div />
-      </aside>
+            <div />
+            <div />
+          </motion.aside>
+        )}
+      </AnimatePresence>
 
       {/* Mobile: Top header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-[60] bg-white border-b border-black/[0.06]">

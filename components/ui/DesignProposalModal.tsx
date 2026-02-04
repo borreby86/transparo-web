@@ -34,7 +34,10 @@ export function DesignProposalModal() {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault()
-      handleAddLink()
+      e.stopPropagation()
+      if (newLink.trim()) {
+        handleAddLink()
+      }
     }
   }
 
@@ -53,6 +56,8 @@ export function DesignProposalModal() {
       message: formData.message || 'Ingen besked',
     }
 
+    console.log('Sending form data:', formPayload)
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -62,7 +67,11 @@ export function DesignProposalModal() {
         body: JSON.stringify(formPayload),
       })
 
-      if (response.ok) {
+      const result = await response.json()
+      console.log('Web3Forms response:', result)
+
+      if (response.ok && result.success) {
+        console.log('Form submitted successfully!')
         setSubmitted(true)
         setTimeout(() => {
           setSubmitted(false)
@@ -72,8 +81,8 @@ export function DesignProposalModal() {
           setNewLink('')
         }, 3000)
       } else {
-        console.error('Form submission failed')
-        alert('Der opstod en fejl. Prøv venligst igen.')
+        console.error('Form submission failed:', result)
+        alert(`Fejl: ${result.message || 'Prøv venligst igen'}`)
       }
     } catch (error) {
       console.error('Form submission error:', error)
@@ -218,7 +227,7 @@ export function DesignProposalModal() {
                     {/* Add new link */}
                     <div className="flex items-center gap-2">
                       <input
-                        type="url"
+                        type="text"
                         value={newLink}
                         onChange={(e) => setNewLink(e.target.value)}
                         onKeyDown={handleKeyDown}
