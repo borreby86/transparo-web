@@ -101,7 +101,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #0E1D3D 0%, #162a4d 100%);
+  background: linear-gradient(180deg, #000000 0%, #162a4d 100%);
   border-radius: 9px;
   border: 2px solid #E8E6E3;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -118,7 +118,7 @@
 /* Firefox scrollbar */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #0E1D3D #E8E6E3;
+  scrollbar-color: #000000 #E8E6E3;
 }
 
 @keyframes fadeIn {

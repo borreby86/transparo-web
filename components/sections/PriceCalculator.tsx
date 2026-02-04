@@ -514,14 +514,14 @@ export function PriceCalculator() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-black rounded-full font-bold text-base hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-black font-bold text-base hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
               >
                 {t('result.ctaBookMeeting')}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <button
                 onClick={() => setShowContact(true)}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-black/10 text-black rounded-full font-bold text-base hover:bg-black hover:text-white transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-black/10 text-black font-bold text-base hover:bg-black hover:text-white transition-all duration-300"
               >
                 {t('result.ctaSendEstimate')}
               </button>
@@ -550,7 +550,7 @@ export function PriceCalculator() {
                   className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
                 />
                 <button
-                  className="w-full px-6 py-3 bg-black text-white rounded-xl font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
+                  className="w-full px-6 py-3 bg-black text-white font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
                   disabled={!contactEmail}
                 >
                   {t('result.emailSubmitButton')}
@@ -659,7 +659,7 @@ export function PriceCalculator() {
             <button
               onClick={back}
               disabled={currentStep === 0}
-              className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-bold text-warmgray hover:text-black transition-colors disabled:opacity-0 disabled:pointer-events-none"
+              className="flex items-center gap-2 px-5 py-3 text-sm font-bold text-warmgray hover:text-black transition-colors disabled:opacity-0 disabled:pointer-events-none"
             >
               <ArrowLeft className="w-4 h-4" />
               {t('navigation.back')}
@@ -667,7 +667,7 @@ export function PriceCalculator() {
             <button
               onClick={next}
               disabled={!canProceed}
-              className="flex items-center gap-2 px-8 py-3 rounded-full bg-black text-white text-sm font-bold hover:bg-black/80 hover:shadow-lg transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-8 py-3 bg-black text-white text-sm font-bold hover:bg-black/80 hover:shadow-lg transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               {t('navigation.next')}
               <ArrowRight className="w-4 h-4" />

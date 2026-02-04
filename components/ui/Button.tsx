@@ -19,7 +19,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-display font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
+    'inline-flex items-center justify-center font-display font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
 
   const variantStyles = {
     primary:

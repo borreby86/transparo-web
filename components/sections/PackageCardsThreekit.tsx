@@ -115,7 +115,7 @@ export function PackageCardsThreekit() {
 
                   {/* CTA Button - More prominent */}
                   <Link href={`/pakker`}>
-                    <button className={`w-full py-5 px-8 rounded-full font-bold text-base transition-all duration-300 ${pkg.color.button} hover:shadow-xl hover:scale-105 uppercase tracking-wider`}>
+                    <button className={`w-full py-5 px-8 font-bold text-base transition-all duration-300 ${pkg.color.button} hover:shadow-xl hover:scale-105 uppercase tracking-wider`}>
                       {t('ctaButton')}
                     </button>
                   </Link>

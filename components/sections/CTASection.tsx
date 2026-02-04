@@ -89,7 +89,7 @@ export function CTASection() {
             >
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.1em] uppercase font-medium text-gray-950 bg-[#c9a961] rounded-full hover:bg-[#d4b366] transition-all duration-300"
+                className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.1em] uppercase font-medium text-gray-950 bg-[#c9a961] hover:bg-[#d4b366] transition-all duration-300"
               >
                 Lad os tale sammen
               </Link>
@@ -100,7 +100,7 @@ export function CTASection() {
             >
               <Link
                 href="/cases"
-                className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.1em] uppercase font-medium text-[#c9a961] bg-transparent border-2 border-[#c9a961] rounded-full hover:bg-[#c9a961] hover:text-gray-950 transition-all duration-300"
+                className="inline-flex items-center justify-center px-12 py-4 text-sm md:text-base tracking-[0.1em] uppercase font-medium text-[#c9a961] bg-transparent border-2 border-[#c9a961] hover:bg-[#c9a961] hover:text-gray-950 transition-all duration-300"
               >
                 Se vores arbejde
               </Link>

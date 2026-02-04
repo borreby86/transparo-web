@@ -53,7 +53,7 @@ export default function NotFound() {
             >
               <Link
                 href="/"
-                className="flex items-center justify-center space-x-3 bg-navy text-white px-8 py-4 rounded-lg font-semibold hover:bg-navy/90 transition-all group"
+                className="flex items-center justify-center space-x-3 bg-navy text-white px-8 py-4 font-semibold hover:bg-navy/90 transition-all group"
               >
                 <Home className="h-5 w-5" />
                 <span>Gå til Forsiden</span>
@@ -61,7 +61,7 @@ export default function NotFound() {
 
               <Link
                 href="/kontakt"
-                className="flex items-center justify-center space-x-3 bg-offwhite text-navy px-8 py-4 rounded-lg font-semibold hover:bg-offwhite/80 transition-all border border-gray-200 group"
+                className="flex items-center justify-center space-x-3 bg-offwhite text-navy px-8 py-4 font-semibold hover:bg-offwhite/80 transition-all border border-gray-200 group"
               >
                 <Mail className="h-5 w-5" />
                 <span>Kontakt Os</span>

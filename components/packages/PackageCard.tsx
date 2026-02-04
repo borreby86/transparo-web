@@ -143,7 +143,7 @@ export default function PackageCard({ pkg, index, isInView = true }: PackageCard
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
               <div className={`
-                w-full py-4 px-6 rounded-2xl font-semibold
+                w-full py-4 px-6 font-semibold
                 ${buttonStyles[pkg.color]}
                 transition-all duration-300
                 flex items-center justify-center space-x-2

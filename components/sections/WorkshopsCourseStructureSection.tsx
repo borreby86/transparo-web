@@ -80,7 +80,7 @@ export function WorkshopsCourseStructureSection() {
             {steps.map((step, index) => {
               const isEven = index % 2 === 0
               const color = COLORS[index]
-              const accentColor = color === 'gold' ? '#B89245' : '#0E1D3D'
+              const accentColor = color === 'gold' ? '#B89245' : '#000000'
               const Icon = ICONS[index]
               const isAddOn = IS_ADD_ON[index]
 

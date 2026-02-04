@@ -263,7 +263,7 @@ export function NewPackagesSectionEnhanced() {
                     {/* CTA */}
                     <div
                       className={`
-                      w-full py-4 px-8 rounded-xl text-lg font-semibold text-center
+                      w-full py-4 px-8 text-lg font-semibold text-center
                       flex items-center justify-center gap-2 transition-all
                       ${pkg.popular ? 'bg-gold text-navy hover:bg-gold/90' : 'bg-navy text-white hover:bg-navy/90'}
                     `}

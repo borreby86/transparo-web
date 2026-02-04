@@ -165,7 +165,7 @@ export function InvestmentSection() {
             >
               <Link
                 href="/kontakt"
-                className="group inline-flex items-center gap-4 px-10 py-5 bg-white text-navy rounded-full font-bold text-lg hover:bg-gold hover:text-white transition-all duration-500 shadow-2xl shadow-white/10"
+                className="group inline-flex items-center gap-4 px-10 py-5 bg-white text-navy font-bold text-lg hover:bg-gold hover:text-white transition-all duration-500 shadow-2xl shadow-white/10"
               >
                 <span>Book et møde</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

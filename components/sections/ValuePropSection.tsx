@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 
 export function ValuePropSection() {
   return (
-    <section className="relative bg-[#0E1D3D] text-white py-32 lg:py-48">
+    <section className="relative bg-[#000000] text-white py-32 lg:py-48">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Noise Texture */}

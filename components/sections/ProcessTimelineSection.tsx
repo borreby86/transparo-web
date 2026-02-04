@@ -102,7 +102,7 @@ export function ProcessTimelineSection() {
                         className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl mb-4 sm:mb-6"
                         style={{
                           backgroundColor: stepColor.color === 'gold' ? '#B89245' :
-                                         stepColor.color === 'navy' ? '#0E1D3D' : '#1A1A1A'
+                                         stepColor.color === 'navy' ? '#000000' : '#1A1A1A'
                         }}
                         whileHover={{ rotate: shouldReduceMotion ? 0 : 360 }}
                         transition={{ duration: 0.6 }}
@@ -135,7 +135,7 @@ export function ProcessTimelineSection() {
                               className="w-5 h-5 shrink-0"
                               style={{
                                 color: stepColor.color === 'gold' ? '#B89245' :
-                                       stepColor.color === 'navy' ? '#0E1D3D' : '#1A1A1A'
+                                       stepColor.color === 'navy' ? '#000000' : '#1A1A1A'
                               }}
                               strokeWidth={2.5}
                             />
@@ -173,7 +173,7 @@ export function ProcessTimelineSection() {
                       className="absolute inset-0 rounded-full blur-3xl opacity-20"
                       style={{
                         background: stepColor.color === 'gold' ? '#B89245' :
-                                   stepColor.color === 'navy' ? '#0E1D3D' : '#1A1A1A'
+                                   stepColor.color === 'navy' ? '#000000' : '#1A1A1A'
                       }}
                       animate={{
                         scale: [1, 1.2, 1],
@@ -191,7 +191,7 @@ export function ProcessTimelineSection() {
                       style={{
                         background: `linear-gradient(135deg, ${
                           stepColor.color === 'gold' ? '#B89245' :
-                          stepColor.color === 'navy' ? '#0E1D3D' : '#1A1A1A'
+                          stepColor.color === 'navy' ? '#000000' : '#1A1A1A'
                         } 0%, ${
                           stepColor.color === 'gold' ? '#D4A853' :
                           stepColor.color === 'navy' ? '#1A2B4D' : '#2A2A2A'

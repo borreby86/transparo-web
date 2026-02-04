@@ -229,13 +229,13 @@ export default function CookiePolitikPage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/privatlivspolitik"
-                className="inline-block px-6 py-3 bg-navy text-white rounded-lg font-semibold hover:bg-navy/90 transition-all text-center"
+                className="inline-block px-6 py-3 bg-navy text-white font-semibold hover:bg-navy/90 transition-all text-center"
               >
                 Privatlivspolitik
               </Link>
               <Link
                 href="/handelsbetingelser"
-                className="inline-block px-6 py-3 bg-white border-2 border-navy text-navy rounded-lg font-semibold hover:bg-offwhite transition-all text-center"
+                className="inline-block px-6 py-3 bg-white border-2 border-navy text-navy font-semibold hover:bg-offwhite transition-all text-center"
               >
                 Handelsbetingelser
               </Link>

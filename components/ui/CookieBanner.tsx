@@ -97,13 +97,13 @@ export function CookieBanner() {
                 <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
                   <button
                     onClick={handleReject}
-                    className="px-6 py-3 bg-white border-2 border-gray-300 text-navy rounded-lg font-semibold hover:bg-gray-50 transition-all text-sm sm:text-base whitespace-nowrap"
+                    className="px-6 py-3 bg-white border-2 border-gray-300 text-navy font-semibold hover:bg-gray-50 transition-all text-sm sm:text-base whitespace-nowrap"
                   >
                     {t('rejectButton')}
                   </button>
                   <button
                     onClick={handleAccept}
-                    className="px-6 py-3 bg-navy text-white rounded-lg font-semibold hover:bg-navy/90 transition-all text-sm sm:text-base whitespace-nowrap shadow-lg hover:shadow-xl"
+                    className="px-6 py-3 bg-navy text-white font-semibold hover:bg-navy/90 transition-all text-sm sm:text-base whitespace-nowrap shadow-lg hover:shadow-xl"
                   >
                     {t('acceptButton')}
                   </button>

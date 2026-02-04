@@ -135,7 +135,7 @@ export function HappyClientsSection() {
           </p>
           <a
             href="/kontakt"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-navy rounded-full font-bold text-lg shadow-xl shadow-gold/20 hover:shadow-2xl hover:shadow-gold/30 hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-navy font-bold text-lg shadow-xl shadow-gold/20 hover:shadow-2xl hover:shadow-gold/30 hover:scale-105 transition-all duration-300"
           >
             {t('bottomButton')}
           </a>

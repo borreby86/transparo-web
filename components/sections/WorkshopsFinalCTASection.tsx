@@ -83,7 +83,7 @@ export function WorkshopsFinalCTASection() {
           >
             <motion.a
               href="#tilmeld"
-              className="group relative inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-gold via-gold-light to-gold text-navy rounded-full font-bold text-xl overflow-hidden shadow-xl shadow-gold/30 hover:shadow-2xl hover:shadow-gold/40 transition-all duration-300"
+              className="group relative inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-gold via-gold-light to-gold text-navy font-bold text-xl overflow-hidden shadow-xl shadow-gold/30 hover:shadow-2xl hover:shadow-gold/40 transition-all duration-300"
               whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -3 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >

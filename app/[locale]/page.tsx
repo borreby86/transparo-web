@@ -23,6 +23,10 @@ const AboutSection = dynamic(() => import('@/components/sections/AboutSection').
   loading: () => <div className="h-96 bg-white" />
 })
 
+const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection').then((mod) => mod.WhyUsSection), {
+  loading: () => <div className="h-96 bg-black" />
+})
+
 const FinalCTASection = dynamic(() => import('@/components/sections/FinalCTASection').then((mod) => mod.FinalCTASection), {
   loading: () => <div className="h-96 bg-navy" />
 })
@@ -53,6 +57,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <main>
         <HeroSection />
         <ProblemSolutionSection />
+        <WhyUsSection />
         <PremiumProcessTimeline />
         <PortfolioSection />
         <AboutSection />

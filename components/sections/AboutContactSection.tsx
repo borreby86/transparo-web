@@ -291,7 +291,7 @@ export function AboutContactSection() {
                       disabled={isSubmitting}
                       whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -2 }}
                       whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                      className="group relative w-full py-5 bg-navy text-white rounded-2xl font-bold text-lg overflow-hidden disabled:opacity-70"
+                      className="group relative w-full py-5 bg-navy text-white font-bold text-lg overflow-hidden disabled:opacity-70"
                     >
                       {/* Animated background */}
                       <motion.div

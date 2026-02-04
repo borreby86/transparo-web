@@ -155,7 +155,7 @@
     "overline": "Hvorfor os",
     "headingLine1": "Vi gør det",
     "headingLine2": "anderledes.",
-    "description": "Vi tror på, at et godt samarbejde kræver ærlighed — om hvad der kan lade sig gøre, hvad det koster, og hvornår det er færdigt.",
+    "description": "Vi tror på, at et godt samarbejde kræver ærlighed  - om hvad der kan lade sig gøre, hvad det koster, og hvornår det er færdigt.",
     "reasons": [
       {
         "number": "01",
@@ -165,7 +165,7 @@
       {
         "number": "02",
         "title": "Unikt design",
-        "description": "Vi bruger ikke templates. Dit website bliver tegnet fra bunden, så det passer til din virksomhed — ikke omvendt."
+        "description": "Vi bruger ikke templates. Dit website bliver tegnet fra bunden, så det passer til din virksomhed  - ikke omvendt."
       },
       {
         "number": "03",
@@ -175,7 +175,7 @@
       {
         "number": "04",
         "title": "Klar kommunikation",
-        "description": "Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid — og vi forklarer hvorfor."
+        "description": "Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid  - og vi forklarer hvorfor."
       }
     ]
   },
@@ -192,12 +192,12 @@
       {
         "name": "Dennis Enghave",
         "role": "Co-founder & Lead Developer",
-        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
+        "bio": "Dennis bygger det hele fra bunden  - hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
       },
       {
         "name": "Christina Borreby",
         "role": "Co-founder & Design Director",
-        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
+        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud  - men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
       }
     ]
   },
@@ -677,12 +677,12 @@
       {
         "name": "Dennis Enghave",
         "role": "Co-founder & Lead Developer",
-        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
+        "bio": "Dennis bygger det hele fra bunden  - hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
       },
       {
         "name": "Christina Borreby",
         "role": "Co-founder & Design Director",
-        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
+        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud  - men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
       }
     ]
   },
@@ -827,7 +827,7 @@
   "metadata": {
     "home": {
       "title": "Transparo - Webdesign uden Overraskelser | Unique Designs. Built on Trust.",
-      "description": "Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger — bygget på tillid.",
+      "description": "Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger  - bygget på tillid.",
       "ogTitle": "Transparo - Webdesign uden Overraskelser",
       "ogDescription": "High-end websites bygget på tillid. Ingen overraskelser, kun resultater."
     },
@@ -852,9 +852,9 @@
     },
     "prisberegner": {
       "title": "Prisberegner",
-      "description": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov — helt uforpligtende og med fuld gennemsigtighed.",
+      "description": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov  - helt uforpligtende og med fuld gennemsigtighed.",
       "ogTitle": "Prisberegner | Transparo",
-      "ogDescription": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov — helt uforpligtende."
+      "ogDescription": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov  - helt uforpligtende."
     },
     "privatlivspolitik": {
       "title": "Privatlivspolitik | Transparo",
@@ -1606,7 +1606,7 @@
       },
       {
         "title": "10-28 Dage",
-        "description": "Leveret som lovet—garanteret"
+        "description": "Leveret som lovet -garanteret"
       },
       {
         "title": "Custom Design",
@@ -1736,7 +1736,7 @@
       },
       {
         "title": "Kvalitet Først",
-        "description": "Pakkeprisen bestemmer scope — ikke kvalitet. Alle får Motion animations, Payload CMS, og Next.js. Premium teknologi til alle."
+        "description": "Pakkeprisen bestemmer scope  - ikke kvalitet. Alle får Motion animations, Payload CMS, og Next.js. Premium teknologi til alle."
       }
     ],
     "ctaText": "Klar til at opleve forskellen?",
@@ -1744,7 +1744,7 @@
   },
   "howItWorks": {
     "heading": "Sådan <gold>Virker Det</gold>",
-    "subheading": "Vores strukturerede 4-ugers proces med klare milepæle og sign-off punkter—derfor får vi projekterne færdige til tiden.",
+    "subheading": "Vores strukturerede 4-ugers proces med klare milepæle og sign-off punkter -derfor får vi projekterne færdige til tiden.",
     "steps": [
       {
         "week": "Uge 1",
@@ -1784,14 +1784,14 @@
     "items": [
       {
         "title": "Zero Scope Creep Garanti",
-        "description": "73% af webdesign-projekter oplever scope creep—hvor projektet bare fortsætter uden klart slutpunkt.",
+        "description": "73% af webdesign-projekter oplever scope creep -hvor projektet bare fortsætter uden klart slutpunkt.",
         "solution": "Vores løsning: Strukturerede revisionsrunder (2-4 alt efter pakke) med klare sign-off punkter. Efter design godkendelse koster ændringer ekstra. Klare grænser = projekter der faktisk bliver færdige.",
         "stat": "0%",
         "statLabel": "scope creep"
       },
       {
         "title": "AI + Ekspert Hybrid Model",
-        "description": "Vi bruger AI-værktøjer til effektivitet—research, content drafts, kodestruktur.",
+        "description": "Vi bruger AI-værktøjer til effektivitet -research, content drafts, kodestruktur.",
         "solution": "Men eksperter perfektionerer alt. Resultatet: Bureau-kvalitet leveret 3-5x hurtigere end traditionelle bureauer (2-4 uger vs. 8-16 uger). Du får det bedste fra begge verdener.",
         "stat": "3-5x",
         "statLabel": "hurtigere"
@@ -1799,7 +1799,7 @@
       {
         "title": "Fast Pris, Fuld Transparens",
         "description": "Ingen \"bare lige én ting mere\" opkrævninger. Ingen skjulte omkostninger.",
-        "solution": "Vores løfte: Én pris. Alt er inkluderet. Du ved præcis hvad du får, og hvad det koster, før vi starter. Transparens skaber tillid—det er kernen i vores forretningsmodel.",
+        "solution": "Vores løfte: Én pris. Alt er inkluderet. Du ved præcis hvad du får, og hvad det koster, før vi starter. Transparens skaber tillid -det er kernen i vores forretningsmodel.",
         "stat": "100%",
         "statLabel": "transparent"
       }
@@ -1906,7 +1906,7 @@
         "role": "Marketing Chef"
       },
       {
-        "quote": "Ingen skjulte overraskelser — kun klarhed og stærkt design.",
+        "quote": "Ingen skjulte overraskelser  - kun klarhed og stærkt design.",
         "author": "Kommende Kunde",
         "company": "Startup Danmark",
         "role": "Founder"

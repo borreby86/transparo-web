@@ -162,19 +162,19 @@ export function PackageComparisonSection() {
               <div />
               <Link
                 href="/packages/essentials"
-                className="bg-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-navy/90 transition-all text-center text-sm"
+                className="bg-navy text-white px-6 py-3 font-semibold hover:bg-navy/90 transition-all text-center text-sm"
               >
                 Vælg Essentials
               </Link>
               <Link
                 href="/packages/professional"
-                className="bg-gold text-navy px-6 py-3 rounded-lg font-semibold hover:bg-gold/90 transition-all text-center text-sm"
+                className="bg-gold text-navy px-6 py-3 font-semibold hover:bg-gold/90 transition-all text-center text-sm"
               >
                 Vælg Professional
               </Link>
               <Link
                 href="/packages/business"
-                className="bg-navy text-white px-6 py-3 rounded-lg font-semibold hover:bg-navy/90 transition-all text-center text-sm"
+                className="bg-navy text-white px-6 py-3 font-semibold hover:bg-navy/90 transition-all text-center text-sm"
               >
                 Vælg Business
               </Link>
@@ -233,7 +233,7 @@ export function PackageComparisonSection() {
                 <div className="p-6 pt-0">
                   <Link
                     href={`/packages/${packageId}`}
-                    className={`block w-full ${isPopular ? 'bg-gold text-navy' : 'bg-navy text-white'} px-6 py-4 rounded-lg font-semibold hover:opacity-90 transition-all text-center`}
+                    className={`block w-full ${isPopular ? 'bg-gold text-navy' : 'bg-navy text-white'} px-6 py-4 font-semibold hover:opacity-90 transition-all text-center`}
                   >
                     Vælg {packageName}
                   </Link>

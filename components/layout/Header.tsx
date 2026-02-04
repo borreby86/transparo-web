@@ -97,7 +97,7 @@ export function Header() {
 
             <button
               type="button"
-              className="px-4 py-2 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full"
+              className="px-4 py-2 bg-black text-white text-xs font-bold uppercase tracking-wider"
               onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false) }}
             >
               {tBooking('mobileBookButton')}

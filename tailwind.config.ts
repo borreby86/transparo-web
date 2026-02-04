@@ -16,8 +16,8 @@ const config: Config = {
       colors: {
         // Transparo Brand Colors
         navy: {
-          DEFAULT: '#0E1D3D',
-          dark: '#0A1529',
+          DEFAULT: '#000000',
+          dark: '#000000',
         },
         black: {
           DEFAULT: '#1A1A1A',

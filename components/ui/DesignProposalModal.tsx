@@ -167,7 +167,7 @@ export function DesignProposalModal() {
                     disabled={isSubmitting}
                     whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
                     whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                    className="w-full py-4 bg-navy text-white rounded-xl font-semibold text-lg hover:bg-navy/90 transition-colors disabled:opacity-70"
+                    className="w-full py-4 bg-navy text-white font-semibold text-lg hover:bg-navy/90 transition-colors disabled:opacity-70"
                   >
                     {isSubmitting ? t('submitting') : t('submitButton')}
                   </motion.button>

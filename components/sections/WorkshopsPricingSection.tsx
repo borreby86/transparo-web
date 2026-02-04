@@ -119,7 +119,7 @@ export function WorkshopsPricingSection() {
             {/* CTA */}
             <motion.a
               href="#tilmeld"
-              className="group relative inline-flex items-center gap-3 px-12 py-5 bg-gradient-to-r from-gold via-gold-light to-gold text-navy rounded-full font-bold text-lg overflow-hidden shadow-xl shadow-gold/20 hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300"
+              className="group relative inline-flex items-center gap-3 px-12 py-5 bg-gradient-to-r from-gold via-gold-light to-gold text-navy font-bold text-lg overflow-hidden shadow-xl shadow-gold/20 hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300"
               whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
