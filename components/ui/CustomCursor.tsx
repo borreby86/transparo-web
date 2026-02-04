@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useSpring } from 'motion/react'
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { ArrowUpRight } from 'lucide-react'
 
 export function CustomCursor() {
@@ -10,12 +11,20 @@ export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(true)
   const [isMounted, setIsMounted] = useState(false)
 
+  const pathname = usePathname()
+
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
   const springConfig = { damping: 25, stiffness: 400, mass: 0.5 }
   const cursorXSpring = useSpring(cursorX, springConfig)
   const cursorYSpring = useSpring(cursorY, springConfig)
+
+  // Reset project card cursor on route change
+  useEffect(() => {
+    setIsProjectCard(false)
+    setIsHovering(false)
+  }, [pathname])
 
   useEffect(() => {
     setIsMounted(true)
