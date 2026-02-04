@@ -4,8 +4,6 @@ import { setRequestLocale, getTranslations } from 'next-intl/server'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { DesignProposalProvider } from '@/components/ui/DesignProposalContext'
-import { DesignProposalModal } from '@/components/ui/DesignProposalModal'
 
 const ProblemSolutionSection = dynamic(() => import('@/components/sections/ProblemSolutionSection').then((mod) => mod.ProblemSolutionSection), {
   loading: () => <div className="h-96 bg-white" />
@@ -52,7 +50,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   setRequestLocale(locale)
 
   return (
-    <DesignProposalProvider>
+    <>
       <Header />
       <main>
         <HeroSection />
@@ -64,7 +62,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <FinalCTASection />
       </main>
       <Footer />
-      <DesignProposalModal />
-    </DesignProposalProvider>
+    </>
   )
 }

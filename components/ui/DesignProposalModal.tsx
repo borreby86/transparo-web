@@ -2,14 +2,12 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useTranslations } from 'next-intl'
-import { X, Send } from 'lucide-react'
+import { X, Plus, Trash2 } from 'lucide-react'
 import { useDesignProposal } from './DesignProposalContext'
 
 export function DesignProposalModal() {
   const { isOpen, close } = useDesignProposal()
-  const shouldReduceMotion = useReducedMotion()
   const t = useTranslations('designProposal')
   const [formData, setFormData] = useState({
     name: '',
@@ -17,165 +15,224 @@ export function DesignProposalModal() {
     website: '',
     message: '',
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [inspirationLinks, setInspirationLinks] = useState<string[]>([])
+  const [newLink, setNewLink] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleAddLink = () => {
+    const trimmed = newLink.trim()
+    if (trimmed) {
+      setInspirationLinks([...inspirationLinks, trimmed])
+      setNewLink('')
+    }
+  }
+
+  const handleRemoveLink = (index: number) => {
+    setInspirationLinks(inspirationLinks.filter((_, i) => i !== index))
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      handleAddLink()
+    }
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
     setSubmitted(true)
+    setTimeout(() => {
+      setSubmitted(false)
+      close()
+      setFormData({ name: '', email: '', website: '', message: '' })
+      setInspirationLinks([])
+      setNewLink('')
+    }, 3000)
   }
 
   const handleClose = () => {
     close()
-    // Reset form after animation
     setTimeout(() => {
       setSubmitted(false)
       setFormData({ name: '', email: '', website: '', message: '' })
-    }, 300)
+      setInspirationLinks([])
+      setNewLink('')
+    }, 500)
   }
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.2 }}
-        >
-          {/* Overlay */}
+        <>
+          {/* Backdrop */}
           <motion.div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={handleClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[54] bg-black/40"
+            onClick={handleClose}
           />
 
-          {/* Modal */}
+          {/* Panel — slides in from right, matches booking panel */}
           <motion.div
-            className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden"
-            initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95, y: shouldReduceMotion ? 0 : 20 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+            className="fixed top-0 right-0 h-screen w-full max-w-lg lg:mr-16 xl:mr-20 z-[55] bg-black text-white overflow-y-auto"
           >
-            {/* Close button */}
-            <button
-              onClick={handleClose}
-              className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition-colors"
-              aria-label="Close"
-            >
-              <X className="w-4 h-4 text-black/60" />
-            </button>
+            <div className="p-10 md:p-14 min-h-full flex flex-col justify-center">
+              {/* Close button for mobile */}
+              <button
+                onClick={handleClose}
+                className="lg:hidden absolute top-5 right-5 text-white/60 hover:text-white transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-6 h-6" />
+              </button>
 
-            <div className="p-6 md:p-8">
-              {/* Header */}
-              <div className="mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-navy">
-                  {t('modalTitle')}
-                </h2>
-                <p className="text-black/50 mt-1">
-                  {t('modalSubtitle')}
-                </p>
-              </div>
+              <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
+                {t('heading')}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+                {t('subheading')}
+                <br />
+                <span className="text-white/40">{t('subheadingFaded')}</span>
+              </h2>
+              <p className="text-white/40 text-sm leading-relaxed mb-10">
+                {t('description')}
+              </p>
 
               {submitted ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center py-16"
                 >
-                  <div className="w-14 h-14 rounded-full bg-navy flex items-center justify-center mx-auto mb-5">
-                    <Send className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-navy mb-2">{t('successTitle')}</h3>
-                  <p className="text-black/60">{t('successMessage')}</p>
+                  <div className="w-12 h-[2px] bg-gold mx-auto mb-6" />
+                  <h3 className="text-2xl font-bold mb-3">{t('thankYouTitle')}</h3>
+                  <p className="text-white/40 text-sm">{t('thankYouMessage')}</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
                   <div>
-                    <label htmlFor="dp-name" className="block text-sm font-medium text-navy mb-1">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
                       {t('nameLabel')}
                     </label>
                     <input
                       type="text"
-                      id="dp-name"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
                       placeholder={t('namePlaceholder')}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 bg-offwhite/50 focus:outline-none focus:border-gold transition-colors"
                     />
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="dp-email" className="block text-sm font-medium text-navy mb-1">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
                       {t('emailLabel')}
                     </label>
                     <input
                       type="email"
-                      id="dp-email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
                       placeholder={t('emailPlaceholder')}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 bg-offwhite/50 focus:outline-none focus:border-gold transition-colors"
                     />
                   </div>
 
                   {/* Website */}
                   <div>
-                    <label htmlFor="dp-website" className="block text-sm font-medium text-navy mb-1">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
                       {t('websiteLabel')}
                     </label>
                     <input
                       type="text"
-                      id="dp-website"
                       value={formData.website}
                       onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
                       placeholder={t('websitePlaceholder')}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 bg-offwhite/50 focus:outline-none focus:border-gold transition-colors"
                     />
+                  </div>
+
+                  {/* Inspiration Links */}
+                  <div>
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
+                      {t('inspirationLabel')}
+                    </label>
+
+                    {/* Existing links */}
+                    {inspirationLinks.length > 0 && (
+                      <div className="space-y-2 mb-3">
+                        {inspirationLinks.map((link, index) => (
+                          <div key={index} className="flex items-center gap-2 group">
+                            <span className="text-sm text-white/60 truncate flex-1">{link}</span>
+                            <button
+                              type="button"
+                              onClick={() => handleRemoveLink(index)}
+                              className="text-white/20 hover:text-red-400 transition-colors flex-shrink-0"
+                              aria-label="Remove link"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Add new link */}
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="url"
+                        value={newLink}
+                        onChange={(e) => setNewLink(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        className="flex-1 bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
+                        placeholder={t('inspirationPlaceholder')}
+                      />
+                      <button
+                        type="button"
+                        onClick={handleAddLink}
+                        disabled={!newLink.trim()}
+                        className="text-gold hover:text-gold-light transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
+                        aria-label={t('inspirationAdd')}
+                      >
+                        <Plus className="w-5 h-5" />
+                      </button>
+                    </div>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="dp-message" className="block text-sm font-medium text-navy mb-1">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
                       {t('messageLabel')}
                     </label>
                     <textarea
-                      id="dp-message"
-                      required
                       rows={3}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 resize-none placeholder:text-white/20"
                       placeholder={t('messagePlaceholder')}
-                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 bg-offwhite/50 focus:outline-none focus:border-gold transition-colors resize-none"
                     />
                   </div>
 
                   {/* Submit */}
-                  <motion.button
+                  <button
                     type="submit"
-                    disabled={isSubmitting}
-                    whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
-                    whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                    className="w-full py-4 bg-navy text-white font-semibold text-lg hover:bg-navy/90 transition-colors disabled:opacity-70"
+                    className="w-full bg-gold text-black py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-gold/90 transition-colors duration-300 mt-4"
                   >
-                    {isSubmitting ? t('submitting') : t('submitButton')}
-                  </motion.button>
+                    {t('submitButton')}
+                  </button>
                 </form>
               )}
             </div>
           </motion.div>
-        </motion.div>
+        </>
       )}
     </AnimatePresence>
   )

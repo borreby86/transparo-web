@@ -4,19 +4,22 @@ import { Link, type Pathnames } from '@/i18n/routing'
 import { useState } from 'react'
 import { usePathname } from '@/i18n/routing'
 import { motion, AnimatePresence } from 'motion/react'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, Palette } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
+import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [bookingOpen, setBookingOpen] = useState(false)
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const { open: openDesignProposal, close: closeDesignProposal } = useDesignProposal()
   const pathname = usePathname()
 
   const t = useTranslations('nav')
   const tBooking = useTranslations('booking')
+  const tDesign = useTranslations('designProposal')
 
   const navigation = [
     { number: '01', name: t('items.0.name'), href: '/' as const },
@@ -64,22 +67,37 @@ export function Header() {
         </span>
       </aside>
 
-      {/* Right sidebar — book møde */}
+      {/* Right sidebar — book møde + gratis design */}
       <aside className="hidden lg:flex fixed top-0 right-0 h-screen w-16 xl:w-20 z-[60] flex-col items-center justify-between py-8 bg-black border-l border-white/[0.06]">
-        <button
-          onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false) }}
-          className="flex flex-col items-center gap-4 group"
-          aria-label="Toggle booking"
-        >
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-gold group-hover:text-white transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
-            {tBooking('label')}
-          </span>
-          {bookingOpen ? (
-            <X className="w-5 h-5 text-white" strokeWidth={1.5} />
-          ) : (
-            <ArrowRight className="w-4 h-4 text-gold rotate-180 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
-          )}
-        </button>
+        <div className="flex flex-col items-center gap-8">
+          <button
+            onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false); closeDesignProposal() }}
+            className="flex flex-col items-center gap-4 group"
+            aria-label="Toggle booking"
+          >
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-gold group-hover:text-white transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
+              {tBooking('label')}
+            </span>
+            {bookingOpen ? (
+              <X className="w-5 h-5 text-white" strokeWidth={1.5} />
+            ) : (
+              <ArrowRight className="w-4 h-4 text-gold rotate-180 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
+            )}
+          </button>
+
+          <div className="w-6 h-px bg-white/10" />
+
+          <button
+            onClick={() => { setBookingOpen(false); setMenuOpen(false); openDesignProposal() }}
+            className="flex flex-col items-center gap-4 group"
+            aria-label="Toggle design proposal"
+          >
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-gold transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
+              {tDesign('label')}
+            </span>
+            <Palette className="w-4 h-4 text-white/50 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+          </button>
+        </div>
 
         <div />
         <div />
@@ -92,13 +110,20 @@ export function Header() {
             transparo<span className="text-gold">.</span>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <LanguageSwitcher />
 
             <button
               type="button"
-              className="px-4 py-2 bg-black text-white text-xs font-bold uppercase tracking-wider"
-              onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false) }}
+              className="px-3 py-2 bg-gold text-black text-xs font-bold uppercase tracking-wider"
+              onClick={() => { setBookingOpen(false); setMenuOpen(false); openDesignProposal() }}
+            >
+              {tDesign('mobileButton')}
+            </button>
+            <button
+              type="button"
+              className="px-3 py-2 bg-black text-white text-xs font-bold uppercase tracking-wider"
+              onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false); closeDesignProposal() }}
             >
               {tBooking('mobileBookButton')}
             </button>

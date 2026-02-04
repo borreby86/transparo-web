@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { ClientProviders } from '@/components/ClientProviders'
 import { CookieBanner } from '@/components/ui/CookieBanner'
+import { DesignProposalProvider } from '@/components/ui/DesignProposalContext'
+import { DesignProposalModal } from '@/components/ui/DesignProposalModal'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -183,11 +185,14 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="font-sans antialiased bg-offwhite text-black cursor-none" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <ClientProviders>
-            <div className="lg:ml-16 xl:ml-20 lg:mr-16 xl:mr-20">
-              {children}
-            </div>
-          </ClientProviders>
+          <DesignProposalProvider>
+            <ClientProviders>
+              <div className="lg:ml-16 xl:ml-20 lg:mr-16 xl:mr-20">
+                {children}
+              </div>
+            </ClientProviders>
+            <DesignProposalModal />
+          </DesignProposalProvider>
           <CookieBanner />
         </NextIntlClientProvider>
       </body>
