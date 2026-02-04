@@ -47,8 +47,9 @@
     "headlinePart1": "Hjemmesider der performer",
     "headlinePart2": "– og holder i fremtiden",
     "subtitle": "Fast pris. Tydelig proces. Ingen overraskelser.",
-    "ctaPortfolio": "Se portfolio",
-    "ctaPricing": "Beregn din pris"
+    "subtitleExtra": "Du får et gratis designforslag til din forside – så du kan se hvad du får, før du beslutter noget som helst.",
+    "ctaDesignProposal": "Få et gratis designforslag",
+    "ctaPortfolio": "Se portfolio"
   },
   "footer": {
     "tagline": "Unique designs • Built on trust",
@@ -56,6 +57,7 @@
     "quickLinksTitle": "Hurtige Links",
     "portfolio": "Portfolio",
     "kontakt": "Kontakt",
+    "faq": "FAQ",
     "contactTitle": "Kontakt",
     "location": "Hørsholm, Danmark",
     "copyright": "© {year} Transparo. Alle rettigheder forbeholdes.",
@@ -140,8 +142,7 @@
     "overline": "Udvalgte projekter",
     "headingLine1": "Websites der",
     "headingLine2": "arbejder for dig.",
-    "description1": "Hvert projekt starter med en forståelse af din virksomhed — hvem dine kunder er, og hvad dit website skal gøre for dem.",
-    "description2": "Vi designer og bygger fra bunden, så resultatet passer til dig — ikke til et template.",
+    "description1": "Hvert projekt starter med en forståelse af din forretning – hvem du taler til, og hvad din side skal opnå.",
     "viewAll": "Se alle projekter",
     "pageOverline": "Portfolio",
     "pageTitle": "Vores arbejde",
@@ -183,57 +184,47 @@
     "headingLine1": "To mennesker.",
     "headingLine2": "Ét mål.",
     "descriptions": [
-      "Transparo er os to. Vi startede bureauet, fordi vi selv har oplevet, hvor frustrerende det kan være at købe en hjemmeside — uklare priser, manglende kommunikation og et resultat der ikke ligner det, man blev lovet.",
-      "Derfor bygger vi Transparo på gennemsigtighed. Du ved præcis hvad du får, hvad det koster, og hvornår det er klar. Ingen skjulte gebyrer, ingen overraskelser.",
-      "Vi kombinerer moderne teknologi med gennemtænkt design og leverer websites, der ikke bare ser professionelle ud — men rent faktisk skaber resultater for din forretning."
+      "Vi har begge arbejdet i branchen længe nok til at se hvordan det ofte går: uklare priser, manglende kommunikation og kunder der ender med noget andet end det de blev lovet.",
+      "Det ville vi gøre bedre. Så vi startede Transparo.",
+      "Her får du én fast pris, en proces du kan følge med i, og et website du rent faktisk er stolt af."
     ],
     "team": [
       {
         "name": "Dennis Enghave",
         "role": "Co-founder & Lead Developer",
-        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med Next.js, TypeScript og AI-assisteret udvikling for at levere resultater, der både ser godt ud og kører lynhurtigt."
+        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
       },
       {
         "name": "Christina Borreby",
         "role": "Co-founder & Design Director",
-        "bio": "Christina sikrer, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Med erfaring inden for design, branding og digital strategi styrer hun hele processen fra første møde til færdigt resultat. Hun er bindeledet mellem kunde og produkt og sørger for, at intet bliver tabt i oversættelsen."
+        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
       }
     ]
   },
   "processTimeline": {
     "overline": "Sådan arbejder vi",
-    "headingLine1": "Fra samtale",
-    "headingLine2": "til lancering.",
+    "headingLine1": "Alt er transparent.",
+    "headingLine2": "Altid.",
     "steps": [
       {
         "number": "01",
-        "title": "Samtale",
-        "description": "Vi lytter til dig og forstår din virksomhed."
+        "title": "Gratis designforslag",
+        "description": "Vi laver et konkret bud på din forside – helt uforpligtende. Ingen salgsmøder, bare et design du kan tage stilling til."
       },
       {
         "number": "02",
-        "title": "Design",
-        "description": "Du ser de første udkast og giver feedback."
+        "title": "Fast pris",
+        "description": "Når du siger ja, kender du den fulde pris. Den ændrer sig ikke undervejs."
       },
       {
         "number": "03",
-        "title": "Tilretning",
-        "description": "Vi justerer indtil du er tilfreds."
+        "title": "Du ejer alt",
+        "description": "Koden er din. Domænet er dit. Vil du skifte væk en dag? Du tager det hele med dig – uden merpris."
       },
       {
         "number": "04",
-        "title": "Udvikling",
-        "description": "Vi koder og tester på alle enheder."
-      },
-      {
-        "number": "05",
-        "title": "Review",
-        "description": "Du godkender det færdige resultat."
-      },
-      {
-        "number": "06",
-        "title": "Lancering",
-        "description": "Dit website går live. Alt overdrages til dig."
+        "title": "Vi er her bagefter",
+        "description": "Når siden er live, kan du vælge vores vedligeholdelsespakke – eller klare det selv. Det er op til dig."
       }
     ],
     "sectionHeading": "Fra idé til lancering",
@@ -686,12 +677,12 @@
       {
         "name": "Dennis Enghave",
         "role": "Co-founder & Lead Developer",
-        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med Next.js, TypeScript og AI-assisteret udvikling for at levere resultater, der både ser godt ud og kører lynhurtigt."
+        "bio": "Dennis bygger det hele fra bunden — hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
       },
       {
         "name": "Christina Borreby",
         "role": "Co-founder & Design Director",
-        "bio": "Christina sikrer, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Med erfaring inden for design, branding og digital strategi styrer hun hele processen fra første møde til færdigt resultat. Hun er bindeledet mellem kunde og produkt og sørger for, at intet bliver tabt i oversættelsen."
+        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud — men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
       }
     ]
   },
@@ -760,35 +751,69 @@
     "bottomButton": "Start Dit Projekt"
   },
   "finalCTA": {
-    "headingLine1": "Du Drømmer,",
-    "headingLine2": "Vi Bygger",
-    "contactVia": "Kontakt os hurtigt via:",
-    "stats": [
+    "heading": "Klar til at komme i gang?",
+    "body": "Få et gratis designforslag til din forside. Ingen forpligtelser, ingen salgsmøder – bare et konkret bud du kan tage stilling til.",
+    "ctaButton": "Få et gratis designforslag"
+  },
+  "problemSolution": {
+    "heading": "Vi startede Transparo, fordi vi selv har stået på den anden side",
+    "paragraph1": "Uklare priser. Manglende kommunikation. Og et resultat der ikke lignede det man blev lovet. Det er desværre standarden i branchen.",
+    "paragraph2": "Vi gør det anderledes. Du får én fast pris, en proces du kan følge med i, og en hjemmeside bygget med moderne teknologi der loader hurtigt, scorer højt i Google og holder i mange år frem."
+  },
+  "designProposal": {
+    "modalTitle": "Få et gratis designforslag",
+    "modalSubtitle": "Vi laver et konkret bud på din forside – helt uforpligtende.",
+    "nameLabel": "Navn *",
+    "namePlaceholder": "Dit fulde navn",
+    "emailLabel": "Email *",
+    "emailPlaceholder": "din@email.dk",
+    "websiteLabel": "Nuværende website (valgfrit)",
+    "websitePlaceholder": "www.dinvirksomhed.dk",
+    "messageLabel": "Fortæl kort om din virksomhed *",
+    "messagePlaceholder": "Hvad laver din virksomhed, og hvad skal hjemmesiden gøre for dig?",
+    "submitButton": "Send",
+    "submitting": "Sender...",
+    "successTitle": "Tak for din henvendelse!",
+    "successMessage": "Vi vender tilbage med et designforslag inden for 2-3 hverdage."
+  },
+  "faqPage": {
+    "title": "Ofte stillede spørgsmål",
+    "questions": [
       {
-        "value": "100+",
-        "label": "Projekter\nLeveret"
+        "question": "Hvorfor ikke bare WordPress?",
+        "answer": "WordPress er fra 2003 og det mærkes. Tunge plugins, konstante opdateringer og sikkerhedshuller der kræver vedligeholdelse. Vi bygger med Next.js – en moderne teknologi der giver dig en hurtigere side, bedre Google-placeringer og langt mindre bøvl."
       },
       {
-        "value": "50+",
-        "label": "Glade\nKunder"
+        "question": "Hvad koster det?",
+        "answer": "Det kommer an på hvad du har brug for. Brug vores prisberegner og få et præcist estimat på under et minut. Prisen du ser er prisen du betaler – ingen skjulte gebyrer."
       },
       {
-        "value": "92%",
-        "label": "Kunde\nFastholdelse"
+        "question": "Hvem ejer hjemmesiden bagefter?",
+        "answer": "Det gør du. Koden, domænet, alt sammen. Vil du skifte væk en dag, tager du det hele med dig uden merpris."
       },
       {
-        "value": "7+",
-        "label": "Års\nPartnerskab"
+        "question": "Kan jeg selv redigere indholdet?",
+        "answer": "Ja, hvis du tilkøber CMS. Så kan du selv opdatere tekster og billeder uden at skulle kode. Vi sørger for oplæring så du er tryg ved systemet."
+      },
+      {
+        "question": "Hvad med hosting – er jeg bundet?",
+        "answer": "Nej. Vi tilbyder en vedligeholdelsespakke, men du kan også klare hosting selv. Vi hjælper dig gerne med at sætte det op – så betaler du kun direkte til Vercel."
+      },
+      {
+        "question": "Hvor lang tid tager det?",
+        "answer": "Normalt 2-4 uger. Har du travlt, tilbyder vi express-levering på 1-2 uger mod et tillæg."
+      },
+      {
+        "question": "Hvad hvis jeg vil skifte væk fra jer?",
+        "answer": "Så gør du det. Du ejer alt, og vi hjælper dig med overdragelsen hvis du har brug for det. Ingen binding, ingen drama."
+      },
+      {
+        "question": "Har I skjulte gebyrer eller bindingsperioder?",
+        "answer": "Nej. Det du ser i prisberegneren er det du betaler. Vedligeholdelsespakken er valgfri, og du kan opsige når som helst."
       }
     ],
-    "formTitle": "Har du visionen?",
-    "formSubtitle": "Vi har ekspertisen.",
-    "formDescription": "Fortæl os lidt om dig selv og hvad du har i tankerne.",
-    "namePlaceholder": "Dit fulde navn",
-    "phonePlaceholder": "Dit telefonnummer",
-    "emailPlaceholder": "Din email",
-    "messagePlaceholder": "Fortæl os lidt om din vision...",
-    "submitButton": "SEND"
+    "bottomQuestion": "Har du et spørgsmål vi ikke har besvaret?",
+    "contactButton": "Kontakt os"
   },
   "notFound": {
     "heading": "Siden blev ikke fundet",
@@ -842,6 +867,12 @@
     "caseStudy": {
       "notFoundTitle": "Case ikke fundet - Transparo",
       "titleSuffix": "- Case Study | Transparo"
+    },
+    "faq": {
+      "title": "FAQ – Ofte Stillede Spørgsmål | Transparo",
+      "description": "Få svar på de mest almindelige spørgsmål om Transaparos webdesign, priser, ejerskab og proces.",
+      "ogTitle": "FAQ | Transparo",
+      "ogDescription": "Svar på ofte stillede spørgsmål om webdesign, priser og proces hos Transparo."
     }
   },
   "caseStudies": {

@@ -9,93 +9,119 @@ export function AboutSection() {
   const shouldReduceMotion = useReducedMotion()
   const t = useTranslations('about')
 
-  const team = [
-    {
-      name: t('team.0.name'),
-      role: t('team.0.role'),
-      image: '/images/team/dennis.jpg',
-      bio: t('team.0.bio'),
-    },
-    {
-      name: t('team.1.name'),
-      role: t('team.1.role'),
-      image: '/images/team/christina.jpg',
-      bio: t('team.1.bio'),
-    },
-  ]
-
   return (
-    <section className="bg-white py-24 md:py-32 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+    <section className="bg-white py-28 md:py-36 overflow-hidden">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        {/* Overline */}
+        <motion.span
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
+          className="text-gold text-sm font-medium uppercase tracking-[0.25em] mb-10 block"
+        >
+          {t('overline')}
+        </motion.span>
 
-          {/* Left: Text */}
-          <motion.div
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
-          >
-            <span className="text-gold text-sm font-medium uppercase tracking-[0.2em] mb-6 block">
-              {t('overline')}
-            </span>
+        {/* Editorial layout */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05] tracking-tight mb-8">
+          {/* Left column - Heading + Dennis */}
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: shouldReduceMotion ? 0 : 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl md:text-5xl font-bold text-navy leading-[0.95] tracking-tight mb-10"
+            >
               {t('headingLine1')}
               <br />
-              <span className="text-navy/40">{t('headingLine2')}</span>
-            </h2>
+              <span className="text-navy/30">{t('headingLine2')}</span>
+            </motion.h2>
 
-            <div className="space-y-4 text-black/50 text-base md:text-lg leading-relaxed">
-              <p>
+            {/* Dennis */}
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: shouldReduceMotion ? 0 : 1.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="relative aspect-[1/1] w-full max-w-[280px] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/team/dennis.jpg"
+                  alt={t('team.0.name')}
+                  fill
+                  className="object-cover object-top scale-[1.3] grayscale"
+                  sizes="280px"
+                />
+              </div>
+              <div className="mt-5">
+                <h3 className="text-xl md:text-2xl font-bold text-navy">
+                  {t('team.0.name')}
+                </h3>
+                <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] block mt-1 mb-3">
+                  {t('team.0.role')}
+                </span>
+                <p className="text-black/40 text-sm leading-relaxed">
+                  {t('team.0.bio')}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right column - Description + Christina */}
+          <div className="lg:pt-20">
+
+            {/* Description text */}
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: shouldReduceMotion ? 0 : 0.2 }}
+              className="mb-10 lg:mb-16"
+            >
+              <div className="w-10 h-px bg-gold mb-6" />
+              <p className="text-black/50 text-base md:text-lg leading-relaxed">
                 {t('descriptions.0')}
               </p>
-              <p>
+              <p className="text-gold font-semibold text-base md:text-lg leading-relaxed mt-4">
                 {t('descriptions.1')}
               </p>
-              <p>
+              <p className="text-black/40 text-sm leading-relaxed mt-4">
                 {t('descriptions.2')}
               </p>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Right: Team */}
-          <div className="space-y-10">
-            {team.map((person, index) => (
-              <motion.div
-                key={person.name}
-                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.7, delay: index * 0.15 }}
-                className="flex items-start gap-6"
-              >
-                {/* Photo */}
-                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl flex-shrink-0 overflow-hidden">
-                  <Image
-                    src={person.image}
-                    alt={person.name}
-                    fill
-                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                    sizes="144px"
-                  />
-                </div>
-
-                {/* Info */}
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-navy">
-                    {person.name}
-                  </h3>
-                  <span className="text-gold text-sm font-medium block mb-3">
-                    {person.role}
-                  </span>
-                  <p className="text-black/50 text-sm md:text-base leading-relaxed">
-                    {person.bio}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {/* Christina */}
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: shouldReduceMotion ? 0 : 1.2, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="relative aspect-[1/1] w-full max-w-[280px] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/team/christina.jpg"
+                  alt={t('team.1.name')}
+                  fill
+                  className="object-cover grayscale"
+                  sizes="280px"
+                />
+              </div>
+              <div className="mt-5">
+                <h3 className="text-xl md:text-2xl font-bold text-navy">
+                  {t('team.1.name')}
+                </h3>
+                <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] block mt-1 mb-3">
+                  {t('team.1.role')}
+                </span>
+                <p className="text-black/40 text-sm leading-relaxed">
+                  {t('team.1.bio')}
+                </p>
+              </div>
+            </motion.div>
           </div>
 
         </div>

@@ -14,8 +14,6 @@ export function PremiumProcessTimeline() {
     { number: t('steps.1.number'), title: t('steps.1.title'), description: t('steps.1.description') },
     { number: t('steps.2.number'), title: t('steps.2.title'), description: t('steps.2.description') },
     { number: t('steps.3.number'), title: t('steps.3.title'), description: t('steps.3.description') },
-    { number: t('steps.4.number'), title: t('steps.4.title'), description: t('steps.4.description') },
-    { number: t('steps.5.number'), title: t('steps.5.title'), description: t('steps.5.description') },
   ]
 
   return (
@@ -51,7 +49,7 @@ export function PremiumProcessTimeline() {
         </motion.div>
 
         {/* Horizontal steps */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 md:grid-cols-4">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -59,7 +57,7 @@ export function PremiumProcessTimeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: index * 0.08 }}
-              className="group relative p-8 md:p-10 border-r border-b border-white/[0.06] last:border-r-0 lg:[&:nth-child(n+4)]:border-b-0 hover:bg-white/[0.03] transition-all duration-500"
+              className="group relative p-8 md:p-10 border-r border-b border-white/[0.06] last:border-r-0 md:[&:nth-child(n+3)]:border-b-0 hover:bg-white/[0.03] transition-all duration-500"
             >
               {/* Gold accent line */}
               <div className="w-8 h-[2px] bg-gold/40 mb-8 group-hover:w-12 group-hover:bg-gold transition-all duration-500" />

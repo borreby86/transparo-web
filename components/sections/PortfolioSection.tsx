@@ -42,9 +42,6 @@ export function PortfolioSection() {
               <p>
                 {t('description1')}
               </p>
-              <p>
-                {t('description2')}
-              </p>
             </div>
 
             <Link

@@ -51,6 +51,10 @@ export const routing = defineRouting({
       da: '/workshops',
       en: '/workshops',
     },
+    '/faq': {
+      da: '/faq',
+      en: '/faq',
+    },
   },
 })
 

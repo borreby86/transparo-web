@@ -47,6 +47,14 @@ export function Footer() {
                   {t('kontakt')}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="text-black/70 hover:text-gold transition-colors text-sm"
+                >
+                  {t('faq')}
+                </Link>
+              </li>
             </ul>
           </div>
 

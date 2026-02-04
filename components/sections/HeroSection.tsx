@@ -6,10 +6,12 @@ import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import Image from 'next/image'
+import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
 export function HeroSection() {
   const t = useTranslations('hero')
   const shouldReduceMotion = useReducedMotion()
+  const { open: openDesignProposal } = useDesignProposal()
   const word = 'transparo.'
   const [displayedText, setDisplayedText] = useState('')
   const [charIndex, setCharIndex] = useState(0)
@@ -121,6 +123,9 @@ export function HeroSection() {
             <p className="text-lg sm:text-xl md:text-2xl text-white/50 leading-relaxed max-w-2xl mx-auto">
               {t('subtitle')}
             </p>
+            <p className="text-base sm:text-lg text-white/40 leading-relaxed max-w-2xl mx-auto mt-4">
+              {t('subtitleExtra')}
+            </p>
           </motion.div>
 
           {/* CTAs */}
@@ -138,22 +143,22 @@ export function HeroSection() {
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
-              <Link
-                href="/cases"
+              <button
+                onClick={openDesignProposal}
                 className="inline-block px-10 py-4 bg-white text-black font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
               >
-                {t('ctaPortfolio')}
-              </Link>
+                {t('ctaDesignProposal')}
+              </button>
             </motion.div>
             <motion.div
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
               <Link
-                href="/prisberegner"
+                href="/cases"
                 className="inline-block px-10 py-4 border border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-colors duration-300"
               >
-                {t('ctaPricing')}
+                {t('ctaPortfolio')}
               </Link>
             </motion.div>
           </motion.div>
