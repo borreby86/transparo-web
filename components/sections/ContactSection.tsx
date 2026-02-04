@@ -21,10 +21,36 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('submitting')
-    setTimeout(() => {
-      setStatus('success')
-      setFormData({ name: '', email: '', phone: '', message: '' })
-    }, 1500)
+
+    const formPayload = {
+      access_key: '5312479b-25c1-44de-8d43-e410e99f6aa0',
+      subject: 'Ny kontaktformular besked',
+      from_name: formData.name,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || 'Ikke angivet',
+      message: formData.message,
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formPayload),
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setStatus('error')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

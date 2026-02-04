@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
+import { ArrowRight } from 'lucide-react'
 
 export function FinalCTASection() {
   const t = useTranslations('finalCTA')
@@ -10,22 +11,21 @@ export function FinalCTASection() {
   const { open: openDesignProposal } = useDesignProposal()
 
   return (
-    <section className="relative bg-gradient-to-b from-navy-dark via-navy to-black py-32 md:py-40 lg:py-48 overflow-hidden">
-      {/* Background gradient orb */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/15 rounded-full blur-[150px]" />
-
-      <div className="relative z-10 max-w-3xl mx-auto px-6 md:px-12 text-center">
+    <section className="px-6 md:px-12 py-20 md:py-28 bg-black">
+      <div className="max-w-[1000px] mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+          <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
+            {t('label')}
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
             {t('heading')}
           </h2>
-
-          <p className="text-lg md:text-xl text-white/50 leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-white/40 text-lg max-w-xl mx-auto mb-10">
             {t('body')}
           </p>
 
@@ -33,9 +33,10 @@ export function FinalCTASection() {
             onClick={openDesignProposal}
             whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
             whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-            className="inline-block px-10 py-4 bg-white text-black font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
+            className="inline-flex items-center gap-3 bg-gold text-black px-8 py-4 font-bold text-sm uppercase tracking-[0.15em] hover:bg-gold/90 transition-colors"
           >
             {t('ctaButton')}
+            <ArrowRight className="w-4 h-4" />
           </motion.button>
         </motion.div>
       </div>

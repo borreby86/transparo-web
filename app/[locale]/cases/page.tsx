@@ -106,20 +106,20 @@ export default function CasesPage() {
       <Header />
       <main className="min-h-screen bg-white">
         {/* Header */}
-        <section className="pt-44 pb-24 md:pt-56 md:pb-36 px-6 md:px-12">
+        <section className="bg-black px-6 md:px-12 pt-40 pb-20 md:pt-48 md:pb-28">
           <div className="max-w-[1400px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             >
-              <span className="inline-block text-gold text-xs font-semibold uppercase tracking-[0.3em] mb-8 border border-gold/30 rounded-full px-4 py-1.5">
+              <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
                 Portfolio
               </span>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-black leading-[1] tracking-tight mb-8">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] tracking-tight mb-6">
                 Vores arbejde
               </h1>
-              <p className="text-black/40 text-lg md:text-xl max-w-2xl leading-relaxed">
+              <p className="text-white/40 text-lg md:text-xl max-w-xl leading-relaxed">
                 Et udvalg af projekter vi har lavet for danske virksomheder.
               </p>
             </motion.div>
@@ -142,30 +142,30 @@ export default function CasesPage() {
           </div>
         </section>
 
-        {/* Bottom CTA — sort/guld */}
-        <section className="relative overflow-hidden px-6 md:px-12 py-28 md:py-40 bg-black">
-          {/* Guld orbs */}
-          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-gold/10 blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/8 blur-[100px] pointer-events-none" />
-
-          <div className="relative max-w-[1400px] mx-auto text-center">
+        {/* Bottom CTA */}
+        <section className="px-6 md:px-12 py-20 md:py-28 bg-black">
+          <div className="max-w-[1000px] mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+              <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
+                Næste skridt
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
                 Har du et projekt i tankerne?
               </h2>
-              <p className="text-white/40 text-lg md:text-xl max-w-xl mx-auto mb-12">
+              <p className="text-white/40 text-lg max-w-xl mx-auto mb-10">
                 Lad os tage en snak om, hvad vi kan gøre for dig.
               </p>
               <Link
                 href="/kontakt"
-                className="inline-block px-12 py-4 bg-gradient-to-r from-gold to-amber-500 text-black font-semibold text-lg rounded-full hover:opacity-90 transition-opacity duration-300"
+                className="inline-flex items-center gap-3 bg-gold text-black px-8 py-4 font-bold text-sm uppercase tracking-[0.15em] hover:bg-gold/90 transition-colors"
               >
-                Tal med os
+                Book et møde
+                <span>→</span>
               </Link>
             </motion.div>
           </div>

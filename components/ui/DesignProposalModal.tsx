@@ -38,16 +38,47 @@ export function DesignProposalModal() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      close()
-      setFormData({ name: '', email: '', website: '', message: '' })
-      setInspirationLinks([])
-      setNewLink('')
-    }, 3000)
+
+    // Prepare form data for Web3Forms
+    const formPayload = {
+      access_key: '5312479b-25c1-44de-8d43-e410e99f6aa0',
+      subject: 'Ny anmodning om gratis forsidedesign',
+      from_name: formData.name,
+      name: formData.name,
+      email: formData.email,
+      website: formData.website || 'Ingen website angivet',
+      inspiration_links: inspirationLinks.length > 0 ? inspirationLinks.join('\n') : 'Ingen inspirationslinks',
+      message: formData.message || 'Ingen besked',
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formPayload),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setTimeout(() => {
+          setSubmitted(false)
+          close()
+          setFormData({ name: '', email: '', website: '', message: '' })
+          setInspirationLinks([])
+          setNewLink('')
+        }, 3000)
+      } else {
+        console.error('Form submission failed')
+        alert('Der opstod en fejl. Prøv venligst igen.')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('Der opstod en fejl. Prøv venligst igen.')
+    }
   }
 
   const handleClose = () => {

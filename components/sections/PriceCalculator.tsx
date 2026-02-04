@@ -95,6 +95,7 @@ export function PriceCalculator() {
   const [showContact, setShowContact] = useState(false)
   const [contactName, setContactName] = useState('')
   const [contactEmail, setContactEmail] = useState('')
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
   // Load translated data
   const websiteTypes = t.raw('websiteTypes') as Array<{ id: WebsiteType; label: string; description: string; pages: string; number: string; details: string[] }>
@@ -142,6 +143,61 @@ export function PriceCalculator() {
   const back = () => {
     if (currentStep > 0) {
       setCurrentStep(prev => prev - 1)
+    }
+  }
+
+  const handleEstimateSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitStatus('submitting')
+
+    // Build price breakdown for email
+    const selectedType = websiteTypes.find(wt => wt.id === websiteType)!
+    const selectedDesign = designLevels.find(d => d.id === designLevel)!
+    const selectedTimeline = timelines.find(tl => tl.id === timeline)!
+    const addedFeatures = features.filter(f => selectedFeatures.includes(f.id) && !INCLUDED_FEATURES.includes(f.id))
+
+    const breakdown = `
+Websitetype: ${selectedType.label} - ${formatPrice(BASE_PRICES[websiteType!])} DKK
+${addedFeatures.map(f => `${f.label} - ${formatPrice(FEATURE_PRICES[f.id])} DKK`).join('\n')}
+${DESIGN_PRICES[designLevel!] > 0 ? `Premium Design - ${formatPrice(DESIGN_PRICES[designLevel!])} DKK` : ''}
+${TIMELINE_MULTIPLIERS[timeline!] > 1 ? `Express Levering - ${formatPrice(Math.round((totalPrice / TIMELINE_MULTIPLIERS[timeline!]) * (TIMELINE_MULTIPLIERS[timeline!] - 1)))} DKK` : ''}
+
+TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
+    `.trim()
+
+    const formPayload = {
+      access_key: '5312479b-25c1-44de-8d43-e410e99f6aa0',
+      subject: `Prisberegner estimat: ${formatPrice(totalPrice)} DKK`,
+      from_name: contactName,
+      name: contactName,
+      email: contactEmail,
+      estimate_total: `${formatPrice(totalPrice)} DKK`,
+      price_breakdown: breakdown,
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formPayload),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setTimeout(() => {
+          setShowContact(false)
+          setContactName('')
+          setContactEmail('')
+          setSubmitStatus('idle')
+        }, 3000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
     }
   }
 
@@ -533,35 +589,51 @@ export function PriceCalculator() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h4 className="text-base font-bold text-black mb-5 text-center">{t('result.emailFormTitle')}</h4>
-              <div className="space-y-3">
-                <input
-                  type="text"
-                  placeholder={t('result.emailNamePlaceholder')}
-                  value={contactName}
-                  onChange={e => setContactName(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
-                />
-                <input
-                  type="email"
-                  placeholder={t('result.emailPlaceholder')}
-                  value={contactEmail}
-                  onChange={e => setContactEmail(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
-                />
-                <button
-                  className="w-full px-6 py-3 bg-black text-white font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
-                  disabled={!contactEmail}
-                >
-                  {t('result.emailSubmitButton')}
-                </button>
-              </div>
-              <button
-                onClick={() => setShowContact(false)}
-                className="w-full mt-3 text-sm text-warmgray hover:text-black transition-colors text-center"
-              >
-                {t('result.emailCancel')}
-              </button>
+              {submitStatus === 'success' ? (
+                <div className="text-center py-8">
+                  <div className="w-12 h-[2px] bg-gold mx-auto mb-6" />
+                  <h3 className="text-xl font-bold text-black mb-3">Tak for din interesse!</h3>
+                  <p className="text-warmgray text-sm">Vi sender dit estimat til {contactEmail}</p>
+                </div>
+              ) : (
+                <>
+                  <h4 className="text-base font-bold text-black mb-5 text-center">{t('result.emailFormTitle')}</h4>
+                  <form onSubmit={handleEstimateSubmit} className="space-y-3">
+                    <input
+                      type="text"
+                      placeholder={t('result.emailNamePlaceholder')}
+                      value={contactName}
+                      onChange={e => setContactName(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                    />
+                    <input
+                      type="email"
+                      placeholder={t('result.emailPlaceholder')}
+                      value={contactEmail}
+                      onChange={e => setContactEmail(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                    />
+                    {submitStatus === 'error' && (
+                      <p className="text-red-600 text-sm text-center">Der opstod en fejl. Prøv venligst igen.</p>
+                    )}
+                    <button
+                      type="submit"
+                      className="w-full px-6 py-3 bg-black text-white font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
+                      disabled={submitStatus === 'submitting'}
+                    >
+                      {submitStatus === 'submitting' ? 'Sender...' : t('result.emailSubmitButton')}
+                    </button>
+                  </form>
+                  <button
+                    onClick={() => setShowContact(false)}
+                    className="w-full mt-3 text-sm text-warmgray hover:text-black transition-colors text-center"
+                  >
+                    {t('result.emailCancel')}
+                  </button>
+                </>
+              )}
             </motion.div>
           )}
         </motion.div>
@@ -574,22 +646,30 @@ export function PriceCalculator() {
   const stepContent = [renderWebsiteType, renderFeatures, renderDesignLevel, renderTimeline, renderResult]
 
   return (
-    <section className="relative min-h-screen py-28 md:py-36">
+    <>
+      {/* Header */}
+      <section className="bg-black px-6 md:px-12 pt-40 pb-20 md:pt-48 md:pb-28">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div
+            initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+          >
+            <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
+              {t('overline')}
+            </span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] tracking-tight mb-6">
+              {t('title')}
+            </h1>
+            <p className="text-white/40 text-lg md:text-xl max-w-xl leading-relaxed">
+              {t('subtitle')}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="relative min-h-screen py-28 md:py-36">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-14 md:mb-20"
-          initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <h1 className="font-serif text-display-md md:text-display-lg text-black mb-4">
-            {t('title')}
-          </h1>
-          <p className="text-warmgray text-lg max-w-xl mx-auto">
-            {t('subtitle')}
-          </p>
-        </motion.div>
 
         {/* Progress bar */}
         <motion.div
@@ -694,5 +774,6 @@ export function PriceCalculator() {
         )}
       </div>
     </section>
+    </>
   )
 }

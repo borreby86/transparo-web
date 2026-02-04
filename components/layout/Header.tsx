@@ -28,14 +28,42 @@ export function Header() {
     { number: '04', name: t('items.3.name'), href: '/kontakt' as const },
   ]
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setBookingOpen(false)
-      setFormState({ name: '', email: '', phone: '', message: '' })
-    }, 3000)
+
+    const formPayload = {
+      access_key: '5312479b-25c1-44de-8d43-e410e99f6aa0',
+      subject: 'Ny booking anmodning',
+      from_name: formState.name,
+      name: formState.name,
+      email: formState.email,
+      phone: formState.phone || 'Ikke angivet',
+      message: formState.message || 'Ingen besked',
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formPayload),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setTimeout(() => {
+          setSubmitted(false)
+          setBookingOpen(false)
+          setFormState({ name: '', email: '', phone: '', message: '' })
+        }, 3000)
+      } else {
+        alert('Der opstod en fejl. Prøv venligst igen.')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('Der opstod en fejl. Prøv venligst igen.')
+    }
   }
 
   return (

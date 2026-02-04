@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { Plus, Minus } from 'lucide-react'
+import { Plus, Minus, ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 
@@ -18,6 +18,7 @@ export function FAQPageContent() {
   const faqs = t.raw('questions') as FAQ[]
 
   return (
+    <>
     <section className="bg-white px-6 md:px-12 py-24 md:py-32">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
@@ -75,19 +76,27 @@ export function FAQPageContent() {
           })}
         </div>
 
-        {/* Simple CTA */}
-        <div className="mt-16 md:mt-20 pt-16 md:pt-20 border-t border-gray-100 text-center">
-          <p className="text-lg text-navy/60 mb-6">
-            {t('bottomQuestion')}
-          </p>
-          <Link
-            href="/kontakt"
-            className="inline-block px-8 py-4 bg-navy text-white font-semibold hover:bg-navy/90 transition-colors"
-          >
-            {t('contactButton')}
-          </Link>
-        </div>
       </div>
     </section>
+
+    {/* CTA */}
+    <section className="px-6 md:px-12 py-20 md:py-28 bg-black">
+      <div className="max-w-[1000px] mx-auto text-center">
+        <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
+          {t('bottomQuestion')}
+        </span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-10">
+          {t('bottomHeading')}
+        </h2>
+        <Link
+          href="/kontakt"
+          className="inline-flex items-center gap-3 bg-gold text-black px-8 py-4 font-bold text-sm uppercase tracking-[0.15em] hover:bg-gold/90 transition-colors"
+        >
+          {t('contactButton')}
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
+    </section>
+    </>
   )
 }

@@ -286,6 +286,7 @@
     "thankYouMessage": "Vi vender tilbage inden for 24 timer."
   },
   "priceCalculator": {
+    "overline": "Nysgerrig på prisen?",
     "title": "Prisberegner",
     "subtitle": "Få et hurtigt estimat på din nye hjemmeside. Ingen forpligtelser, fuld gennemsigtighed.",
     "stepLabel": "Trin {current} af {total}",
@@ -749,8 +750,9 @@
     "bottomButton": "Start Dit Projekt"
   },
   "finalCTA": {
+    "label": "Næste skridt",
     "heading": "Klar til at komme i gang?",
-    "body": "Få et gratis designforslag til din forside. Ingen forpligtelser, ingen salgsmøder – bare et konkret bud du kan tage stilling til.",
+    "body": "Ingen forpligtelser, ingen salgsmøder - bare et konkret bud du kan tage stilling til.",
     "ctaButton": "Få et gratis designforslag"
   },
   "problemSolution": {
@@ -817,7 +819,8 @@
         "answer": "Nej. Det du ser i prisberegneren er det du betaler. Vedligeholdelsespakken er valgfri, og du kan opsige når som helst."
       }
     ],
-    "bottomQuestion": "Har du et spørgsmål vi ikke har besvaret?",
+    "bottomQuestion": "Næste skridt",
+    "bottomHeading": "Har du et spørgsmål vi ikke har besvaret?",
     "contactButton": "Kontakt os"
   },
   "notFound": {

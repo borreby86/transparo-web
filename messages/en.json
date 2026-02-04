@@ -286,6 +286,7 @@
     "thankYouMessage": "Vi vender tilbage inden for 24 timer."
   },
   "priceCalculator": {
+    "overline": "Curious about the price?",
     "title": "Prisberegner",
     "subtitle": "Få et hurtigt estimat på din nye hjemmeside. Ingen forpligtelser, fuld gennemsigtighed.",
     "stepLabel": "Trin {current} af {total}",
@@ -749,8 +750,9 @@
     "bottomButton": "Start Dit Projekt"
   },
   "finalCTA": {
+    "label": "Next step",
     "heading": "Ready to get started?",
-    "body": "Get a free design proposal for your front page. No obligations, no sales meetings – just a concrete proposal you can evaluate.",
+    "body": "No obligations, no sales meetings - just a concrete proposal you can consider.",
     "ctaButton": "Get a free design proposal"
   },
   "problemSolution": {
@@ -817,7 +819,8 @@
         "answer": "No. What you see in the price calculator is what you pay. The maintenance package is optional, and you can cancel anytime."
       }
     ],
-    "bottomQuestion": "Have a question we haven't answered?",
+    "bottomQuestion": "Next step",
+    "bottomHeading": "Have a question we haven't answered?",
     "contactButton": "Contact us"
   },
   "notFound": {
