@@ -83,13 +83,12 @@ export function DesignProposalModal() {
             className="fixed top-0 right-0 h-screen w-full max-w-lg lg:mr-16 xl:mr-20 z-[55] bg-black text-white overflow-y-auto"
           >
             <div className="p-10 md:p-14 min-h-full flex flex-col justify-center">
-              {/* Close button for mobile */}
               <button
                 onClick={handleClose}
-                className="lg:hidden absolute top-5 right-5 text-white/60 hover:text-white transition-colors"
+                className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
                 aria-label="Close"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
 
               <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
