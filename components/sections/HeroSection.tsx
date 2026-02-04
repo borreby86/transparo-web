@@ -13,13 +13,16 @@ export function HeroSection() {
   const shouldReduceMotion = useReducedMotion()
   const { open: openDesignProposal } = useDesignProposal()
   const word = 'transparo.'
-  const [displayedText, setDisplayedText] = useState('')
-  const [charIndex, setCharIndex] = useState(0)
-  const [showLoader, setShowLoader] = useState(true)
-  const [showHero, setShowHero] = useState(false)
+  const hasSeenLoader = typeof window !== 'undefined' && sessionStorage.getItem('transparo_loader_seen') === 'true'
+  const [displayedText, setDisplayedText] = useState(hasSeenLoader ? word : '')
+  const [charIndex, setCharIndex] = useState(hasSeenLoader ? word.length : 0)
+  const [showLoader, setShowLoader] = useState(!hasSeenLoader)
+  const [showHero, setShowHero] = useState(hasSeenLoader)
 
   // Typewriter
   useEffect(() => {
+    if (hasSeenLoader) return
+
     if (shouldReduceMotion) {
       setDisplayedText(word)
       setCharIndex(word.length)
@@ -33,18 +36,21 @@ export function HeroSection() {
       }, 120)
       return () => clearTimeout(timeout)
     }
-  }, [charIndex, shouldReduceMotion, word])
+  }, [charIndex, shouldReduceMotion, word, hasSeenLoader])
 
   // After typing, fade out loader → show hero
   useEffect(() => {
+    if (hasSeenLoader) return
+
     if (charIndex >= word.length) {
       const timeout = setTimeout(() => {
         setShowLoader(false)
+        sessionStorage.setItem('transparo_loader_seen', 'true')
         setTimeout(() => setShowHero(true), 200)
       }, shouldReduceMotion ? 0 : 600)
       return () => clearTimeout(timeout)
     }
-  }, [charIndex, shouldReduceMotion, word.length])
+  }, [charIndex, shouldReduceMotion, word.length, hasSeenLoader])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

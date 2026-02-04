@@ -58,8 +58,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <HeroSection />
         <ProblemSolutionSection />
         <WhyUsSection />
-        <PremiumProcessTimeline />
         <PortfolioSection />
+        <PremiumProcessTimeline />
         <AboutSection />
         <FinalCTASection />
       </main>
