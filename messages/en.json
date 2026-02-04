@@ -131,12 +131,10 @@
     ]
   },
   "cookie": {
-    "title": "Vi værner om dit privatliv",
-    "description": "Vi bruger cookies til at forbedre din oplevelse på vores website. Ved at klikke \"Accepter\" samtykker du til vores brug af cookies. Du kan også vælge at afvise unødvendige cookies.",
-    "learnMore": "Læs mere om vores cookiepolitik",
-    "rejectButton": "Kun nødvendige",
-    "acceptButton": "Accepter alle",
-    "closeLabel": "Luk banner"
+    "description": "We use cookies to improve your experience.",
+    "learnMore": "Cookie policy",
+    "rejectButton": "Decline",
+    "acceptButton": "Accept"
   },
   "portfolio": {
     "overline": "Udvalgte projekter",
