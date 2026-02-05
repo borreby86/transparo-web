@@ -279,7 +279,7 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[54] bg-black/40"
+              className="fixed inset-0 z-[65] bg-black/40"
               onClick={() => setBookingOpen(false)}
             />
 
@@ -288,8 +288,12 @@ export function Header() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 right-0 h-screen w-full max-w-lg z-[55] bg-black text-white overflow-y-auto"
+              transition={{
+                type: 'spring',
+                damping: 30,
+                stiffness: 300
+              }}
+              className="fixed top-0 right-0 h-screen w-full max-w-lg z-[70] bg-black text-white overflow-y-auto"
               style={{
                 transform: 'translate3d(0, 0, 0)',
                 backfaceVisibility: 'hidden',

@@ -112,7 +112,7 @@ export function DesignProposalModal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[54] bg-black/40"
+            className="fixed inset-0 z-[65] bg-black/40"
             onClick={handleClose}
           />
 
@@ -121,8 +121,17 @@ export function DesignProposalModal() {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-            className="fixed top-0 right-0 h-screen w-full max-w-lg lg:mr-16 xl:mr-20 z-[55] bg-black text-white overflow-y-auto"
+            transition={{
+              type: 'spring',
+              damping: 30,
+              stiffness: 300
+            }}
+            className="fixed top-0 right-0 h-screen w-full max-w-lg z-[70] bg-black text-white overflow-y-auto"
+            style={{
+              transform: 'translate3d(0, 0, 0)',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden'
+            }}
           >
             <div className="p-10 md:p-14 min-h-full flex flex-col justify-center">
               <button
@@ -133,30 +142,31 @@ export function DesignProposalModal() {
                 <X className="w-5 h-5" />
               </button>
 
-              <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
-                {t('heading')}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-                {t('subheading')}
-                <br />
-                <span className="text-white/40">{t('subheadingFaded')}</span>
-              </h2>
-              <p className="text-white/40 text-sm leading-relaxed mb-10">
-                {t('description')}
-              </p>
-
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-16"
+                  className="text-center"
                 >
                   <div className="w-12 h-[2px] bg-gold mx-auto mb-6" />
                   <h3 className="text-2xl font-bold mb-3">{t('thankYouTitle')}</h3>
                   <p className="text-white/40 text-sm">{t('thankYouMessage')}</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <>
+                  <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
+                    {t('heading')}
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+                    {t('subheading')}
+                    <br />
+                    <span className="text-white/40">{t('subheadingFaded')}</span>
+                  </h2>
+                  <p className="text-white/40 text-sm leading-relaxed mb-10">
+                    {t('description')}
+                  </p>
+
+                  <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
                   <div>
                     <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
@@ -270,6 +280,7 @@ export function DesignProposalModal() {
                     {t('submitButton')}
                   </button>
                 </form>
+                </>
               )}
             </div>
           </motion.div>
