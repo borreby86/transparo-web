@@ -1,10 +1,10 @@
 'use client'
 
-import { Link, type Pathnames } from '@/i18n/routing'
+import { Link } from '@/i18n/routing'
 import { useState, useEffect } from 'react'
 import { usePathname } from '@/i18n/routing'
 import { motion, AnimatePresence } from 'motion/react'
-import { Menu, X, ArrowRight, Pen, Sparkles, Plus } from 'lucide-react'
+import { Menu, X, ArrowRight, Plus } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
@@ -14,16 +14,15 @@ export function Header() {
   const [bookingOpen, setBookingOpen] = useState(false)
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
-  const [showRightSidebar, setShowRightSidebar] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [fabOpen, setFabOpen] = useState(false)
   const [showFab, setShowFab] = useState(true)
-  const { open: openDesignProposal, close: closeDesignProposal } = useDesignProposal()
+  const [showDesktopCTA, setShowDesktopCTA] = useState(false)
+  const { open: openDesignProposal } = useDesignProposal()
   const pathname = usePathname()
 
   const t = useTranslations('nav')
   const tBooking = useTranslations('booking')
-  const tDesign = useTranslations('designProposal')
 
   const navigation = [
     { number: '01', name: t('items.0.name'), href: '/' as const },
@@ -33,39 +32,27 @@ export function Header() {
     { number: '05', name: t('items.4.name'), href: '/faq' as const },
   ]
 
-  // Smart sidebar and FAB visibility based on scroll
+  // FAB and CTA visibility based on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      // Show sidebar after scrolling 400px
-      if (currentScrollY > 400 && !showRightSidebar) {
-        setShowRightSidebar(true)
+      // Desktop CTA: show after scrolling 300px
+      if (currentScrollY > 300 && !showDesktopCTA) {
+        setShowDesktopCTA(true)
+      } else if (currentScrollY <= 300 && showDesktopCTA) {
+        setShowDesktopCTA(false)
       }
 
-      // Optional: Hide when scrolling down, show when scrolling up (for cleaner UX)
-      if (currentScrollY > 400) {
-        if (currentScrollY > lastScrollY && showRightSidebar) {
-          // Scrolling down - hide sidebar
-          setShowRightSidebar(false)
-        } else if (currentScrollY < lastScrollY && !showRightSidebar) {
-          // Scrolling up - show sidebar
-          setShowRightSidebar(true)
-        }
-      }
-
-      // FAB visibility: hide when scrolling down, show when scrolling up
+      // Mobile FAB: hide when scrolling down, show when scrolling up
       if (currentScrollY > 100) {
         if (currentScrollY > lastScrollY && showFab) {
-          // Scrolling down - hide FAB
           setShowFab(false)
-          setFabOpen(false) // Close FAB menu when hiding
+          setFabOpen(false)
         } else if (currentScrollY < lastScrollY && !showFab) {
-          // Scrolling up - show FAB
           setShowFab(true)
         }
       } else if (currentScrollY <= 100 && !showFab) {
-        // Always show at top
         setShowFab(true)
       }
 
@@ -74,7 +61,7 @@ export function Header() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY, showRightSidebar, showFab])
+  }, [lastScrollY, showFab, showDesktopCTA])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -143,51 +130,6 @@ export function Header() {
         </span>
       </aside>
 
-      {/* Right sidebar — book møde + gratis design */}
-      <AnimatePresence>
-        {showRightSidebar && (
-          <motion.aside
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-            className="hidden lg:flex fixed top-0 right-0 h-screen w-16 xl:w-20 z-[60] flex-col items-center justify-between py-8 bg-black border-l border-white/[0.06]"
-          >
-            <div className="flex flex-col items-center gap-8">
-              <button
-                onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false); closeDesignProposal() }}
-                className="flex flex-col items-center gap-4 group"
-                aria-label="Toggle booking"
-              >
-                <span className="text-xs font-black uppercase tracking-[0.3em] text-gold group-hover:text-white transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
-                  {tBooking('label')}
-                </span>
-                {bookingOpen ? (
-                  <X className="w-5 h-5 text-white" strokeWidth={1.5} />
-                ) : (
-                  <ArrowRight className="w-4 h-4 text-gold rotate-180 group-hover:text-white transition-colors duration-300" strokeWidth={1.5} />
-                )}
-              </button>
-
-              <div className="w-6 h-px bg-white/10" />
-
-              <button
-                onClick={() => { setBookingOpen(false); setMenuOpen(false); openDesignProposal() }}
-                className="flex flex-col items-center gap-4 group"
-                aria-label="Toggle design proposal"
-              >
-                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-gold transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
-                  {tDesign('label')}
-                </span>
-                <Pen className="w-4 h-4 text-white/50 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
-              </button>
-            </div>
-
-            <div />
-            <div />
-          </motion.aside>
-        )}
-      </AnimatePresence>
 
       {/* Mobile: Top header - Minimalist */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-[60] bg-white border-b border-black/[0.06]">
@@ -219,7 +161,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[55] bg-white lg:pl-16 xl:pl-20 lg:pr-16 xl:pr-20"
+            className="fixed inset-0 z-[55] bg-white lg:pl-16 xl:pl-20"
           >
             <div className="h-full flex flex-col justify-center px-10 md:px-20 lg:px-28 pt-16 lg:pt-0">
               <nav className="space-y-2">
@@ -412,7 +354,40 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      {/* Floating Action Button (FAB) - Mobile only */}
+      {/* Desktop CTA Buttons - Always visible after scroll */}
+      <AnimatePresence>
+        {showDesktopCTA && (
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden lg:flex fixed bottom-10 right-10 z-[70] flex-col gap-3 items-end"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => openDesignProposal()}
+              className="w-32 h-32 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-gold/20 transition-shadow"
+            >
+              <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+              <span className="leading-tight">Gratis<br />design</span>
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setBookingOpen(true)}
+              className="w-32 h-32 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-black/20 transition-shadow"
+            >
+              <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+              <span className="leading-tight">Book<br />møde</span>
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile FAB - Expandable */}
       <AnimatePresence>
         {showFab && (
           <motion.div
@@ -424,59 +399,56 @@ export function Header() {
           >
             <AnimatePresence>
               {fabOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-col gap-3 mb-3 items-end"
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex flex-col gap-3 mb-3 items-end"
+                >
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setFabOpen(false)
+                      openDesignProposal()
+                    }}
+                    className="w-32 h-32 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
+                  >
+                    <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+                    <span className="leading-tight">Gratis<br />design</span>
+                  </motion.button>
+
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setFabOpen(false)
+                      setBookingOpen(true)
+                    }}
+                    className="w-32 h-32 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
+                  >
+                    <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+                    <span className="leading-tight">Book<br />møde</span>
+                  </motion.button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setFabOpen(!fabOpen)}
+              className={`w-24 h-24 rounded-full shadow-2xl flex flex-col items-center justify-center gap-1 transition-all duration-300 font-bold text-[10px] uppercase tracking-wider ${
+                fabOpen ? 'bg-black text-white rotate-45' : 'bg-gold text-black'
+              }`}
             >
-              {/* Design Proposal Button - Circle */}
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  setFabOpen(false)
-                  openDesignProposal()
-                }}
-                className="w-32 h-32 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
-              >
-                <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-                <span className="leading-tight">Gratis<br />design</span>
-              </motion.button>
-
-              {/* Booking Button - Circle */}
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  setFabOpen(false)
-                  setBookingOpen(true)
-                }}
-                className="w-32 h-32 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
-              >
-                <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-                <span className="leading-tight">Book<br />møde</span>
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Main FAB Button - Round */}
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setFabOpen(!fabOpen)}
-          className={`w-24 h-24 rounded-full shadow-2xl flex flex-col items-center justify-center gap-1 transition-all duration-300 font-bold text-[10px] uppercase tracking-wider ${
-            fabOpen ? 'bg-black text-white rotate-45' : 'bg-gold text-black'
-          }`}
-        >
-          {fabOpen ? (
-            <Plus className="w-6 h-6" strokeWidth={2.5} />
-          ) : (
-            <>
-              <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-              <span className="leading-tight">Nysgerrig?</span>
-            </>
-          )}
-        </motion.button>
+              {fabOpen ? (
+                <Plus className="w-6 h-6" strokeWidth={2.5} />
+              ) : (
+                <>
+                  <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+                  <span className="leading-tight">Nysgerrig?</span>
+                </>
+              )}
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

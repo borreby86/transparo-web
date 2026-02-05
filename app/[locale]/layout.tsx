@@ -187,7 +187,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider messages={messages}>
           <DesignProposalProvider>
             <ClientProviders>
-              <div className="lg:ml-16 xl:ml-20 lg:mr-16 xl:mr-20">
+              <div className="lg:ml-16 xl:ml-20">
                 {children}
               </div>
             </ClientProviders>
