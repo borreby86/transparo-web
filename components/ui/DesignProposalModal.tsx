@@ -42,7 +42,9 @@ export function DesignProposalModal() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log('🚀 FORM SUBMIT CALLED!')
     e.preventDefault()
+    console.log('🚀 preventDefault called')
 
     // Prepare form data for Web3Forms
     const formPayload = {
