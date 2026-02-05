@@ -9,10 +9,10 @@ export function PremiumProcessTimeline() {
   const t = useTranslations('processTimeline')
 
   const steps = [
-    { number: t('steps.0.number'), title: t('steps.0.title'), description: t('steps.0.description') },
-    { number: t('steps.1.number'), title: t('steps.1.title'), description: t('steps.1.description') },
-    { number: t('steps.2.number'), title: t('steps.2.title'), description: t('steps.2.description') },
-    { number: t('steps.3.number'), title: t('steps.3.title'), description: t('steps.3.description') },
+    { label: 'Gratis', title: t('steps.0.title'), description: t('steps.0.description') },
+    { label: 'Fast', title: t('steps.1.title'), description: t('steps.1.description') },
+    { label: 'Dit', title: t('steps.2.title'), description: t('steps.2.description') },
+    { label: 'Altid', title: t('steps.3.title'), description: t('steps.3.description') },
   ]
 
   return (
@@ -41,20 +41,20 @@ export function PremiumProcessTimeline() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {steps.map((step, index) => (
             <motion.div
-              key={step.number}
+              key={step.label}
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: index * 0.1 }}
               className="group relative flex flex-col items-center text-center"
             >
-              {/* Circle with number */}
+              {/* Circle with label */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center mb-8 group-hover:border-gold/30 group-hover:bg-gold/[0.05] transition-all duration-500"
               >
-                <span className="text-gold text-3xl md:text-4xl font-serif italic tracking-[0.15em]">
-                  {step.number}
+                <span className="text-gold text-sm md:text-base font-bold uppercase tracking-[0.2em]">
+                  {step.label}
                 </span>
               </motion.div>
 
