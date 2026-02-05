@@ -9,10 +9,26 @@ export function PremiumProcessTimeline() {
   const t = useTranslations('processTimeline')
 
   const steps = [
-    { label: 'Gratis', title: t('steps.0.title'), description: t('steps.0.description') },
-    { label: 'Fast', title: t('steps.1.title'), description: t('steps.1.description') },
-    { label: 'Dit', title: t('steps.2.title'), description: t('steps.2.description') },
-    { label: 'Altid', title: t('steps.3.title'), description: t('steps.3.description') },
+    {
+      label: '01',
+      title: 'Indledende møde',
+      description: 'Vi starter med en uforpligtende snak om dit projekt, dine mål og ønsker.'
+    },
+    {
+      label: '02',
+      title: 'Første udkast',
+      description: 'Inden for 5 hverdage modtager du et konkret designforslag til din forside.'
+    },
+    {
+      label: '03',
+      title: 'Tilpasninger',
+      description: 'Vi finpudser designet baseret på din feedback indtil du er 100% tilfreds.'
+    },
+    {
+      label: '04',
+      title: 'Lancering',
+      description: 'Dit færdige website går live, og du får fuld adgang til alt.'
+    },
   ]
 
   return (
