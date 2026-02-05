@@ -45,12 +45,10 @@ export function CookieBanner() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsExpanded(true)}
-                className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-amber-100 shadow-2xl flex flex-col items-center justify-center gap-1 cursor-pointer border-4 border-amber-200 hover:border-amber-300 transition-colors"
-                style={{
-                  background: 'radial-gradient(circle at 30% 30%, #fef3c7, #fde68a, #d97706)',
-                }}
+                className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-black shadow-2xl flex flex-col items-center justify-center gap-1 cursor-pointer"
               >
                 <span className="text-3xl lg:text-4xl" role="img" aria-label="cookie">🍪</span>
+                <span className="text-gold text-[8px] lg:text-[9px] font-bold uppercase tracking-wider">Cookies</span>
               </motion.button>
             ) : (
               // Expanded: Options panel
