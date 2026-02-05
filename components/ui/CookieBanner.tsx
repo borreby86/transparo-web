@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from 'motion/react'
 import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
 import { getCookieConsent, setCookieConsent, hasConsentDecision } from '@/lib/cookieConsent'
+import { Check, X } from 'lucide-react'
 
 export function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
   const t = useTranslations('cookie')
 
   useEffect(() => {
@@ -26,42 +28,75 @@ export function CookieBanner() {
     <AnimatePresence>
       {showBanner && (
         <motion.div
-          initial={{ y: '100%', opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: '100%', opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-          className="fixed bottom-0 left-0 right-0 z-[70] lg:ml-16 xl:ml-20"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0, opacity: 0 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed bottom-6 left-6 lg:bottom-10 lg:left-24 xl:left-28 z-[70]"
         >
-          <div className="bg-black/90 backdrop-blur-xl border-t border-white/[0.06]">
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between gap-6">
-              {/* Text */}
-              <p className="text-white/50 text-sm">
-                {t('description')}{' '}
-                <Link
-                  href="/cookiepolitik"
-                  className="text-white/70 underline underline-offset-2 hover:text-white transition-colors"
-                >
-                  {t('learnMore')}
-                </Link>
-              </p>
+          <AnimatePresence mode="wait">
+            {!isExpanded ? (
+              // Collapsed: Cookie circle
+              <motion.button
+                key="collapsed"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsExpanded(true)}
+                className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-amber-100 shadow-2xl flex flex-col items-center justify-center gap-1 cursor-pointer border-4 border-amber-200 hover:border-amber-300 transition-colors"
+                style={{
+                  background: 'radial-gradient(circle at 30% 30%, #fef3c7, #fde68a, #d97706)',
+                }}
+              >
+                <span className="text-3xl lg:text-4xl" role="img" aria-label="cookie">🍪</span>
+              </motion.button>
+            ) : (
+              // Expanded: Options panel
+              <motion.div
+                key="expanded"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-black rounded-3xl p-6 shadow-2xl min-w-[280px]"
+              >
+                <div className="flex items-start gap-3 mb-4">
+                  <span className="text-3xl">🍪</span>
+                  <div>
+                    <h3 className="text-white font-bold text-sm mb-1">Cookies?</h3>
+                    <p className="text-white/50 text-xs leading-relaxed">
+                      {t('description')}{' '}
+                      <Link
+                        href="/cookiepolitik"
+                        className="text-gold underline underline-offset-2 hover:text-gold/80 transition-colors"
+                      >
+                        {t('learnMore')}
+                      </Link>
+                    </p>
+                  </div>
+                </div>
 
-              {/* Buttons — equal prominence */}
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <button
-                  onClick={() => handleConsent('rejected')}
-                  className="px-5 py-2 text-sm text-white/60 hover:text-white border border-white/15 hover:border-white/30 transition-all duration-300"
-                >
-                  {t('rejectButton')}
-                </button>
-                <button
-                  onClick={() => handleConsent('accepted')}
-                  className="px-5 py-2 text-sm text-black bg-white hover:bg-white/90 font-medium transition-all duration-300"
-                >
-                  {t('acceptButton')}
-                </button>
-              </div>
-            </div>
-          </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleConsent('rejected')}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-full text-white/60 hover:text-white border border-white/15 hover:border-white/30 text-xs font-medium uppercase tracking-wider transition-all duration-300"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                    {t('rejectButton')}
+                  </button>
+                  <button
+                    onClick={() => handleConsent('accepted')}
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-gold text-black text-xs font-medium uppercase tracking-wider hover:bg-gold/90 transition-all duration-300"
+                  >
+                    <Check className="w-3.5 h-3.5" />
+                    {t('acceptButton')}
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       )}
     </AnimatePresence>
