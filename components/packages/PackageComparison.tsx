@@ -221,7 +221,7 @@ export default function PackageComparison() {
                 <div className="p-6 border-t">
                   <Button
                     href={`/packages/${pkg.slug}`}
-                    variant={pkg.popular ? 'primary' : 'outline'}
+                    variant={pkg.popular ? 'gold' : 'outline'}
                     size="md"
                     fullWidth
                     className="inline-flex items-center justify-center space-x-2"
