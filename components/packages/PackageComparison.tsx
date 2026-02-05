@@ -142,7 +142,7 @@ export default function PackageComparison() {
                     <td key={pkg.id} className="px-8 py-8 text-center">
                       <Button
                         href={`/packages/${pkg.slug}`}
-                        variant={pkg.popular ? 'secondary' : 'outline'}
+                        variant={pkg.popular ? 'gold' : 'outline'}
                         size="md"
                         className={`inline-flex items-center space-x-2 ${
                           pkg.popular ? '' : 'border-white text-white hover:bg-white hover:text-navy'
@@ -249,7 +249,7 @@ export default function PackageComparison() {
             </p>
             <Button
               href="/kontakt"
-              variant="primary"
+              variant="gold"
               size="lg"
               className="inline-flex items-center space-x-2"
             >

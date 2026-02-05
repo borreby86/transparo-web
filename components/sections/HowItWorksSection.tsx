@@ -102,7 +102,7 @@ export function HowItWorksSection() {
         <p className="text-black/60 mb-6">
           {t('ctaText')}
         </p>
-        <Button href="/kontakt" variant="primary" size="lg">
+        <Button href="/kontakt" variant="gold" size="lg">
           {t('ctaButton')}
         </Button>
       </motion.div>

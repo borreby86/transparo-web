@@ -244,7 +244,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                 <div className="space-y-4">
                   <Button
                     href="/kontakt"
-                    variant={isEssentials ? 'primary' : pkg.color === 'gold' ? 'primary' : 'secondary'}
+                    variant={isEssentials ? 'black' : pkg.color === 'gold' ? 'black' : 'gold'}
                     size="lg"
                     fullWidth
                     className={`flex items-center justify-center space-x-2 ${
@@ -599,7 +599,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 href="/kontakt"
-                variant="secondary"
+                variant="gold"
                 size="lg"
                 className="inline-flex items-center space-x-2"
               >

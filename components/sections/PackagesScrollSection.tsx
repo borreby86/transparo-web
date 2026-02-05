@@ -131,7 +131,7 @@ export function PackagesScrollSection() {
                   <td className="px-6 py-6 text-center bg-gold/5">
                     <Button
                       href="/kontakt"
-                      variant="primary"
+                      variant="gold"
                       size="md"
                       className="inline-flex items-center gap-2"
                     >
@@ -210,7 +210,7 @@ export function PackagesScrollSection() {
                   <span className="text-sm font-medium">{renderFeatureValue(feature.professional, true, true)}</span>
                 </div>
               ))}
-              <Button href="/kontakt" variant="primary" size="md" fullWidth className="mt-6">
+              <Button href="/kontakt" variant="gold" size="md" fullWidth className="mt-6">
                 Book møde <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
