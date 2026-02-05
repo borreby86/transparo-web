@@ -2,10 +2,10 @@
 
 import { motion } from 'motion/react'
 import Image from 'next/image'
-import { Target, FileText, Palette, Code, TestTube, Rocket, Headphones } from 'lucide-react'
+import { Target, FileText, Pen, Code, TestTube, Rocket, Headphones } from 'lucide-react'
 
 type BackgroundStyle = 'light' | 'dark' | 'navy' | 'gold' | 'warmgray' | 'success'
-type IconName = 'Target' | 'FileText' | 'Palette' | 'Code' | 'TestTube' | 'Rocket' | 'Headphones'
+type IconName = 'Target' | 'FileText' | 'Pen' | 'Code' | 'TestTube' | 'Rocket' | 'Headphones'
 
 interface ProcessPhaseSectionProps {
   phaseNumber: number
@@ -24,7 +24,7 @@ interface ProcessPhaseSectionProps {
 const iconMap = {
   Target,
   FileText,
-  Palette,
+  Pen,
   Code,
   TestTube,
   Rocket,

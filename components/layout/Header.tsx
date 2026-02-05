@@ -4,7 +4,7 @@ import { Link, type Pathnames } from '@/i18n/routing'
 import { useState, useEffect } from 'react'
 import { usePathname } from '@/i18n/routing'
 import { motion, AnimatePresence } from 'motion/react'
-import { Menu, X, ArrowRight, Palette } from 'lucide-react'
+import { Menu, X, ArrowRight, Pen, Sparkles, Plus } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
@@ -16,6 +16,7 @@ export function Header() {
   const [submitted, setSubmitted] = useState(false)
   const [showRightSidebar, setShowRightSidebar] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [fabOpen, setFabOpen] = useState(false)
   const { open: openDesignProposal, close: closeDesignProposal } = useDesignProposal()
   const pathname = usePathname()
 
@@ -162,7 +163,7 @@ export function Header() {
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 group-hover:text-gold transition-colors duration-300 [writing-mode:vertical-lr] rotate-180 whitespace-nowrap">
                   {tDesign('label')}
                 </span>
-                <Palette className="w-4 h-4 text-white/50 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
+                <Pen className="w-4 h-4 text-white/50 group-hover:text-gold transition-colors duration-300" strokeWidth={1.5} />
               </button>
             </div>
 
@@ -172,43 +173,25 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      {/* Mobile: Top header */}
+      {/* Mobile: Top header - Minimalist */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-[60] bg-white border-b border-black/[0.06]">
-        <div className="flex items-center justify-between h-16 px-5">
+        <div className="flex items-center justify-between h-16 px-6">
           <Link href="/" className="font-sans font-black text-xl text-black tracking-tight">
             transparo<span className="text-gold">.</span>
           </Link>
 
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
-
-            <button
-              type="button"
-              className="px-3 py-2 bg-gold text-black text-xs font-bold uppercase tracking-wider"
-              onClick={() => { setBookingOpen(false); setMenuOpen(false); openDesignProposal() }}
-            >
-              {tDesign('mobileButton')}
-            </button>
-            <button
-              type="button"
-              className="px-3 py-2 bg-black text-white text-xs font-bold uppercase tracking-wider"
-              onClick={() => { setBookingOpen(!bookingOpen); setMenuOpen(false); closeDesignProposal() }}
-            >
-              {tBooking('mobileBookButton')}
-            </button>
-            <button
-              type="button"
-              className="p-2 text-black"
-              onClick={() => { setMenuOpen(!menuOpen); setBookingOpen(false) }}
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? (
-                <X className="h-6 w-6" strokeWidth={2} />
-              ) : (
-                <Menu className="h-6 w-6" strokeWidth={2} />
-              )}
-            </button>
-          </div>
+          <button
+            type="button"
+            className="p-2 text-black hover:text-gold transition-colors"
+            onClick={() => { setMenuOpen(!menuOpen); setBookingOpen(false) }}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <X className="h-7 w-7" strokeWidth={2} />
+            ) : (
+              <Menu className="h-7 w-7" strokeWidth={2} />
+            )}
+          </button>
         </div>
       </header>
 
@@ -251,6 +234,7 @@ export function Header() {
                 ))}
               </nav>
 
+              {/* Footer info - Simple */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -260,9 +244,14 @@ export function Header() {
                 <span className="text-black/30 text-xs tracking-wider">
                   kontakt@transparo.dk
                 </span>
-                <span className="text-black/30 text-xs tracking-wider">
-                  © {new Date().getFullYear()} Transparo
-                </span>
+                <div className="flex items-center gap-4">
+                  <div className="lg:hidden">
+                    <LanguageSwitcher />
+                  </div>
+                  <span className="text-black/30 text-xs tracking-wider">
+                    © {new Date().getFullYear()}
+                  </span>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -289,15 +278,19 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{
-                type: 'spring',
-                damping: 30,
-                stiffness: 300
+                duration: 0.25,
+                ease: [0.32, 0.72, 0, 1]
               }}
-              className="fixed top-0 right-0 h-screen w-full max-w-lg z-[70] bg-black text-white overflow-y-auto"
+              className="fixed z-[70] bg-black text-white overflow-y-auto"
               style={{
-                transform: 'translate3d(0, 0, 0)',
-                backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden'
+                top: 0,
+                bottom: 0,
+                right: 0,
+                width: '100%',
+                maxWidth: '500px',
+                margin: 0,
+                padding: 0,
+                willChange: 'transform'
               }}
             >
               <div className="p-10 md:p-14 min-h-full flex flex-col justify-center relative">
@@ -402,6 +395,65 @@ export function Header() {
           </>
         )}
       </AnimatePresence>
+
+      {/* Floating Action Button (FAB) - Mobile only */}
+      <div className="lg:hidden fixed bottom-6 right-6 z-[70]">
+        <AnimatePresence>
+          {fabOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col gap-3 mb-3 items-end"
+            >
+              {/* Design Proposal Button - Rounded */}
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  setFabOpen(false)
+                  openDesignProposal()
+                }}
+                className="bg-gold text-black px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-[0.15em] shadow-xl flex items-center gap-2 whitespace-nowrap"
+              >
+                <Pen className="w-4 h-4" />
+                Design
+              </motion.button>
+
+              {/* Booking Button - Rounded */}
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  setFabOpen(false)
+                  setBookingOpen(true)
+                }}
+                className="bg-black text-white px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-[0.15em] shadow-xl flex items-center gap-2 whitespace-nowrap"
+              >
+                <ArrowRight className="w-4 h-4" />
+                Book møde
+              </motion.button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Main FAB Button with Text */}
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setFabOpen(!fabOpen)}
+          className={`h-14 px-5 rounded-full shadow-2xl flex items-center justify-center gap-2 transition-all duration-300 font-bold text-xs uppercase tracking-wider ${
+            fabOpen ? 'bg-black text-white rotate-45' : 'bg-gold text-black'
+          }`}
+        >
+          {fabOpen ? (
+            <Plus className="w-6 h-6" strokeWidth={2.5} />
+          ) : (
+            <>
+              <Sparkles className="w-4 h-4" />
+              <span>Kom i gang</span>
+            </>
+          )}
+        </motion.button>
+      </div>
     </>
   )
 }

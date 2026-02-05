@@ -22,7 +22,7 @@ import {
   Lightbulb,
   Calendar,
   FileCheck,
-  Palette,
+  Pen,
   Send,
   Quote
 } from 'lucide-react';
@@ -52,7 +52,7 @@ interface TestimonialData {
 const perfectForIcons = [Lightbulb, Users, Briefcase];
 
 // Icon mapping for timeline steps
-const timelineIcons = [Lightbulb, Palette, FileCheck, Send];
+const timelineIcons = [Lightbulb, Pen, FileCheck, Send];
 
 // Testimonial images (non-translatable)
 const testimonialImages = [
