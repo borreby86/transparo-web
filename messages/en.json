@@ -20,6 +20,11 @@
         "number": "04",
         "name": "Kontakt",
         "href": "/kontakt"
+      },
+      {
+        "number": "05",
+        "name": "FAQ",
+        "href": "/faq"
       }
     ],
     "menuLabel": "Menu"
@@ -784,7 +789,9 @@
     "thankYouMessage": "We'll get back to you with a design proposal within 2-3 business days."
   },
   "faqPage": {
+    "overline": "FAQ",
     "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to the most common questions about our websites and process.",
     "questions": [
       {
         "question": "Why not just use WordPress?",

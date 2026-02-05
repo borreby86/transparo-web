@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import { Plus, Minus, ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 interface FAQ {
   question: string
@@ -13,22 +14,38 @@ interface FAQ {
 
 export function FAQPageContent() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const shouldReduceMotion = useReducedMotion()
   const t = useTranslations('faqPage')
 
   const faqs = t.raw('questions') as FAQ[]
 
   return (
     <>
-    <section className="bg-white px-6 md:px-12 py-24 md:py-32">
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="mb-16 md:mb-20">
-          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-navy mb-4">
+    {/* Header */}
+    <section className="bg-black px-6 md:px-12 pt-40 pb-20 md:pt-48 md:pb-28">
+      <div className="max-w-[1400px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
+        >
+          <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
+            {t('overline')}
+          </span>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] tracking-tight mb-6">
             {t('title')}
           </h1>
-        </div>
+          <p className="text-white/40 text-lg md:text-xl max-w-xl leading-relaxed">
+            {t('subtitle')}
+          </p>
+        </motion.div>
+      </div>
+    </section>
 
-        {/* FAQ Accordion */}
+    {/* FAQ Accordion */}
+    <section className="bg-white px-6 md:px-12 py-24 md:py-32">
+      <div className="max-w-3xl mx-auto">
+
         <div className="space-y-px">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
@@ -42,14 +59,14 @@ export function FAQPageContent() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full py-6 md:py-8 flex items-center justify-between text-left group"
                 >
-                  <span className="font-medium text-lg md:text-xl text-navy pr-8 group-hover:text-navy/70 transition-colors">
+                  <span className="font-medium text-lg md:text-xl text-black pr-8 group-hover:text-black/70 transition-colors">
                     {faq.question}
                   </span>
                   <div className="flex-shrink-0">
                     {isOpen ? (
-                      <Minus className="w-5 h-5 text-navy" />
+                      <Minus className="w-5 h-5 text-black" />
                     ) : (
-                      <Plus className="w-5 h-5 text-navy/40" />
+                      <Plus className="w-5 h-5 text-black/40" />
                     )}
                   </div>
                 </button>
@@ -64,7 +81,7 @@ export function FAQPageContent() {
                       className="overflow-hidden"
                     >
                       <div className="pb-6 md:pb-8 pr-12">
-                        <p className="text-base md:text-lg text-navy/60 leading-relaxed">
+                        <p className="text-base md:text-lg text-black/60 leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
@@ -75,7 +92,6 @@ export function FAQPageContent() {
             )
           })}
         </div>
-
       </div>
     </section>
 
