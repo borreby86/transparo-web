@@ -122,15 +122,19 @@ export function DesignProposalModal() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{
-              type: 'spring',
-              damping: 30,
-              stiffness: 300
+              duration: 0.25,
+              ease: [0.32, 0.72, 0, 1]
             }}
-            className="fixed top-0 right-0 h-screen w-full max-w-lg z-[70] bg-black text-white overflow-y-auto"
+            className="fixed z-[70] bg-black text-white overflow-y-auto"
             style={{
-              transform: 'translate3d(0, 0, 0)',
-              backfaceVisibility: 'hidden',
-              WebkitBackfaceVisibility: 'hidden'
+              top: 0,
+              bottom: 0,
+              right: 0,
+              width: '100%',
+              maxWidth: '500px',
+              margin: 0,
+              padding: 0,
+              willChange: 'transform'
             }}
           >
             <div className="p-10 md:p-14 min-h-full flex flex-col justify-center">

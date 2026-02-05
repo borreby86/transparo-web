@@ -407,40 +407,40 @@ export function Header() {
               transition={{ duration: 0.2 }}
               className="flex flex-col gap-3 mb-3 items-end"
             >
-              {/* Design Proposal Button - Rounded */}
+              {/* Design Proposal Button - Circle */}
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   setFabOpen(false)
                   openDesignProposal()
                 }}
-                className="bg-gold text-black px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-[0.15em] shadow-xl flex items-center gap-2 whitespace-nowrap"
+                className="w-32 h-32 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
               >
-                <Pen className="w-4 h-4" />
-                Design
+                <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+                <span className="leading-tight">Gratis<br />design</span>
               </motion.button>
 
-              {/* Booking Button - Rounded */}
+              {/* Booking Button - Circle */}
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   setFabOpen(false)
                   setBookingOpen(true)
                 }}
-                className="bg-black text-white px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-[0.15em] shadow-xl flex items-center gap-2 whitespace-nowrap"
+                className="w-32 h-32 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
               >
-                <ArrowRight className="w-4 h-4" />
-                Book møde
+                <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+                <span className="leading-tight">Book<br />møde</span>
               </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Main FAB Button with Text */}
+        {/* Main FAB Button - Round */}
         <motion.button
           whileTap={{ scale: 0.9 }}
           onClick={() => setFabOpen(!fabOpen)}
-          className={`h-14 px-5 rounded-full shadow-2xl flex items-center justify-center gap-2 transition-all duration-300 font-bold text-xs uppercase tracking-wider ${
+          className={`w-24 h-24 rounded-full shadow-2xl flex flex-col items-center justify-center gap-1 transition-all duration-300 font-bold text-[10px] uppercase tracking-wider ${
             fabOpen ? 'bg-black text-white rotate-45' : 'bg-gold text-black'
           }`}
         >
@@ -448,8 +448,8 @@ export function Header() {
             <Plus className="w-6 h-6" strokeWidth={2.5} />
           ) : (
             <>
-              <Sparkles className="w-4 h-4" />
-              <span>Kom i gang</span>
+              <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+              <span className="leading-tight">Nysgerrig?</span>
             </>
           )}
         </motion.button>
