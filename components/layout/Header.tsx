@@ -17,6 +17,7 @@ export function Header() {
   const [showRightSidebar, setShowRightSidebar] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [fabOpen, setFabOpen] = useState(false)
+  const [showFab, setShowFab] = useState(true)
   const { open: openDesignProposal, close: closeDesignProposal } = useDesignProposal()
   const pathname = usePathname()
 
@@ -32,7 +33,7 @@ export function Header() {
     { number: '05', name: t('items.4.name'), href: '/faq' as const },
   ]
 
-  // Smart sidebar visibility based on scroll
+  // Smart sidebar and FAB visibility based on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
@@ -53,12 +54,27 @@ export function Header() {
         }
       }
 
+      // FAB visibility: hide when scrolling down, show when scrolling up
+      if (currentScrollY > 100) {
+        if (currentScrollY > lastScrollY && showFab) {
+          // Scrolling down - hide FAB
+          setShowFab(false)
+          setFabOpen(false) // Close FAB menu when hiding
+        } else if (currentScrollY < lastScrollY && !showFab) {
+          // Scrolling up - show FAB
+          setShowFab(true)
+        }
+      } else if (currentScrollY <= 100 && !showFab) {
+        // Always show at top
+        setShowFab(true)
+      }
+
       setLastScrollY(currentScrollY)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY, showRightSidebar])
+  }, [lastScrollY, showRightSidebar, showFab])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -397,9 +413,17 @@ export function Header() {
       </AnimatePresence>
 
       {/* Floating Action Button (FAB) - Mobile only */}
-      <div className="lg:hidden fixed bottom-6 right-6 z-[70]">
-        <AnimatePresence>
-          {fabOpen && (
+      <AnimatePresence>
+        {showFab && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden fixed bottom-6 right-6 z-[70]"
+          >
+            <AnimatePresence>
+              {fabOpen && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -453,7 +477,9 @@ export function Header() {
             </>
           )}
         </motion.button>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
