@@ -3,7 +3,6 @@
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 
 export function PremiumProcessTimeline() {
   const shouldReduceMotion = useReducedMotion()
@@ -17,17 +16,7 @@ export function PremiumProcessTimeline() {
   ]
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      {/* Full-section background image */}
-      <Image
-        src="/images/workspace-dennis.webp"
-        alt=""
-        fill
-        className="object-cover"
-        sizes="100vw"
-      />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/85" />
+    <section className="relative py-24 md:py-32 bg-black overflow-hidden">
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
 
         {/* Header */}
@@ -48,28 +37,36 @@ export function PremiumProcessTimeline() {
           </h2>
         </motion.div>
 
-        {/* Horizontal steps */}
-        <div className="grid grid-cols-2 md:grid-cols-4">
+        {/* Steps with circles */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: index * 0.08 }}
-              className="group relative p-8 md:p-10 border-r border-b border-white/[0.06] last:border-r-0 md:[&:nth-child(n+3)]:border-b-0 hover:bg-white/[0.03] transition-all duration-500"
+              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: index * 0.1 }}
+              className="group relative flex flex-col items-center text-center"
             >
-              {/* Gold accent line */}
-              <div className="w-8 h-[2px] bg-gold/40 mb-8 group-hover:w-12 group-hover:bg-gold transition-all duration-500" />
+              {/* Circle with number */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center mb-8 group-hover:border-gold/30 group-hover:bg-gold/[0.05] transition-all duration-500"
+              >
+                <span className="text-gold text-3xl md:text-4xl font-serif italic tracking-[0.15em]">
+                  {step.number}
+                </span>
+              </motion.div>
 
-              <span className="text-gold/25 text-5xl md:text-6xl font-bold absolute top-6 right-6 select-none group-hover:text-gold/40 transition-colors duration-500">
-                {step.number}
-              </span>
+              {/* Connecting line (not on last item) */}
+              {index < steps.length - 1 && (
+                <div className="hidden lg:block absolute top-14 left-[calc(50%+56px)] w-[calc(100%-112px)] h-px bg-gradient-to-r from-white/10 via-gold/20 to-white/10" />
+              )}
 
               <h3 className="text-white font-semibold text-lg tracking-tight mb-3">
                 {step.title}
               </h3>
-              <p className="text-white/40 text-sm leading-relaxed">
+              <p className="text-white/40 text-sm leading-relaxed max-w-[250px]">
                 {step.description}
               </p>
             </motion.div>
