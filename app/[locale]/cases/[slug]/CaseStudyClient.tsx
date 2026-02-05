@@ -33,7 +33,7 @@ export default function CaseStudyClient({ caseStudy }: CaseStudyClientProps) {
               {caseStudy.labels.map((label, i) => (
                 <span
                   key={i}
-                  className="text-xs font-medium uppercase tracking-[0.15em] text-white/40"
+                  className="text-xs font-medium uppercase tracking-[0.15em] text-gold"
                 >
                   {label}
                 </span>
