@@ -49,12 +49,15 @@
     "mobileBookButton": "Book"
   },
   "hero": {
+    "overline": "Webdesign der virker",
     "headlinePart1": "Hjemmesider der performer",
     "headlinePart2": "– og holder i fremtiden",
     "subtitle": "Fast pris. Tydelig proces. Ingen overraskelser.",
     "subtitleExtra": "Du får et gratis designforslag til din forside – så du kan se hvad du får, før du beslutter noget som helst.",
     "ctaDesignProposal": "Få et gratis designforslag",
-    "ctaPortfolio": "Se portfolio"
+    "ctaPriceCalculator": "Se priser",
+    "ctaPortfolio": "Se portfolio",
+    "ctaFreeDesign": "eller få et gratis designforslag til din forside"
   },
   "footer": {
     "tagline": "Unique designs • Built on trust",

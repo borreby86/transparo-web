@@ -49,12 +49,15 @@
     "mobileBookButton": "Book"
   },
   "hero": {
+    "overline": "Web design that works",
     "headlinePart1": "Websites that perform",
     "headlinePart2": "– and last into the future",
     "subtitle": "Fixed price. Clear process. No surprises.",
     "subtitleExtra": "Get a free design proposal for your front page – so you can see what you get before committing to anything.",
     "ctaDesignProposal": "Get a free design proposal",
-    "ctaPortfolio": "See portfolio"
+    "ctaPriceCalculator": "See prices",
+    "ctaPortfolio": "See portfolio",
+    "ctaFreeDesign": "or get a free design proposal for your frontpage"
   },
   "footer": {
     "tagline": "Unique designs • Built on trust",

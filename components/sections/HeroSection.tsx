@@ -57,7 +57,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/hero-optimized.webp"
+          src="/images/unsplash/why-us-3.webp"
           alt="Transparo workspace"
           fill
           className="object-cover"
@@ -65,7 +65,7 @@ export function HeroSection() {
           quality={80}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]/60" />
       </div>
 
       {/* Loader: "transparo." typewriter on black */}
@@ -94,17 +94,33 @@ export function HeroSection() {
       {/* Main Hero Content */}
       <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-6 sm:px-8 md:px-12">
         <div className="w-full max-w-[1400px] mx-auto text-center">
+          {/* Gold Overline */}
+          <motion.div
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
+            animate={showHero ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.6,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            className="mb-8"
+          >
+            <span className="text-gold text-xs font-medium uppercase tracking-[0.3em]">
+              {t('overline')}
+            </span>
+          </motion.div>
+
           {/* Main Headline */}
           <motion.div
-            className="mb-8 md:mb-12"
+            className="mb-10 md:mb-14"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={showHero ? { opacity: 1, y: 0 } : {}}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.8,
+              delay: shouldReduceMotion ? 0 : 0.1,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-[-0.02em]">
               <span className="text-white">
                 {t('headlinePart1')}
               </span>
@@ -115,22 +131,31 @@ export function HeroSection() {
             </h1>
           </motion.div>
 
-          {/* Subtitle */}
+          {/* Gold accent line */}
           <motion.div
-            className="mb-12 md:mb-16"
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={showHero ? { scaleX: 1, opacity: 1 } : {}}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.8,
+              delay: shouldReduceMotion ? 0 : 0.2,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            className="w-16 h-[2px] bg-gold mx-auto mb-10 md:mb-14"
+          />
+
+          {/* Subtitle - simplified */}
+          <motion.div
+            className="mb-14 md:mb-18"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={showHero ? { opacity: 1, y: 0 } : {}}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.15,
+              delay: shouldReduceMotion ? 0 : 0.25,
               ease: [0.16, 1, 0.3, 1]
             }}
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-white/50 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/60 leading-relaxed max-w-xl mx-auto font-light tracking-wide">
               {t('subtitle')}
-            </p>
-            <p className="text-base sm:text-lg text-white/40 leading-relaxed max-w-2xl mx-auto mt-4">
-              {t('subtitleExtra')}
             </p>
           </motion.div>
 
@@ -149,12 +174,12 @@ export function HeroSection() {
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             >
-              <button
-                onClick={openDesignProposal}
+              <Link
+                href="/prisberegner"
                 className="inline-block px-10 py-4 bg-white text-black font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
               >
-                {t('ctaDesignProposal')}
-              </button>
+                {t('ctaPriceCalculator')}
+              </Link>
             </motion.div>
             <motion.div
               whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
@@ -162,11 +187,31 @@ export function HeroSection() {
             >
               <Link
                 href="/cases"
-                className="inline-block px-10 py-4 border border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-colors duration-300"
+                className="inline-block px-10 py-4 border border-gold text-gold font-semibold text-lg hover:bg-gold/10 transition-colors duration-300"
               >
                 {t('ctaPortfolio')}
               </Link>
             </motion.div>
+          </motion.div>
+
+          {/* Free design proposal link */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={showHero ? { opacity: 1 } : {}}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.8,
+              delay: shouldReduceMotion ? 0 : 0.5,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            className="mt-8"
+          >
+            <button
+              onClick={openDesignProposal}
+              className="text-white/40 hover:text-gold text-sm font-medium transition-colors duration-300 inline-flex items-center gap-2"
+            >
+              {t('ctaFreeDesign')}
+              <span className="text-gold">→</span>
+            </button>
           </motion.div>
         </div>
       </div>
