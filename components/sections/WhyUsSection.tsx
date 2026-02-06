@@ -40,7 +40,7 @@ export function WhyUsSection() {
           </p>
         </motion.div>
 
-        {/* Cards grid */}
+        {/* Cards grid - clean style with gold accent */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {reasons.map((reason, index) => (
             <motion.div
@@ -49,24 +49,17 @@ export function WhyUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: index * 0.1 }}
-              className="group relative p-8 md:p-10 border border-white/[0.08] hover:border-white/[0.15] bg-black/30 backdrop-blur-sm hover:bg-black/40 transition-all duration-500"
+              className="group relative p-8 md:p-10 border border-white/[0.08] hover:border-gold/20 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500"
             >
-              {/* Number */}
-              <span className="text-gold/15 text-6xl md:text-7xl font-bold absolute top-6 right-8 select-none group-hover:text-gold/25 transition-colors duration-500">
-                {reason.number}
-              </span>
-
               {/* Gold accent line */}
               <div className="w-10 h-[2px] bg-gold mb-6 group-hover:w-14 transition-all duration-500" />
 
-              <div className="relative">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  {reason.title}
-                </h3>
-                <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-md">
-                  {reason.description}
-                </p>
-              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                {reason.title}
+              </h3>
+              <p className="text-white/50 text-base md:text-lg leading-relaxed">
+                {reason.description}
+              </p>
             </motion.div>
           ))}
         </div>

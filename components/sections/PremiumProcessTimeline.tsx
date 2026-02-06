@@ -53,36 +53,52 @@ export function PremiumProcessTimeline() {
           </h2>
         </motion.div>
 
-        {/* Steps with circles */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        {/* Steps - Apple style: minimal, big typography, lots of whitespace */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 lg:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.label}
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.5, delay: index * 0.1 }}
-              className="group relative flex flex-col items-center text-center"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 0.8,
+                delay: shouldReduceMotion ? 0 : index * 0.15,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
+              className="group relative"
             >
-              {/* Circle with label */}
+              {/* Giant number as design element */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center mb-8 group-hover:border-gold/30 group-hover:bg-gold/[0.05] transition-all duration-500"
+                className="relative mb-6"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
               >
-                <span className="text-gold text-sm md:text-base font-bold uppercase tracking-[0.2em]">
+                <span className="text-[96px] md:text-[128px] font-bold leading-none tracking-tighter bg-gradient-to-b from-gold via-gold/80 to-gold/40 bg-clip-text text-transparent select-none">
                   {step.label}
                 </span>
+
+                {/* Subtle connecting line - only on desktop */}
+                {index < steps.length - 1 && (
+                  <motion.div
+                    className="hidden lg:block absolute top-1/2 -right-4 w-8 h-px"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(184,146,69,0.4), transparent)',
+                      transformOrigin: 'left'
+                    }}
+                  />
+                )}
               </motion.div>
 
-              {/* Connecting line (not on last item) */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-14 left-[calc(50%+56px)] w-[calc(100%-112px)] h-px bg-gradient-to-r from-white/10 via-gold/20 to-white/10" />
-              )}
-
-              <h3 className="text-white font-semibold text-lg tracking-tight mb-3">
+              {/* Content */}
+              <h3 className="text-white text-xl md:text-2xl font-semibold tracking-tight mb-3">
                 {step.title}
               </h3>
-              <p className="text-white/40 text-sm leading-relaxed max-w-[250px]">
+              <p className="text-white/50 text-base leading-relaxed">
                 {step.description}
               </p>
             </motion.div>

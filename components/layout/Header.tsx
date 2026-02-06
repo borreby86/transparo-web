@@ -18,8 +18,28 @@ export function Header() {
   const [fabOpen, setFabOpen] = useState(false)
   const [showFab, setShowFab] = useState(true)
   const [showDesktopCTA, setShowDesktopCTA] = useState(false)
+  const [ctaDismissed, setCtaDismissed] = useState(false)
+  const [showDismissHint, setShowDismissHint] = useState(false)
   const { open: openDesignProposal } = useDesignProposal()
   const pathname = usePathname()
+
+  // Load dismissed state from sessionStorage
+  useEffect(() => {
+    const dismissed = sessionStorage.getItem('ctaDismissed')
+    if (dismissed === 'true') {
+      setCtaDismissed(true)
+    }
+  }, [])
+
+  const dismissCTA = () => {
+    setCtaDismissed(true)
+    sessionStorage.setItem('ctaDismissed', 'true')
+  }
+
+  const showCTA = () => {
+    setCtaDismissed(false)
+    sessionStorage.removeItem('ctaDismissed')
+  }
 
   const t = useTranslations('nav')
   const tBooking = useTranslations('booking')
@@ -356,14 +376,33 @@ export function Header() {
 
       {/* Desktop CTA Buttons - Always visible after scroll */}
       <AnimatePresence>
-        {showDesktopCTA && (
+        {showDesktopCTA && !ctaDismissed && (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:flex fixed bottom-10 right-10 z-[70] flex-col gap-3 items-end"
+            className="hidden lg:flex fixed bottom-10 right-10 z-[70] flex-col gap-3 items-end group/cta"
+            onMouseEnter={() => setShowDismissHint(true)}
+            onMouseLeave={() => setShowDismissHint(false)}
           >
+            {/* Dismiss button - appears on hover */}
+            <AnimatePresence>
+              {showDismissHint && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={dismissCTA}
+                  className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-black/80 text-white/60 hover:text-white flex items-center justify-center shadow-lg hover:bg-black transition-colors z-10"
+                  aria-label="Skjul knapper"
+                >
+                  <X className="w-4 h-4" strokeWidth={2} />
+                </motion.button>
+              )}
+            </AnimatePresence>
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -387,9 +426,28 @@ export function Header() {
         )}
       </AnimatePresence>
 
+      {/* Desktop: Small restore button when CTA is dismissed */}
+      <AnimatePresence>
+        {showDesktopCTA && ctaDismissed && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={showCTA}
+            className="hidden lg:flex fixed bottom-10 right-10 z-[70] w-12 h-12 rounded-full bg-gold/20 hover:bg-gold text-gold hover:text-black items-center justify-center shadow-lg transition-colors duration-300"
+            aria-label="Vis knapper"
+          >
+            <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       {/* Mobile FAB - Expandable */}
       <AnimatePresence>
-        {showFab && (
+        {showFab && !ctaDismissed && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -406,6 +464,18 @@ export function Header() {
                   transition={{ duration: 0.2 }}
                   className="flex flex-col gap-3 mb-3 items-end"
                 >
+                  {/* Dismiss option in expanded menu */}
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      setFabOpen(false)
+                      dismissCTA()
+                    }}
+                    className="w-10 h-10 rounded-full bg-white/10 text-white/60 font-bold text-[10px] shadow-lg flex items-center justify-center"
+                  >
+                    <X className="w-4 h-4" strokeWidth={2} />
+                  </motion.button>
+
                   <motion.button
                     whileTap={{ scale: 0.95 }}
                     onClick={() => {
@@ -450,6 +520,24 @@ export function Header() {
               )}
             </motion.button>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile: Small restore button when CTA is dismissed */}
+      <AnimatePresence>
+        {showFab && ctaDismissed && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={showCTA}
+            className="lg:hidden fixed bottom-6 right-6 z-[70] w-12 h-12 rounded-full bg-gold/20 text-gold flex items-center justify-center shadow-lg"
+            aria-label="Vis knapper"
+          >
+            <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
+          </motion.button>
         )}
       </AnimatePresence>
     </>
