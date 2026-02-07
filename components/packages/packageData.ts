@@ -9,6 +9,7 @@ export interface Package {
   duration: string;
   popular?: boolean;
   color: 'navy' | 'gold' | 'warmgray';
+  pages: string;
   highlights: string[];
   features: {
     category: string;
@@ -18,64 +19,41 @@ export interface Package {
       description?: string;
     }[];
   }[];
-  addOns?: {
-    name: string;
-    price: string;
-    description: string;
-  }[];
 }
 
 export const packages: Package[] = [
   {
-    id: 'essentials',
-    slug: 'essentials',
-    name: 'Essentials',
-    tagline: 'Perfekt til startups og små virksomheder',
+    id: 'starter',
+    slug: 'starter',
+    name: 'Starter',
+    tagline: 'Perfekt landingpage til din virksomhed',
     price: 8995,
     priceFormatted: '8.995',
-    duration: '10-14 dage',
+    duration: '5-7 hverdage',
     color: 'warmgray',
+    pages: '1 side',
     highlights: [
-      '5 professionelle sider',
-      'Mobil-optimeret design',
-      'Basis SEO-opsætning',
-      'Kontaktformular',
+      '1 professionel landingpage',
+      'Bygget i Next.js – lynhurtigt',
+      'Fremtidssikret teknologi',
     ],
     features: [
       {
-        category: 'Design & Udvikling',
+        category: 'Det du får',
         items: [
-          { name: 'Antal sider', included: '5 sider' },
-          { name: 'Responsivt design', included: true },
-          { name: 'Custom design', included: true },
-          { name: 'Animations & interaktioner', included: 'Basis' },
+          { name: 'Bygget i Next.js', included: 'Moderne & lynhurtig' },
+          { name: 'Responsivt design', included: 'Alle enheder' },
+          { name: 'Kontaktformular', included: 'Med validering' },
+          { name: 'Hastigheds-optimeret', included: '90+ Lighthouse' },
+          { name: 'SEO-grundopsætning', included: true },
         ],
       },
       {
-        category: 'Funktionalitet',
+        category: 'Service',
         items: [
-          { name: 'CMS (Payload)', included: true },
-          { name: 'Kontaktformular', included: true },
-          { name: 'Google Maps integration', included: false },
-          { name: 'Nyhedsbrev signup', included: false },
-        ],
-      },
-      {
-        category: 'SEO & Performance',
-        items: [
-          { name: 'Basis SEO', included: true },
-          { name: 'Google Analytics', included: true },
-          { name: 'Sitemap', included: true },
-          { name: 'Schema markup', included: false },
-        ],
-      },
-      {
-        category: 'Service & Support',
-        items: [
-          { name: 'Leveringstid', included: '10-14 dage' },
-          { name: 'Revisions', included: '2 runder' },
-          { name: 'Oplæring i CMS', included: '30 min' },
-          { name: 'Support efter lancering', included: '30 dage' },
+          { name: 'Leveringstid', included: '5-7 hverdage' },
+          { name: 'Feedback-runder', included: '2 runder' },
+          { name: 'Support efter lancering', included: '14 dage' },
         ],
       },
     ],
@@ -84,57 +62,35 @@ export const packages: Package[] = [
     id: 'professional',
     slug: 'professional',
     name: 'Professional',
-    tagline: 'Den komplette løsning for voksende virksomheder',
-    price: 16995,
-    priceFormatted: '16.995',
-    duration: '14-21 dage',
+    tagline: 'Komplet website til voksende virksomheder',
+    price: 14995,
+    priceFormatted: '14.995',
+    duration: '10-14 hverdage',
     popular: true,
     color: 'gold',
+    pages: '5 sider',
     highlights: [
-      '10 sider inkluderet',
-      'Avancerede animationer',
-      'Blog & portfolio',
-      'Fuld SEO-pakke',
+      'Op til 5 sider inkluderet',
+      'Bygget i Next.js – lynhurtigt',
+      'Fremtidssikret teknologi',
     ],
     features: [
       {
-        category: 'Design & Udvikling',
+        category: 'Det du får',
         items: [
-          { name: 'Antal sider', included: '10 sider' },
-          { name: 'Responsivt design', included: true },
-          { name: 'Custom design', included: true },
-          { name: 'Animations & interaktioner', included: 'Avanceret' },
+          { name: 'Bygget i Next.js', included: 'Moderne & lynhurtig' },
+          { name: 'Responsivt design', included: 'Alle enheder' },
+          { name: 'Kontaktformular', included: 'Med validering' },
+          { name: 'Hastigheds-optimeret', included: '90+ Lighthouse' },
+          { name: 'SEO-grundopsætning', included: true },
         ],
       },
       {
-        category: 'Funktionalitet',
+        category: 'Service',
         items: [
-          { name: 'CMS (Payload)', included: true },
-          { name: 'Blog system', included: true },
-          { name: 'Portfolio/galleri', included: true },
-          { name: 'Kontaktformular', included: true },
-          { name: 'Google Maps integration', included: true },
-          { name: 'Nyhedsbrev signup', included: true },
-        ],
-      },
-      {
-        category: 'SEO & Performance',
-        items: [
-          { name: 'Fuld SEO-pakke', included: true },
-          { name: 'Google Analytics', included: true },
-          { name: 'Search Console', included: true },
-          { name: 'Sitemap', included: true },
-          { name: 'Schema markup', included: true },
-          { name: 'Performance optimering', included: true },
-        ],
-      },
-      {
-        category: 'Service & Support',
-        items: [
-          { name: 'Leveringstid', included: '14-21 dage' },
-          { name: 'Revisions', included: '3 runder' },
-          { name: 'Oplæring i CMS', included: '45 min' },
-          { name: 'Support efter lancering', included: '60 dage' },
+          { name: 'Leveringstid', included: '10-14 hverdage' },
+          { name: 'Feedback-runder', included: '3 runder' },
+          { name: 'Support efter lancering', included: '30 dage' },
         ],
       },
     ],
@@ -143,87 +99,98 @@ export const packages: Package[] = [
     id: 'business',
     slug: 'business',
     name: 'Business',
-    tagline: 'Enterprise-niveau løsning med fuld kontrol',
-    price: 27995,
-    priceFormatted: '27.995',
-    duration: '21-28 dage',
+    tagline: 'Udvidet website til etablerede virksomheder',
+    price: 24995,
+    priceFormatted: '24.995',
+    duration: '14-21 hverdage',
     color: 'navy',
+    pages: '10 sider',
     highlights: [
-      '20+ sider',
-      'Multi-language support',
-      'E-commerce ready',
-      'Premium animationer',
+      'Op til 10 sider inkluderet',
+      'Bygget i Next.js – lynhurtigt',
+      'Fremtidssikret teknologi',
     ],
     features: [
       {
-        category: 'Design & Udvikling',
+        category: 'Det du får',
         items: [
-          { name: 'Antal sider', included: '20+ sider' },
-          { name: 'Responsivt design', included: true },
-          { name: 'Custom design', included: true },
-          { name: 'Animations & interaktioner', included: 'Premium' },
-          { name: 'Custom komponenter', included: true },
+          { name: 'Bygget i Next.js', included: 'Moderne & lynhurtig' },
+          { name: 'Responsivt design', included: 'Alle enheder' },
+          { name: 'Kontaktformular', included: 'Med validering' },
+          { name: 'Hastigheds-optimeret', included: '90+ Lighthouse' },
+          { name: 'SEO-grundopsætning', included: true },
         ],
       },
       {
-        category: 'Funktionalitet',
+        category: 'Service',
         items: [
-          { name: 'CMS (Payload)', included: true },
-          { name: 'Multi-language', included: true },
-          { name: 'Blog system', included: true },
-          { name: 'Portfolio/galleri', included: true },
-          { name: 'Team sektion', included: true },
-          { name: 'Testimonials', included: true },
-          { name: 'Booking system', included: true },
-          { name: 'Advanced forms', included: true },
-        ],
-      },
-      {
-        category: 'SEO & Performance',
-        items: [
-          { name: 'Enterprise SEO', included: true },
-          { name: 'Google Analytics 4', included: true },
-          { name: 'Search Console', included: true },
-          { name: 'Tag Manager', included: true },
-          { name: 'Schema markup', included: true },
-          { name: 'Core Web Vitals', included: true },
-          { name: 'CDN setup', included: true },
-        ],
-      },
-      {
-        category: 'Service & Support',
-        items: [
-          { name: 'Leveringstid', included: '21-28 dage' },
-          { name: 'Revisions', included: '5 runder' },
-          { name: 'Oplæring i CMS', included: '60 min + dokumentation' },
-          { name: 'Support efter lancering', included: '90 dage' },
-          { name: 'Prioriteret support', included: true },
+          { name: 'Leveringstid', included: '14-21 hverdage' },
+          { name: 'Feedback-runder', included: '4 runder' },
+          { name: 'Support efter lancering', included: '60 dage' },
         ],
       },
     ],
   },
 ];
 
-// Add-ons available for all packages
+// Add-ons available for all packages (alle priser ex. moms)
 export const commonAddOns = [
   {
-    name: 'Ekstra sider',
-    price: '1.495 kr/side',
-    description: 'Udvid din hjemmeside med flere sider',
+    name: 'Ekstra side',
+    price: '+1.500 DKK',
+    description: 'Én ekstra side til dit website',
   },
   {
-    name: 'E-mail opsætning',
-    price: '2.995 kr',
-    description: 'Professionel e-mail med dit domæne',
+    name: 'SEO-optimering',
+    price: '+2.000 DKK',
+    description: 'Teknisk SEO, meta tags og struktureret data',
+  },
+  {
+    name: 'Blog / Nyheder',
+    price: '+2.500 DKK',
+    description: 'Blogsektion med kategorier og arkiv',
+  },
+  {
+    name: 'CMS (selv-redigering)',
+    price: '+3.000 DKK',
+    description: 'Payload CMS så du selv kan opdatere indhold',
+  },
+  {
+    name: 'Booking-system',
+    price: '+2.500 DKK',
+    description: 'Online tidsbestilling integreret i sitet',
+  },
+  {
+    name: 'Flersproget (DK/EN)',
+    price: '+3.000 DKK',
+    description: 'Fuld oversættelse med sprogskifter',
+  },
+  {
+    name: 'Nyhedsbrev-integration',
+    price: '+1.500 DKK',
+    description: 'Mailchimp, Brevo eller lignende integration',
+  },
+  {
+    name: 'Google Analytics',
+    price: '+1.000 DKK',
+    description: 'Opsætning og konfiguration af tracking',
   },
   {
     name: 'Copywriting',
-    price: 'Fra 3.995 kr',
-    description: 'Professionel tekstforfatning',
+    price: 'Fra 3.000 DKK',
+    description: 'Professionel tekstforfatning til dit website',
   },
   {
-    name: 'Fotografi',
-    price: 'Fra 4.995 kr',
-    description: 'Professionel fotografering',
+    name: 'Hosting inkl. SSL',
+    price: '99 DKK/md',
+    description: 'Hurtig hosting på Vercel, betales årligt',
+  },
+  {
+    name: 'Ændringer efter lancering',
+    price: '750 DKK/time',
+    description: 'Løbende ændringer og opdateringer',
   },
 ];
+
+// Note: Alle priser er ex. moms
+export const pricingNote = 'Alle priser er ex. moms';

@@ -328,12 +328,11 @@
         "pages": "1 side",
         "number": "01",
         "details": [
+          "Bygget i Next.js – moderne og lynhurtig",
           "Responsivt design til alle enheder",
           "Kontaktformular med validering",
           "Hastigheds-optimeret (90+ Lighthouse)",
-          "SEO-grundopsætning",
-          "SSL-certifikat inkluderet",
-          "Google Analytics integration"
+          "SEO-grundopsætning"
         ]
       },
       {
@@ -343,13 +342,11 @@
         "pages": "3-5 sider",
         "number": "02",
         "details": [
-          "Alt fra Landingsside",
-          "Op til 5 undersider",
-          "Blog-mulighed",
-          "Avanceret SEO-setup med meta tags",
-          "Social medie-integration",
-          "Interaktive elementer og animationer",
-          "Content Management System (CMS)"
+          "Bygget i Next.js – moderne og lynhurtig",
+          "Responsivt design til alle enheder",
+          "Kontaktformular med validering",
+          "Hastigheds-optimeret (90+ Lighthouse)",
+          "SEO-grundopsætning"
         ]
       },
       {
@@ -359,14 +356,11 @@
         "pages": "6-10 sider",
         "number": "03",
         "details": [
-          "Alt fra Virksomhedssite",
-          "Op til 10 undersider",
-          "Avanceret CMS med multi-collections",
-          "Custom funktioner og integrationer",
-          "Avancerede animationer og transitions",
-          "Flersproget understøttelse mulig",
-          "Prioriteret support i 3 måneder",
-          "Performance-optimering og caching"
+          "Bygget i Next.js – moderne og lynhurtig",
+          "Responsivt design til alle enheder",
+          "Kontaktformular med validering",
+          "Hastigheds-optimeret (90+ Lighthouse)",
+          "SEO-grundopsætning"
         ]
       }
     ],
@@ -412,6 +406,26 @@
         "id": "newsletter",
         "label": "Nyhedsbrev-integration",
         "description": "Mailchimp, Brevo eller lignende integration"
+      },
+      {
+        "id": "analytics",
+        "label": "Google Analytics",
+        "description": "Opsætning og konfiguration af tracking"
+      },
+      {
+        "id": "copywriting",
+        "label": "Copywriting",
+        "description": "Professionel tekstforfatning til dit website"
+      },
+      {
+        "id": "extrapage",
+        "label": "Ekstra side",
+        "description": "Én ekstra side til dit website"
+      },
+      {
+        "id": "hosting",
+        "label": "Hosting inkl. SSL (1 år)",
+        "description": "Hurtig hosting på Vercel – 100 DKK/md betalt årligt"
       }
     ],
     "designLevels": [
@@ -458,9 +472,9 @@
       "expressDelivery": "Express-levering (+25%)",
       "compareTitle": "Sammenlign med markedet",
       "traditionalAgency": "Traditionelt bureau",
-      "traditionalNote": "Baseret på gennemsnitspriser fra danske bureauer",
+      "traditionalNote": "Typisk WordPress – forældet inden for få år",
       "transparoLabel": "Transparo",
-      "transparoNote": "Samme teknologi og kvalitet, AI-drevet proces",
+      "transparoNote": "Next.js & React – fremtidssikret teknologi",
       "savingsText": "Du sparer ca. {savings} DKK - det er {percent}% mindre end markedsprisen.",
       "savingsDisclaimer": "Prisestimatet for traditionelle bureauer er baseret på branchegennemsnit for sammenlignelige projekter i Danmark.",
       "disclaimer": "Den endelige pris aftales ved en uforpligtende samtale, hvor vi gennemgår dine behov i detaljer.",
@@ -1987,7 +2001,7 @@
     "section": {
       "tagline": "Faste priser • Ingen overraskelser",
       "title": "Vælg din pakke",
-      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitle": "Professionelle websites med fremtidssikret teknologi.",
       "subtitleHint": "Klik på en pakke for at se alle detaljer og funktioner.",
       "swipeHint": "← Swipe for at se alle pakker →",
       "compareLink": "Sammenlign alle pakker i detaljer",
@@ -2212,7 +2226,7 @@
     "newSectionEnhanced": {
       "badge": "Faste priser • Ingen overraskelser",
       "heading": "Vælg din pakke",
-      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitle": "Professionelle websites med fremtidssikret teknologi.",
       "subtitleSecondary": "Klik på en pakke for at se alle detaljer.",
       "popularBadge": "Mest Populær",
       "fixedPrice": "Fast pris • Ingen skjulte gebyrer",

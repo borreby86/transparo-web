@@ -323,50 +323,44 @@
     "websiteTypes": [
       {
         "id": "landing",
-        "label": "Landingsside",
-        "description": "1 side - perfekt til kampagner eller lancering",
-        "pages": "1 side",
+        "label": "Landing page",
+        "description": "1 page - perfect for campaigns or launches",
+        "pages": "1 page",
         "number": "01",
         "details": [
-          "Responsivt design til alle enheder",
-          "Kontaktformular med validering",
-          "Hastigheds-optimeret (90+ Lighthouse)",
-          "SEO-grundopsætning",
-          "SSL-certifikat inkluderet",
-          "Google Analytics integration"
+          "Built with Next.js – modern & lightning fast",
+          "Responsive design for all devices",
+          "Contact form with validation",
+          "Speed-optimized (90+ Lighthouse)",
+          "Basic SEO setup"
         ]
       },
       {
         "id": "business",
-        "label": "Virksomhedssite",
-        "description": "3-5 sider - den klassiske virksomhedsprofil",
-        "pages": "3-5 sider",
+        "label": "Business site",
+        "description": "3-5 pages - the classic company profile",
+        "pages": "3-5 pages",
         "number": "02",
         "details": [
-          "Alt fra Landingsside",
-          "Op til 5 undersider",
-          "Blog-mulighed",
-          "Avanceret SEO-setup med meta tags",
-          "Social medie-integration",
-          "Interaktive elementer og animationer",
-          "Content Management System (CMS)"
+          "Built with Next.js – modern & lightning fast",
+          "Responsive design for all devices",
+          "Contact form with validation",
+          "Speed-optimized (90+ Lighthouse)",
+          "Basic SEO setup"
         ]
       },
       {
         "id": "large",
-        "label": "Større website",
-        "description": "6-10 sider - til virksomheder med mere indhold",
-        "pages": "6-10 sider",
+        "label": "Larger website",
+        "description": "6-10 pages - for companies with more content",
+        "pages": "6-10 pages",
         "number": "03",
         "details": [
-          "Alt fra Virksomhedssite",
-          "Op til 10 undersider",
-          "Avanceret CMS med multi-collections",
-          "Custom funktioner og integrationer",
-          "Avancerede animationer og transitions",
-          "Flersproget understøttelse mulig",
-          "Prioriteret support i 3 måneder",
-          "Performance-optimering og caching"
+          "Built with Next.js – modern & lightning fast",
+          "Responsive design for all devices",
+          "Contact form with validation",
+          "Speed-optimized (90+ Lighthouse)",
+          "Basic SEO setup"
         ]
       }
     ],
@@ -405,13 +399,33 @@
       },
       {
         "id": "multilang",
-        "label": "Flersproget (DK/EN)",
-        "description": "Fuld oversættelse med sprogskifter"
+        "label": "Multi-language (DK/EN)",
+        "description": "Full translation with language switcher"
       },
       {
         "id": "newsletter",
-        "label": "Nyhedsbrev-integration",
-        "description": "Mailchimp, Brevo eller lignende integration"
+        "label": "Newsletter integration",
+        "description": "Mailchimp, Brevo or similar integration"
+      },
+      {
+        "id": "analytics",
+        "label": "Google Analytics",
+        "description": "Setup and configuration of tracking"
+      },
+      {
+        "id": "copywriting",
+        "label": "Copywriting",
+        "description": "Professional copywriting for your website"
+      },
+      {
+        "id": "extrapage",
+        "label": "Extra page",
+        "description": "One additional page for your website"
+      },
+      {
+        "id": "hosting",
+        "label": "Hosting incl. SSL (1 year)",
+        "description": "Fast hosting on Vercel – 100 DKK/month paid yearly"
       }
     ],
     "designLevels": [
@@ -458,9 +472,9 @@
       "expressDelivery": "Express-levering (+25%)",
       "compareTitle": "Sammenlign med markedet",
       "traditionalAgency": "Traditionelt bureau",
-      "traditionalNote": "Baseret på gennemsnitspriser fra danske bureauer",
+      "traditionalNote": "Typically WordPress – outdated within years",
       "transparoLabel": "Transparo",
-      "transparoNote": "Samme teknologi og kvalitet, AI-drevet proces",
+      "transparoNote": "Next.js & React – future-proof technology",
       "savingsText": "Du sparer ca. {savings} DKK - det er {percent}% mindre end markedsprisen.",
       "savingsDisclaimer": "Prisestimatet for traditionelle bureauer er baseret på branchegennemsnit for sammenlignelige projekter i Danmark.",
       "disclaimer": "Den endelige pris aftales ved en uforpligtende samtale, hvor vi gennemgår dine behov i detaljer.",
@@ -1987,7 +2001,7 @@
     "section": {
       "tagline": "Faste priser • Ingen overraskelser",
       "title": "Vælg din pakke",
-      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitle": "Professional websites with future-proof technology.",
       "subtitleHint": "Klik på en pakke for at se alle detaljer og funktioner.",
       "swipeHint": "← Swipe for at se alle pakker →",
       "compareLink": "Sammenlign alle pakker i detaljer",
@@ -2212,7 +2226,7 @@
     "newSectionEnhanced": {
       "badge": "Faste priser • Ingen overraskelser",
       "heading": "Vælg din pakke",
-      "subtitle": "Professionelle websites med AI-drevet udvikling.",
+      "subtitle": "Professional websites with future-proof technology.",
       "subtitleSecondary": "Klik på en pakke for at se alle detaljer.",
       "popularBadge": "Mest Populær",
       "fixedPrice": "Fast pris • Ingen skjulte gebyrer",

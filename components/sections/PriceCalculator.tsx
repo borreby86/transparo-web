@@ -18,6 +18,7 @@ import {
   Languages,
   ChevronDown,
   Sparkles,
+  Server,
 } from 'lucide-react'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -43,6 +44,10 @@ const FEATURE_PRICES: Record<string, number> = {
   booking: 2500,
   multilang: 3000,
   newsletter: 1500,
+  analytics: 1000,
+  copywriting: 3000,
+  extrapage: 1500,
+  hosting: 1200, // 100 DKK/md × 12 måneder
 }
 
 const INCLUDED_FEATURES = ['contact', 'social']
@@ -56,6 +61,10 @@ const FEATURE_ICONS: Record<string, React.ReactNode> = {
   booking: <CalendarCheck className="w-4 h-4" />,
   multilang: <Languages className="w-4 h-4" />,
   newsletter: <Mail className="w-4 h-4" />,
+  analytics: <Search className="w-4 h-4" />,
+  copywriting: <PenTool className="w-4 h-4" />,
+  extrapage: <BookOpen className="w-4 h-4" />,
+  hosting: <Server className="w-4 h-4" />,
 }
 
 const DESIGN_PRICES: Record<DesignLevel, number> = {
