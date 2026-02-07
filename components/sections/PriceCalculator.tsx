@@ -123,6 +123,14 @@ export function PriceCalculator() {
     }
   }, [currentStep, websiteType, designLevel, timeline])
 
+  // Count paid add-ons for bundle discount
+  const paidAddOnsCount = useMemo(() => {
+    return selectedFeatures.filter(id => !INCLUDED_FEATURES.includes(id)).length
+  }, [selectedFeatures])
+
+  const hasBundleDiscount = paidAddOnsCount >= 3
+  const BUNDLE_DISCOUNT_PERCENT = 20
+
   const totalPrice = useMemo(() => {
     if (!websiteType || !designLevel || !timeline) return 0
 
@@ -130,11 +138,17 @@ export function PriceCalculator() {
     const featuresCost = Object.entries(FEATURE_PRICES)
       .filter(([id]) => selectedFeatures.includes(id) && !INCLUDED_FEATURES.includes(id))
       .reduce((sum, [, price]) => sum + price, 0)
+
+    // Apply 10% bundle discount on add-ons if 3+ selected
+    const discountedFeaturesCost = hasBundleDiscount
+      ? Math.round(featuresCost * (1 - BUNDLE_DISCOUNT_PERCENT / 100))
+      : featuresCost
+
     const design = DESIGN_PRICES[designLevel]
     const timelineMultiplier = TIMELINE_MULTIPLIERS[timeline]
 
-    return Math.round((base + featuresCost + design) * timelineMultiplier)
-  }, [websiteType, selectedFeatures, designLevel, timeline])
+    return Math.round((base + discountedFeaturesCost + design) * timelineMultiplier)
+  }, [websiteType, selectedFeatures, designLevel, timeline, hasBundleDiscount])
 
   const toggleFeature = (id: string) => {
     if (INCLUDED_FEATURES.includes(id)) return
@@ -219,12 +233,6 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
           exit: { opacity: 0, y: -20 },
           transition: { duration: 0.4, delay, ease: [0.16, 1, 0.3, 1] as const },
         }
-
-  function getRecommendedPackage(total: number): { name: string; match: string } {
-    if (total <= 12000) return { name: 'Essentials', match: t('result.recommendations.essentials') }
-    if (total <= 22000) return { name: 'Professional', match: t('result.recommendations.professional') }
-    return { name: 'Business', match: t('result.recommendations.business') }
-  }
 
   // ─── Render Steps ────────────────────────────────────────────────────────
 
@@ -437,7 +445,6 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
   )
 
   const renderResult = () => {
-    const recommendation = getRecommendedPackage(totalPrice)
     const selectedType = websiteTypes.find(wt => wt.id === websiteType)!
     const selectedDesign = designLevels.find(d => d.id === designLevel)!
     const selectedTimeline = timelines.find(tl => tl.id === timeline)!
@@ -468,19 +475,15 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
           </div>
         </motion.div>
 
-        {/* Recommendation */}
+        {/* Quote header */}
         <motion.div
           className="rounded-2xl overflow-hidden border border-black/[0.06]"
           {...motionProps(0.2)}
         >
-          <div className="flex items-center gap-3 px-7 md:px-9 py-5 bg-gradient-to-r from-gold/10 via-gold/5 to-transparent border-b border-gold/10">
-            <div className="p-1.5 rounded-lg bg-gold/15">
-              <Sparkles className="w-4 h-4 text-gold" />
-            </div>
-            <div>
-              <h3 className="font-bold text-black text-sm">{t('result.recommendedPrefix')} {recommendation.name}{t('result.recommendedSuffix')}</h3>
-              <p className="text-xs text-warmgray">{recommendation.match}</p>
-            </div>
+          <div className="px-7 md:px-9 py-6 border-b border-black/[0.04]">
+            <p className="text-xs uppercase tracking-[0.2em] text-gold font-medium mb-2">{t('result.quoteSubtitle')}</p>
+            <h3 className="text-xl md:text-2xl font-bold text-black tracking-tight">{t('result.quoteTitle')}</h3>
+            <p className="text-xs text-warmgray mt-2">{t('result.paymentTerms')}</p>
           </div>
 
           {/* Breakdown */}
@@ -497,6 +500,14 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
                   <span className="text-sm font-bold text-black tabular-nums">+{formatPrice(FEATURE_PRICES[f.id])} {t('result.currency')}</span>
                 </div>
               ))}
+              {hasBundleDiscount && (
+                <div className="flex justify-between items-center py-3 border-b border-black/[0.04] bg-green-50/50 -mx-7 md:-mx-9 px-7 md:px-9">
+                  <span className="text-sm text-green-700 font-medium">{t('result.bundleDiscount')}</span>
+                  <span className="text-sm font-bold text-green-600 tabular-nums">
+                    -{formatPrice(Math.round(addedFeatures.reduce((sum, f) => sum + FEATURE_PRICES[f.id], 0) * (BUNDLE_DISCOUNT_PERCENT / 100)))} {t('result.currency')}
+                  </span>
+                </div>
+              )}
               {DESIGN_PRICES[designLevel!] > 0 && (
                 <div className="flex justify-between items-center py-3 border-b border-black/[0.04]">
                   <span className="text-sm text-black">{t('result.premiumDesign')}</span>
@@ -513,7 +524,10 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
               )}
               <div className="flex justify-between items-center pt-5">
                 <span className="font-bold text-black">{t('result.estimatedTotal')}</span>
-                <span className="font-bold text-xl text-gold tabular-nums">{formatPrice(totalPrice)} {t('result.currency')}</span>
+                <div className="text-right">
+                  <span className="font-bold text-xl text-gold tabular-nums">{formatPrice(totalPrice)} {t('result.currency')}</span>
+                  <p className="text-black/40 text-xs mt-0.5">{t('result.exclVat')}</p>
+                </div>
               </div>
             </div>
           </div>

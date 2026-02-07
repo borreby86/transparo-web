@@ -459,13 +459,10 @@
       "from": "fra",
       "currency": "DKK",
       "exclVat": "ekskl. moms",
-      "recommendedPrefix": "Anbefalet:",
-      "recommendedSuffix": "-pakken",
-      "recommendations": {
-        "essentials": "Vores Essentials-pakke passer godt til dit behov",
-        "professional": "Vores Professional-pakke er et godt match",
-        "business": "Vores Business-pakke dækker alt du har brug for"
-      },
+      "quoteTitle": "Tilbud på dit website",
+      "quoteSubtitle": "Baseret på dine valg",
+      "paymentTerms": "50% faktureres inden start · 50% ved levering",
+      "bundleDiscount": "Pakkerabat (20% på tilvalg)",
       "breakdownTitle": "Prissammensætning",
       "estimatedTotal": "Estimeret total",
       "premiumDesign": "Premium design",
