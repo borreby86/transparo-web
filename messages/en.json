@@ -477,11 +477,15 @@
       "disclaimer": "Den endelige pris aftales ved en uforpligtende samtale, hvor vi gennemgår dine behov i detaljer.",
       "ctaBookMeeting": "Book et uforpligtende møde",
       "ctaSendEstimate": "Send mig estimatet",
-      "emailFormTitle": "Modtag dit estimat på mail",
-      "emailNamePlaceholder": "Dit navn",
-      "emailPlaceholder": "Din email",
-      "emailSubmitButton": "Send estimat",
-      "emailCancel": "Annuller"
+      "emailFormTitle": "Receive your estimate by email",
+      "emailNamePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "emailSubmitButton": "Send estimate",
+      "emailCancel": "Cancel",
+      "successOverline": "Thank you for your interest",
+      "successTitle": "We'll be in touch!",
+      "successMessage": "We'll send you your price estimate within 24 hours with a personalized offer tailored to your needs.",
+      "successButton": "Close"
     },
     "navigation": {
       "next": "Næste",

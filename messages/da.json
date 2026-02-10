@@ -481,7 +481,11 @@
       "emailNamePlaceholder": "Dit navn",
       "emailPlaceholder": "Din email",
       "emailSubmitButton": "Send estimat",
-      "emailCancel": "Annuller"
+      "emailCancel": "Annuller",
+      "successOverline": "Tak for din interesse",
+      "successTitle": "Vi vender tilbage!",
+      "successMessage": "Vi sender dig dit prisestimat indenfor 24 timer med et personligt tilbud tilpasset dine behov.",
+      "successButton": "Luk"
     },
     "navigation": {
       "next": "Næste",

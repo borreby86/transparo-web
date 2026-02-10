@@ -19,6 +19,7 @@ import {
   ChevronDown,
   Sparkles,
   Server,
+  X,
 } from 'lucide-react'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -208,13 +209,14 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
       })
 
       if (response.ok) {
+        setShowContact(false)
         setSubmitStatus('success')
+        // Auto-close success panel after 5 seconds
         setTimeout(() => {
-          setShowContact(false)
+          setSubmitStatus('idle')
           setContactName('')
           setContactEmail('')
-          setSubmitStatus('idle')
-        }, 3000)
+        }, 5000)
       } else {
         setSubmitStatus('error')
       }
@@ -591,13 +593,13 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
         <motion.div className="space-y-4" {...motionProps(0.5)}>
           {!showContact ? (
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/kontakt"
+              <button
+                onClick={() => setShowContact(true)}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-gold via-gold-light to-gold text-black font-bold text-base hover:shadow-xl hover:shadow-gold/20 transition-all duration-300"
               >
                 {t('result.ctaBookMeeting')}
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </button>
               <button
                 onClick={() => setShowContact(true)}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-black/10 text-black font-bold text-base hover:bg-black hover:text-white transition-all duration-300"
@@ -612,51 +614,41 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {submitStatus === 'success' ? (
-                <div className="text-center py-8">
-                  <div className="w-12 h-[2px] bg-gold mx-auto mb-6" />
-                  <h3 className="text-xl font-bold text-black mb-3">Tak for din interesse!</h3>
-                  <p className="text-warmgray text-sm">Vi sender dit estimat til {contactEmail}</p>
-                </div>
-              ) : (
-                <>
-                  <h4 className="text-base font-bold text-black mb-5 text-center">{t('result.emailFormTitle')}</h4>
-                  <form onSubmit={handleEstimateSubmit} className="space-y-3">
-                    <input
-                      type="text"
-                      placeholder={t('result.emailNamePlaceholder')}
-                      value={contactName}
-                      onChange={e => setContactName(e.target.value)}
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
-                    />
-                    <input
-                      type="email"
-                      placeholder={t('result.emailPlaceholder')}
-                      value={contactEmail}
-                      onChange={e => setContactEmail(e.target.value)}
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
-                    />
-                    {submitStatus === 'error' && (
-                      <p className="text-red-600 text-sm text-center">Der opstod en fejl. Prøv venligst igen.</p>
-                    )}
-                    <button
-                      type="submit"
-                      className="w-full px-6 py-3 bg-black text-white font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
-                      disabled={submitStatus === 'submitting'}
-                    >
-                      {submitStatus === 'submitting' ? 'Sender...' : t('result.emailSubmitButton')}
-                    </button>
-                  </form>
-                  <button
-                    onClick={() => setShowContact(false)}
-                    className="w-full mt-3 text-sm text-warmgray hover:text-black transition-colors text-center"
-                  >
-                    {t('result.emailCancel')}
-                  </button>
-                </>
-              )}
+              <h4 className="text-base font-bold text-black mb-5 text-center">{t('result.emailFormTitle')}</h4>
+              <form onSubmit={handleEstimateSubmit} className="space-y-3">
+                <input
+                  type="text"
+                  placeholder={t('result.emailNamePlaceholder')}
+                  value={contactName}
+                  onChange={e => setContactName(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                />
+                <input
+                  type="email"
+                  placeholder={t('result.emailPlaceholder')}
+                  value={contactEmail}
+                  onChange={e => setContactEmail(e.target.value)}
+                  required
+                  className="w-full px-4 py-3 rounded-xl border border-black/[0.08] bg-offwhite text-black placeholder:text-warmgray focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all"
+                />
+                {submitStatus === 'error' && (
+                  <p className="text-red-600 text-sm text-center">Der opstod en fejl. Prøv venligst igen.</p>
+                )}
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 bg-black text-white font-bold hover:bg-black/80 transition-all duration-300 disabled:opacity-50"
+                  disabled={submitStatus === 'submitting'}
+                >
+                  {submitStatus === 'submitting' ? 'Sender...' : t('result.emailSubmitButton')}
+                </button>
+              </form>
+              <button
+                onClick={() => setShowContact(false)}
+                className="w-full mt-3 text-sm text-warmgray hover:text-black transition-colors text-center"
+              >
+                {t('result.emailCancel')}
+              </button>
             </motion.div>
           )}
         </motion.div>
@@ -797,6 +789,77 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
         )}
       </div>
     </section>
+
+    {/* Success slide-in panel */}
+    <AnimatePresence>
+      {submitStatus === 'success' && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[65] bg-black/40"
+            onClick={() => setSubmitStatus('idle')}
+          />
+
+          {/* Panel */}
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{
+              duration: 0.25,
+              ease: [0.32, 0.72, 0, 1]
+            }}
+            className="fixed z-[70] bg-black text-white overflow-y-auto"
+            style={{
+              top: 0,
+              bottom: 0,
+              right: 0,
+              width: '100%',
+              maxWidth: '500px',
+              willChange: 'transform'
+            }}
+          >
+            <div className="p-10 md:p-14 min-h-full flex flex-col justify-center">
+              <button
+                onClick={() => setSubmitStatus('idle')}
+                className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
+                aria-label="Luk"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-center"
+              >
+                <div className="w-16 h-[2px] bg-gold mx-auto mb-8" />
+                <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
+                  {t('result.successOverline')}
+                </span>
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                  {t('result.successTitle')}
+                </h3>
+                <p className="text-white/40 text-base leading-relaxed max-w-sm mx-auto">
+                  {t('result.successMessage')}
+                </p>
+                <button
+                  onClick={() => setSubmitStatus('idle')}
+                  className="mt-10 px-8 py-4 bg-gold text-black font-bold text-sm uppercase tracking-wider hover:bg-gold/90 transition-colors"
+                >
+                  {t('result.successButton')}
+                </button>
+              </motion.div>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
     </>
   )
 }
