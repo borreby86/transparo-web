@@ -32,7 +32,7 @@ export function CookieBanner() {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 left-6 lg:bottom-10 lg:left-24 xl:left-28 z-[70]"
+          className="fixed bottom-20 left-4 sm:bottom-6 sm:left-6 lg:bottom-10 lg:left-24 xl:left-28 z-[70]"
         >
           <AnimatePresence mode="wait">
             {!isExpanded ? (
@@ -58,7 +58,7 @@ export function CookieBanner() {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.3 }}
-                className="bg-black rounded-3xl p-6 shadow-2xl min-w-[280px]"
+                className="bg-black rounded-3xl p-5 sm:p-6 shadow-2xl w-[calc(100vw-32px)] sm:w-auto sm:min-w-[280px] max-w-[320px]"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <span className="text-3xl">🍪</span>

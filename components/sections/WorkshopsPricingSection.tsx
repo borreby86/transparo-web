@@ -72,7 +72,7 @@ export function WorkshopsPricingSection() {
             {/* Price */}
             <div className="mb-10">
               <motion.span
-                className="text-7xl md:text-8xl lg:text-9xl font-display text-navy"
+                className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display text-navy"
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

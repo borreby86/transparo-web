@@ -471,7 +471,7 @@ export function Header() {
                       setFabOpen(false)
                       dismissCTA()
                     }}
-                    className="w-10 h-10 rounded-full bg-white/10 text-white/60 font-bold text-[10px] shadow-lg flex items-center justify-center"
+                    className="w-11 h-11 rounded-full bg-white/10 text-white/60 font-bold text-[10px] shadow-lg flex items-center justify-center"
                   >
                     <X className="w-4 h-4" strokeWidth={2} />
                   </motion.button>

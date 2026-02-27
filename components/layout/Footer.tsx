@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className="bg-white text-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16 pb-[calc(3rem+env(safe-area-inset-bottom,0px))] md:pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
@@ -100,19 +100,19 @@ export function Footer() {
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <Link
               href="/privatlivspolitik"
-              className="text-black/50 hover:text-gold transition-colors text-sm"
+              className="text-black/50 hover:text-gold transition-colors text-sm py-2"
             >
               {t('privacyPolicy')}
             </Link>
             <Link
               href="/cookiepolitik"
-              className="text-black/50 hover:text-gold transition-colors text-sm"
+              className="text-black/50 hover:text-gold transition-colors text-sm py-2"
             >
               {t('cookiePolicy')}
             </Link>
             <Link
               href="/handelsbetingelser"
-              className="text-black/50 hover:text-gold transition-colors text-sm"
+              className="text-black/50 hover:text-gold transition-colors text-sm py-2"
             >
               {t('terms')}
             </Link>
