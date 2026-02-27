@@ -224,7 +224,7 @@ export default function PackageDetailView({ pkg }: PackageDetailViewProps) {
                 {/* Price */}
                 <div className="mb-6 sm:mb-8 relative">
                   <div className="flex items-baseline">
-                    <span className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black ${
+                    <span className={`text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black ${
                       isEssentials ? 'bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent' : ''
                     }`}>
                       {pkg.priceFormatted}

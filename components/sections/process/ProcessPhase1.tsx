@@ -13,7 +13,7 @@ export function ProcessPhase1() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="sticky top-32"
+              className="sticky top-24 lg:top-32"
             >
               <div className="text-8xl font-bold text-navy/5 mb-4">01</div>
               <h3 className="text-sm uppercase tracking-[0.2em] text-navy/40 mb-2">Fase 1</h3>
@@ -29,7 +29,7 @@ export function ProcessPhase1() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-navy mb-8 leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy mb-8 leading-tight">
                 Discovery &
                 <br />
                 Planning

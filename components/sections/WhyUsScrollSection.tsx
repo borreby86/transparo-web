@@ -27,14 +27,14 @@ export function WhyUsScrollSection() {
     <div className="bg-slate-950">
       <div className="wrapper">
         {/* Hero Section */}
-        <section className="text-white h-screen w-full bg-slate-950 grid place-content-center sticky top-0">
+        <section className="text-white h-screen w-full bg-slate-950 grid place-content-center sticky top-16 lg:top-0">
           <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[length:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
           <div className="text-center px-8 relative z-10">
             <span className="inline-block text-gold text-sm font-bold uppercase tracking-wider mb-4">
               {t('overline')}
             </span>
-            <h1 className="2xl:text-7xl text-5xl md:text-6xl font-semibold tracking-tight leading-[120%]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl 2xl:text-7xl font-semibold tracking-tight leading-[120%]">
               {t('headingLine1')} <br />
               <span className="text-gold">{t('headingLine2')}</span> 👇
             </h1>
@@ -50,7 +50,7 @@ export function WhyUsScrollSection() {
           return (
             <section
               key={index}
-              className={`${style.bgClass} ${style.textDark ? 'text-black' : 'text-white'} grid place-content-center h-screen sticky top-0 ${
+              className={`${style.bgClass} ${style.textDark ? 'text-black' : 'text-white'} grid place-content-center h-screen sticky top-16 lg:top-0 ${
                 isFirstPanel ? 'rounded-tr-2xl rounded-tl-2xl' : ''
               } overflow-hidden`}
             >

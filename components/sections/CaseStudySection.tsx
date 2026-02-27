@@ -129,7 +129,7 @@ export function CaseStudySection() {
                   </p>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-7 pb-7 border-b border-gray-100">
+                  <div className="grid grid-cols-3 gap-3 mb-7 pb-7 border-b border-gray-100">
                     {study.stats.map((stat, idx) => {
                       const Icon = statIcons[index][idx]
                       return (

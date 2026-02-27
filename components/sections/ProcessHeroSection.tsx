@@ -148,7 +148,7 @@ export function ProcessHeroSection() {
                 {/* Continuous line behind all steps */}
                 <div className="absolute top-8 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
 
-                <div className="grid grid-cols-7 gap-1 md:gap-2 lg:gap-4">
+                <div className="flex overflow-x-auto gap-3 pb-2 md:pb-0 md:grid md:grid-cols-7 md:gap-2 lg:gap-4 md:overflow-x-visible scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                   {[
                     { icon: '🎯' },
                     { icon: '📐' },
@@ -160,7 +160,7 @@ export function ProcessHeroSection() {
                   ].map((phase, index) => (
                     <motion.div
                       key={index}
-                      className="relative group cursor-pointer"
+                      className="relative group cursor-pointer min-w-[70px] md:min-w-0 flex-shrink-0 md:flex-shrink"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{

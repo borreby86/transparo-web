@@ -203,7 +203,7 @@ export function Header() {
                       <span className="text-gold text-xs font-medium tracking-[0.2em] block mb-2">
                         {item.number}
                       </span>
-                      <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-black tracking-tight block">
+                      <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black tracking-tight block">
                         {item.name}
                       </span>
                       <div className="w-full h-px bg-black/10 mt-4 group-hover:bg-gold transition-colors duration-500" />
@@ -407,7 +407,7 @@ export function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => openDesignProposal()}
-              className="w-32 h-32 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-gold/20 transition-shadow"
+              className="w-28 h-28 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-gold/20 transition-shadow"
             >
               <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
               <span className="leading-tight">Gratis<br />design</span>
@@ -417,7 +417,7 @@ export function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setBookingOpen(true)}
-              className="w-32 h-32 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-black/20 transition-shadow"
+              className="w-28 h-28 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-black/20 transition-shadow"
             >
               <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
               <span className="leading-tight">Book<br />møde</span>
@@ -482,10 +482,10 @@ export function Header() {
                       setFabOpen(false)
                       openDesignProposal()
                     }}
-                    className="w-32 h-32 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
+                    className="px-5 py-3 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex items-center gap-2"
                   >
-                    <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-                    <span className="leading-tight">Gratis<br />design</span>
+                    <ArrowRight className="w-4 h-4 rotate-[-45deg]" strokeWidth={2} />
+                    <span>Gratis design</span>
                   </motion.button>
 
                   <motion.button
@@ -494,10 +494,10 @@ export function Header() {
                       setFabOpen(false)
                       setBookingOpen(true)
                     }}
-                    className="w-32 h-32 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5"
+                    className="px-5 py-3 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex items-center gap-2"
                   >
-                    <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-                    <span className="leading-tight">Book<br />møde</span>
+                    <ArrowRight className="w-4 h-4 rotate-[-45deg]" strokeWidth={2} />
+                    <span>Book møde</span>
                   </motion.button>
                 </motion.div>
               )}
@@ -506,16 +506,16 @@ export function Header() {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setFabOpen(!fabOpen)}
-              className={`w-24 h-24 rounded-full shadow-2xl flex flex-col items-center justify-center gap-1 transition-all duration-300 font-bold text-[10px] uppercase tracking-wider ${
+              className={`w-14 h-14 rounded-full shadow-2xl flex flex-col items-center justify-center gap-0.5 transition-all duration-300 font-bold text-[8px] uppercase tracking-wider ${
                 fabOpen ? 'bg-black text-white rotate-45' : 'bg-gold text-black'
               }`}
             >
               {fabOpen ? (
-                <Plus className="w-6 h-6" strokeWidth={2.5} />
+                <Plus className="w-5 h-5" strokeWidth={2.5} />
               ) : (
                 <>
-                  <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-                  <span className="leading-tight">Nysgerrig?</span>
+                  <ArrowRight className="w-4 h-4 rotate-[-45deg]" strokeWidth={2} />
+                  <span className="leading-tight">Start</span>
                 </>
               )}
             </motion.button>

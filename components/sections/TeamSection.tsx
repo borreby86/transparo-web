@@ -29,7 +29,7 @@ export function TeamSection() {
             {t('overline')}
           </motion.span>
           <motion.h2
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-navy tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy tracking-tight"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -178,7 +178,7 @@ export function NewPackagesSectionEnhanced() {
                 <Link href="/pakker">
                   <div
                     className={`
-                    relative h-full min-h-[500px] sm:min-h-[550px] lg:min-h-[620px] p-6 sm:p-8 lg:p-10 xl:p-12 rounded-[28px] overflow-hidden transition-all duration-500
+                    relative h-full min-h-0 sm:min-h-[550px] lg:min-h-[620px] p-6 sm:p-8 lg:p-10 xl:p-12 rounded-[28px] overflow-hidden transition-all duration-500
                     ${
                       pkg.popular
                         ? 'bg-gradient-to-br from-navy via-navy to-navy/95 text-white shadow-2xl'

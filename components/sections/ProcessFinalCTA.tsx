@@ -23,7 +23,7 @@ export function ProcessFinalCTA() {
           }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
             {t('headingLine1')}
             <br />
             {t('headingLine2')}

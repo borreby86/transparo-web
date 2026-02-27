@@ -54,7 +54,7 @@ export function PackageComparisonMatrix() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-light italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-navy mb-6 leading-tight">
+          <h2 className="font-light italic text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-navy mb-6 leading-tight">
             Sammenlign{' '}
             <span className="text-navy/25">pakker</span>
           </h2>

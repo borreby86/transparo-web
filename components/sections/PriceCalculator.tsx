@@ -468,7 +468,7 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
             <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-medium mb-4">{t('result.estimateLabel')}</p>
             <div className="flex items-baseline justify-center gap-3 mb-2">
               <span className="text-white/40 text-base md:text-lg">{t('result.from')}</span>
-              <span className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
+              <span className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
                 {formatPrice(totalPrice)}
               </span>
               <span className="text-white/40 text-base md:text-lg">{t('result.currency')}</span>
@@ -673,7 +673,7 @@ TOTAL: ${formatPrice(totalPrice)} DKK (ekskl. moms)
             <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
               {t('overline')}
             </span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white leading-[1] tracking-tight mb-6">
               {t('title')}
             </h1>
             <p className="text-white/40 text-lg md:text-xl max-w-xl leading-relaxed">

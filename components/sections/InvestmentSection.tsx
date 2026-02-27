@@ -32,7 +32,7 @@ export function InvestmentSection() {
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-navy">
       {/* Sticky container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="sticky top-16 lg:top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy to-black" />
 
@@ -145,7 +145,7 @@ export function InvestmentSection() {
             </motion.span>
 
             <div className="relative mb-8">
-              <h2 className="relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.9]">
+              <h2 className="relative text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-bold leading-[0.9]">
                 <span className="text-white">Lad os </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-300 to-gold">
                   tale sammen.

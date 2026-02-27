@@ -69,7 +69,7 @@ export function PackagesSection() {
             </motion.div>
 
             {/* Main title */}
-            <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black text-navy mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-black text-navy mb-6">
               <motion.span
                 className="block"
                 initial={{ clipPath: 'inset(0 100% 0 0)' }}

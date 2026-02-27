@@ -78,7 +78,7 @@ export function PackageCardsMinimal() {
                   <div className="mb-8 pb-8 border-b border-current/10">
                     <div className="flex items-baseline gap-2">
                       <span
-                        className={`text-5xl md:text-6xl font-black ${
+                        className={`text-4xl sm:text-5xl md:text-6xl font-black ${
                           pkg.popular ? 'text-gold' : 'text-navy'
                         }`}
                       >

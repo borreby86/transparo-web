@@ -93,11 +93,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-black/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-black/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
           <p className="text-black/50 text-sm">
             {t('copyright', { year: currentYear })}
           </p>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <Link
               href="/privatlivspolitik"
               className="text-black/50 hover:text-gold transition-colors text-sm"

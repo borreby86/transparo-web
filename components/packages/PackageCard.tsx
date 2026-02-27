@@ -101,7 +101,7 @@ export default function PackageCard({ pkg, index, isInView = true }: PackageCard
               }}
             >
               <div className="flex items-baseline">
-                <span className={`text-5xl lg:text-6xl font-black ${priceColor[pkg.color]}`}>
+                <span className={`text-4xl sm:text-5xl lg:text-6xl font-black ${priceColor[pkg.color]}`}>
                   {pkg.priceFormatted}
                 </span>
                 <span className="ml-2 text-lg opacity-70">DKK</span>
