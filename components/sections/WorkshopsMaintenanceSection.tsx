@@ -56,7 +56,7 @@ export function WorkshopsMaintenanceSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
           {options.map((option, index) => {
             const Icon = ICONS[index]
             const tagColor = TAG_COLORS[index]

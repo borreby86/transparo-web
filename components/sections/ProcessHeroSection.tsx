@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 export function ProcessHeroSection() {
   const t = useTranslations('process')
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-offwhite overflow-hidden pt-32 pb-0">
+    <section className="relative min-h-dvh flex flex-col items-center justify-center bg-offwhite overflow-hidden pt-32 pb-0">
       {/* Subtle noise texture */}
       <div className="absolute inset-0 opacity-[0.015] pointer-events-none"
         style={{

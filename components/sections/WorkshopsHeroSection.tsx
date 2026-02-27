@@ -7,7 +7,7 @@ export function WorkshopsHeroSection() {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-navy overflow-hidden">
+    <section className="relative min-h-dvh flex flex-col items-center justify-center bg-navy overflow-hidden">
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

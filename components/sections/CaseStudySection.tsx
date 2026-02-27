@@ -82,7 +82,7 @@ export function CaseStudySection() {
 
       {/* Case Studies Grid */}
       <div className="max-w-6xl mx-auto px-6 md:px-8">
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-7">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-7">
           {studies.map((study, index) => (
             <motion.div
               key={index}

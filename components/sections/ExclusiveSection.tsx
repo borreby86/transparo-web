@@ -80,7 +80,7 @@ export function ExclusiveSection() {
       ref={containerRef}
       className="relative overflow-hidden"
       style={{
-        height: '350vh',
+        height: '250vh',
         background: 'linear-gradient(135deg, #030712 0%, #0a1628 50%, #030712 100%)',
       }}
     >
@@ -101,7 +101,7 @@ export function ExclusiveSection() {
           bottom: scrollState === 'after' ? 0 : undefined,
           left: 0,
           right: 0,
-          height: '100vh',
+          height: '100dvh',
           zIndex: 10,
           opacity: stickyOpacity,
           transform: `translateY(${entryShift}px)`,

@@ -17,7 +17,7 @@ export function CTASection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 min-h-screen flex items-center justify-center">
+    <section className="relative overflow-hidden bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 min-h-dvh flex items-center justify-center">
       {/* Background with overlay */}
       <div className="absolute inset-0">
         {/* Animated gradient orbs */}

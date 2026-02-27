@@ -53,7 +53,7 @@ export function HeroSection() {
   }, [charIndex, shouldReduceMotion, word.length, hasSeenLoader])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-dvh flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -92,7 +92,7 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 w-full flex items-center justify-center min-h-screen px-6 sm:px-8 md:px-12">
+      <div className="relative z-10 w-full flex items-center justify-center min-h-dvh px-6 sm:px-8 md:px-12">
         <div className="w-full max-w-[1400px] mx-auto text-center">
           {/* Gold Overline */}
           <motion.div
