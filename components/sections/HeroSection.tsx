@@ -92,7 +92,7 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 w-full flex items-center justify-center min-h-dvh px-6 sm:px-8 md:px-12">
+      <div className="relative z-10 w-full flex items-center justify-center min-h-dvh px-6 sm:px-8 md:px-12 pt-24 sm:pt-28 md:pt-0">
         <div className="w-full max-w-[1400px] mx-auto text-center">
           {/* Gold Overline */}
           <motion.div

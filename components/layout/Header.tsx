@@ -203,7 +203,7 @@ export function Header() {
                       <span className="text-gold text-xs font-medium tracking-[0.2em] block mb-2">
                         {item.number}
                       </span>
-                      <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black tracking-tight block">
+                      <span className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-black tracking-tight block">
                         {item.name}
                       </span>
                       <div className="w-full h-px bg-black/10 mt-4 group-hover:bg-gold transition-colors duration-500" />
