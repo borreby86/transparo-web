@@ -27,7 +27,7 @@ export function AboutSection() {
         {/* Editorial layout */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 
-          {/* Left column - Heading + Dennis */}
+          {/* Left column - Heading + Christina */}
           <div>
             <motion.h2
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
@@ -41,7 +41,7 @@ export function AboutSection() {
               <span className="text-navy/30">{t('headingLine2')}</span>
             </motion.h2>
 
-            {/* Dennis */}
+            {/* Christina (founder) */}
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -50,10 +50,10 @@ export function AboutSection() {
             >
               <div className="relative aspect-[1/1] w-full max-w-[280px] overflow-hidden rounded-xl">
                 <Image
-                  src="/images/team/dennis.jpg"
+                  src="/images/team/christina.jpg"
                   alt={t('team.0.name')}
                   fill
-                  className="object-cover object-top scale-[1.3] grayscale"
+                  className="object-cover grayscale"
                   sizes="280px"
                 />
               </div>
@@ -71,7 +71,7 @@ export function AboutSection() {
             </motion.div>
           </div>
 
-          {/* Right column - Description + Christina */}
+          {/* Right column - Description + Dennis */}
           <div className="lg:pt-20">
 
             {/* Description text */}
@@ -94,7 +94,7 @@ export function AboutSection() {
               </p>
             </motion.div>
 
-            {/* Christina */}
+            {/* Dennis (lead developer) */}
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -103,10 +103,10 @@ export function AboutSection() {
             >
               <div className="relative aspect-[1/1] w-full max-w-[280px] overflow-hidden rounded-xl">
                 <Image
-                  src="/images/team/christina.jpg"
+                  src="/images/team/dennis.jpg"
                   alt={t('team.1.name')}
                   fill
-                  className="object-cover grayscale"
+                  className="object-cover object-top scale-[1.3] grayscale"
                   sizes="280px"
                 />
               </div>

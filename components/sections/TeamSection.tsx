@@ -10,8 +10,8 @@ export function TeamSection() {
 
   const teamMembers = (t.raw('members') as Array<{name: string; role: string; bio: string}>) || []
   const teamMemberImages = [
-    '/images/team/dennis.jpg',
-    '/images/team/christina.jpg'
+    '/images/team/christina.jpg',
+    '/images/team/dennis.jpg'
   ]
 
   return (

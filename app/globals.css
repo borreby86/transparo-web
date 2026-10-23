@@ -169,3 +169,19 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Hero case banner – slow drifting marquee (transform only) */
+@keyframes hero-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.hero-marquee-track {
+  animation: hero-marquee 70s linear infinite;
+}
+.hero-marquee:hover .hero-marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-track { animation: none; }
+  .hero-marquee { overflow-x: auto; }
+}

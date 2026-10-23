@@ -5,7 +5,7 @@ export interface CaseStudy {
   imageUrl: string
   slug: string
   labels: string[]
-  quote: string
+  siteUrl?: string // live site – shows a "Besøg website" button when set
   author: string
   role: string
 }
@@ -13,11 +13,6 @@ export interface CaseStudy {
 export interface CaseStudyDetail extends CaseStudy {
   challenge: string
   solution: string
-  results: {
-    metric: string
-    value: string
-    description: string
-  }[]
   technologies: string[]
   timeline: string
   deliverables: string[]
@@ -30,9 +25,8 @@ export const caseStudies: CaseStudy[] = [
     subtitle: 'Personlig brandsite for Danmarks mest vindende OL-atlet og ekspert i high performance',
     imageUrl: '/portfolio-images/eskild-ebbesen.webp',
     slug: 'eskild-ebbesen',
+    siteUrl: 'https://eskildebbesen.dk',
     labels: ['Branding', 'Website'],
-    quote:
-      'De forstod præcis, hvad mit brand handler om, og skabte en side der matcher den kvalitet, jeg leverer på scenen.',
     author: 'Eskild Ebbesen',
     role: 'Foredragsholder & OL-guldvinder',
   },
@@ -43,8 +37,6 @@ export const caseStudies: CaseStudy[] = [
     imageUrl: '/portfolio-images/WalterAI-Fodbold.webp',
     slug: 'walter-ai',
     labels: ['AI', 'Fodbold'],
-    quote:
-      'De fangede tempoet og intensiteten i sporten og bragte data til live. Platformen er blevet et fast værktøj på både træningsbanen og stadion.',
     author: 'Mikkel Juul',
     role: 'CEO, WalterAI',
   },
@@ -54,9 +46,8 @@ export const caseStudies: CaseStudy[] = [
     subtitle: 'Et elegant website for et københavnsk coaching-firma med fokus på ledelse og personlig udvikling',
     imageUrl: '/portfolio-images/significanz-2.webp',
     slug: 'significanz',
+    siteUrl: 'https://significanz.dk',
     labels: ['Branding', 'Website'],
-    quote:
-      'De fangede vores æstetik og skabte en side der udstråler den ro og professionalisme vores klienter forventer.',
     author: 'Significanz',
     role: 'Executive Coaching',
   },
@@ -67,8 +58,6 @@ export const caseStudies: CaseStudy[] = [
     imageUrl: '/portfolio-images/Photograph.webp',
     slug: 'alex-morgan-photography',
     labels: ['Branding', 'Website'],
-    quote:
-      'Fotografiet fik plads til at ånde, og besøgende glider ubesværet igennem porteføljen. Det føles som et magasin skabt kun til mig.',
     author: 'Alex Morgan',
     role: 'Fotograf',
   },
@@ -78,9 +67,8 @@ export const caseStudies: CaseStudy[] = [
     subtitle: 'En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab',
     imageUrl: '/portfolio-images/christina-borreby-new.webp',
     slug: 'christina-borreby',
+    siteUrl: 'https://christinaborreby.dk',
     labels: ['Branding', 'Website'],
-    quote:
-      'De forstod læringsrejsen vi ville skabe og oversatte nærvær til et digitalt univers. Resultatet er både modigt og jordnært.',
     author: 'Christina Borreby',
     role: 'Stifter, Christina Borreby',
   },
@@ -91,8 +79,6 @@ export const caseStudies: CaseStudy[] = [
     imageUrl: '/portfolio-images/Revy.webp',
     slug: 'vat85',
     labels: ['Branding', 'Website'],
-    quote:
-      'Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.',
     author: 'Thomas Kjeldsen',
     role: 'Formand, VAT 85',
   },
@@ -103,8 +89,6 @@ export const caseStudies: CaseStudy[] = [
     imageUrl: '/portfolio-images/Klimakurt.png',
     slug: 'klimakurt',
     labels: ['Branding', 'Website'],
-    quote:
-      'Transparo hjalp os med at formidle vores grønne budskab klart og tydeligt. En fornøjelse at arbejde sammen med.',
     author: 'Kurt Jensen',
     role: 'Direktør, Klimakurt',
   },
@@ -117,23 +101,6 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'Eskild havde brug for et personligt website der matchede hans brand som OL-guldvinder og high performance ekspert. Siden skulle udstråle professionalisme og gøre det nemt at booke ham som foredragsholder.',
     solution:
       'Vi designede et rent, personligt brandsite med fokus på Eskilds historie, ydelser og troværdighed. Enkel navigation, booking-integration og et visuelt udtryk der matcher hans kaliber.',
-    results: [
-      {
-        metric: 'Performance',
-        value: '97/100',
-        description: 'Lighthouse performance score',
-      },
-      {
-        metric: 'Accessibility',
-        value: '100/100',
-        description: 'Lighthouse accessibility score',
-      },
-      {
-        metric: 'Loadtid',
-        value: '0.8s',
-        description: 'First Contentful Paint',
-      },
-    ],
     technologies: ['Next.js', 'Payload CMS', 'Motion', 'Tailwind CSS', 'Vercel'],
     timeline: '4 uger',
     deliverables: [
@@ -150,23 +117,6 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'WalterAI havde brug for en platform der kunne præsentere komplekse AI-analyser og fodbolddata på en måde der var tilgængelig for både trænere og fans. Data skulle være både dyb og let at forstå.',
     solution:
       'Vi skabte en interaktiv dataplatform med realtids-visualiseringer, AI-drevne indsigter og en brugervenlig grænseflade. Platformen kombinerer avanceret teknologi med en intuitiv brugeroplevelse der gør komplekse data forståelige.',
-    results: [
-      {
-        metric: 'SEO',
-        value: '100/100',
-        description: 'Lighthouse SEO score',
-      },
-      {
-        metric: 'Accessibility',
-        value: '98/100',
-        description: 'Lighthouse accessibility score',
-      },
-      {
-        metric: 'Performance',
-        value: '98/100',
-        description: 'Lighthouse score trods kompleks data',
-      },
-    ],
     technologies: ['Next.js', 'AI/ML Integration', 'Motion', 'D3.js', 'Real-time Data'],
     timeline: '12 uger',
     deliverables: [
@@ -183,23 +133,6 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'Significanz havde brug for et website der matchede deres position som executive coaching-firma i København. Udtrykket skulle være roligt, elegant og troværdigt.',
     solution:
       'Vi skabte et visuelt stærkt website med atmosfærisk fotografi, ren typografi og en enkel struktur der lader indholdet tale for sig selv.',
-    results: [
-      {
-        metric: 'Performance',
-        value: '95/100',
-        description: 'Lighthouse performance score',
-      },
-      {
-        metric: 'SEO',
-        value: '100/100',
-        description: 'Lighthouse SEO score',
-      },
-      {
-        metric: 'Best Practices',
-        value: '100/100',
-        description: 'Lighthouse best practices',
-      },
-    ],
     technologies: ['Next.js', 'Payload CMS', 'Motion', 'Tailwind CSS', 'Vercel'],
     timeline: '3 uger',
     deliverables: [
@@ -216,23 +149,6 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'Alex Morgan havde brug for en portefølje der kunne vise deres fotografier i bedste lys, samtidig med at oplevelsen skulle være personlig og elegant – som et digitalt magasin.',
     solution:
       'Vi skabte en visuel portefølje med fokus på billederne. Med elegante overgange, optimeret billedkvalitet og en enkel navigation der lader fotografierne tale for sig selv.',
-    results: [
-      {
-        metric: 'Accessibility',
-        value: '100/100',
-        description: 'Lighthouse accessibility score',
-      },
-      {
-        metric: 'Mobil',
-        value: '94/100',
-        description: 'Mobile performance score',
-      },
-      {
-        metric: 'Performance',
-        value: '96/100',
-        description: 'Lighthouse score trods høj billedkvalitet',
-      },
-    ],
     technologies: ['Next.js', 'Image Optimization', 'Motion', 'Tailwind CSS', 'Vercel'],
     timeline: '3 uger',
     deliverables: [
@@ -249,23 +165,6 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching og deres videnskabeligt funderede tilgang til lederudvikling.',
     solution:
       'Vi designede en moderne website der balancerer professionalisme med varme. Med fokus på storytelling, klare budskaber og et visuelt udtryk der afspejler både natur og forretning.',
-    results: [
-      {
-        metric: 'Performance',
-        value: '94/100',
-        description: 'Lighthouse performance score',
-      },
-      {
-        metric: 'SEO',
-        value: '100/100',
-        description: 'Lighthouse SEO score',
-      },
-      {
-        metric: 'Loadtid',
-        value: '1.1s',
-        description: 'First Contentful Paint',
-      },
-    ],
     technologies: ['Next.js', 'Payload CMS', 'Motion', 'Tailwind CSS', 'Video Integration'],
     timeline: '5 uger',
     deliverables: [
@@ -282,23 +181,6 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'VAT 85 havde brug for en moderne platform til at håndtere billetflow, kommunikere program og fastholde den festivalånd der kendetegner deres 40 år med teaterkultur.',
     solution:
       'Vi skabte en dynamisk festival-website med fokus på brugervenlighed, billetflow og storytelling. Med integration af billetsystemer, programoversigt og en visuel identitet der fanger revyånden.',
-    results: [
-      {
-        metric: 'Performance',
-        value: '96/100',
-        description: 'Lighthouse performance score',
-      },
-      {
-        metric: 'Accessibility',
-        value: '100/100',
-        description: 'Lighthouse accessibility score',
-      },
-      {
-        metric: 'Loadtid',
-        value: '0.9s',
-        description: 'First Contentful Paint',
-      },
-    ],
     technologies: ['Next.js', 'Ticket Integration', 'Payload CMS', 'Motion', 'Tailwind CSS'],
     timeline: '6 uger',
     deliverables: [
@@ -315,23 +197,6 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
       'Klimakurt ønskede at nå ud til flere kunder med deres grønne energiløsninger. Udfordringen var at gøre teknisk viden letforståelig for den almindelige forbruger.',
     solution:
       'Vi udviklede en informativ og indbydende hjemmeside, der guider kunden gennem deres grønne muligheder. Fokus på klare Call-to-Actions og troværdighed.',
-    results: [
-      {
-        metric: 'Performance',
-        value: '95/100',
-        description: 'Lighthouse performance score',
-      },
-      {
-        metric: 'SEO',
-        value: '100/100',
-        description: 'Lighthouse SEO score',
-      },
-      {
-        metric: 'Loadtid',
-        value: '1.0s',
-        description: 'First Contentful Paint',
-      },
-    ],
     technologies: ['Next.js', 'Tailwind CSS', 'Motion', 'SEO'],
     timeline: '4 uger',
     deliverables: [

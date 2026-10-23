@@ -86,7 +86,7 @@ export function PackagesHeroSection() {
             transition={{ duration: 0.8, delay: 0.4, ease: appleEase }}
             className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed"
           >
-            Fast pris. Ingen overraskelser. Garanteret kvalitet. Vi leverer moderne websites der konverterer — til en pris du kan stole på.
+            Fast pris. Ingen overraskelser. Garanteret kvalitet. Vi leverer moderne websites der konverterer – til en pris du kan stole på.
           </motion.p>
 
           {/* Stats Row */}

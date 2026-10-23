@@ -47,9 +47,7 @@ export function Header() {
   const navigation = [
     { number: '01', name: t('items.0.name'), href: '/' as const },
     { number: '02', name: t('items.1.name'), href: '/cases' as const },
-    { number: '03', name: t('items.2.name'), href: '/prisberegner' as const },
-    { number: '04', name: t('items.3.name'), href: '/kontakt' as const },
-    { number: '05', name: t('items.4.name'), href: '/faq' as const },
+    { number: '03', name: t('items.3.name'), href: '/kontakt' as const },
   ]
 
   // FAB and CTA visibility based on scroll
@@ -184,7 +182,7 @@ export function Header() {
             className="fixed inset-0 z-[55] bg-white lg:pl-16 xl:pl-20"
           >
             <div className="h-full flex flex-col justify-center px-10 md:px-20 lg:px-28 pt-16 lg:pt-0">
-              <nav className="space-y-2">
+              <nav className="space-y-1 max-w-md">
                 {navigation.map((item, index) => (
                   <motion.div
                     key={item.href}
@@ -196,17 +194,16 @@ export function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
-                      className={`group block py-4 ${
+                      className={`group flex items-baseline gap-5 py-3 ${
                         pathname === item.href ? 'opacity-100' : 'opacity-60 hover:opacity-100'
                       } transition-opacity duration-300`}
                     >
-                      <span className="text-gold text-xs font-medium tracking-[0.2em] block mb-2">
+                      <span className="text-gold text-[11px] font-medium tracking-[0.2em] w-6 shrink-0">
                         {item.number}
                       </span>
-                      <span className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-black tracking-tight block">
+                      <span className="text-xl md:text-2xl font-light text-black tracking-wide group-hover:translate-x-1 transition-transform duration-300">
                         {item.name}
                       </span>
-                      <div className="w-full h-px bg-black/10 mt-4 group-hover:bg-gold transition-colors duration-500" />
                     </Link>
                   </motion.div>
                 ))}

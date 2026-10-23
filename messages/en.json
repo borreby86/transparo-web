@@ -49,7 +49,7 @@
     "mobileBookButton": "Book"
   },
   "hero": {
-    "overline": "Web design that works",
+    "overline": "Websites with clean lines",
     "headlinePart1": "Websites that perform",
     "headlinePart2": "– and last into the future",
     "subtitle": "Fixed price. Clear process. No surprises.",
@@ -110,7 +110,7 @@
     "questions": [
       {
         "question": "Hvorfor er jeres priser så meget lavere end andre bureauer?",
-        "answer": "Vi bruger moderne teknologi og AI-assisterede værktøjer, der gør os 3-4 gange hurtigere end traditionelle bureauer. Det betyder lavere omkostninger for os - og for dig. Men vi går aldrig på kompromis med kvaliteten. Alle vores pakker bygges med samme professionelle teknologi (Next.js, Payload CMS), forskellen ligger kun i omfang og features."
+        "answer": "Vi bruger moderne teknologi og AI-assisterede værktøjer, der gør os 3-4 gange hurtigere end traditionelle bureauer. Det betyder lavere omkostninger for os – og for dig. Men vi går aldrig på kompromis med kvaliteten. Alle vores pakker bygges med samme professionelle teknologi (Next.js, Payload CMS), forskellen ligger kun i omfang og features."
       },
       {
         "question": "Hvad mener I med \"ingen scope creep\"?",
@@ -126,15 +126,15 @@
       },
       {
         "question": "Hvorfor bruger I ikke WordPress?",
-        "answer": "WordPress er godt til nogle ting, men det har begrænsninger: langsom performance, sikkerhedsproblemer, dyre plugins, og det er svært at integrere med AI-værktøjer. Vi bruger Next.js og Payload CMS - moderne teknologi der er hurtigere, mere sikker, og giver jer bedre SEO. Bonus: Det er også gratis at hoste (0-75 kr/måned vs. 200-500 kr for WordPress)."
+        "answer": "WordPress er godt til nogle ting, men det har begrænsninger: langsom performance, sikkerhedsproblemer, dyre plugins, og det er svært at integrere med AI-værktøjer. Vi bruger Next.js og Payload CMS – moderne teknologi der er hurtigere, mere sikker, og giver jer bedre SEO. Bonus: Det er også gratis at hoste (0-75 kr/måned vs. 200-500 kr for WordPress)."
       },
       {
         "question": "Skal jeg selv skrive alt indholdet?",
-        "answer": "Nej! Vi guider dig gennem indholdsprocessen med vores Content Checklist. Du skal levere grundlæggende info om din virksomhed, billeder/logo, og godkende tekster - men vi hjælper med strukturering og optimering til SEO. Du ved bedst hvad din virksomhed laver, vi ved hvordan det skal præsenteres online."
+        "answer": "Nej! Vi guider dig gennem indholdsprocessen med vores Content Checklist. Du skal levere grundlæggende info om din virksomhed, billeder/logo, og godkende tekster – men vi hjælper med strukturering og optimering til SEO. Du ved bedst hvad din virksomhed laver, vi ved hvordan det skal præsenteres online."
       },
       {
         "question": "Hvad hvis jeg ikke er teknisk anlagt?",
-        "answer": "Det behøver du ikke være! Vores Payload CMS admin-panel er designet så det er intuitivt at bruge - tænk \"WordPress-enkelt\" men med moderne teknologi. Vi giver dig personlig træning i at opdatere tekster, billeder og blogindlæg. Og vores support er altid klar til at hjælpe."
+        "answer": "Det behøver du ikke være! Vores Payload CMS admin-panel er designet så det er intuitivt at bruge – tænk \"WordPress-enkelt\" men med moderne teknologi. Vi giver dig personlig træning i at opdatere tekster, billeder og blogindlæg. Og vores support er altid klar til at hjælpe."
       }
     ]
   },
@@ -161,7 +161,7 @@
     "overline": "Hvorfor os",
     "headingLine1": "Vi gør det",
     "headingLine2": "anderledes.",
-    "description": "Vi tror på, at et godt samarbejde kræver ærlighed  - om hvad der kan lade sig gøre, hvad det koster, og hvornår det er færdigt.",
+    "description": "Vi tror på, at et godt samarbejde kræver ærlighed – om hvad der kan lade sig gøre, hvad det koster, og hvornår det er færdigt.",
     "reasons": [
       {
         "number": "01",
@@ -171,7 +171,7 @@
       {
         "number": "02",
         "title": "Unikt design",
-        "description": "Vi bruger ikke templates. Dit website bliver tegnet fra bunden, så det passer til din virksomhed  - ikke omvendt."
+        "description": "Vi bruger ikke templates. Dit website bliver tegnet fra bunden, så det passer til din virksomhed – ikke omvendt."
       },
       {
         "number": "03",
@@ -181,7 +181,7 @@
       {
         "number": "04",
         "title": "Klar kommunikation",
-        "description": "Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid  - og vi forklarer hvorfor."
+        "description": "Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid – og vi forklarer hvorfor."
       }
     ]
   },
@@ -196,14 +196,14 @@
     ],
     "team": [
       {
-        "name": "Dennis Enghave",
-        "role": "Co-founder & Lead Developer",
-        "bio": "Dennis bygger det hele fra bunden  - hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
+        "name": "Christina Borreby",
+        "role": "Founder & Design Director",
+        "bio": "With a master's in communication and marketing and 10 years in the web design industry, Christina makes sure your website doesn't just look right – it speaks to the right people. She leads the entire process from first meeting to finished result and is the link between client and product. Christina also writes code herself, so the design becomes reality without anything getting lost along the way."
       },
       {
-        "name": "Christina Borreby",
-        "role": "Co-founder & Design Director",
-        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud  - men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
+        "name": "Dennis Enghave",
+        "role": "Lead Developer",
+        "bio": "Dennis builds everything from the ground up – fast, secure and without shortcuts. With a background in modern web development and a geeky passion for performance, he makes sure every website meets the highest technical standards. He works with React, Python, cloud solutions and AI-assisted workflows to deliver results that look great and run lightning fast."
       }
     ]
   },
@@ -324,7 +324,7 @@
       {
         "id": "landing",
         "label": "Landing page",
-        "description": "1 page - perfect for campaigns or launches",
+        "description": "1 page – perfect for campaigns or launches",
         "pages": "1 page",
         "number": "01",
         "details": [
@@ -338,7 +338,7 @@
       {
         "id": "business",
         "label": "Business site",
-        "description": "3-5 pages - the classic company profile",
+        "description": "3-5 pages – the classic company profile",
         "pages": "3-5 pages",
         "number": "02",
         "details": [
@@ -352,7 +352,7 @@
       {
         "id": "large",
         "label": "Larger website",
-        "description": "6-10 pages - for companies with more content",
+        "description": "6-10 pages – for companies with more content",
         "pages": "6-10 pages",
         "number": "03",
         "details": [
@@ -446,12 +446,12 @@
       {
         "id": "standard",
         "label": "Standard levering",
-        "description": "2-4 uger - vores normale leveringstid"
+        "description": "2-4 uger – vores normale leveringstid"
       },
       {
         "id": "express",
         "label": "Express levering",
-        "description": "1-2 uger - prioriteret behandling"
+        "description": "1-2 uger – prioriteret behandling"
       }
     ],
     "result": {
@@ -472,7 +472,7 @@
       "traditionalNote": "Typically WordPress – outdated within years",
       "transparoLabel": "Transparo",
       "transparoNote": "Next.js & React – future-proof technology",
-      "savingsText": "Du sparer ca. {savings} DKK - det er {percent}% mindre end markedsprisen.",
+      "savingsText": "Du sparer ca. {savings} DKK – det er {percent}% mindre end markedsprisen.",
       "savingsDisclaimer": "Prisestimatet for traditionelle bureauer er baseret på branchegennemsnit for sammenlignelige projekter i Danmark.",
       "disclaimer": "Den endelige pris aftales ved en uforpligtende samtale, hvor vi gennemgår dine behov i detaljer.",
       "ctaBookMeeting": "Book et uforpligtende møde",
@@ -548,7 +548,7 @@
         "title": "Design",
         "subtitle": "Dit brand kommer til live",
         "timeline": "Dag 5-7",
-        "description": "Nu giver vi din website personlighed. Vi udvikler et unikt visuelt design, der afspejler dit brand og appellerer til din målgruppe. Hver detalje er gennemtænkt - fra farver og typografi til billeder og animationer.",
+        "description": "Nu giver vi din website personlighed. Vi udvikler et unikt visuelt design, der afspejler dit brand og appellerer til din målgruppe. Hver detalje er gennemtænkt – fra farver og typografi til billeder og animationer.",
         "keyPoints": [
           "Visuel identitet & brandguide",
           "UI design for alle sider",
@@ -562,7 +562,7 @@
         "title": "Udvikling",
         "subtitle": "Teknisk implementering starter",
         "timeline": "Dag 8-12",
-        "description": "Med godkendt design går vi i gang med udviklingen. Vi bygger din website med moderne teknologi - Next.js for performance og Payload CMS for nem content-håndtering. Alt kodes med fokus på hastighed, SEO og brugeroplevelse.",
+        "description": "Med godkendt design går vi i gang med udviklingen. Vi bygger din website med moderne teknologi – Next.js for performance og Payload CMS for nem content-håndtering. Alt kodes med fokus på hastighed, SEO og brugeroplevelse.",
         "keyPoints": [
           "Frontend udvikling i Next.js",
           "Payload CMS opsætning",
@@ -590,7 +590,7 @@
         "title": "Lancering",
         "subtitle": "Din website går live",
         "timeline": "Dag 15",
-        "description": "Det er tid til at gå live! Vi håndterer hele lanceringen professionelt - fra DNS-opsætning til SSL-certifikater. Vi sikrer en sømløs overgang uden nedetid. Din nye website er nu tilgængelig for hele verden.",
+        "description": "Det er tid til at gå live! Vi håndterer hele lanceringen professionelt – fra DNS-opsætning til SSL-certifikater. Vi sikrer en sømløs overgang uden nedetid. Din nye website er nu tilgængelig for hele verden.",
         "keyPoints": [
           "Hosting på Vercel",
           "DNS & domæneopsætning",
@@ -642,8 +642,6 @@
   "caseStudy": {
     "challengeLabel": "Udfordringen",
     "solutionLabel": "Løsningen",
-    "resultsLabel": "Resultater",
-    "resultsHeading": "Det vi leverede.",
     "technologiesLabel": "Teknologier",
     "timelineLabel": "Tidslinje",
     "deliverablesLabel": "Leverancer",
@@ -651,7 +649,7 @@
     "ctaTitle": "Har du et projekt i tankerne?",
     "ctaDescription": "Lad os tage en snak om, hvad vi kan gøre for dig.",
     "ctaButton": "Book et møde",
-    "notFoundTitle": "Case ikke fundet - Transparo"
+    "notFoundTitle": "Case ikke fundet – Transparo"
   },
   "exclusive": {
     "line1": "Vi bygger websites der",
@@ -659,7 +657,7 @@
     "line3": "betalende kunder for",
     "line4": "ambitiøse virksomheder",
     "line5": "der vil vokse online.",
-    "stats": "100+ projekter leveret. 98% kundetilfredshed. Din succes er vores mission."
+    "stats": "Fast pris, en tydelig proces og et website, du selv ejer."
   },
   "brandStory": {
     "overline": "Vores Historie",
@@ -675,7 +673,7 @@
       },
       {
         "title": "Du ejer dit website.",
-        "description": "Ingen bindinger. Ingen gidsler-hosting. Dit website, dine rettigheder, fra dag ét."
+        "description": "Ingen bindinger. Dit website, dine rettigheder, fra dag ét."
       },
       {
         "title": "Klar kommunikation.",
@@ -697,14 +695,14 @@
     "description": "To mennesker med én fælles mission: at gøre webdesign til en gennemsigtig og positiv oplevelse for danske virksomheder.",
     "members": [
       {
-        "name": "Dennis Enghave",
-        "role": "Co-founder & Lead Developer",
-        "bio": "Dennis bygger det hele fra bunden  - hurtigt, sikkert og uden genveje. Med en baggrund i moderne webudvikling og en nørdet passion for performance sørger han for, at hvert website lever op til de højeste tekniske standarder. Han arbejder med React, Python, cloud-løsninger og AI-assisterede workflows for at levere resultater, der både ser godt ud og kører lynhurtigt."
+        "name": "Christina Borreby",
+        "role": "Founder & Design Director",
+        "bio": "With a master's in communication and marketing and 10 years in the web design industry, Christina makes sure your website doesn't just look right – it speaks to the right people. She leads the entire process from first meeting to finished result and is the link between client and product. Christina also writes code herself, so the design becomes reality without anything getting lost along the way."
       },
       {
-        "name": "Christina Borreby",
-        "role": "Co-founder & Design Director",
-        "bio": "Med en cand.negot i kommunikation og marketing og 10 års erfaring i webdesign-branchen sikrer Christina, at dit website ikke bare ser rigtigt ud  - men også taler til de rigtige mennesker. Hun styrer hele processen fra første møde til færdigt resultat og er bindeledet mellem kunde og produkt, så intet bliver tabt i oversættelsen."
+        "name": "Dennis Enghave",
+        "role": "Lead Developer",
+        "bio": "Dennis builds everything from the ground up – fast, secure and without shortcuts. With a background in modern web development and a geeky passion for performance, he makes sure every website meets the highest technical standards. He works with React, Python, cloud solutions and AI-assisted workflows to deliver results that look great and run lightning fast."
       }
     ]
   },
@@ -748,7 +746,7 @@
         "name": "Camilla Højland",
         "company": "Flotte Fødder",
         "role": "Indehaver",
-        "quote": "Min nye hjemmeside er perfekt! De lyttede til mine ønsker og leverede præcis hvad vi aftalte - intet mere, intet mindre."
+        "quote": "Min nye hjemmeside er perfekt! De lyttede til mine ønsker og leverede præcis hvad vi aftalte – intet mere, intet mindre."
       },
       {
         "name": "Thomas Kjeldsen",
@@ -775,7 +773,7 @@
   "finalCTA": {
     "label": "Next step",
     "heading": "Ready to get started?",
-    "body": "No obligations, no sales meetings - just a concrete proposal you can consider.",
+    "body": "No obligations, no sales meetings – just a concrete proposal you can consider.",
     "ctaButton": "Get a free design proposal"
   },
   "problemSolution": {
@@ -789,7 +787,7 @@
     "heading": "Free design proposal",
     "subheading": "We'll design your",
     "subheadingFaded": "front page for free.",
-    "description": "Fill out the form and we'll create a concrete design proposal for your front page - completely non-binding.",
+    "description": "Fill out the form and we'll create a concrete design proposal for your front page – completely non-binding.",
     "nameLabel": "Name",
     "namePlaceholder": "Your full name",
     "emailLabel": "Email",
@@ -859,9 +857,9 @@
   },
   "metadata": {
     "home": {
-      "title": "Transparo - Webdesign uden Overraskelser | Unique Designs. Built on Trust.",
-      "description": "Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger  - bygget på tillid.",
-      "ogTitle": "Transparo - Webdesign uden Overraskelser",
+      "title": "Transparo – Webdesign uden Overraskelser | Unique Designs. Built on Trust.",
+      "description": "Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger – bygget på tillid.",
+      "ogTitle": "Transparo – Webdesign uden Overraskelser",
       "ogDescription": "High-end websites bygget på tillid. Ingen overraskelser, kun resultater."
     },
     "layout": {
@@ -872,22 +870,22 @@
       "ogDescription": "Webbureau København specialiseret i moderne hjemmesider. Fast pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder."
     },
     "kontakt": {
-      "title": "Kontakt Os - Book et Møde | Transparo",
+      "title": "Kontakt Os – Book et Møde | Transparo",
       "description": "Kontakt Transparo i dag. Book et uforpligtende discovery call eller send os en besked. Vi svarer inden for 24 timer på hverdage.",
       "ogTitle": "Kontakt Transparo",
       "ogDescription": "Book et møde eller send os en besked. Vi svarer inden for 24 timer."
     },
     "omOs": {
-      "title": "Om Os - Professionelt Webdesign til Små Virksomheder | Transparo",
+      "title": "Om Os – Professionelt Webdesign til Små Virksomheder | Transparo",
       "description": "Transparo bygger professionelle websites til danske små virksomheder. Fast pris, hurtig levering, og ingen scope creep. Lær mere om vores mission og værdier.",
-      "ogTitle": "Om Transparo - Webdesign med Tillid",
+      "ogTitle": "Om Transparo – Webdesign med Tillid",
       "ogDescription": "Vi bygger professionelle websites til små virksomheder med fast pris og hurtig levering."
     },
     "prisberegner": {
       "title": "Prisberegner",
-      "description": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov  - helt uforpligtende og med fuld gennemsigtighed.",
+      "description": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov – helt uforpligtende og med fuld gennemsigtighed.",
       "ogTitle": "Prisberegner | Transparo",
-      "ogDescription": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov  - helt uforpligtende."
+      "ogDescription": "Beregn prisen på din nye hjemmeside. Få et hurtigt estimat baseret på dine behov – helt uforpligtende."
     },
     "privatlivspolitik": {
       "title": "Privatlivspolitik | Transparo",
@@ -898,7 +896,7 @@
       "description": "Transparo's handelsbetingelser. Læs vores vilkår og betingelser for webdesign og udvikling services."
     },
     "caseStudy": {
-      "notFoundTitle": "Case ikke fundet - Transparo",
+      "notFoundTitle": "Case ikke fundet – Transparo",
       "titleSuffix": "- Case Study | Transparo"
     },
     "faq": {
@@ -919,28 +917,10 @@
           "Branding",
           "Website"
         ],
-        "quote": "De forstod præcis, hvad mit brand handler om, og skabte en side der matcher den kvalitet, jeg leverer på scenen.",
         "author": "Eskild Ebbesen",
         "role": "Foredragsholder & OL-guldvinder",
         "challenge": "Eskild havde brug for et personligt website der matchede hans brand som OL-guldvinder og high performance ekspert. Siden skulle udstråle professionalisme og gøre det nemt at booke ham som foredragsholder.",
         "solution": "Vi designede et rent, personligt brandsite med fokus på Eskilds historie, ydelser og troværdighed. Enkel navigation, booking-integration og et visuelt udtryk der matcher hans kaliber.",
-        "results": [
-          {
-            "metric": "Performance",
-            "value": "97/100",
-            "description": "Lighthouse performance score"
-          },
-          {
-            "metric": "Accessibility",
-            "value": "100/100",
-            "description": "Lighthouse accessibility score"
-          },
-          {
-            "metric": "Loadtid",
-            "value": "0.8s",
-            "description": "First Contentful Paint"
-          }
-        ],
         "technologies": [
           "Next.js",
           "Payload CMS",
@@ -966,28 +946,10 @@
           "AI",
           "Fodbold"
         ],
-        "quote": "De fangede tempoet og intensiteten i sporten og bragte data til live. Platformen er blevet et fast værktøj på både træningsbanen og stadion.",
         "author": "Mikkel Juul",
         "role": "CEO, WalterAI",
         "challenge": "WalterAI havde brug for en platform der kunne præsentere komplekse AI-analyser og fodbolddata på en måde der var tilgængelig for både trænere og fans. Data skulle være både dyb og let at forstå.",
         "solution": "Vi skabte en interaktiv dataplatform med realtids-visualiseringer, AI-drevne indsigter og en brugervenlig grænseflade. Platformen kombinerer avanceret teknologi med en intuitiv brugeroplevelse der gør komplekse data forståelige.",
-        "results": [
-          {
-            "metric": "SEO",
-            "value": "100/100",
-            "description": "Lighthouse SEO score"
-          },
-          {
-            "metric": "Accessibility",
-            "value": "98/100",
-            "description": "Lighthouse accessibility score"
-          },
-          {
-            "metric": "Performance",
-            "value": "98/100",
-            "description": "Lighthouse score trods kompleks data"
-          }
-        ],
         "technologies": [
           "Next.js",
           "AI/ML Integration",
@@ -1013,28 +975,10 @@
           "Branding",
           "Website"
         ],
-        "quote": "De fangede vores æstetik og skabte en side der udstråler den ro og professionalisme vores klienter forventer.",
         "author": "Significanz",
         "role": "Executive Coaching",
         "challenge": "Significanz havde brug for et website der matchede deres position som executive coaching-firma i København. Udtrykket skulle være roligt, elegant og troværdigt.",
         "solution": "Vi skabte et visuelt stærkt website med atmosfærisk fotografi, ren typografi og en enkel struktur der lader indholdet tale for sig selv.",
-        "results": [
-          {
-            "metric": "Performance",
-            "value": "95/100",
-            "description": "Lighthouse performance score"
-          },
-          {
-            "metric": "SEO",
-            "value": "100/100",
-            "description": "Lighthouse SEO score"
-          },
-          {
-            "metric": "Best Practices",
-            "value": "100/100",
-            "description": "Lighthouse best practices"
-          }
-        ],
         "technologies": [
           "Next.js",
           "Payload CMS",
@@ -1060,28 +1004,10 @@
           "Branding",
           "Website"
         ],
-        "quote": "Fotografiet fik plads til at ånde, og besøgende glider ubesværet igennem porteføljen. Det føles som et magasin skabt kun til mig.",
         "author": "Alex Morgan",
         "role": "Fotograf",
         "challenge": "Alex Morgan havde brug for en portefølje der kunne vise deres fotografier i bedste lys, samtidig med at oplevelsen skulle være personlig og elegant – som et digitalt magasin.",
         "solution": "Vi skabte en visuel portefølje med fokus på billederne. Med elegante overgange, optimeret billedkvalitet og en enkel navigation der lader fotografierne tale for sig selv.",
-        "results": [
-          {
-            "metric": "Accessibility",
-            "value": "100/100",
-            "description": "Lighthouse accessibility score"
-          },
-          {
-            "metric": "Mobil",
-            "value": "94/100",
-            "description": "Mobile performance score"
-          },
-          {
-            "metric": "Performance",
-            "value": "96/100",
-            "description": "Lighthouse score trods høj billedkvalitet"
-          }
-        ],
         "technologies": [
           "Next.js",
           "Image Optimization",
@@ -1107,28 +1033,10 @@
           "Branding",
           "Website"
         ],
-        "quote": "De forstod læringsrejsen vi ville skabe og oversatte nærvær til et digitalt univers. Resultatet er både modigt og jordnært.",
         "author": "Christina Borreby",
         "role": "Stifter, Christina Borreby",
         "challenge": "Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching og deres videnskabeligt funderede tilgang til lederudvikling.",
         "solution": "Vi designede en moderne website der balancerer professionalisme med varme. Med fokus på storytelling, klare budskaber og et visuelt udtryk der afspejler både natur og forretning.",
-        "results": [
-          {
-            "metric": "Performance",
-            "value": "94/100",
-            "description": "Lighthouse performance score"
-          },
-          {
-            "metric": "SEO",
-            "value": "100/100",
-            "description": "Lighthouse SEO score"
-          },
-          {
-            "metric": "Loadtid",
-            "value": "1.1s",
-            "description": "First Contentful Paint"
-          }
-        ],
         "technologies": [
           "Next.js",
           "Payload CMS",
@@ -1154,28 +1062,10 @@
           "Branding",
           "Website"
         ],
-        "quote": "Festivalånden lever i hver detalje. Fra billetflow til fortælling er alt gennemført – og publikum engagerer sig som aldrig før.",
         "author": "Thomas Kjeldsen",
         "role": "Formand, VAT 85",
         "challenge": "VAT 85 havde brug for en moderne platform til at håndtere billetflow, kommunikere program og fastholde den festivalånd der kendetegner deres 40 år med teaterkultur.",
         "solution": "Vi skabte en dynamisk festival-website med fokus på brugervenlighed, billetflow og storytelling. Med integration af billetsystemer, programoversigt og en visuel identitet der fanger revyånden.",
-        "results": [
-          {
-            "metric": "Performance",
-            "value": "96/100",
-            "description": "Lighthouse performance score"
-          },
-          {
-            "metric": "Accessibility",
-            "value": "100/100",
-            "description": "Lighthouse accessibility score"
-          },
-          {
-            "metric": "Loadtid",
-            "value": "0.9s",
-            "description": "First Contentful Paint"
-          }
-        ],
         "technologies": [
           "Next.js",
           "Ticket Integration",
@@ -1194,35 +1084,17 @@
       },
       {
         "id": 7,
-        "title": "Klimakurt - Grøn energi til alle",
+        "title": "Klimakurt – Grøn energi til alle",
         "subtitle": "Bæredygtige løsninger for en grønnere fremtid",
         "slug": "klimakurt",
         "labels": [
           "Branding",
           "Website"
         ],
-        "quote": "Transparo hjalp os med at formidle vores grønne budskab klart og tydeligt. En fornøjelse at arbejde sammen med.",
         "author": "Kurt Jensen",
         "role": "Direktør, Klimakurt",
         "challenge": "Klimakurt ønskede at nå ud til flere kunder med deres grønne energiløsninger. Udfordringen var at gøre teknisk viden letforståelig for den almindelige forbruger.",
         "solution": "Vi udviklede en informativ og indbydende hjemmeside, der guider kunden gennem deres grønne muligheder. Fokus på klare Call-to-Actions og troværdighed.",
-        "results": [
-          {
-            "metric": "Performance",
-            "value": "95/100",
-            "description": "Lighthouse performance score"
-          },
-          {
-            "metric": "SEO",
-            "value": "100/100",
-            "description": "Lighthouse SEO score"
-          },
-          {
-            "metric": "Loadtid",
-            "value": "1.0s",
-            "description": "First Contentful Paint"
-          }
-        ],
         "technologies": [
           "Next.js",
           "Tailwind CSS",
@@ -1255,7 +1127,7 @@
       "Session cookies: Sikrer sikker navigation (slettes ved lukning)"
     ],
     "analyticsCookiesTitle": "Analyse og statistik cookies",
-    "analyticsCookiesBadge": "Valgfri - Kræver samtykke",
+    "analyticsCookiesBadge": "Valgfri – Kræver samtykke",
     "analyticsCookiesDescription": "Disse cookies hjælper os med at forstå, hvordan besøgende bruger vores website, så vi kan forbedre funktionalitet og indhold.",
     "analyticsCookiesExamplesTitle": "Eksempler:",
     "analyticsCookiesExamples": [
@@ -1264,7 +1136,7 @@
       "Traffic sources: Hvordan du fandt vores website"
     ],
     "marketingCookiesTitle": "Marketing cookies",
-    "marketingCookiesBadge": "Valgfri - Kræver samtykke",
+    "marketingCookiesBadge": "Valgfri – Kræver samtykke",
     "marketingCookiesDescription": "Disse cookies bruges til at vise dig relevante reklamer og marketing-materialer baseret på dine interesser.",
     "marketingCookiesStatus": "Vi bruger i øjeblikket ikke marketing cookies på transparo.dk.",
     "managementTitle": "Sådan administrerer du cookies",
@@ -1631,101 +1503,6 @@
     "viewAll": "Se alle",
     "close": "Luk"
   },
-  "trustIndicators": {
-    "indicators": [
-      {
-        "title": "Fast Pris",
-        "description": "Ingen skjulte omkostninger"
-      },
-      {
-        "title": "10-28 Dage",
-        "description": "Leveret som lovet -garanteret"
-      },
-      {
-        "title": "Custom Design",
-        "description": "Ingen skabeloner eller templates"
-      },
-      {
-        "title": "2-4 Revisionsrunder",
-        "description": "Inkluderet i alle pakker"
-      }
-    ]
-  },
-  "trustMarquee": {
-    "primaryMessages": [
-      "Velkommen",
-      "Premium Kvalitet",
-      "Dansk Design",
-      "Professionel Service",
-      "Kreative Løsninger",
-      "Digital Excellence",
-      "Innovation",
-      "Resultater der Holder"
-    ],
-    "trustIndicators": [
-      "Fast Pris",
-      "Ingen Skjulte Gebyrer",
-      "2-4 Ugers Levering",
-      "100% Gennemsigtig",
-      "Garanti",
-      "Lokal Support",
-      "Certificeret",
-      "Troværdig Partner"
-    ],
-    "companyValues": [
-      "Webdesign",
-      "Branding",
-      "Digital Strategi",
-      "SEO Optimering",
-      "Responsive Design",
-      "Custom Udvikling",
-      "UX Design",
-      "Content"
-    ]
-  },
-  "whyUsScroll": {
-    "overline": "Derfor os",
-    "headingLine1": "Hvorfor Vælger",
-    "headingLine2": "SMV'er Os",
-    "reasons": [
-      {
-        "title": "AI-Drevet Udvikling",
-        "subtitle": "Hurtigere levering, lavere pris",
-        "description": "Vi bruger AI-værktøjer som Cursor og Windsurf til at accelerere udviklingen. Det betyder kortere leveringstid og lavere omkostninger - uden at gå på kompromis med kvaliteten.",
-        "stats": "50% hurtigere"
-      },
-      {
-        "title": "Fast Pris Garanti",
-        "subtitle": "Ingen overraskelser",
-        "description": "Med vores strukturerede proces og klare milepæle ved du præcis, hvad du får og hvad det koster. Ingen scope creep, ingen skjulte gebyrer.",
-        "stats": "100% transparent"
-      },
-      {
-        "title": "Dansk Ekspertise",
-        "subtitle": "Lokal forståelse, global kvalitet",
-        "description": "Vi forstår det danske marked og danske SMVers behov. Du får personlig service på dansk med forståelse for din forretning.",
-        "stats": "100+ projekter"
-      },
-      {
-        "title": "Performance Fokus",
-        "subtitle": "Lighthouse 90+ garanti",
-        "description": "Alle websites leveres med minimum 90+ i Lighthouse score. Det betyder hurtige loadtider, bedre SEO og flere konverteringer.",
-        "stats": "90+ score"
-      },
-      {
-        "title": "15 Dages Levering",
-        "subtitle": "Fra brief til lancering",
-        "description": "Vores effektive proces betyder, at du kan have din nye website live inden for 15 arbejdsdage. Ingen måneders ventetid.",
-        "stats": "15 dage"
-      },
-      {
-        "title": "Moderne Teknologi",
-        "subtitle": "Next.js & Payload CMS",
-        "description": "Vi bruger kun den nyeste og bedste teknologi. Det giver dig en fremtidssikret løsning, der er nem at vedligeholde og udvide.",
-        "stats": "Enterprise-grade"
-      }
-    ]
-  },
   "projectCta": {
     "headingLine1": "Klar til at starte",
     "headingLine2": "jeres projekt?",
@@ -1769,7 +1546,7 @@
       },
       {
         "title": "Kvalitet Først",
-        "description": "Pakkeprisen bestemmer scope  - ikke kvalitet. Alle får Motion animations, Payload CMS, og Next.js. Premium teknologi til alle."
+        "description": "Pakkeprisen bestemmer scope – ikke kvalitet. Alle får Motion animations, Payload CMS, og Next.js. Premium teknologi til alle."
       }
     ],
     "ctaText": "Klar til at opleve forskellen?",
@@ -1837,115 +1614,6 @@
         "statLabel": "transparent"
       }
     ]
-  },
-  "caseStudySection": {
-    "badge": "Portfolio",
-    "heading": "Resultater der taler",
-    "subheading": "Se hvordan vi har hjulpet danske virksomheder med at vokse online",
-    "studies": [
-      {
-        "client": "NORDIC FASHION",
-        "category": "E-commerce",
-        "title": "Fra 0 til 2M DKK på 6 måneder",
-        "description": "Komplet e-commerce løsning med Shopify integration og custom design der øgede konverteringsraten med 240%.",
-        "stats": [
-          {
-            "label": "Konvertering",
-            "value": "+240%"
-          },
-          {
-            "label": "Salg første år",
-            "value": "2M DKK"
-          },
-          {
-            "label": "Leveringstid",
-            "value": "3 uger"
-          }
-        ],
-        "testimonial": {
-          "text": "Transparo leverede langt over vores forventninger. Websitet er ikke bare smukt - det sælger! ROI blev positiv efter kun 6 uger.",
-          "author": "Maria Jensen",
-          "role": "CEO, Nordic Fashion"
-        }
-      },
-      {
-        "client": "TECHSTART COPENHAGEN",
-        "category": "SaaS Platform",
-        "title": "500+ nye B2B kunder på 3 måneder",
-        "description": "Moderne SaaS landing page med avanceret lead generation der transformerede deres online tilstedeværelse og B2B salg.",
-        "stats": [
-          {
-            "label": "Nye kunder",
-            "value": "500+"
-          },
-          {
-            "label": "Lead quality",
-            "value": "+85%"
-          },
-          {
-            "label": "Page speed",
-            "value": "98/100"
-          }
-        ],
-        "testimonial": {
-          "text": "Vores nye website har været en game-changer for vores B2B salg. Websitet fanger virkelig essensen af vores brand.",
-          "author": "Thomas Andersen",
-          "role": "CMO, TechStart"
-        }
-      },
-      {
-        "client": "GOURMET DELIKATESSER",
-        "category": "Restaurant",
-        "title": "150% flere bordreservationer",
-        "description": "Elegant restaurant website med integreret booking system og menu præsentation der øgede online reservationer markant.",
-        "stats": [
-          {
-            "label": "Reservationer",
-            "value": "+150%"
-          },
-          {
-            "label": "Gennemsnitlig ordre",
-            "value": "+45%"
-          },
-          {
-            "label": "Mobile traffic",
-            "value": "73%"
-          }
-        ],
-        "testimonial": {
-          "text": "Websitet fanger virkelig essensen af vores restaurant. Gæsterne roser ofte vores online oplevelse før de kommer.",
-          "author": "Sophie Nielsen",
-          "role": "Ejer, Gourmet Delikatesser"
-        }
-      }
-    ],
-    "ctaText": "Klar til at blive vores næste succeshistorie?",
-    "ctaStartProject": "Start dit projekt",
-    "ctaViewCases": "Se flere cases"
-  },
-  "socialProof": {
-    "heading": "Kunder vælger os, fordi de kan <gold>mærke forskellen</gold>",
-    "testimonials": [
-      {
-        "quote": "Endelig et webbureau der holder, hvad de lover.",
-        "author": "Kommende Kunde",
-        "company": "Dansk Virksomhed",
-        "role": "CEO"
-      },
-      {
-        "quote": "Det føltes som at arbejde med nogen, der havde min ryg hele vejen.",
-        "author": "Kommende Kunde",
-        "company": "SMB Partner",
-        "role": "Marketing Chef"
-      },
-      {
-        "quote": "Ingen skjulte overraskelser  - kun klarhed og stærkt design.",
-        "author": "Kommende Kunde",
-        "company": "Startup Danmark",
-        "role": "Founder"
-      }
-    ],
-    "disclaimer": "* Vi er et nyt bureau og arbejder på at opbygge vores case studies. Rigtige testimonials kommer snart!"
   },
   "processPhases": {
     "faseLabel": "Fase {number}",
@@ -2173,7 +1841,7 @@
     "newSection": {
       "badge": "Faste priser • Ingen overraskelser",
       "heading": "Vælg din pakke",
-      "subtitle": "Professionelle websites der sælger - leveret på 2-4 uger.",
+      "subtitle": "Professionelle websites der sælger – leveret på 2-4 uger.",
       "subtitleSecondary": "100+ virksomheder har allerede boosted deres online tilsteværelse.",
       "popularBadge": "Mest Populær",
       "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
@@ -2354,7 +2022,7 @@
       "backLink": "Tilbage til oversigt",
       "popularBadge": "Mest Populær",
       "bestStarter": "Bedste Starter",
-      "essentialsSubtext": "Alt du behøver for at komme online - hurtigt, professionelt og til en fair pris.",
+      "essentialsSubtext": "Alt du behøver for at komme online – hurtigt, professionelt og til en fair pris.",
       "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
       "deliveryLabel": "Levering: {duration}",
       "bookMeeting": "Book et møde",
@@ -2420,7 +2088,7 @@
         {
           "name": "Louise Kjær",
           "company": "Sundhedskonsortiet",
-          "quote": "Perfekt til vores behov - professionelt resultat til en fair pris."
+          "quote": "Perfekt til vores behov – professionelt resultat til en fair pris."
         },
         {
           "name": "Thomas Kjeldsen",

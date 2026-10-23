@@ -120,7 +120,7 @@ export function PackageComparisonMatrix() {
                                 <Check className="w-5 h-5 text-navy-dark" strokeWidth={3} />
                               </div>
                             ) : (
-                              <span className="text-gray-400 text-2xl">—</span>
+                              <span className="text-gray-400 text-2xl">–</span>
                             )
                           ) : (
                             <span className="text-sm text-navy-dark font-bold">{item.essentials}</span>
@@ -133,7 +133,7 @@ export function PackageComparisonMatrix() {
                                 <Check className="w-5 h-5 text-navy" strokeWidth={3} />
                               </div>
                             ) : (
-                              <span className="text-gray-400 text-2xl">—</span>
+                              <span className="text-gray-400 text-2xl">–</span>
                             )
                           ) : (
                             <span className="text-sm text-navy font-bold">{item.professional}</span>
@@ -146,7 +146,7 @@ export function PackageComparisonMatrix() {
                                 <Check className="w-5 h-5 text-navy-dark" strokeWidth={3} />
                               </div>
                             ) : (
-                              <span className="text-gray-400 text-2xl">—</span>
+                              <span className="text-gray-400 text-2xl">–</span>
                             )
                           ) : (
                             <span className="text-sm text-navy-dark font-bold">{item.business}</span>
@@ -186,7 +186,7 @@ export function PackageComparisonMatrix() {
                           item.essentials ? (
                             <Check className="w-4 h-4 text-navy-dark mx-auto" strokeWidth={2.5} />
                           ) : (
-                            <span className="text-gray-300">—</span>
+                            <span className="text-gray-300">–</span>
                           )
                         ) : (
                           <span className="text-navy-dark/90">{item.essentials}</span>
@@ -198,7 +198,7 @@ export function PackageComparisonMatrix() {
                           item.professional ? (
                             <Check className="w-4 h-4 text-navy mx-auto" strokeWidth={2.5} />
                           ) : (
-                            <span className="text-gray-300">—</span>
+                            <span className="text-gray-300">–</span>
                           )
                         ) : (
                           <span className="text-navy/90">{item.professional}</span>
@@ -210,7 +210,7 @@ export function PackageComparisonMatrix() {
                           item.business ? (
                             <Check className="w-4 h-4 text-navy-dark mx-auto" strokeWidth={2.5} />
                           ) : (
-                            <span className="text-gray-300">—</span>
+                            <span className="text-gray-300">–</span>
                           )
                         ) : (
                           <span className="text-navy-dark/90">{item.business}</span>

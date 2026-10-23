@@ -6,6 +6,7 @@ import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import Image from 'next/image'
+import { caseStudies } from '@/data/caseStudies'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
 export function HeroSection() {
@@ -52,23 +53,14 @@ export function HeroSection() {
     }
   }, [charIndex, shouldReduceMotion, word.length, hasSeenLoader])
 
-  return (
-    <section className="relative min-h-dvh flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/unsplash/why-us-3.webp"
-          alt="Transparo workspace"
-          fill
-          className="object-cover"
-          priority
-          quality={80}
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]/60" />
-      </div>
 
-      {/* Loader: "transparo." typewriter on black */}
+  const showcase = caseStudies.slice(0, 7)
+  // Duplicated so the marquee loops seamlessly
+  const loop = [...showcase, ...showcase]
+
+  return (
+    <section className="relative min-h-dvh flex flex-col overflow-hidden bg-[#faf9f6]">
+      {/* Loader: "transparo." typewriter */}
       <AnimatePresence>
         {showLoader && (
           <motion.div
@@ -91,145 +83,109 @@ export function HeroSection() {
         )}
       </AnimatePresence>
 
-      {/* Main Hero Content */}
-      <div className="relative z-10 w-full flex items-center justify-center min-h-dvh px-6 sm:px-8 md:px-12 pt-24 sm:pt-28 md:pt-0">
-        <div className="w-full max-w-[1400px] mx-auto text-center">
-          {/* Gold Overline */}
-          <motion.div
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-            animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.6,
-              ease: [0.16, 1, 0.3, 1]
-            }}
-            className="mb-8"
-          >
-            <span className="text-gold text-xs font-medium uppercase tracking-[0.3em]">
-              {t('overline')}
-            </span>
-          </motion.div>
-
-          {/* Main Headline */}
-          <motion.div
-            className="mb-10 md:mb-14"
+      {/* Black hero – same format as the case pages */}
+      <div className="relative bg-black px-6 md:px-12 pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto relative z-10">
+          <motion.span
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.1,
-              ease: [0.16, 1, 0.3, 1]
-            }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
+            className="text-xs font-medium uppercase tracking-[0.15em] text-gold block mb-8"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-[-0.02em]">
-              <span className="text-white">
-                {t('headlinePart1')}
-              </span>
-              <br />
-              <span className="text-gold">
-                {t('headlinePart2')}
-              </span>
-            </h1>
-          </motion.div>
+            {t('overline')}
+          </motion.span>
 
-          {/* Gold accent line */}
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={showHero ? { scaleX: 1, opacity: 1 } : {}}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.2,
-              ease: [0.16, 1, 0.3, 1]
-            }}
-            className="w-16 h-[2px] bg-gold mx-auto mb-10 md:mb-14"
-          />
-
-          {/* Subtitle - simplified */}
-          <motion.div
-            className="mb-14 md:mb-18"
+          <motion.h1
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.25,
-              ease: [0.16, 1, 0.3, 1]
-            }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6 max-w-4xl"
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-white/60 leading-relaxed max-w-xl mx-auto font-light tracking-wide">
-              {t('subtitle')}
-            </p>
-          </motion.div>
+            <span className="text-white">{t('headlinePart1')}</span>
+            <br />
+            <span className="text-gold">{t('headlinePart2')}</span>
+          </motion.h1>
 
-          {/* CTAs */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          <motion.p
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.3,
-              ease: [0.16, 1, 0.3, 1]
-            }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2 }}
+            className="text-lg md:text-xl text-white/50 max-w-2xl leading-relaxed mb-10"
           >
-            <motion.div
-              whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
-              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            {t('subtitle')}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+            animate={showHero ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.3 }}
+            className="flex flex-wrap items-center gap-3"
+          >
+            <Link
+              href="/cases"
+              className="inline-block px-6 py-3 bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors duration-300"
             >
-              <Link
-                href="/prisberegner"
-                className="inline-block px-10 py-4 bg-white text-black font-semibold text-lg hover:bg-white/90 transition-colors duration-300"
-              >
-                {t('ctaPriceCalculator')}
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
-              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-            >
-              <Link
-                href="/cases"
-                className="inline-block px-10 py-4 border border-gold text-gold font-semibold text-lg hover:bg-gold/10 transition-colors duration-300"
-              >
-                {t('ctaPortfolio')}
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Free design proposal link */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={showHero ? { opacity: 1 } : {}}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.8,
-              delay: shouldReduceMotion ? 0 : 0.5,
-              ease: [0.16, 1, 0.3, 1]
-            }}
-            className="mt-8"
-          >
+              {t('ctaPortfolio')}
+            </Link>
             <button
               onClick={openDesignProposal}
-              className="text-white/40 hover:text-gold text-sm font-medium transition-colors duration-300 inline-flex items-center gap-2"
+              className="inline-block px-6 py-3 bg-gold text-black text-sm font-semibold hover:bg-gold/90 transition-colors duration-300"
             >
-              {t('ctaFreeDesign')}
-              <span className="text-gold">→</span>
+              {t('ctaDesignProposal')}
             </button>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Cases – drifting collage banner */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="relative py-12 md:py-16"
         initial={{ opacity: 0 }}
         animate={showHero ? { opacity: 1 } : {}}
-        transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: 0.6 }}
+        transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 0.3 }}
       >
-        <motion.div
-          animate={shouldReduceMotion ? {} : { y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
-          <div className="w-[1px] h-10 bg-gradient-to-b from-white/40 to-transparent" />
-        </motion.div>
+        <div className="flex items-end justify-between px-6 sm:px-8 md:px-12 lg:px-16 mb-6 max-w-[1400px] w-full mx-auto">
+          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-black/40">
+            {t('ctaPortfolio')}
+          </span>
+          <Link
+            href="/cases"
+            className="text-sm text-black/50 hover:text-gold transition-colors duration-300 inline-flex items-center gap-2"
+          >
+            {t('ctaPortfolio')} <span className="text-gold">→</span>
+          </Link>
+        </div>
+
+        <div className="hero-marquee overflow-hidden">
+          <div className="hero-marquee-track flex items-center w-max">
+            {loop.map((study, i) => {
+              const tall = i % 2 === 0
+              return (
+                <Link
+                  key={`${study.slug}-${i}`}
+                  href={`/cases/${study.slug}` as '/cases'}
+                  aria-hidden={i >= showcase.length ? true : undefined}
+                  tabIndex={i >= showcase.length ? -1 : undefined}
+                  className="group relative block shrink-0 overflow-hidden bg-black/5 w-[220px] md:w-[300px] mr-4 md:mr-6"
+                  style={{ height: tall ? 'clamp(260px, 42dvh, 460px)' : 'clamp(200px, 32dvh, 360px)' }}
+                >
+                  <Image
+                    src={study.imageUrl}
+                    alt={study.title}
+                    fill
+                    sizes="300px"
+                    className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <span className="text-white text-xs font-medium tracking-wide">
+                      {study.title.split(' – ')[0]}
+                    </span>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
       </motion.div>
     </section>
   )
