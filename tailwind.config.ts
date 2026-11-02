@@ -32,6 +32,7 @@ const config: Config = {
         gold: {
           DEFAULT: '#B89245',
           light: '#D4B366',
+          dark: '#8A6A2B',
         },
       },
       fontFamily: {

@@ -52,7 +52,7 @@
     "overline": "Websites with clean lines",
     "headlinePart1": "Websites that perform",
     "headlinePart2": "– and last into the future",
-    "subtitle": "Fixed price. Clear process. No surprises.",
+    "subtitle": "A clear price and a process you can follow. You see a concrete design proposal for your homepage before you decide anything.",
     "subtitleExtra": "Get a free design proposal for your front page – so you can see what you get before committing to anything.",
     "ctaDesignProposal": "Get a free design proposal",
     "ctaPriceCalculator": "See prices",
@@ -61,7 +61,7 @@
   },
   "footer": {
     "tagline": "Unique designs • Built on trust",
-    "description": "Professionelt webdesign til danske små virksomheder. Fast pris, hurtig levering, og ingen scope creep.",
+    "description": "Professionelt webdesign til danske små virksomheder. Klar pris, hurtig levering og ingen overraskelser.",
     "quickLinksTitle": "Hurtige Links",
     "portfolio": "Portfolio",
     "kontakt": "Kontakt",
@@ -166,8 +166,8 @@
     "reasons": [
       {
         "number": "01",
-        "title": "Faste priser",
-        "description": "Du kender den endelige pris fra dag ét. Ingen timeregnskaber, ingen tillæg, ingen \"det blev lidt dyrere end forventet\"."
+        "title": "Klare priser",
+        "description": "Du kender prisen, før vi går i gang. Ønsker du mere undervejs, aftaler vi det med dig først – ingen timeregnskaber, der løber løbsk."
       },
       {
         "number": "02",
@@ -193,7 +193,7 @@
     "descriptions": [
       "We've both worked in the industry long enough to see how it often goes: unclear pricing, poor communication, and clients ending up with something different than what they were promised.",
       "We wanted to do better. So we started Transparo.",
-      "Here you get one fixed price, a process you can follow, and a website you're actually proud of."
+      "Here you get a clear price, a process you can follow, and a website you're actually proud of."
     ],
     "team": [
       {
@@ -220,8 +220,8 @@
       },
       {
         "number": "02",
-        "title": "Fixed price",
-        "description": "When you say yes, you know the full price. It doesn't change along the way."
+        "title": "A clear price",
+        "description": "When you say yes, you know the price. If you want more along the way, we agree on it with you first."
       },
       {
         "number": "03",
@@ -278,7 +278,7 @@
     "overline": "Kontakt",
     "heading": "Fortæl os om",
     "headingFaded": "dit projekt.",
-    "missionText": "Vi er et dansk webbureau der bygger websites fra bunden. Ingen templates, faste priser og en proces du kan følge med i.",
+    "missionText": "Vi er et dansk webbureau der bygger websites fra bunden. Ingen templates, klare priser og en proces du kan følge med i.",
     "ctaText": "Skriv til os, så tager vi en uforpligtende snak om dit projekt.",
     "emailLabel": "Email",
     "linkedinLabel": "LinkedIn",
@@ -618,7 +618,7 @@
     "finalCta": {
       "headingLine1": "Klar til at starte",
       "headingLine2": "jeres projekt?",
-      "description": "Professionel udvikling. Faste priser. Lancering på 2-4 uger.",
+      "description": "Professionel udvikling. Klare priser. Lancering på 2-4 uger.",
       "steps": [
         {
           "num": "1",
@@ -628,7 +628,7 @@
         {
           "num": "2",
           "title": "Få tilbud",
-          "desc": "Fast pris, ingen skjulte omkostninger"
+          "desc": "Klar pris, ingen skjulte omkostninger"
         },
         {
           "num": "3",
@@ -658,7 +658,7 @@
     "line3": "betalende kunder for",
     "line4": "ambitiøse virksomheder",
     "line5": "der vil vokse online.",
-    "stats": "Fast pris, en tydelig proces og et website, du selv ejer."
+    "stats": "En klar pris, en tydelig proces og et website, du selv ejer."
   },
   "brandStory": {
     "overline": "Vores Historie",
@@ -669,7 +669,7 @@
     "howWeWork": "Sådan arbejder vi:",
     "cards": [
       {
-        "title": "Fast pris fra start.",
+        "title": "En klar pris fra start.",
         "description": "Ingen skjulte omkostninger. Du ved præcis hvad du betaler for."
       },
       {
@@ -780,7 +780,7 @@
   "problemSolution": {
     "heading": "We started Transparo because we've been on the other side",
     "paragraph1": "Unclear pricing. Poor communication. And a result that didn't match what was promised. Unfortunately, that's the industry standard.",
-    "paragraph2": "We do things differently. You get one fixed price, a process you can follow, and a website built with modern technology that loads fast, ranks high on Google, and lasts for years."
+    "paragraph2": "We do things differently. You get a clear price, a process you can follow, and a website built with modern technology that loads fast, ranks high on Google, and lasts for years."
   },
   "designProposal": {
     "label": "Free Design",
@@ -866,9 +866,9 @@
     "layout": {
       "defaultTitle": "Transparo | Professionel Webudvikling Danmark",
       "titleTemplate": "%s | Transparo",
-      "description": "Professionel hjemmeside udvikling til danske virksomheder. Fast pris (8.995-27.995 kr), 2-4 ugers levering. Webbureau København specialiseret i moderne hjemmesider med SEO, responsivt design og Payload CMS.",
+      "description": "Professionel hjemmeside udvikling til danske virksomheder. Klare priser (8.995-27.995 kr), 2-4 ugers levering. Webbureau København specialiseret i moderne hjemmesider med SEO, responsivt design og Payload CMS.",
       "ogTitle": "Transparo | Professionel Webudvikling Danmark",
-      "ogDescription": "Webbureau København specialiseret i moderne hjemmesider. Fast pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder."
+      "ogDescription": "Webbureau København specialiseret i moderne hjemmesider. Klar pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder."
     },
     "kontakt": {
       "title": "Kontakt Os – Book et Møde | Transparo",
@@ -878,9 +878,9 @@
     },
     "omOs": {
       "title": "Om Os – Professionelt Webdesign til Små Virksomheder | Transparo",
-      "description": "Transparo bygger professionelle websites til danske små virksomheder. Fast pris, hurtig levering, og ingen scope creep. Lær mere om vores mission og værdier.",
+      "description": "Transparo bygger professionelle websites til danske små virksomheder. Klar pris, hurtig levering og ingen overraskelser. Lær mere om vores mission og værdier.",
       "ogTitle": "Om Transparo – Webdesign med Tillid",
-      "ogDescription": "Vi bygger professionelle websites til små virksomheder med fast pris og hurtig levering."
+      "ogDescription": "Vi bygger professionelle websites til små virksomheder med klar pris og hurtig levering."
     },
     "prisberegner": {
       "title": "Prisberegner",
@@ -1393,7 +1393,7 @@
   "projectCta": {
     "headingLine1": "Klar til at starte",
     "headingLine2": "jeres projekt?",
-    "subtitle": "Professionel udvikling. Faste priser. Lancering på 2-4 uger.",
+    "subtitle": "Professionel udvikling. Klare priser. Lancering på 2-4 uger.",
     "steps": [
       {
         "title": "Book møde",
@@ -1401,7 +1401,7 @@
       },
       {
         "title": "Få tilbud",
-        "desc": "Fast pris, ingen skjulte omkostninger"
+        "desc": "Klar pris, ingen skjulte omkostninger"
       },
       {
         "title": "Vi starter",
@@ -1409,7 +1409,7 @@
       }
     ],
     "benefits": [
-      "Faste priser",
+      "Klare priser",
       "2-4 ugers levering",
       "7 godkendelsespunkter",
       "Premium kvalitet"
@@ -1420,8 +1420,8 @@
     "subheading": "Vi løser de tre største problemer med traditionelle webdesign bureauer",
     "principles": [
       {
-        "title": "Fast Pris",
-        "description": "Én pris. Intet småt. Du ved præcis hvad du betaler, før vi starter. Ingen \"bare lige én ting mere\" opkrævninger."
+        "title": "Klar pris",
+        "description": "Intet småt. Du ved præcis hvad du betaler, før vi starter – og ønsker du mere undervejs, aftaler vi prisen med dig først."
       },
       {
         "title": "Ingen Scope Creep",
@@ -1494,9 +1494,9 @@
         "statLabel": "hurtigere"
       },
       {
-        "title": "Fast Pris, Fuld Transparens",
+        "title": "Klar pris, fuld transparens",
         "description": "Ingen \"bare lige én ting mere\" opkrævninger. Ingen skjulte omkostninger.",
-        "solution": "Vores løfte: Én pris. Alt er inkluderet. Du ved præcis hvad du får, og hvad det koster, før vi starter. Transparens skaber tillid -det er kernen i vores forretningsmodel.",
+        "solution": "Vores løfte: Du ved præcis hvad du får, og hvad det koster, før vi starter. Ønsker du mere undervejs, aftaler vi det først. Transparens skaber tillid -det er kernen i vores forretningsmodel.",
         "stat": "100%",
         "statLabel": "transparent"
       }
@@ -1555,7 +1555,7 @@
   },
   "packages": {
     "section": {
-      "tagline": "Faste priser • Ingen overraskelser",
+      "tagline": "Klare priser • Ingen overraskelser",
       "title": "Vælg din pakke",
       "subtitle": "Professional websites with future-proof technology.",
       "subtitleHint": "Klik på en pakke for at se alle detaljer og funktioner.",
@@ -1726,12 +1726,12 @@
       ]
     },
     "newSection": {
-      "badge": "Faste priser • Ingen overraskelser",
+      "badge": "Klare priser • Ingen overraskelser",
       "heading": "Vælg din pakke",
       "subtitle": "Professionelle websites der sælger – leveret på 2-4 uger.",
       "subtitleSecondary": "100+ virksomheder har allerede boosted deres online tilsteværelse.",
       "popularBadge": "Mest Populær",
-      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "fixedPrice": "Klar pris • Ingen skjulte gebyrer",
       "deliveryLabel": "Levering: {duration}",
       "cta": "Vælg denne pakke",
       "trustHighlight": "98% kundetilfredshed",
@@ -1780,12 +1780,12 @@
       ]
     },
     "newSectionEnhanced": {
-      "badge": "Faste priser • Ingen overraskelser",
+      "badge": "Klare priser • Ingen overraskelser",
       "heading": "Vælg din pakke",
       "subtitle": "Professional websites with future-proof technology.",
       "subtitleSecondary": "Klik på en pakke for at se alle detaljer.",
       "popularBadge": "Mest Populær",
-      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "fixedPrice": "Klar pris • Ingen skjulte gebyrer",
       "deliveryLabel": "Levering: {duration}",
       "cta": "Se alle detaljer",
       "compareLink": "Sammenlign alle pakker i detaljer",
@@ -1910,7 +1910,7 @@
       "popularBadge": "Mest Populær",
       "bestStarter": "Bedste Starter",
       "essentialsSubtext": "Alt du behøver for at komme online – hurtigt, professionelt og til en fair pris.",
-      "fixedPrice": "Fast pris • Ingen skjulte gebyrer",
+      "fixedPrice": "Klar pris • Ingen skjulte gebyrer",
       "deliveryLabel": "Levering: {duration}",
       "bookMeeting": "Book et møde",
       "compareAll": "Sammenlign alle pakker",
@@ -1993,5 +1993,88 @@
       "ctaBookMeeting": "Book møde nu",
       "ctaSeeWork": "Se vores arbejde"
     }
+  },
+  "homeAI": {
+    "overline": "Websites in the age of AI",
+    "headingLine1": "Anyone can build a website today.",
+    "headingLine2": "The hard part is knowing what to build.",
+    "lead": "AI has made it possible to put up a website in an afternoon. That's a gift – and it's also why so many sites look the same. The tools have become fast. Judgement doesn't come with them automatically.",
+    "quote": "I've worked with web design for more than 10 years. What you get isn't just code – it's an eye for the whole. Colours, typography, images and copy working together, and the details being right. Even the ones most people never notice.",
+    "name": "Christina Borreby",
+    "role": "Founder & Design Director",
+    "aboutLink": "More about us"
+  },
+  "homeModern": {
+    "overline": "Why we build with modern technology",
+    "headingLine1": "Faster to make.",
+    "headingLine2": "Better to own.",
+    "benefits": [
+      {
+        "title": "Live in 2–4 weeks",
+        "description": "AI does the heavy lifting in development. We spend the time on design and content instead."
+      },
+      {
+        "title": "Fast and secure",
+        "description": "No heavy themes or plugins that need updating – and can get hacked."
+      },
+      {
+        "title": "A better foundation for Google",
+        "description": "Fast pages and clean code are among the things search engines reward."
+      },
+      {
+        "title": "You own everything",
+        "description": "The code, the domain and the content are yours. You're never locked in."
+      }
+    ],
+    "notSameOverline": "But not the same",
+    "notSameHeading": "AI is our tool – not our designer.",
+    "notSameText": "A site doesn't become generic because it's built with AI. It becomes generic when nobody makes decisions. With us, everything starts with your business, your audience and your visual identity – and we design it from scratch.",
+    "strengths": [
+      "One coherent visual identity – not a template",
+      "An eye for detail, down to typography and spacing",
+      "Copy and structure written for your customers"
+    ],
+    "wpHeading": "Prefer WordPress?",
+    "wpText": "We still build in WordPress if you want full control in a system you know. Our recommendation is to move with the times – but the choice is yours, and we're happy to help you decide."
+  },
+  "homeProposal": {
+    "overline": "Start here",
+    "headingLine1": "See your new homepage",
+    "headingLine2": "before you decide anything.",
+    "text": "We create a concrete design proposal for your homepage – free and with no commitment. So you can see what you get instead of guessing.",
+    "cta": "Get a free design proposal",
+    "note": "Opens a short form · No commitment",
+    "steps": [
+      {
+        "title": "Tell us about your business",
+        "description": "A few questions. It takes a couple of minutes."
+      },
+      {
+        "title": "We design your homepage",
+        "description": "A real proposal – not a template with your logo on it."
+      },
+      {
+        "title": "You decide",
+        "description": "Yes please or no thanks. No sales meetings."
+      }
+    ]
+  },
+  "homeFacts": {
+    "items": [
+      {
+        "title": "A clear price from the start",
+        "description": "You know the price before we begin. If you want more along the way, we agree on it with you first."
+      },
+      {
+        "title": "A process you can follow",
+        "description": "You always know where we are – and why, if something takes longer."
+      },
+      {
+        "title": "We're here afterwards",
+        "description": "Choose maintenance – or handle it yourself. It's up to you."
+      }
+    ],
+    "processLink": "How we work",
+    "pricesLink": "See prices"
   }
 }

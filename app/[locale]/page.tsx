@@ -5,24 +5,20 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
 
-const ProblemSolutionSection = dynamic(() => import('@/components/sections/ProblemSolutionSection').then((mod) => mod.ProblemSolutionSection), {
+const HomeAISection = dynamic(() => import('@/components/sections/HomeAISection').then((mod) => mod.HomeAISection), {
+  loading: () => <div className="h-96 bg-[#f7f5f2]" />
+})
+
+const HomeModernSection = dynamic(() => import('@/components/sections/HomeModernSection').then((mod) => mod.HomeModernSection), {
   loading: () => <div className="h-96 bg-white" />
 })
 
-const PremiumProcessTimeline = dynamic(() => import('@/components/sections/PremiumProcessTimeline').then((mod) => mod.PremiumProcessTimeline), {
-  loading: () => <div className="h-96 bg-navy" />
+const HomeProposalSection = dynamic(() => import('@/components/sections/HomeProposalSection').then((mod) => mod.HomeProposalSection), {
+  loading: () => <div className="h-96 bg-[#ece6e2]" />
 })
 
-const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then((mod) => mod.AboutSection), {
-  loading: () => <div className="h-96 bg-white" />
-})
-
-const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection').then((mod) => mod.WhyUsSection), {
-  loading: () => <div className="h-96 bg-black" />
-})
-
-const FinalCTASection = dynamic(() => import('@/components/sections/FinalCTASection').then((mod) => mod.FinalCTASection), {
-  loading: () => <div className="h-96 bg-navy" />
+const HomeFactsSection = dynamic(() => import('@/components/sections/HomeFactsSection').then((mod) => mod.HomeFactsSection), {
+  loading: () => <div className="h-64 bg-[#f7f5f2]" />
 })
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -50,11 +46,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Header />
       <main>
         <HeroSection />
-        <ProblemSolutionSection />
-        <WhyUsSection />
-        <PremiumProcessTimeline />
-        <AboutSection />
-        <FinalCTASection />
+        <HomeAISection />
+        <HomeModernSection />
+        <HomeProposalSection />
+        <HomeFactsSection />
       </main>
       <Footer />
     </>

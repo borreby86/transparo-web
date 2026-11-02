@@ -53,8 +53,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: '%s | Transparo',
     },
     description: isDA
-      ? 'Professionel hjemmeside udvikling til danske virksomheder. Fast pris (8.995-27.995 kr), 2-4 ugers levering. Webbureau København specialiseret i moderne hjemmesider med SEO, responsivt design og Payload CMS.'
-      : 'Professional website development for Danish businesses. Fixed price (8,995-27,995 DKK), 2-4 weeks delivery. Web agency Copenhagen specializing in modern websites with SEO, responsive design and Payload CMS.',
+      ? 'Professionel hjemmeside udvikling til danske virksomheder. Klare priser (8.995-27.995 kr), 2-4 ugers levering. Webbureau København specialiseret i moderne hjemmesider med SEO, responsivt design og Payload CMS.'
+      : 'Professional website development for Danish businesses. Clear pricing (8,995-27,995 DKK), 2-4 weeks delivery. Web agency Copenhagen specializing in modern websites with SEO, responsive design and Payload CMS.',
     keywords: isDA
       ? ['webudvikling', 'webudvikling danmark', 'webbureau københavn', 'hjemmeside udvikling', 'professionel hjemmeside']
       : ['web development', 'web development denmark', 'web agency copenhagen', 'website development', 'professional website'],
@@ -75,8 +75,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? 'Transparo | Professionel Webudvikling Danmark'
         : 'Transparo | Professional Web Development Denmark',
       description: isDA
-        ? 'Webbureau København specialiseret i moderne hjemmesider. Fast pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder.'
-        : 'Web agency Copenhagen specializing in modern websites. Fixed price, fast delivery, professional website development for Danish businesses.',
+        ? 'Webbureau København specialiseret i moderne hjemmesider. Klar pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder.'
+        : 'Web agency Copenhagen specializing in modern websites. Clear pricing, fast delivery, professional website development for Danish businesses.',
       images: [
         {
           url: `${baseUrl}/og-image.jpg`,
@@ -94,8 +94,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? 'Transparo | Professionel Webudvikling Danmark'
         : 'Transparo | Professional Web Development Denmark',
       description: isDA
-        ? 'Webbureau København - Moderne hjemmesider med fast pris og hurtig levering'
-        : 'Web Agency Copenhagen - Modern websites with fixed price and fast delivery',
+        ? 'Webbureau København - Moderne hjemmesider med klar pris og hurtig levering'
+        : 'Web Agency Copenhagen - Modern websites with clear pricing and fast delivery',
       images: [`${baseUrl}/twitter-image.jpg`],
     },
     icons: {

@@ -34,7 +34,6 @@ export function CaseShowcase() {
 
   if (cases.length === 0) return null
   const current = cases[active]
-  const dur = shouldReduceMotion ? 0 : 0.7
   const meta = [
     { k: 'Klient', v: current.author },
     { k: 'Ydelse', v: current.labels.join(' · ') },
@@ -146,20 +145,6 @@ export function CaseShowcase() {
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: dur, ease: 'easeOut' }}
-          className="mt-12 md:mt-16 pt-10 md:pt-14 border-t border-black/10 grid md:grid-cols-2 gap-6 md:gap-16"
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-[1.05] tracking-tight">
-            {t('headingLine1')}
-            <br />
-            <span className="text-black/40">{t('headingLine2')}</span>
-          </h2>
-          <p className="text-black/60 text-base md:text-lg leading-relaxed">{t('description1')}</p>
-        </motion.div>
       </div>
     </section>
   )

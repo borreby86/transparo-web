@@ -4,7 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { ExclusiveSection } from '@/components/sections/ExclusiveSection'
 import { BrandStorySection } from '@/components/sections/BrandStorySection'
-import { TeamSection } from '@/components/sections/TeamSection'
+import { AboutSection } from '@/components/sections/AboutSection'
 import { FinalCTASection } from '@/components/sections/FinalCTASection'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -33,7 +33,7 @@ export default async function OmOsPage({ params }: { params: Promise<{ locale: s
       <main>
         <ExclusiveSection />
         <BrandStorySection />
-        <TeamSection />
+        <AboutSection />
         <FinalCTASection />
       </main>
       <Footer />
