@@ -11,43 +11,15 @@ export function Footer() {
   return (
     <footer className="bg-white text-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16 pb-[calc(3rem+env(safe-area-inset-bottom,0px))] md:pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand Column */}
-          <div className="lg:col-span-2">
+          <div className="md:col-span-2">
             <div className="font-display font-bold text-2xl mb-2">
               transparo<span className="text-gold">.</span>
             </div>
             <p className="text-sm text-black/50 mb-4">
               {t('tagline')}
             </p>
-            <p className="text-black/70 text-sm max-w-md">
-              {t('description')}
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-display font-semibold text-lg mb-4">
-              {t('quickLinksTitle')}
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/cases"
-                  className="text-black/70 hover:text-gold transition-colors text-sm"
-                >
-                  {t('portfolio')}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/kontakt"
-                  className="text-black/70 hover:text-gold transition-colors text-sm"
-                >
-                  {t('kontakt')}
-                </Link>
-              </li>
-            </ul>
           </div>
 
           {/* Contact Info */}
