@@ -192,6 +192,22 @@ export default function CaseStudyClient({ caseStudy, nextCase }: CaseStudyClient
                 <p className="text-2xl md:text-3xl lg:text-[2rem] leading-[1.4] text-black/80 max-w-3xl">{caseStudy.solution}</p>
               </Row>
             </motion.div>
+            {caseStudy.family && (
+              <motion.div {...reveal}>
+                <Row label="Samme paraply">
+                  <div className="max-w-3xl rounded-2xl border border-gold/40 bg-[#faf8f3] p-8 md:p-10">
+                    <p className="text-lg md:text-xl leading-relaxed text-black/75 mb-6">{caseStudy.family.text}</p>
+                    <Link
+                      href={{ pathname: '/cases/[slug]', params: { slug: caseStudy.family.slug } }}
+                      className="group inline-flex items-center gap-2 text-sm font-semibold text-black hover:text-gold transition-colors"
+                    >
+                      {caseStudy.family.label}
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </Row>
+              </motion.div>
+            )}
           </div>
         </section>
 

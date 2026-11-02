@@ -73,12 +73,18 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
           </motion.div>
         </div>
 
-        {/* Title + labels below image */}
+        {/* Domæne + hvad de sælger + labels */}
         <div className="mt-6">
-          <h2 className="text-xl md:text-2xl font-bold text-black group-hover:text-gold transition-colors duration-300 mb-3">
+          <h2 className="text-xl md:text-2xl font-bold text-black group-hover:text-gold transition-colors duration-300 mb-1.5">
             {project.title}
           </h2>
+          <p className="text-black/60 text-base md:text-lg leading-snug mb-4">{project.tagline}</p>
           <div className="flex items-center gap-2 flex-wrap">
+            {project.badge && (
+              <span className="text-xs font-semibold uppercase tracking-wider text-gold border border-gold/50 rounded-full px-3 py-1">
+                {project.badge}
+              </span>
+            )}
             {project.labels.map((label) => (
               <span
                 key={label}

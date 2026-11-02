@@ -7,6 +7,10 @@ export interface CaseStudy {
   labels: string[]
   siteUrl?: string // live site – shows a "Besøg website" button when set
   subpageUrl?: string // underside der vises på tablet i mockup (kun til dokumentation)
+  tagline: string // kort: hvad de sælger – vises under titlen i oversigten
+  badge?: string // lille fremhævet label i oversigten, fx "Personligt site"
+  /** Sammenhæng til en anden case (fx to sites under samme paraply) */
+  family?: { slug: string; label: string; text: string }
   author: string
   role: string
 }
@@ -43,10 +47,11 @@ export interface CaseStudyDetail extends CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    title: 'Eskild Ebbesen – High Performance',
-    subtitle: 'Personlig brandsite for Danmarks mest vindende OL-atlet og ekspert i high performance',
+    title: 'eskildebbesen.dk',
+    subtitle: 'Personligt brandsite for Danmarks mest vindende OL-atlet – med foredrag, teambuilding og kurser i centrum',
     imageUrl: '/portfolio-images/eskild-ebbesen.webp',
     slug: 'eskild-ebbesen',
+    tagline: 'Foredrag og teambuilding',
     siteUrl: 'https://eskildebbesen.dk',
     subpageUrl: 'https://www.eskildebbesen.dk/foredrag',
     labels: ['Branding', 'Website'],
@@ -55,10 +60,11 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 3,
-    title: 'Significanz – Executive Coaching',
+    title: 'significanz.dk',
     subtitle: 'Et elegant website for et københavnsk coaching-firma med fokus på ledelse og personlig udvikling',
     imageUrl: '/portfolio-images/significanz-2.webp',
     slug: 'significanz',
+    tagline: 'Executive coaching og lederudvikling',
     siteUrl: 'https://significanz.dk',
     subpageUrl: 'https://www.significanz.dk/about',
     labels: ['Branding', 'Website'],
@@ -67,10 +73,17 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 5,
-    title: 'Autentisk lederudvikling med hesteassisteret coaching',
+    title: 'christinaborreby.dk',
     subtitle: 'En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab',
     imageUrl: '/portfolio-images/christina-borreby-new.webp',
     slug: 'christina-borreby',
+    tagline: 'Udvikling med hestekræfter for ledere, teams og unge',
+    badge: 'Personligt site',
+    family: {
+      slug: 'autentisk-indflydelse',
+      label: 'Se autentiskindflydelse.dk',
+      text: 'christinaborreby.dk er Christina personligt: hendes baggrund, hendes metode og forløb for ledere, teams og unge. autentiskindflydelse.dk er selve konceptet bag og bruger samme designsprog, så de to sites tydeligt hører sammen.',
+    },
     siteUrl: 'https://christinaborreby.dk',
     subpageUrl: 'https://www.christinaborreby.dk/lederudvikling-nordsjaelland',
     labels: ['Branding', 'Website'],
@@ -79,10 +92,11 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 8,
-    title: 'Kasha Hansen – Inner Shift Metoden',
+    title: 'Kasha Hansen',
     subtitle: 'Et roligt og troværdigt website for psykoterapeut og coach, der gør det nemt at tage første skridt',
     imageUrl: '/portfolio-images/screens/kasha-hansen-desktop.webp',
     slug: 'kasha-hansen',
+    tagline: 'Terapi og coaching',
     siteUrl: 'https://kasha-website-nextjs.vercel.app',
     subpageUrl: 'https://kasha-website-nextjs.vercel.app/individuel-terapi',
     labels: ['Branding', 'Website'],
@@ -91,10 +105,17 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: 9,
-    title: 'Autentisk Indflydelse – hesteassisteret lederudvikling',
+    title: 'autentiskindflydelse.dk',
     subtitle: 'Et website der forklarer en usædvanlig metode klart og får ledere, HR og kursusudbydere til at booke en samtale',
     imageUrl: '/portfolio-images/screens/autentisk-indflydelse-desktop.webp',
     slug: 'autentisk-indflydelse',
+    tagline: 'Koncept i hesteassisteret læring',
+    badge: 'Konceptsite',
+    family: {
+      slug: 'christina-borreby',
+      label: 'Se christinaborreby.dk',
+      text: 'autentiskindflydelse.dk er konceptet under samme paraply som christinaborreby.dk. Designet går igen, så man kan genkende universet, men her er det metoden og målgrupperne, der er i centrum. Christina personligt finder du på christinaborreby.dk.',
+    },
     siteUrl: 'https://www.autentiskindflydelse.dk',
     subpageUrl: 'https://www.autentiskindflydelse.dk/ledergrupper',
     labels: ['Branding', 'Website'],
@@ -113,7 +134,7 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
   {
     ...cs('eskild-ebbesen'),
     challenge:
-      'Eskild havde brug for et personligt website der matchede hans brand som OL-guldvinder og high performance ekspert. Siden skulle udstråle professionalisme og gøre det nemt at booke ham som foredragsholder.',
+      'Eskild havde brug for et personligt website der matchede hans brand som OL-guldvinder og foredragsholder. Siden skulle udstråle professionalisme og gøre det nemt at booke ham som foredragsholder.',
     solution:
       'Vi designede et rent, personligt brandsite med fokus på Eskilds historie, ydelser og troværdighed. Enkel navigation, booking-integration og et visuelt udtryk der matcher hans kaliber.',
     technologies: ['Next.js', 'Payload CMS', 'Motion', 'Tailwind CSS', 'Vercel'],
@@ -330,9 +351,9 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
   {
     ...cs('kasha-hansen'),
     challenge:
-      'Kasha arbejder med mennesker, der ofte ikke er i krise, men mærker at noget mangler. Websitet skulle skabe ro og tillid fra første sekund og forklare Inner Shift-metoden, uden at det føltes som en klinik eller en salgsside.',
+      'Kasha arbejder med mennesker, der ofte ikke er i krise, men mærker at noget mangler. Websitet skulle skabe ro og tillid fra første sekund og forklare hendes tilgang til terapi og coaching, uden at det føltes som en klinik eller en salgsside.',
     solution:
-      'Vi byggede et varmt, roligt website med tydelige veje ind til individuel terapi, parterapi og onlineforløbet. Metoden forklares i et sprog man kan genkende sig selv i, og flere lave indgange – en refleksionstest, en gratis samtale og nyhedsbrev – gør første skridt let.',
+      'Vi byggede et varmt, roligt website med tydelige veje ind til individuel terapi, parterapi og onlineforløbet. Tilgangen forklares i et sprog man kan genkende sig selv i, og flere lave indgange – en refleksionstest, en gratis samtale og nyhedsbrev – gør første skridt let.',
     technologies: ['Next.js', 'Tailwind CSS', 'Vercel'],
     timeline: 'N/A',
     deliverables: [
