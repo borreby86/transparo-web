@@ -1,0 +1,23 @@
+name: capture-mbs
+on:
+  push:
+    branches: [capture-mbs]
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
+      - run: node scripts/capture-screens.mjs mind-balance-system
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add -f public/portfolio-images/screens data/screenManifest.json
+          git commit -m "Skærmbilleder: mind-balance-system" && git push

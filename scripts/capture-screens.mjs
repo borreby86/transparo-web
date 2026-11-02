@@ -34,6 +34,7 @@ const SITES = {
     focus: { desktop: { y: 240 }, tablet: { y: 200 }, mobile: { text: 'Velkommen', offset: 60 } },
   },
   'autentisk-indflydelse': { home: 'https://www.autentiskindflydelse.dk', sub: 'https://www.autentiskindflydelse.dk/ledergrupper' },
+  'mind-balance-system': { home: 'https://mbs-executive.vercel.app/', sub: 'https://mbs-executive.vercel.app/methodology' },
 }
 
 // Viewports matcher proportionerne på skærmene i "portfolio mockup.png"
