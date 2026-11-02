@@ -5,8 +5,7 @@ import { useState, useEffect } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
-import Image from 'next/image'
-import { caseStudies } from '@/data/caseStudies'
+import { CaseShowcase } from '@/components/sections/CaseShowcase'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
 export function HeroSection() {
@@ -54,12 +53,8 @@ export function HeroSection() {
   }, [charIndex, shouldReduceMotion, word.length, hasSeenLoader])
 
 
-  const showcase = caseStudies.slice(0, 7)
-  // Duplicated so the marquee loops seamlessly
-  const loop = [...showcase, ...showcase]
-
   return (
-    <section className="relative min-h-dvh flex flex-col overflow-hidden bg-[#faf9f6]">
+    <section className="relative overflow-hidden bg-[#faf9f6]">
       {/* Loader: "transparo." typewriter */}
       <AnimatePresence>
         {showLoader && (
@@ -83,109 +78,62 @@ export function HeroSection() {
         )}
       </AnimatePresence>
 
-      {/* Black hero – same format as the case pages */}
-      <div className="relative bg-black px-6 md:px-12 pt-40 pb-20 md:pt-48 md:pb-28 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto relative z-10">
-          <motion.span
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
-            className="text-xs font-medium uppercase tracking-[0.15em] text-gold block mb-8"
-          >
-            {t('overline')}
-          </motion.span>
+      {/* Black hero – same format as the case pages, kept compact so the cases are visible straight away */}
+      <div className="relative bg-black px-6 md:px-12 pt-28 pb-8 md:pt-32 md:pb-10 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto relative z-10 grid lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-8 lg:gap-16 lg:items-end">
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+              animate={showHero ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
+              className="text-xs font-medium uppercase tracking-[0.15em] text-gold block mb-4"
+            >
+              {t('overline')}
+            </motion.span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-6 max-w-4xl"
-          >
-            <span className="text-white">{t('headlinePart1')}</span>
-            <br />
-            <span className="text-gold">{t('headlinePart2')}</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2 }}
-            className="text-lg md:text-xl text-white/50 max-w-2xl leading-relaxed mb-10"
-          >
-            {t('subtitle')}
-          </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+              animate={showHero ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.05] tracking-tight"
+            >
+              <span className="text-white">{t('headlinePart1')}</span>
+              <br />
+              <span className="text-gold">{t('headlinePart2')}</span>
+            </motion.h1>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
             animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.3 }}
-            className="flex flex-wrap items-center gap-3"
+            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2 }}
           >
-            <Link
-              href="/cases"
-              className="inline-block px-6 py-3 bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors duration-300"
-            >
-              {t('ctaPortfolio')}
-            </Link>
-            <button
-              onClick={openDesignProposal}
-              className="inline-block px-6 py-3 bg-gold text-black text-sm font-semibold hover:bg-gold/90 transition-colors duration-300"
-            >
-              {t('ctaDesignProposal')}
-            </button>
+            <p className="text-base md:text-lg text-white/50 max-w-xl leading-relaxed mb-6">{t('subtitle')}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={openDesignProposal}
+                className="inline-block px-6 py-3 bg-gold text-black text-sm font-semibold hover:bg-gold/90 transition-colors duration-300"
+              >
+                {t('ctaDesignProposal')}
+              </button>
+              <Link
+                href="/cases"
+                className="inline-block px-6 py-3 bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors duration-300"
+              >
+                {t('ctaPortfolio')}
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Cases – drifting collage banner */}
+      {/* Cases are the hero's main message */}
       <motion.div
-        className="relative py-12 md:py-16"
         initial={{ opacity: 0 }}
         animate={showHero ? { opacity: 1 } : {}}
-        transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 0.3 }}
+        transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: shouldReduceMotion ? 0 : 0.3 }}
       >
-        <div className="flex items-end justify-between px-6 sm:px-8 md:px-12 lg:px-16 mb-6 max-w-[1400px] w-full mx-auto">
-          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-black/40">
-            {t('ctaPortfolio')}
-          </span>
-          <Link
-            href="/cases"
-            className="text-sm text-black/50 hover:text-gold transition-colors duration-300 inline-flex items-center gap-2"
-          >
-            {t('ctaPortfolio')} <span className="text-gold">→</span>
-          </Link>
-        </div>
-
-        <div className="hero-marquee overflow-hidden">
-          <div className="hero-marquee-track flex items-center w-max">
-            {loop.map((study, i) => {
-              const tall = i % 2 === 0
-              return (
-                <Link
-                  key={`${study.slug}-${i}`}
-                  href={`/cases/${study.slug}` as '/cases'}
-                  aria-hidden={i >= showcase.length ? true : undefined}
-                  tabIndex={i >= showcase.length ? -1 : undefined}
-                  className="group relative block shrink-0 overflow-hidden bg-black/5 w-[220px] md:w-[300px] mr-4 md:mr-6"
-                  style={{ height: tall ? 'clamp(260px, 42dvh, 460px)' : 'clamp(200px, 32dvh, 360px)' }}
-                >
-                  <Image
-                    src={study.imageUrl}
-                    alt={study.title}
-                    fill
-                    sizes="300px"
-                    className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="text-white text-xs font-medium tracking-wide">
-                      {study.title.split(' – ')[0]}
-                    </span>
-                  </div>
-                </Link>
-              )
-            })}
-          </div>
-        </div>
+        <CaseShowcase />
       </motion.div>
     </section>
   )

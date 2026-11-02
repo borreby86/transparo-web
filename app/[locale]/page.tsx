@@ -13,10 +13,6 @@ const PremiumProcessTimeline = dynamic(() => import('@/components/sections/Premi
   loading: () => <div className="h-96 bg-navy" />
 })
 
-const PortfolioSection = dynamic(() => import('@/components/sections/PortfolioSection').then((mod) => mod.PortfolioSection), {
-  loading: () => <div className="h-96 bg-white" />
-})
-
 const AboutSection = dynamic(() => import('@/components/sections/AboutSection').then((mod) => mod.AboutSection), {
   loading: () => <div className="h-96 bg-white" />
 })
@@ -56,7 +52,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <HeroSection />
         <ProblemSolutionSection />
         <WhyUsSection />
-        <PortfolioSection />
         <PremiumProcessTimeline />
         <AboutSection />
         <FinalCTASection />

@@ -125,7 +125,8 @@ export function DesignProposalModal() {
               duration: 0.25,
               ease: [0.32, 0.72, 0, 1]
             }}
-            className="fixed z-[70] bg-black text-white overflow-y-auto"
+            data-lenis-prevent
+            className="fixed z-[70] bg-black text-white overflow-y-auto overscroll-contain"
             style={{
               top: 0,
               bottom: 0,
