@@ -1081,33 +1081,6 @@
           "Nyhedsbrev-integration",
           "Social media integration"
         ]
-      },
-      {
-        "id": 7,
-        "title": "Klimakurt – Grøn energi til alle",
-        "subtitle": "Bæredygtige løsninger for en grønnere fremtid",
-        "slug": "klimakurt",
-        "labels": [
-          "Branding",
-          "Website"
-        ],
-        "author": "Kurt Jensen",
-        "role": "Direktør, Klimakurt",
-        "challenge": "Klimakurt ønskede at nå ud til flere kunder med deres grønne energiløsninger. Udfordringen var at gøre teknisk viden letforståelig for den almindelige forbruger.",
-        "solution": "Vi udviklede en informativ og indbydende hjemmeside, der guider kunden gennem deres grønne muligheder. Fokus på klare Call-to-Actions og troværdighed.",
-        "technologies": [
-          "Next.js",
-          "Tailwind CSS",
-          "Motion",
-          "SEO"
-        ],
-        "timeline": "4 uger",
-        "deliverables": [
-          "Hjemmeside",
-          "SEO-optimering",
-          "Tekstforfatning",
-          "Grafisk identitet"
-        ]
       }
     ]
   },
