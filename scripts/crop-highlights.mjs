@@ -34,9 +34,18 @@ const CROPS = {
     { name: 'malgrupper', y: 3164, h: 1616 },
     { name: 'hvorfor-heste', y: 5571, h: 1845 },
   ],
+  'mind-balance-system': [
+    { name: 'hero', y: 0, h: 1170 },
+    { name: 'veje-ind', y: 1170, h: 2210 },
+    { name: 'metoden', y: 4663, h: 1360 },
+    { name: 'udbytte', y: 7460, h: 1040 },
+  ],
 }
 
+const only = process.argv.slice(2)
+
 for (const [slug, crops] of Object.entries(CROPS)) {
+  if (only.length && !only.includes(slug)) continue
   const src = `public/portfolio-images/screens/full/${slug}-desktop.webp`
   const { width } = await sharp(src).metadata()
   for (const c of crops) {

@@ -21,7 +21,9 @@ const CASES = {
   'christina-borreby': null,
   'kasha-hansen': null,
   'autentisk-indflydelse': null,
+  'mind-balance-system': null,
 }
+const only = process.argv.slice(2)
 
 const base = await sharp('scripts/assets/frame-base.png').toBuffer()
 const masks = {}
@@ -30,6 +32,7 @@ for (const dev of Object.keys(SCREENS)) {
 }
 
 for (const [slug, fallback] of Object.entries(CASES)) {
+  if (only.length && !only.includes(slug)) continue
   const overlays = []
   for (const [dev, s] of Object.entries(SCREENS)) {
     const live = path.join(SHOTS, `${slug}-${dev}.webp`)

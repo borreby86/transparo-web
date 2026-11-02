@@ -122,6 +122,19 @@ export const caseStudies: CaseStudy[] = [
     author: 'Autentisk Indflydelse',
     role: 'Lederudvikling i Nordsjælland',
   },
+  {
+    id: 10,
+    title: 'Mind Balance System',
+    subtitle: 'Et autoritativt website der forklarer en valideret målemetode og får HR, ledere og partnere til at booke en briefing',
+    imageUrl: '/portfolio-images/screens/mind-balance-system-desktop.webp',
+    slug: 'mind-balance-system',
+    tagline: 'Ledelses- og teamudvikling baseret på målinger',
+    siteUrl: 'https://mbs-executive.vercel.app',
+    subpageUrl: 'https://mbs-executive.vercel.app/methodology',
+    labels: ['Website'],
+    author: 'Mind Balance System',
+    role: 'Metode til ledelses- og teamudvikling',
+  },
 ]
 
 const cs = (slug: string): CaseStudy => {
@@ -488,6 +501,79 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
         fonts: [
           { role: 'Overskrifter', name: 'Cormorant Garamond', note: 'Elegant serif med guld-kursiv', specimen: 'cormorant' },
           { role: 'Brødtekst', name: 'Jost', note: 'Let og moderne geometrisk sans', specimen: 'jost' },
+        ],
+      },
+    },
+  },
+  {
+    ...cs('mind-balance-system'),
+    challenge:
+      'Mind Balance System har en valideret metode, der omsætter målinger som APV og trivselsundersøgelser til konkret adfærd i teams og ledergrupper. Metoden er stærk, men abstrakt, og sitet skulle tale til tre meget forskellige målgrupper: HR og organisationer, enkelte ledere og konsulenter, der vil certificeres som partnere.',
+    solution:
+      'Vi gav sitet et institutionelt, roligt udtryk med navy, serif-overskrifter og en disciplineret guld-accent. Forsiden fører hver målgruppe ind ad sin egen vej, metoden er brudt ned i tre trin med tal, der skaber troværdighed, og alt peger mod én handling: Book en briefing.',
+    technologies: ['Next.js', 'TypeScript', 'Vercel'],
+    timeline: 'N/A',
+    deliverables: [
+      'Corporate website',
+      'Undersider pr. målgruppe',
+      'Formular til booking af briefing',
+      'SEO-optimering',
+      'Mobiloptimering',
+    ],
+    story: {
+      subpageLabel: 'Metoden',
+      highlights: [
+        {
+          title: 'Budskabet på én linje',
+          text: 'Forsiden siger med det samme, hvad der adskiller MBS: Alle kan pege på problemet, MBS peger på handlingen. Kursiv guld fremhæver ordet, der betyder noget.',
+          bullets: [
+            'Serif-overskrift med guld-kursiv på nøgleordet',
+            'Fuldbredde-foto fra en rigtig session',
+            'To tydelige handlinger: Book en briefing og Se metoden',
+          ],
+          image: { src: '/portfolio-images/cases/mind-balance-system/hero.webp', w: 2160, h: 1170 },
+        },
+        {
+          title: 'Fire veje ind – én for hver målgruppe',
+          text: 'Organisation, teams, ledere og individuelle forløb har hver deres kort med eget billede og nummer. Certificering har sit eget bånd nederst, så partnere hurtigt finder vej.',
+          bullets: [
+            'Store, nummererede kort med foto bag teksten',
+            'Hver målgruppe får sit eget sprog og sin egen underside',
+            'Partneruddannelse som selvstændig indgang',
+          ],
+          image: { src: '/portfolio-images/cases/mind-balance-system/veje-ind.webp', w: 2160, h: 2210 },
+        },
+        {
+          title: 'En abstrakt metode gjort konkret',
+          text: 'Metoden er brudt ned i tre trin, og tal som 120 validerede spørgsmål og udviklet i 2018 giver evidens uden at blive tung læsning.',
+          bullets: [
+            'Tre trin: Mål adfærden, Forstå mønstret, Omsæt til handling',
+            'Nøgletal i stor serif som troværdighedsmarkører',
+            'Foto fra en session understøtter, at metoden bruges i praksis',
+          ],
+          image: { src: '/portfolio-images/cases/mind-balance-system/metoden.webp', w: 2160, h: 1360 },
+        },
+        {
+          title: 'Udbyttet set fra begge sider af bordet',
+          text: 'Et navy bånd med bølgede kanter samler, hvad lederen og organisationen hver især får ud af forløbet. Bølgen går igen fra logoet og binder sitet sammen.',
+          bullets: [
+            'To kolonner: lederen og ledergruppen vs. organisationen',
+            'Bølgeformede overgange som gennemgående signatur',
+            'Leder videre til et pilotforløb med ét team',
+          ],
+          image: { src: '/portfolio-images/cases/mind-balance-system/udbytte.webp', w: 2160, h: 1040 },
+        },
+      ],
+      designSystem: {
+        colors: [
+          { name: 'Navy', hex: '#0F2A44', use: 'Overskrifter og mørke sektioner' },
+          { name: 'Guld', hex: '#C2A35B', use: 'Accent, kursiv og knapper' },
+          { name: 'Ben', hex: '#F5F2EC', use: 'Baggrund' },
+          { name: 'Grå', hex: '#677077', use: 'Brødtekst' },
+        ],
+        fonts: [
+          { role: 'Overskrifter', name: 'Playfair Display', note: 'Klassisk serif med autoritet og elegant kursiv', specimen: 'playfair' },
+          { role: 'Brødtekst', name: 'Source Sans 3', note: 'Klar og professionel sans, let at læse i længere tekster' },
         ],
       },
     },
