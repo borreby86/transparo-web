@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { locales } from '@/i18n/config'
+import { caseStudiesDetailed } from '@/data/caseStudies'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://transparo.dk'
@@ -44,14 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Case study slugs
-  const caseSlugs = [
-    'health-platform',
-    'walter-ai',
-    'flotte-foedder',
-    'alex-morgan-photography',
-    'christina-borreby',
-    'vat85',
-  ]
+  const caseSlugs = caseStudiesDetailed.map((c) => c.slug)
 
   const casePages = caseSlugs.flatMap((slug) =>
     locales.map((locale) => ({

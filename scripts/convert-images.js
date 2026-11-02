@@ -8,10 +8,8 @@ const outputDir = inputDir // Same directory
 const images = [
   'Flotte-Foder.png',
   'Hest.png',
-  'Photograph.png',
   'Revy.png',
   'Sundhed.png',
-  'WalterAI-Fodbold.png',
 ]
 
 async function convertImages() {

@@ -146,8 +146,8 @@
   "portfolio": {
     "overline": "Udvalgte projekter",
     "headingLine1": "Websites der",
-    "headingLine2": "arbejder for dig.",
-    "description1": "Hvert projekt starter med en forståelse af din forretning – hvem du taler til, og hvad din side skal opnå.",
+    "headingLine2": "afspejler din professionalisme",
+    "description1": "Vores fornemmeste opgave er at forstå din forretning, så vi kan hjælpe dig bedst muligt på vej til det visuelle udtryk, der afspejler dig og dit virke bedst muligt. Hvert projekt starter derfor med en afklarende samtale, så vi lærer dig at kende, inden vi skaber dit nye ansigt udadtil.",
     "viewAll": "Se alle projekter",
     "pageOverline": "Portfolio",
     "pageTitle": "Vores arbejde",
@@ -937,35 +937,6 @@
         ]
       },
       {
-        "id": 2,
-        "title": "AI-drevet fodboldanalyse",
-        "subtitle": "Præcise forudsigelser, dybe data og taktiske indsigter",
-        "slug": "walter-ai",
-        "labels": [
-          "AI",
-          "Fodbold"
-        ],
-        "author": "Mikkel Juul",
-        "role": "CEO, WalterAI",
-        "challenge": "WalterAI havde brug for en platform der kunne præsentere komplekse AI-analyser og fodbolddata på en måde der var tilgængelig for både trænere og fans. Data skulle være både dyb og let at forstå.",
-        "solution": "Vi skabte en interaktiv dataplatform med realtids-visualiseringer, AI-drevne indsigter og en brugervenlig grænseflade. Platformen kombinerer avanceret teknologi med en intuitiv brugeroplevelse der gør komplekse data forståelige.",
-        "technologies": [
-          "Next.js",
-          "AI/ML Integration",
-          "Motion",
-          "D3.js",
-          "Real-time Data"
-        ],
-        "timeline": "12 uger",
-        "deliverables": [
-          "Interaktiv dataplatform",
-          "AI-integration",
-          "Dashboards i realtid",
-          "Mobilapp",
-          "Admin CMS"
-        ]
-      },
-      {
         "id": 3,
         "title": "Significanz – Executive Coaching",
         "subtitle": "Et elegant website for et københavnsk coaching-firma med fokus på ledelse og personlig udvikling",
@@ -995,35 +966,6 @@
         ]
       },
       {
-        "id": 4,
-        "title": "Fotografportefølje med fokus på autenticitet",
-        "subtitle": "En elegant og personlig fotowebsite til bryllupper, dåb og livsstil",
-        "slug": "alex-morgan-photography",
-        "labels": [
-          "Branding",
-          "Website"
-        ],
-        "author": "Alex Morgan",
-        "role": "Fotograf",
-        "challenge": "Alex Morgan havde brug for en portefølje der kunne vise deres fotografier i bedste lys, samtidig med at oplevelsen skulle være personlig og elegant – som et digitalt magasin.",
-        "solution": "Vi skabte en visuel portefølje med fokus på billederne. Med elegante overgange, optimeret billedkvalitet og en enkel navigation der lader fotografierne tale for sig selv.",
-        "technologies": [
-          "Next.js",
-          "Image Optimization",
-          "Motion",
-          "Tailwind CSS",
-          "Vercel"
-        ],
-        "timeline": "3 uger",
-        "deliverables": [
-          "Porteføljewebsite",
-          "Galleri-system",
-          "Kontaktformular",
-          "SEO-optimering",
-          "Billedoptimering"
-        ]
-      },
-      {
         "id": 5,
         "title": "Autentisk lederudvikling med hesteassisteret coaching",
         "subtitle": "En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab",
@@ -1050,35 +992,6 @@
           "Booking-integration",
           "SEO-optimering",
           "Video-integration"
-        ]
-      },
-      {
-        "id": 6,
-        "title": "40 år med lokal teaterkultur og fællesskab",
-        "subtitle": "En moderne teateroplevelse med fokus på revy, dramatik og stærke fortællinger",
-        "slug": "vat85",
-        "labels": [
-          "Branding",
-          "Website"
-        ],
-        "author": "Thomas Kjeldsen",
-        "role": "Formand, VAT 85",
-        "challenge": "VAT 85 havde brug for en moderne platform til at håndtere billetflow, kommunikere program og fastholde den festivalånd der kendetegner deres 40 år med teaterkultur.",
-        "solution": "Vi skabte en dynamisk festival-website med fokus på brugervenlighed, billetflow og storytelling. Med integration af billetsystemer, programoversigt og en visuel identitet der fanger revyånden.",
-        "technologies": [
-          "Next.js",
-          "Ticket Integration",
-          "Payload CMS",
-          "Motion",
-          "Tailwind CSS"
-        ],
-        "timeline": "6 uger",
-        "deliverables": [
-          "Festival-website",
-          "Billetintegration",
-          "Program-CMS",
-          "Nyhedsbrev-integration",
-          "Social media integration"
         ]
       }
     ]

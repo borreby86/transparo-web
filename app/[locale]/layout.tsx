@@ -8,6 +8,7 @@ import { ClientProviders } from '@/components/ClientProviders'
 import { CookieBanner } from '@/components/ui/CookieBanner'
 import { DesignProposalProvider } from '@/components/ui/DesignProposalContext'
 import { DesignProposalModal } from '@/components/ui/DesignProposalModal'
+import InlineEditor from '@/components/dev/InlineEditor'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -194,6 +195,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <DesignProposalModal />
           </DesignProposalProvider>
           <CookieBanner />
+          {process.env.NODE_ENV === 'development' && <InlineEditor />}
         </NextIntlClientProvider>
       </body>
     </html>

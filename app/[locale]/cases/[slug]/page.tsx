@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   }
 
   return {
-    title: `${caseStudy.title} - Case Study | Transparo`,
+    title: `${caseStudy.title} - Case Study`,
     description: `${caseStudy.subtitle}. ${locale === 'da' ? 'Se hvordan vi hjalp' : 'See how we helped'} ${caseStudy.author} ${locale === 'da' ? 'hos' : 'at'} ${caseStudy.role.split(', ')[1] || caseStudy.role} ${locale === 'da' ? 'med professionel webudvikling' : 'with professional web development'}.`,
     keywords: [
       'case study',
@@ -70,5 +70,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound()
   }
 
-  return <CaseStudyClient caseStudy={caseStudy} />
+  const index = caseStudiesDetailed.findIndex((c) => c.slug === slug)
+  const next = caseStudiesDetailed[(index + 1) % caseStudiesDetailed.length]
+  const nextCase = next && next.slug !== slug ? { slug: next.slug, title: next.title, labels: next.labels } : undefined
+
+  return <CaseStudyClient caseStudy={caseStudy} nextCase={nextCase} />
 }

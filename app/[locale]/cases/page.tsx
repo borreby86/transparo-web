@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useMotionValue, useSpring } from 'motion/react'
-import Image from 'next/image'
+import { DeviceShowcase } from '@/components/ui/DeviceShowcase'
 import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -61,20 +61,16 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
             {number}
           </span>
 
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <motion.div
-              className="absolute inset-[-1.5rem]"
-              style={{ x: springImgX, y: springImgY }}
-            >
-              <Image
-                src={project.imageUrl}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                sizes="(max-width: 768px) 100vw, 650px"
-              />
-            </motion.div>
-          </div>
+          <motion.div
+            className="relative bg-[#ece6e1] transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            style={{ x: springImgX, y: springImgY }}
+          >
+            <DeviceShowcase
+              slug={project.slug}
+              title={project.title}
+              priority={index < 2}
+            />
+          </motion.div>
         </div>
 
         {/* Title + labels below image */}
@@ -114,10 +110,10 @@ export default function CasesPage() {
               transition={{ duration: shouldReduceMotion ? 0 : 0.8 }}
             >
               <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-6 block">
-                Portfolio
+                Vores arbejde
               </span>
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1] tracking-tight mb-6">
-                Vores arbejde
+                Portfolio
               </h1>
               <p className="text-white/40 text-lg md:text-xl max-w-xl leading-relaxed">
                 Et udvalg af projekter vi har lavet for danske virksomheder.

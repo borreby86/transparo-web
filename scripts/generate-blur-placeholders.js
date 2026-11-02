@@ -6,9 +6,7 @@ const inputDir = path.join(__dirname, '../public/portfolio-images')
 
 const images = [
   { name: 'Sundhed.webp', key: 'sundhed' },
-  { name: 'WalterAI-Fodbold.webp', key: 'walterAI' },
   { name: 'Flotte-Foder.webp', key: 'flotteFoedder' },
-  { name: 'Photograph.webp', key: 'photograph' },
   { name: 'Hest.webp', key: 'hest' },
   { name: 'Revy.webp', key: 'revy' },
 ]
