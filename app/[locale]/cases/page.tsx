@@ -53,7 +53,7 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
         <div
           ref={cardRef}
           data-project-card
-          className="relative overflow-hidden rounded-2xl border border-white/10 shadow-sm transition-shadow duration-500 group-hover:shadow-xl group-hover:shadow-black/10"
+          className="relative overflow-hidden"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
@@ -63,7 +63,7 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
           </span>
 
           <motion.div
-            className="relative bg-[#ece6e1] transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            className="relative transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             style={{ x: springImgX, y: springImgY }}
           >
             <DeviceShowcase

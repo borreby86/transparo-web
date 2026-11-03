@@ -12,6 +12,15 @@ import { caseStudiesDetailed } from '@/data/caseStudies'
 
 const FEATURED = ['eskild-ebbesen', 'mind-balance-system', 'significanz', 'christina-borreby']
 const INTERVAL = 6500
+// Fader mockup-billedets kanter ud, så der ikke ses en kant mod sektionens baggrund
+const FEATHER =
+  'linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent)'
+const FEATHER_STYLE = {
+  WebkitMaskImage: FEATHER,
+  maskImage: FEATHER,
+  WebkitMaskComposite: 'source-in',
+  maskComposite: 'intersect',
+} as const
 
 export function CaseShowcase() {
   const shouldReduceMotion = useReducedMotion()
@@ -75,6 +84,7 @@ export function CaseShowcase() {
               <motion.div
                 key={c.slug}
                 className="absolute inset-0"
+                style={FEATHER_STYLE}
                 initial={false}
                 animate={{ opacity: i === active ? 1 : 0, scale: shouldReduceMotion || i === active ? 1 : 0.985 }}
                 transition={{ duration: shouldReduceMotion ? 0 : 0.9, ease: 'easeOut' }}

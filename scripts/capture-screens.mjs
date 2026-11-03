@@ -26,7 +26,7 @@ const SITES = {
   'christina-borreby': {
     home: 'https://www.christinaborreby.dk',
     sub: 'https://www.christinaborreby.dk/lederudvikling-nordsjaelland',
-    focus: { desktop: { text: 'Din facilitator', offset: 60 }, mobile: { text: 'Din facilitator', offset: 320 } },
+    focus: { mobile: { text: 'Din facilitator', offset: 320 } }, // computer = almindelig forside
   },
   'kasha-hansen': {
     home: 'https://kasha-website-nextjs.vercel.app/',
