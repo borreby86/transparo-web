@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { caseStudiesDetailed } from '@/data/caseStudies'
+import { TagLine } from '@/components/ui/TagLine'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useRef } from 'react'
 
@@ -57,7 +58,7 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
           onMouseLeave={handleMouseLeave}
         >
           {/* Gold number */}
-          <span className="absolute top-5 left-5 z-10 text-sm font-semibold tracking-wider text-white/90 bg-gradient-to-r from-gold to-amber-500 px-3 py-1 rounded-full">
+          <span className="absolute top-5 left-5 z-10 text-[11px] font-semibold tracking-[0.2em] text-gold bg-black px-2.5 py-1.5">
             {number}
           </span>
 
@@ -79,21 +80,10 @@ function ProjectCard({ project, index, shouldReduceMotion }: {
             {project.title}
           </h2>
           <p className="text-black/60 text-base md:text-lg leading-snug mb-4">{project.tagline}</p>
-          <div className="flex items-center gap-2 flex-wrap">
-            {project.badge && (
-              <span className="text-xs font-semibold uppercase tracking-wider text-gold border border-gold/50 rounded-full px-3 py-1">
-                {project.badge}
-              </span>
-            )}
-            {project.labels.map((label) => (
-              <span
-                key={label}
-                className="text-xs font-medium uppercase tracking-wider text-black/50 border border-black/10 rounded-full px-3 py-1"
-              >
-                {label}
-              </span>
-            ))}
-          </div>
+          <TagLine
+            items={[...(project.badge ? [project.badge] : []), ...project.labels]}
+            highlight={project.badge ? [project.badge] : []}
+          />
         </div>
       </Link>
     </motion.div>

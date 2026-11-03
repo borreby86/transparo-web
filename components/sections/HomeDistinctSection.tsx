@@ -7,6 +7,7 @@ import { Link } from '@/i18n/routing'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { caseStudiesDetailed } from '@/data/caseStudies'
 import { BrowserFrame } from '@/components/ui/BrowserFrame'
+import { TagLine } from '@/components/ui/TagLine'
 
 const SHOWN = ['eskild-ebbesen', 'mind-balance-system', 'kasha-hansen']
 
@@ -39,13 +40,7 @@ export function HomeDistinctSection() {
           </div>
           <div>
             <p className="text-lg leading-relaxed text-black/70 mb-6">{t('text')}</p>
-            <ul className="flex flex-wrap gap-2">
-              {strengths.map((s) => (
-                <li key={s} className="text-sm border border-black/15 rounded-full px-4 py-2 text-black/75 bg-white/50">
-                  {s}
-                </li>
-              ))}
-            </ul>
+            <TagLine items={strengths} size="md" className="pt-6 border-t border-black/10" />
           </div>
         </motion.div>
 

@@ -11,6 +11,7 @@ import { InteractiveDevices } from '@/components/ui/InteractiveDevices'
 import screenManifest from '@/data/screenManifest.json'
 import { CaseStudyDetail, SpecimenKey } from '@/data/caseStudies'
 import { BrowserFrame } from '@/components/ui/BrowserFrame'
+import { TagLine } from '@/components/ui/TagLine'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 // Kun til design system-visningen (viser kundens egne skrifttyper)
@@ -314,13 +315,7 @@ export default function CaseStudyClient({ caseStudy, nextCase }: CaseStudyClient
                   </ul>
                   <div>
                     <p className="text-[11px] uppercase tracking-[0.2em] text-black/40 mb-4">Bygget med</p>
-                    <div className="flex flex-wrap gap-2">
-                      {caseStudy.technologies.map((t) => (
-                        <span key={t} className="text-sm border border-black/10 rounded-full px-4 py-2 text-black/70">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                    <TagLine items={caseStudy.technologies} size="md" />
                   </div>
                 </div>
               </Row>
