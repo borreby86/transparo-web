@@ -2004,29 +2004,68 @@
     "aboutLink": "Mere om os"
   },
   "homeModern": {
-    "overline": "Hvorfor vi bygger med moderne teknologi",
-    "headingLine1": "Hurtigere at lave.",
-    "headingLine2": "Bedre at eje.",
+    "overline": "Hvad et moderne site gør bedre",
+    "headingLine1": "Du ser det hele.",
+    "headingLine2": "Mens det bliver bygget.",
     "benefits": [
       {
-        "title": "Live på 2–4 uger",
-        "description": "AI tager det tunge løft i udviklingen. Tiden bruger vi på design og indhold i stedet."
+        "title": "Transparent hele vejen",
+        "description": "Fra første dag får du et link til din nye side, mens den bliver bygget. Du giver feedback på det rigtige site – ikke på en PDF eller en skitse.",
+        "details": [
+          "Dit eget preview-link fra start",
+          "Ændringer kan ses på få minutter",
+          "Ingen stor afsløring til sidst"
+        ]
       },
       {
-        "title": "Lynhurtig og sikker",
-        "description": "Ingen tunge temaer eller plugins, der skal opdateres – og som kan blive hacket."
+        "title": "Hurtig – også på mobilen",
+        "description": "Siden er ren, let kode uden tunge temaer og page builders. Den åbner hurtigt, selv på en dårlig forbindelse, så besøgende ikke falder fra.",
+        "details": [
+          "Ingen tunge temaer eller plugins",
+          "Billeder optimeres automatisk",
+          "Hostes tæt på dine besøgende"
+        ]
       },
       {
-        "title": "Bedre fundament for Google",
-        "description": "Hurtige sider og ren kode er noget af det, søgemaskinerne belønner."
+        "title": "Sikker uden plugin-stress",
+        "description": "De fleste hackede hjemmesider bliver ramt gennem forældede plugins. Et moderne site har langt færre dele, der skal holdes opdateret.",
+        "details": [
+          "Ingen plugins at opdatere hver måned",
+          "Krypteret forbindelse (HTTPS) som standard",
+          "Fuld historik over alle ændringer"
+        ]
+      },
+      {
+        "title": "Stærkt fundament for Google",
+        "description": "Hastighed, mobilvenlighed og en klar struktur er noget af det, Google vægter. Det er bygget ind fra start – ikke tilføjet bagefter med plugins.",
+        "details": [
+          "Hurtige indlæsningstider",
+          "Titler og beskrivelser på hver side",
+          "Klar struktur, som også AI-søgninger kan læse"
+        ]
+      },
+      {
+        "title": "Let at udvikle videre",
+        "description": "Nye sider, sektioner og justeringer går hurtigt, fordi AI tager det tunge løft i koden. Det gør det billigere at holde siden opdateret over tid.",
+        "details": [
+          "Hurtige ændringer efter lancering",
+          "Mulighed for selv at redigere tekster",
+          "Vokser med din forretning"
+        ]
       },
       {
         "title": "Du ejer det hele",
-        "description": "Koden, domænet og indholdet er dit. Du er aldrig låst til os."
+        "description": "Koden, domænet og indholdet er dit. Du er aldrig låst til os og kan tage det hele med dig, hvis du en dag vil videre.",
+        "details": [
+          "Ingen binding eller licens",
+          "Bygget på udbredt standardteknologi",
+          "Andre udviklere kan overtage"
+        ]
       }
     ],
     "wpHeading": "Foretrækker du WordPress?",
-    "wpText": "Vi bygger stadig i WordPress, hvis du ønsker fuld kontrol i et system, du kender. Vores anbefaling er at følge med tiden – men valget er dit, og vi hjælper dig gerne med at vælge."
+    "wpText": "Vi bygger stadig i WordPress, hvis du ønsker fuld kontrol i et system, du kender. Vores anbefaling er at følge med tiden – men valget er dit, og vi hjælper dig gerne med at vælge.",
+    "intro": "Når vi bygger med moderne teknologi og AI, er der ingen sort boks. Du følger din side fra første udkast til lancering – og får et site, der er hurtigere, sikrere og lettere at udvikle bagefter."
   },
   "homeProposal": {
     "overline": "Start her",
@@ -2081,7 +2120,6 @@
     ],
     "storyLabel": "Historien",
     "approachLabel": "Sådan gør vi",
-    "processLink": "Se hele processen",
     "ctaOverline": "Næste skridt",
     "ctaHeading": "Se din nye forside, før du beslutter noget.",
     "ctaText": "Vi laver et konkret designforslag til din forside – gratis og uden forpligtelser.",

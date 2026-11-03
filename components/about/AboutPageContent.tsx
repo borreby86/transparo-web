@@ -24,7 +24,6 @@ export function AboutPageContent() {
   const story = useTranslations('problemSolution')
   const about = useTranslations('about')
   const values = useTranslations('whyUs')
-  const process = useTranslations('processTimeline')
   const shouldReduceMotion = useReducedMotion()
   const { open: openDesignProposal } = useDesignProposal()
   const dur = shouldReduceMotion ? 0 : 0.7
@@ -53,10 +52,6 @@ export function AboutPageContent() {
   const reasons = [0, 1, 2, 3].map((i) => ({
     title: values(`reasons.${i}.title`),
     description: values(`reasons.${i}.description`),
-  }))
-  const steps = [0, 1, 2, 3].map((i) => ({
-    title: process(`steps.${i}.title`),
-    description: process(`steps.${i}.description`),
   }))
 
   return (
@@ -147,9 +142,7 @@ export function AboutPageContent() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
             {reasons.map((r, i) => (
               <motion.div key={r.title} {...reveal((i % 4) * 0.08)} className="border-t border-black/10 pt-8">
-                <span className="block text-gold text-6xl md:text-7xl font-bold leading-none tracking-tight mb-6">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+                <span aria-hidden="true" className="block w-10 h-[2px] bg-gold mb-6" />
                 <h3 className="text-xl md:text-2xl font-bold text-black leading-tight mb-3">{r.title}</h3>
                 <p className="text-black/60 leading-relaxed">{r.description}</p>
               </motion.div>
@@ -158,39 +151,6 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* Processen i korte træk */}
-      <section className="bg-black text-white px-6 md:px-12 py-20 md:py-32">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div {...reveal()} className="flex flex-wrap items-end justify-between gap-8 mb-14 md:mb-20">
-            <div>
-              <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold mb-6">{process('overline')}</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight">
-                {process('headingLine1')}
-                <br />
-                <span className="text-gold">{process('headingLine2')}</span>
-              </h2>
-            </div>
-            <Link
-              href="/proces"
-              className="group inline-flex items-center gap-3 text-sm font-semibold text-white hover:text-gold transition-colors"
-            >
-              {t('processLink')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
-          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
-            {steps.map((s, i) => (
-              <motion.li key={s.title} {...reveal((i % 4) * 0.08)} className="border-t border-white/15 pt-8">
-                <span className="block text-gold text-6xl md:text-7xl font-bold leading-none tracking-tight mb-6">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="text-xl font-semibold mb-3">{s.title}</h3>
-                <p className="text-white/60 leading-relaxed">{s.description}</p>
-              </motion.li>
-            ))}
-          </ol>
-        </div>
-      </section>
       {/* Afslutning – lys, med designforslaget som eneste handling */}
       <section className="bg-[#ece6e2] px-6 md:px-12 py-20 md:py-28">
         <motion.div

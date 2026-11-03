@@ -2005,29 +2005,68 @@
     "aboutLink": "More about us"
   },
   "homeModern": {
-    "overline": "Why we build with modern technology",
-    "headingLine1": "Faster to make.",
-    "headingLine2": "Better to own.",
+    "overline": "What a modern site does better",
+    "headingLine1": "You see everything.",
+    "headingLine2": "While it's being built.",
     "benefits": [
       {
-        "title": "Live in 2–4 weeks",
-        "description": "AI does the heavy lifting in development. We spend the time on design and content instead."
+        "title": "Transparent all the way",
+        "description": "From day one you get a link to your new site while it's being built. You give feedback on the real site – not on a PDF or a sketch.",
+        "details": [
+          "Your own preview link from the start",
+          "Changes visible within minutes",
+          "No big reveal at the end"
+        ]
       },
       {
-        "title": "Fast and secure",
-        "description": "No heavy themes or plugins that need updating – and can get hacked."
+        "title": "Fast – on mobile too",
+        "description": "The site is clean, light code without heavy themes or page builders. It opens fast, even on a poor connection, so visitors don't drop off.",
+        "details": [
+          "No heavy themes or plugins",
+          "Images optimised automatically",
+          "Hosted close to your visitors"
+        ]
       },
       {
-        "title": "A better foundation for Google",
-        "description": "Fast pages and clean code are among the things search engines reward."
+        "title": "Secure without plugin stress",
+        "description": "Most hacked websites are compromised through outdated plugins. A modern site has far fewer parts that need to be kept up to date.",
+        "details": [
+          "No plugins to update every month",
+          "Encrypted connection (HTTPS) as standard",
+          "Full history of every change"
+        ]
+      },
+      {
+        "title": "A strong foundation for Google",
+        "description": "Speed, mobile-friendliness and a clear structure are among the things Google values. It's built in from the start – not added later with plugins.",
+        "details": [
+          "Fast load times",
+          "Titles and descriptions on every page",
+          "Clear structure that AI search can read too"
+        ]
+      },
+      {
+        "title": "Easy to develop further",
+        "description": "New pages, sections and tweaks are quick because AI does the heavy lifting in the code. That makes it cheaper to keep the site up to date over time.",
+        "details": [
+          "Quick changes after launch",
+          "Option to edit copy yourself",
+          "Grows with your business"
+        ]
       },
       {
         "title": "You own everything",
-        "description": "The code, the domain and the content are yours. You're never locked in."
+        "description": "The code, the domain and the content are yours. You're never locked in and can take it all with you if you ever want to move on.",
+        "details": [
+          "No lock-in or licence",
+          "Built on widely used standard technology",
+          "Other developers can take over"
+        ]
       }
     ],
     "wpHeading": "Prefer WordPress?",
-    "wpText": "We still build in WordPress if you want full control in a system you know. Our recommendation is to move with the times – but the choice is yours, and we're happy to help you decide."
+    "wpText": "We still build in WordPress if you want full control in a system you know. Our recommendation is to move with the times – but the choice is yours, and we're happy to help you decide.",
+    "intro": "When we build with modern technology and AI, there's no black box. You follow your site from the first draft to launch – and get a site that's faster, more secure and easier to develop afterwards."
   },
   "homeProposal": {
     "overline": "Start here",
@@ -2082,7 +2121,6 @@
     ],
     "storyLabel": "The story",
     "approachLabel": "How we do it",
-    "processLink": "See the full process",
     "ctaOverline": "Next step",
     "ctaHeading": "See your new homepage before you decide anything.",
     "ctaText": "We create a concrete design proposal for your homepage – free and with no commitment.",

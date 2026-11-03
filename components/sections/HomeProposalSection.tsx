@@ -49,9 +49,9 @@ export function HomeProposalSection() {
         </motion.div>
 
         <motion.ol {...fade} className="grid md:grid-cols-3 gap-10 md:gap-14">
-          {steps.map((s, i) => (
+          {steps.map((s) => (
             <li key={s.title} className="border-t border-black/15 pt-8">
-              <span className="block text-gold text-6xl md:text-7xl font-bold leading-none tracking-tight mb-6">{String(i + 1).padStart(2, '0')}</span>
+              <span aria-hidden="true" className="block w-10 h-[2px] bg-gold mb-6" />
               <h3 className="text-xl md:text-2xl font-bold text-black leading-tight mb-2">{s.title}</h3>
               <p className="text-black/65 text-base md:text-lg leading-relaxed">{s.description}</p>
             </li>
