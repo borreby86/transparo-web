@@ -4,9 +4,8 @@ import { Link } from '@/i18n/routing'
 import { useState, useEffect } from 'react'
 import { usePathname } from '@/i18n/routing'
 import { motion, AnimatePresence } from 'motion/react'
-import { Menu, X, ArrowRight, Plus } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
 export function Header() {
@@ -14,32 +13,8 @@ export function Header() {
   const [bookingOpen, setBookingOpen] = useState(false)
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [fabOpen, setFabOpen] = useState(false)
-  const [showFab, setShowFab] = useState(true)
-  const [showDesktopCTA, setShowDesktopCTA] = useState(false)
-  const [ctaDismissed, setCtaDismissed] = useState(false)
-  const [showDismissHint, setShowDismissHint] = useState(false)
   const { open: openDesignProposal } = useDesignProposal()
   const pathname = usePathname()
-
-  // Load dismissed state from sessionStorage
-  useEffect(() => {
-    const dismissed = sessionStorage.getItem('ctaDismissed')
-    if (dismissed === 'true') {
-      setCtaDismissed(true)
-    }
-  }, [])
-
-  const dismissCTA = () => {
-    setCtaDismissed(true)
-    sessionStorage.setItem('ctaDismissed', 'true')
-  }
-
-  const showCTA = () => {
-    setCtaDismissed(false)
-    sessionStorage.removeItem('ctaDismissed')
-  }
 
   const t = useTranslations('nav')
   const tBooking = useTranslations('booking')
@@ -47,39 +22,9 @@ export function Header() {
   const navigation = [
     { number: '01', name: t('items.0.name'), href: '/' as const },
     { number: '02', name: t('items.1.name'), href: '/cases' as const },
-    { number: '03', name: t('items.3.name'), href: '/kontakt' as const },
+    { number: '03', name: t('about'), href: '/om-os' as const },
+    { number: '04', name: t('items.3.name'), href: '/kontakt' as const },
   ]
-
-  // FAB and CTA visibility based on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-
-      // Desktop CTA: show after scrolling 300px
-      if (currentScrollY > 300 && !showDesktopCTA) {
-        setShowDesktopCTA(true)
-      } else if (currentScrollY <= 300 && showDesktopCTA) {
-        setShowDesktopCTA(false)
-      }
-
-      // Mobile FAB: hide when scrolling down, show when scrolling up
-      if (currentScrollY > 100) {
-        if (currentScrollY > lastScrollY && showFab) {
-          setShowFab(false)
-          setFabOpen(false)
-        } else if (currentScrollY < lastScrollY && !showFab) {
-          setShowFab(true)
-        }
-      } else if (currentScrollY <= 100 && !showFab) {
-        setShowFab(true)
-      }
-
-      setLastScrollY(currentScrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY, showFab, showDesktopCTA])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -128,8 +73,6 @@ export function Header() {
         </Link>
 
         <div className="flex flex-col items-center gap-6">
-          <LanguageSwitcher />
-
           <button
             onClick={() => { setMenuOpen(!menuOpen); setBookingOpen(false) }}
             className="text-black hover:text-gold transition-colors duration-300"
@@ -209,6 +152,29 @@ export function Header() {
                 ))}
               </nav>
 
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.45 }}
+                className="flex flex-wrap gap-3 mt-10"
+              >
+                <button
+                  type="button"
+                  onClick={() => { setMenuOpen(false); openDesignProposal() }}
+                  className="inline-flex items-center gap-2 bg-black text-white px-6 py-3.5 text-sm font-semibold hover:bg-gold hover:text-black transition-colors"
+                >
+                  {t('ctaProposal')}
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setMenuOpen(false); setBookingOpen(true) }}
+                  className="inline-flex items-center gap-2 border border-black/20 text-black px-6 py-3.5 text-sm font-semibold hover:border-black transition-colors"
+                >
+                  {t('ctaBooking')}
+                </button>
+              </motion.div>
+
               {/* Footer info - Simple */}
               <motion.div
                 initial={{ opacity: 0 }}
@@ -220,9 +186,6 @@ export function Header() {
                   kontakt@transparo.dk
                 </span>
                 <div className="flex items-center gap-4">
-                  <div className="lg:hidden">
-                    <LanguageSwitcher />
-                  </div>
                   <span className="text-black/30 text-xs tracking-wider">
                     © {new Date().getFullYear()}
                   </span>
@@ -368,173 +331,6 @@ export function Header() {
               </div>
             </motion.div>
           </>
-        )}
-      </AnimatePresence>
-
-      {/* Desktop CTA Buttons - Always visible after scroll */}
-      <AnimatePresence>
-        {showDesktopCTA && !ctaDismissed && (
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:flex fixed bottom-10 right-10 z-[70] flex-col gap-3 items-end group/cta"
-            onMouseEnter={() => setShowDismissHint(true)}
-            onMouseLeave={() => setShowDismissHint(false)}
-          >
-            {/* Dismiss button - appears on hover */}
-            <AnimatePresence>
-              {showDismissHint && (
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.2 }}
-                  onClick={dismissCTA}
-                  className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-black/80 text-white/60 hover:text-white flex items-center justify-center shadow-lg hover:bg-black transition-colors z-10"
-                  aria-label="Skjul knapper"
-                >
-                  <X className="w-4 h-4" strokeWidth={2} />
-                </motion.button>
-              )}
-            </AnimatePresence>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => openDesignProposal()}
-              className="w-28 h-28 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-gold/20 transition-shadow"
-            >
-              <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-              <span className="leading-tight">Gratis<br />design</span>
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setBookingOpen(true)}
-              className="w-28 h-28 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex flex-col items-center justify-center gap-1.5 hover:shadow-black/20 transition-shadow"
-            >
-              <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-              <span className="leading-tight">Book<br />møde</span>
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Desktop: Small restore button when CTA is dismissed */}
-      <AnimatePresence>
-        {showDesktopCTA && ctaDismissed && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.3 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={showCTA}
-            className="hidden lg:flex fixed bottom-10 right-10 z-[70] w-12 h-12 rounded-full bg-gold/20 hover:bg-gold text-gold hover:text-black items-center justify-center shadow-lg transition-colors duration-300"
-            aria-label="Vis knapper"
-          >
-            <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-          </motion.button>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile FAB - Expandable */}
-      <AnimatePresence>
-        {showFab && !ctaDismissed && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.8 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden fixed bottom-6 right-6 z-[70]"
-          >
-            <AnimatePresence>
-              {fabOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex flex-col gap-3 mb-3 items-end"
-                >
-                  {/* Dismiss option in expanded menu */}
-                  <motion.button
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      setFabOpen(false)
-                      dismissCTA()
-                    }}
-                    className="w-11 h-11 rounded-full bg-white/10 text-white/60 font-bold text-[10px] shadow-lg flex items-center justify-center"
-                  >
-                    <X className="w-4 h-4" strokeWidth={2} />
-                  </motion.button>
-
-                  <motion.button
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      setFabOpen(false)
-                      openDesignProposal()
-                    }}
-                    className="px-5 py-3 rounded-full bg-gold text-black font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex items-center gap-2"
-                  >
-                    <ArrowRight className="w-4 h-4 rotate-[-45deg]" strokeWidth={2} />
-                    <span>Gratis design</span>
-                  </motion.button>
-
-                  <motion.button
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => {
-                      setFabOpen(false)
-                      setBookingOpen(true)
-                    }}
-                    className="px-5 py-3 rounded-full bg-black text-white font-bold text-[10px] uppercase tracking-[0.15em] shadow-2xl flex items-center gap-2"
-                  >
-                    <ArrowRight className="w-4 h-4 rotate-[-45deg]" strokeWidth={2} />
-                    <span>Book møde</span>
-                  </motion.button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setFabOpen(!fabOpen)}
-              className={`w-14 h-14 rounded-full shadow-2xl flex flex-col items-center justify-center gap-0.5 transition-all duration-300 font-bold text-[8px] uppercase tracking-wider ${
-                fabOpen ? 'bg-black text-white rotate-45' : 'bg-gold text-black'
-              }`}
-            >
-              {fabOpen ? (
-                <Plus className="w-5 h-5" strokeWidth={2.5} />
-              ) : (
-                <>
-                  <ArrowRight className="w-4 h-4 rotate-[-45deg]" strokeWidth={2} />
-                  <span className="leading-tight">Start</span>
-                </>
-              )}
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile: Small restore button when CTA is dismissed */}
-      <AnimatePresence>
-        {showFab && ctaDismissed && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.3 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={showCTA}
-            className="lg:hidden fixed bottom-6 right-6 z-[70] w-12 h-12 rounded-full bg-gold/20 text-gold flex items-center justify-center shadow-lg"
-            aria-label="Vis knapper"
-          >
-            <ArrowRight className="w-5 h-5 rotate-[-45deg]" strokeWidth={2} />
-          </motion.button>
         )}
       </AnimatePresence>
     </>

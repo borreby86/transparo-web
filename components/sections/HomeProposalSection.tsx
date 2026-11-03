@@ -3,7 +3,6 @@
 import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
-import { Link } from '@/i18n/routing'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
@@ -57,15 +56,6 @@ export function HomeProposalSection() {
             </li>
           ))}
         </motion.ol>
-
-        <motion.div {...fade} className="mt-14 md:mt-16">
-          <Link
-            href="/proces"
-            className="text-[15px] font-semibold text-black border-b border-black/30 pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors"
-          >
-            {t('processLink')} →
-          </Link>
-        </motion.div>
       </div>
     </section>
   )

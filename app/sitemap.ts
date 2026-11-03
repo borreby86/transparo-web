@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next'
-import { locales } from '@/i18n/config'
 import { caseStudiesDetailed } from '@/data/caseStudies'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,45 +21,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: currentDate,
     changeFrequency: 'monthly' as const,
     priority: route.priority,
-    alternates: {
-      languages: {
-        da: `${baseUrl}/da${route.path}`,
-        en: `${baseUrl}/en${route.enPath || route.path}`,
-      },
-    },
-  }))
-
-  // English versions
-  const enPages = routes.map((route) => ({
-    url: `${baseUrl}/en${route.enPath || route.path}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: route.priority,
-    alternates: {
-      languages: {
-        da: `${baseUrl}/da${route.path}`,
-        en: `${baseUrl}/en${route.enPath || route.path}`,
-      },
-    },
   }))
 
   // Case study slugs
   const caseSlugs = caseStudiesDetailed.map((c) => c.slug)
 
-  const casePages = caseSlugs.flatMap((slug) =>
-    locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/cases/${slug}`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-      alternates: {
-        languages: {
-          da: `${baseUrl}/da/cases/${slug}`,
-          en: `${baseUrl}/en/cases/${slug}`,
-        },
-      },
-    }))
-  )
+  const casePages = caseSlugs.map((slug) => ({
+    url: `${baseUrl}/da/cases/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
-  return [...staticPages, ...enPages, ...casePages]
+  return [...staticPages, ...casePages]
 }

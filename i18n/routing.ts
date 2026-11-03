@@ -5,6 +5,8 @@ import { locales, defaultLocale } from './config'
 export const routing = defineRouting({
   locales,
   defaultLocale,
+  // Engelsk er skjult for nu – send aldrig besøgende til /en ud fra browsersprog
+  localeDetection: false,
   pathnames: {
     '/': '/',
     '/kontakt': {

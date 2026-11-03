@@ -19,7 +19,16 @@ const HIDDEN_PAGES = [
 
 const hiddenPattern = new RegExp(`^/(da|en)/(${HIDDEN_PAGES.join('|')})(/|$)`)
 
+// Engelsk version er skjult for nu. /en/cases/x -> /da/cases/x, alt andet -> /da
+const EN_HIDDEN = true
+
 export default function middleware(request: NextRequest) {
+  const path = request.nextUrl.pathname
+  if (EN_HIDDEN && (path === '/en' || path.startsWith('/en/'))) {
+    const rest = path.slice(3)
+    const target = rest.startsWith('/cases') ? `/da${rest}` : '/da'
+    return NextResponse.redirect(new URL(target, request.url), 308)
+  }
   const match = request.nextUrl.pathname.match(hiddenPattern)
   if (match) {
     return NextResponse.redirect(new URL(`/${match[1]}`, request.url))

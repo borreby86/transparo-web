@@ -27,7 +27,10 @@
         "href": "/faq"
       }
     ],
-    "menuLabel": "Menu"
+    "menuLabel": "Menu",
+    "about": "About us",
+    "ctaProposal": "Free design proposal",
+    "ctaBooking": "Book a meeting"
   },
   "booking": {
     "label": "Book Møde",

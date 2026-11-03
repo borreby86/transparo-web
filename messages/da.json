@@ -27,7 +27,10 @@
         "href": "/faq"
       }
     ],
-    "menuLabel": "Menu"
+    "menuLabel": "Menu",
+    "about": "Om os",
+    "ctaProposal": "Gratis designforslag",
+    "ctaBooking": "Book et møde"
   },
   "booking": {
     "label": "Book møde",
@@ -49,10 +52,10 @@
     "mobileBookButton": "Book"
   },
   "hero": {
-    "overline": "Websites med klare linjer",
-    "headlinePart1": "Hjemmesider der performer",
-    "headlinePart2": "– og holder i fremtiden",
-    "subtitle": "En klar pris og en proces du kan følge. Du ser et konkret designforslag til din forside, før du beslutter noget som helst.",
+    "overline": "Moderne hjemmesider med klare linjer",
+    "headlinePart1": "Unikt design.",
+    "headlinePart2": "Bygget på tillid.",
+    "subtitle": "Hjemmesider fra 8.995 kr. Du følger med hele vejen og ser et konkret designforslag til din forside, før du beslutter noget som helst.",
     "subtitleExtra": "Du får et gratis designforslag til din forside – så du kan se hvad du får, før du beslutter noget som helst.",
     "ctaDesignProposal": "Få et gratis designforslag",
     "ctaPriceCalculator": "Se priser",
@@ -60,8 +63,8 @@
     "ctaFreeDesign": "eller få et gratis designforslag til din forside"
   },
   "footer": {
-    "tagline": "Unique designs • Built on trust",
-    "description": "Professionelt webdesign til danske små virksomheder. Klar pris, hurtig levering og ingen overraskelser.",
+    "tagline": "Unikt design · Bygget på tillid",
+    "description": "Moderne hjemmesider til danske virksomheder.",
     "quickLinksTitle": "Genveje",
     "portfolio": "Portfolio",
     "kontakt": "Kontakt",
@@ -81,7 +84,7 @@
     "phoneLabel": "Telefon",
     "locationLabel": "Adresse",
     "location": "Hørsholm, Danmark",
-    "teamNote": "Vi er et lille team, så du taler altid direkte med dem der bygger dit website. Ingen mellemled, ingen ventetid.",
+    "teamNote": "Vi er et lille team, så du taler direkte med dem, der bygger dit website. Ingen mellemled.",
     "nameLabel": "Navn *",
     "namePlaceholder": "Dit fulde navn",
     "emailFieldLabel": "Email *",
@@ -181,7 +184,7 @@
       {
         "number": "04",
         "title": "Klar kommunikation",
-        "description": "Du ved altid, hvor vi er i processen. Vi siger til, hvis noget tager længere tid – og vi forklarer hvorfor."
+        "description": "Du kan følge med i, hvor vi er i processen. Tager noget længere tid, siger vi til – og forklarer hvorfor."
       }
     ]
   },
@@ -858,9 +861,9 @@
   "metadata": {
     "home": {
       "title": "Transparo – Webdesign uden Overraskelser | Unique Designs. Built on Trust.",
-      "description": "Få et high-end website lavet i klar kommunikation og fuld transparens. Ingen skjulte ekstraregninger. Ingen scope creep. Kun solide løsninger – bygget på tillid.",
+      "description": "Moderne hjemmesider med unikt design – bygget med AI og over 10 års erfaring. Fra 8.995 kr. og en proces, du kan følge hele vejen.",
       "ogTitle": "Transparo – Webdesign uden Overraskelser",
-      "ogDescription": "High-end websites bygget på tillid. Ingen overraskelser, kun resultater."
+      "ogDescription": "Unikt design, bygget på tillid. Moderne hjemmesider fra 8.995 kr."
     },
     "layout": {
       "defaultTitle": "Transparo | Professionel Webudvikling Danmark",
@@ -877,9 +880,9 @@
     },
     "omOs": {
       "title": "Om Os – Professionelt Webdesign til Små Virksomheder | Transparo",
-      "description": "Transparo bygger professionelle websites til danske små virksomheder. Klar pris, hurtig levering og ingen overraskelser. Lær mere om vores mission og værdier.",
+      "description": "Mød Christina og Dennis bag Transparo – moderne hjemmesider med unikt design, en klar pris og en proces, du kan følge.",
       "ogTitle": "Om Transparo – Webdesign med Tillid",
-      "ogDescription": "Vi bygger professionelle websites til små virksomheder med klar pris og hurtig levering."
+      "ogDescription": "Mød holdet bag Transparo – moderne hjemmesider med unikt design og en proces, du kan følge."
     },
     "prisberegner": {
       "title": "Prisberegner",
@@ -1165,7 +1168,7 @@
           "25% ved final godkendelse og lancering"
         ],
         "paymentDeadline": "Betalingsfrist er 14 dage fra fakturadato. Ved forsinket betaling tillægges renter i henhold til renteloven.",
-        "fixedPriceGuarantee": "Fast Pris Garanti: Den aftalte pris er fast og kan ikke ændres, medmindre kunden anmoder om ekstra funktioner eller ændringer uden for det oprindelige scope."
+        "fixedPriceGuarantee": "Aftalt pris: Den aftalte pris ændres ikke, medmindre kunden ønsker ekstra funktioner eller ændringer uden for det aftalte omfang. Sådanne ændringer aftales med kunden, før de udføres."
       },
       "scope": {
         "title": "4. Projektomfang og Ændringer",

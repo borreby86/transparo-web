@@ -80,10 +80,10 @@ export default function NotFound() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
-                  href="/proces"
+                  href="/cases"
                   className="text-gold hover:text-gold/80 transition-colors font-medium"
                 >
-                  Sådan Virker Det
+                  Se vores cases
                 </Link>
                 <span className="text-black/20">•</span>
                 <Link

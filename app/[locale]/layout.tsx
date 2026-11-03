@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: '%s | Transparo',
     },
     description: isDA
-      ? 'Professionel hjemmeside udvikling til danske virksomheder. Klare priser (8.995-27.995 kr), 2-4 ugers levering. Webbureau København specialiseret i moderne hjemmesider med SEO, responsivt design og Payload CMS.'
+      ? 'Moderne hjemmesider med unikt design til danske virksomheder – fra 8.995 kr. Bygget med AI og over 10 års erfaring, med SEO, responsivt design og en proces, du kan følge.'
       : 'Professional website development for Danish businesses. Clear pricing (8,995-27,995 DKK), 2-4 weeks delivery. Web agency Copenhagen specializing in modern websites with SEO, responsive design and Payload CMS.',
     keywords: isDA
       ? ['webudvikling', 'webudvikling danmark', 'webbureau københavn', 'hjemmeside udvikling', 'professionel hjemmeside']
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? 'Transparo | Professionel Webudvikling Danmark'
         : 'Transparo | Professional Web Development Denmark',
       description: isDA
-        ? 'Webbureau København specialiseret i moderne hjemmesider. Klar pris, hurtig levering, professionel hjemmeside udvikling til danske virksomheder.'
+        ? 'Unikt design, bygget på tillid. Moderne hjemmesider til danske virksomheder fra 8.995 kr.'
         : 'Web agency Copenhagen specializing in modern websites. Clear pricing, fast delivery, professional website development for Danish businesses.',
       images: [
         {
@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         ? 'Transparo | Professionel Webudvikling Danmark'
         : 'Transparo | Professional Web Development Denmark',
       description: isDA
-        ? 'Webbureau København - Moderne hjemmesider med klar pris og hurtig levering'
+        ? 'Unikt design, bygget på tillid. Moderne hjemmesider fra 8.995 kr.'
         : 'Web Agency Copenhagen - Modern websites with clear pricing and fast delivery',
       images: [`${baseUrl}/twitter-image.jpg`],
     },
@@ -122,7 +122,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical: `${baseUrl}/${locale}`,
       languages: {
         da: `${baseUrl}/da`,
-        en: `${baseUrl}/en`,
       },
     },
   }
