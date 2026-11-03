@@ -3,6 +3,7 @@
 import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
+import { Link } from '@/i18n/routing'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
@@ -49,13 +50,22 @@ export function HomeProposalSection() {
 
         <motion.ol {...fade} className="grid md:grid-cols-3 gap-10 md:gap-14">
           {steps.map((s, i) => (
-            <li key={s.title} className="border-t border-black/15 pt-6">
-              <span className="block text-[13px] font-semibold text-gold-dark mb-3">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="text-lg md:text-xl font-semibold text-black mb-1.5">{s.title}</h3>
-              <p className="text-black/65 leading-relaxed">{s.description}</p>
+            <li key={s.title} className="border-t border-black/15 pt-8">
+              <span className="block text-gold text-6xl md:text-7xl font-bold leading-none tracking-tight mb-6">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="text-xl md:text-2xl font-bold text-black leading-tight mb-2">{s.title}</h3>
+              <p className="text-black/65 text-base md:text-lg leading-relaxed">{s.description}</p>
             </li>
           ))}
         </motion.ol>
+
+        <motion.div {...fade} className="mt-14 md:mt-16">
+          <Link
+            href="/proces"
+            className="text-[15px] font-semibold text-black border-b border-black/30 pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors"
+          >
+            {t('processLink')} →
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

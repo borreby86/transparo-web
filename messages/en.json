@@ -2026,14 +2026,6 @@
         "description": "The code, the domain and the content are yours. You're never locked in."
       }
     ],
-    "notSameOverline": "But not the same",
-    "notSameHeading": "AI is our tool – not our designer.",
-    "notSameText": "A site doesn't become generic because it's built with AI. It becomes generic when nobody makes decisions. With us, everything starts with your business, your audience and your visual identity – and we design it from scratch.",
-    "strengths": [
-      "One coherent visual identity – not a template",
-      "An eye for detail, down to typography and spacing",
-      "Copy and structure written for your customers"
-    ],
     "wpHeading": "Prefer WordPress?",
     "wpText": "We still build in WordPress if you want full control in a system you know. Our recommendation is to move with the times – but the choice is yours, and we're happy to help you decide."
   },
@@ -2055,26 +2047,46 @@
       },
       {
         "title": "You decide",
-        "description": "Yes please or no thanks. No sales meetings."
-      }
-    ]
-  },
-  "homeFacts": {
-    "items": [
-      {
-        "title": "A clear price from the start",
-        "description": "You know the price before we begin. If you want more along the way, we agree on it with you first."
-      },
-      {
-        "title": "A process you can follow",
-        "description": "You always know where we are – and why, if something takes longer."
-      },
-      {
-        "title": "We're here afterwards",
-        "description": "Choose maintenance – or handle it yourself. It's up to you."
+        "description": "Yes please or no thanks. If you say yes, you know the price before we begin."
       }
     ],
-    "processLink": "How we work",
-    "pricesLink": "See prices"
+    "processLink": "How we work"
+  },
+  "homeDistinct": {
+    "overline": "Built with AI. Never the same.",
+    "headingLine1": "AI is our tool –",
+    "headingLine2": "not our designer.",
+    "text": "A site doesn't become generic because it's built with AI. It becomes generic when nobody makes decisions. See for yourself: three clients, three completely different looks – each with its own palette and typography.",
+    "strengths": [
+      "One coherent visual identity",
+      "An eye for detail",
+      "Copy written for your customers"
+    ],
+    "paletteLabel": "Colour palette"
+  },
+  "aboutPage": {
+    "overline": "About Transparo",
+    "meta": [
+      {
+        "k": "Who",
+        "v": "Christina Borreby & Dennis Enghave"
+      },
+      {
+        "k": "Experience",
+        "v": "10+ years in web design"
+      },
+      {
+        "k": "Where",
+        "v": "Hørsholm, Denmark"
+      }
+    ],
+    "storyLabel": "The story",
+    "approachLabel": "How we do it",
+    "processLink": "See the full process",
+    "ctaOverline": "Next step",
+    "ctaHeading": "See your new homepage before you decide anything.",
+    "ctaText": "We create a concrete design proposal for your homepage – free and with no commitment.",
+    "ctaButton": "Get a free design proposal",
+    "casesLink": "See our cases"
   }
 }

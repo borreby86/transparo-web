@@ -10,6 +10,7 @@ import { Footer } from '@/components/layout/Footer'
 import { InteractiveDevices } from '@/components/ui/InteractiveDevices'
 import screenManifest from '@/data/screenManifest.json'
 import { CaseStudyDetail, SpecimenKey } from '@/data/caseStudies'
+import { BrowserFrame } from '@/components/ui/BrowserFrame'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 // Kun til design system-visningen (viser kundens egne skrifttyper)
@@ -51,20 +52,6 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
         <span className="text-black/50 text-xs font-medium uppercase tracking-[0.2em]">{label}</span>
       </div>
       <div>{children}</div>
-    </div>
-  )
-}
-
-function BrowserFrame({ src, w, h, alt, host }: { src: string; w: number; h: number; alt: string; host: string }) {
-  return (
-    <div className="rounded-xl overflow-hidden border border-black/10 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
-      <div className="flex items-center gap-2 px-4 py-3 bg-[#f3f1ee] border-b border-black/[0.06]">
-        <span className="w-2.5 h-2.5 rounded-full bg-black/15" />
-        <span className="w-2.5 h-2.5 rounded-full bg-black/15" />
-        <span className="w-2.5 h-2.5 rounded-full bg-black/15" />
-        <span className="ml-3 text-[11px] text-black/40 bg-white rounded-md px-3 py-1 truncate">{host}</span>
-      </div>
-      <Image src={src} alt={alt} width={w} height={h} className="w-full h-auto" sizes="(max-width: 1024px) 100vw, 720px" quality={85} />
     </div>
   )
 }

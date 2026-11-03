@@ -10,15 +10,15 @@ const HomeAISection = dynamic(() => import('@/components/sections/HomeAISection'
 })
 
 const HomeModernSection = dynamic(() => import('@/components/sections/HomeModernSection').then((mod) => mod.HomeModernSection), {
-  loading: () => <div className="h-96 bg-white" />
+  loading: () => <div className="h-96 bg-black" />
 })
 
 const HomeProposalSection = dynamic(() => import('@/components/sections/HomeProposalSection').then((mod) => mod.HomeProposalSection), {
   loading: () => <div className="h-96 bg-[#ece6e2]" />
 })
 
-const HomeFactsSection = dynamic(() => import('@/components/sections/HomeFactsSection').then((mod) => mod.HomeFactsSection), {
-  loading: () => <div className="h-64 bg-[#f7f5f2]" />
+const HomeDistinctSection = dynamic(() => import('@/components/sections/HomeDistinctSection').then((mod) => mod.HomeDistinctSection), {
+  loading: () => <div className="h-96 bg-[#ece6e2]" />
 })
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -47,9 +47,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <main>
         <HeroSection />
         <HomeAISection />
+        <HomeDistinctSection />
         <HomeModernSection />
         <HomeProposalSection />
-        <HomeFactsSection />
       </main>
       <Footer />
     </>

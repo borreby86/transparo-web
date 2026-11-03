@@ -2025,14 +2025,6 @@
         "description": "Koden, domænet og indholdet er dit. Du er aldrig låst til os."
       }
     ],
-    "notSameOverline": "Men ikke ens",
-    "notSameHeading": "AI er vores værktøj – ikke vores designer.",
-    "notSameText": "Et site bliver ikke generisk af at være bygget med AI. Det bliver generisk, når ingen tager stilling. Hos os starter alt med din forretning, din målgruppe og dit visuelle udtryk – og vi tegner det fra bunden.",
-    "strengths": [
-      "Et samlet visuelt udtryk – ikke en skabelon",
-      "Sans for detaljen, helt ned i typografi og afstande",
-      "Tekst og struktur der er tænkt til dine kunder"
-    ],
     "wpHeading": "Foretrækker du WordPress?",
     "wpText": "Vi bygger stadig i WordPress, hvis du ønsker fuld kontrol i et system, du kender. Vores anbefaling er at følge med tiden – men valget er dit, og vi hjælper dig gerne med at vælge."
   },
@@ -2054,26 +2046,46 @@
       },
       {
         "title": "Du tager stilling",
-        "description": "Ja tak eller nej tak. Ingen salgsmøder."
-      }
-    ]
-  },
-  "homeFacts": {
-    "items": [
-      {
-        "title": "En klar pris fra start",
-        "description": "Du kender prisen, før vi går i gang. Ønsker du mere undervejs, aftaler vi det med dig først."
-      },
-      {
-        "title": "En proces du kan følge",
-        "description": "Du ved altid, hvor vi er – og hvorfor, hvis noget tager længere tid."
-      },
-      {
-        "title": "Vi er her bagefter",
-        "description": "Vælg vedligeholdelse – eller klar det selv. Det er op til dig."
+        "description": "Ja tak eller nej tak. Siger du ja, kender du prisen, før vi går i gang."
       }
     ],
-    "processLink": "Sådan arbejder vi",
-    "pricesLink": "Se priser"
+    "processLink": "Sådan arbejder vi"
+  },
+  "homeDistinct": {
+    "overline": "Bygget med AI. Aldrig ens.",
+    "headingLine1": "AI er vores værktøj –",
+    "headingLine2": "ikke vores designer.",
+    "text": "Et site bliver ikke generisk af at være bygget med AI. Det bliver generisk, når ingen tager stilling. Se selv: tre kunder, tre helt forskellige udtryk – hver med sin egen palet og typografi.",
+    "strengths": [
+      "Et samlet visuelt udtryk",
+      "Sans for detaljen",
+      "Tekst der er tænkt til dine kunder"
+    ],
+    "paletteLabel": "Farvepalet"
+  },
+  "aboutPage": {
+    "overline": "Om Transparo",
+    "meta": [
+      {
+        "k": "Hvem",
+        "v": "Christina Borreby & Dennis Enghave"
+      },
+      {
+        "k": "Erfaring",
+        "v": "10+ år med webdesign"
+      },
+      {
+        "k": "Hvor",
+        "v": "Hørsholm, Danmark"
+      }
+    ],
+    "storyLabel": "Historien",
+    "approachLabel": "Sådan gør vi",
+    "processLink": "Se hele processen",
+    "ctaOverline": "Næste skridt",
+    "ctaHeading": "Se din nye forside, før du beslutter noget.",
+    "ctaText": "Vi laver et konkret designforslag til din forside – gratis og uden forpligtelser.",
+    "ctaButton": "Få et gratis designforslag",
+    "casesLink": "Se vores cases"
   }
 }
