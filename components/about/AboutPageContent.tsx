@@ -63,7 +63,7 @@ export function AboutPageContent() {
           </motion.span>
           <motion.h1
             {...intro(0.1)}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6 max-w-5xl"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6 max-w-5xl text-balance"
           >
             {t('heading')}
           </motion.h1>
