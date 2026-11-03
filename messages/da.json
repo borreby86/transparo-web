@@ -52,10 +52,10 @@
     "mobileBookButton": "Book"
   },
   "hero": {
-    "overline": "Moderne hjemmesider med klare linjer",
-    "headlinePart1": "Unikt design.",
-    "headlinePart2": "Bygget på tillid.",
-    "subtitle": "Hjemmesider fra 8.995 kr. Du følger med hele vejen og ser et konkret designforslag til din forside, før du beslutter noget som helst.",
+    "overline": "Hjemmesider til selvstændige, hvor personen er forretningen",
+    "headlinePart1": "Din hjemmeside er",
+    "headlinePart2": "døren ind til dig.",
+    "subtitle": "Håndkodede hjemmesider med dit eget udtryk – fra 8.995 kr. Du betaler for siden, og så er den din. Du ser et konkret designforslag til din forside, før du beslutter noget.",
     "subtitleExtra": "Du får et gratis designforslag til din forside – så du kan se hvad du får, før du beslutter noget som helst.",
     "ctaDesignProposal": "Få et gratis designforslag",
     "ctaPriceCalculator": "Se priser",
@@ -190,23 +190,23 @@
   },
   "about": {
     "overline": "Om os",
-    "headingLine1": "To mennesker.",
-    "headingLine2": "Ét mål.",
+    "headingLine1": "Christina",
+    "headingLine2": "og Dennis.",
     "descriptions": [
-      "Vi har begge arbejdet i branchen længe nok til at se hvordan det ofte går: uklare priser, manglende kommunikation og kunder der ender med noget andet end det de blev lovet.",
-      "Det ville vi gøre bedre. Så vi startede Transparo.",
-      "Her får du en klar pris, en proces du kan følge med i, og et website du rent faktisk er stolt af."
+      "Vi er to, og det er helt bevidst. Jeg har typisk den tætte dialog med dig, og Dennis er stærk i koden bag.",
+      "I virkeligheden kan vi begge to begge dele.",
+      "Vi vil hellere have færre projekter, hvor vi kender dig og har tid til detaljerne."
     ],
     "team": [
       {
         "name": "Christina Borreby",
-        "role": "Founder & Design Director",
-        "bio": "Christina har en cand.negot i kommunikation og marketing og 10 års erfaring med webdesign. Hun styrer processen fra første møde til lancering, designer sitet og koder det selv. Derfor er der ingen mellemled, og intet går tabt undervejs."
+        "role": "Founder · Design & dialog",
+        "bio": "Cand. i marketing og kommunikation, uddannet psykoterapeut og tekstforfatter. Christina har lavet hjemmesider siden 2014 og har typisk den tætte dialog med dig – fra første snak til lancering."
       },
       {
         "name": "Dennis Enghave",
-        "role": "Lead Developer",
-        "bio": "Dennis bygger sitet fra bunden. Han arbejder med React, Python og cloud og er optaget af, at siden er hurtig og sikker."
+        "role": "Udvikler",
+        "bio": "Dennis er stærk i koden bag og bygger sitet fra bunden, uden templates. Han lærte Christina at kode – og i virkeligheden kan de begge to begge dele."
       }
     ]
   },
@@ -860,10 +860,10 @@
   },
   "metadata": {
     "home": {
-      "title": "Transparo – Webdesign uden Overraskelser | Unique Designs. Built on Trust.",
-      "description": "Moderne hjemmesider med unikt design – bygget med AI og over 10 års erfaring. Fra 8.995 kr. og en proces, du kan følge hele vejen.",
-      "ogTitle": "Transparo – Webdesign uden Overraskelser",
-      "ogDescription": "Unikt design, bygget på tillid. Moderne hjemmesider fra 8.995 kr."
+      "title": "Transparo – Hjemmesider til selvstændige, der ejer sig selv",
+      "description": "Håndkodede hjemmesider med dit eget udtryk – uden templates og bindinger. Fra 8.995 kr. Din hjemmeside er døren ind til dig.",
+      "ogTitle": "Transparo – Din hjemmeside er døren ind til dig",
+      "ogDescription": "Håndkodede hjemmesider til selvstændige. Du betaler for siden, og så er den din."
     },
     "layout": {
       "defaultTitle": "Transparo | Professionel Webudvikling Danmark",
@@ -879,8 +879,8 @@
       "ogDescription": "Book et møde eller send os en besked. Vi svarer inden for 24 timer."
     },
     "omOs": {
-      "title": "Om Os – Professionelt Webdesign til Små Virksomheder | Transparo",
-      "description": "Mød Christina og Dennis bag Transparo – moderne hjemmesider med unikt design, en klar pris og en proces, du kan følge.",
+      "title": "Om os – Christina og Dennis | Transparo",
+      "description": "Mød Christina og Dennis bag Transparo: hjemmesider siden 2014 til selvstændige, kodet fra bunden, uden bindinger.",
       "ogTitle": "Om Transparo – Webdesign med Tillid",
       "ogDescription": "Mød holdet bag Transparo – moderne hjemmesider med unikt design og en proces, du kan følge."
     },
@@ -1997,78 +1997,78 @@
     }
   },
   "homeAI": {
-    "overline": "Hjemmesider i en tid med AI",
-    "headingLine1": "Alle kan bygge en hjemmeside i dag.",
-    "headingLine2": "Det svære er at vide, hvad man bygger.",
-    "lead": "AI har gjort det muligt at sætte en hjemmeside op på en eftermiddag. Det er en gave – og det er også grunden til, at så mange sider ligner hinanden. Værktøjerne er blevet hurtige. Dømmekraften følger ikke automatisk med.",
-    "quote": "Jeg har arbejdet med webdesign i over 10 år. Det du får, er ikke bare kode – det er blikket for helheden. At farver, typografi, billeder og tekst spiller sammen, og at detaljerne sidder. Også dem, de fleste ikke lægger mærke til.",
+    "overline": "Det første indtryk",
+    "headingLine1": "Du får kun én chance",
+    "headingLine2": "for et godt førstehåndsindtryk.",
+    "lead": "Jeg husker en terapeut, der elskede stærke farver på sin hjemmeside. Men når man trådte ind i hendes klinik, var rummet roligt, lyst og nærværende. Siden og virkeligheden passede ikke sammen – og det er dér, det går galt. Din hjemmeside skal føles som at åbne døren ind til dig.",
+    "quote": "Jeg er uddannet cand. i marketing og kommunikation og har senere taget en uddannelse som psykoterapeut. Siden 2014 har jeg hjulpet coaches, terapeuter, foredragsholdere og konsulenter med et udtryk, der ligner dem – så det første indtryk matcher den person, kunden møder i virkeligheden.",
     "name": "Christina Borreby",
-    "role": "Founder & Design Director",
+    "role": "Christina Borreby · Founder",
     "aboutLink": "Mere om os"
   },
   "homeModern": {
-    "overline": "Hvad et moderne site gør bedre",
-    "headingLine1": "Du ser det hele.",
-    "headingLine2": "Mens det bliver bygget.",
+    "overline": "Sådan arbejder vi",
+    "headingLine1": "Du betaler for siden.",
+    "headingLine2": "Så er den din.",
     "benefits": [
       {
-        "title": "Transparent hele vejen",
-        "description": "Fra første dag får du et link til din nye side, mens den bliver bygget. Du giver feedback på det rigtige site – ikke på en PDF eller en skitse.",
+        "title": "Du ejer den selv",
+        "description": "Du betaler et beløb for hjemmesiden, og så er den din. Du kan hoste den, hvor du vil, og tage alt med dig, hvis du en dag vil videre.",
         "details": [
-          "Dit eget preview-link fra start",
-          "Ændringer kan ses på få minutter",
+          "Ingen binding eller abonnement",
+          "Koden, domænet og indholdet er dit",
+          "Andre udviklere kan overtage"
+        ]
+      },
+      {
+        "title": "Kodet fra bunden",
+        "description": "Vi bruger ikke templates. Alt bygges med kode, så siden bliver hurtig, let og præcis som dit udtryk – også på en dårlig mobilforbindelse.",
+        "details": [
+          "Ingen tunge temaer eller page builders",
+          "Hurtig på mobil og computer",
+          "Færre plugins at holde opdateret"
+        ]
+      },
+      {
+        "title": "Fundet i Google – og nævnt af AI",
+        "description": "Før handlede det om at komme på side 1. I dag spørger folk også ChatGPT og andre AI'er, hvem de skal vælge. Det bygger vi ind fra start og rådgiver gerne om.",
+        "details": [
+          "Klar struktur, som både Google og AI kan læse",
+          "Titler og beskrivelser på hver side",
+          "Hjælp til at blive nævnt, hvor dine kunder spørger"
+        ]
+      },
+      {
+        "title": "Det menneskelige touch",
+        "description": "Uden menneskelige øjne og en menneskelig stemme mister man sin personlighed. Vi anbefaler rigtige billeder frem for AI-genererede og samarbejder med fotografer.",
+        "details": [
+          "Tekster i din egen stemme",
+          "Rigtige billeder, ikke AI-billeder",
+          "Naturligt og autentisk udtryk"
+        ]
+      },
+      {
+        "title": "Tæt dialog med få kunder",
+        "description": "Vi er to, og det er helt bevidst. Vi vil hellere være tæt på få kunder end langt fra mange – så vi har tid til at kende dig og til detaljerne.",
+        "details": [
+          "Du taler direkte med dem, der bygger",
+          "Du følger din side fra første udkast",
           "Ingen stor afsløring til sidst"
         ]
       },
       {
-        "title": "Hurtig – også på mobilen",
-        "description": "Siden er ren, let kode uden tunge temaer og page builders. Den åbner hurtigt, selv på en dårlig forbindelse, så besøgende ikke falder fra.",
+        "title": "Sikker og tryg bagefter",
+        "description": "Vil du hellere have, at vi tager os af det hele, gør vi det meget gerne – men du bestemmer selv, og du skal ikke betale i dyre domme år efter år.",
         "details": [
-          "Ingen tunge temaer eller plugins",
-          "Billeder optimeres automatisk",
-          "Hostes tæt på dine besøgende"
-        ]
-      },
-      {
-        "title": "Sikker uden plugin-stress",
-        "description": "De fleste hackede hjemmesider bliver ramt gennem forældede plugins. Et moderne site har langt færre dele, der skal holdes opdateret.",
-        "details": [
-          "Ingen plugins at opdatere hver måned",
+          "Hosting, overvågning og rettelser, hvis du vil",
           "Krypteret forbindelse (HTTPS) som standard",
-          "Fuld historik over alle ændringer"
-        ]
-      },
-      {
-        "title": "Stærkt fundament for Google",
-        "description": "Hastighed, mobilvenlighed og en klar struktur er noget af det, Google vægter. Det er bygget ind fra start – ikke tilføjet bagefter med plugins.",
-        "details": [
-          "Hurtige indlæsningstider",
-          "Titler og beskrivelser på hver side",
-          "Klar struktur, som også AI-søgninger kan læse"
-        ]
-      },
-      {
-        "title": "Let at udvikle videre",
-        "description": "Nye sider, sektioner og justeringer går hurtigt, fordi AI tager det tunge løft i koden. Det gør det billigere at holde siden opdateret over tid.",
-        "details": [
-          "Hurtige ændringer efter lancering",
-          "Mulighed for selv at redigere tekster",
-          "Vokser med din forretning"
-        ]
-      },
-      {
-        "title": "Du ejer det hele",
-        "description": "Koden, domænet og indholdet er dit. Du er aldrig låst til os og kan tage det hele med dig, hvis du en dag vil videre.",
-        "details": [
-          "Ingen binding eller licens",
-          "Bygget på udbredt standardteknologi",
-          "Andre udviklere kan overtage"
+          "Du bestemmer selv, om du vil have det"
         ]
       }
     ],
-    "wpHeading": "Foretrækker du WordPress?",
-    "wpText": "Vi bygger stadig i WordPress, hvis du ønsker fuld kontrol i et system, du kender. Vores anbefaling er at følge med tiden – men valget er dit, og vi hjælper dig gerne med at vælge.",
-    "intro": "Når vi bygger med moderne teknologi og AI, er der ingen sort boks. Du følger din side fra første udkast til lancering – og får et site, der er hurtigere, sikrere og lettere at udvikle bagefter."
+    "wpHeading": "Vil du have os til at tage os af det hele?",
+    "wpText": "Vi tilbyder hosting med overvågning og rettelser, så vi tager fuldt ansvar for din hjemmeside. Det er et tilbud – ikke et krav. Du kan altid hoste den, hvor du vil.",
+    "intro": "Vi har begge arbejdet steder, hvor en billig eller gratis hjemmeside blev betalt tilbage gennem bindinger og løbende regninger. Det synes vi ikke er særlig transparent. Hos os kender du prisen fra start – og du skal aldrig føle dig forpligtet."
   },
   "homeProposal": {
     "overline": "Start her",
@@ -2094,14 +2094,14 @@
     "processLink": "Sådan arbejder vi"
   },
   "homeDistinct": {
-    "overline": "Bygget med AI. Aldrig ens.",
+    "overline": "Ingen templates. Aldrig ens.",
     "headingLine1": "AI er vores værktøj –",
     "headingLine2": "ikke vores designer.",
-    "text": "Et site bliver ikke generisk af at være bygget med AI. Det bliver generisk, når ingen tager stilling. Se selv: tre kunder, tre helt forskellige udtryk – hver med sin egen palet og typografi.",
+    "text": "Vi bruger selvfølgelig AI. Men når den får lov at bestemme, begynder alt at ligne hinanden: generisk, pænt og glemt. Derfor koder vi alt fra bunden og bruger mange timer på detaljerne. Se selv: tre kunder, tre helt forskellige udtryk – hver med sin egen palet og typografi.",
     "strengths": [
-      "Et samlet visuelt udtryk",
+      "Kodet fra bunden",
       "Sans for detaljen",
-      "Tekst der er tænkt til dine kunder"
+      "Dit eget udtryk"
     ],
     "paletteLabel": "Farvepalet"
   },
@@ -2113,8 +2113,8 @@
         "v": "Christina Borreby & Dennis Enghave"
       },
       {
-        "k": "Erfaring",
-        "v": "10+ år med webdesign"
+        "k": "Hjemmesider siden",
+        "v": "2014"
       },
       {
         "k": "Hvor",
@@ -2127,6 +2127,33 @@
     "ctaHeading": "Se din nye forside, før du beslutter noget.",
     "ctaText": "Vi laver et konkret designforslag til din forside – gratis og uden forpligtelser.",
     "ctaButton": "Få et gratis designforslag",
-    "casesLink": "Se vores cases"
+    "casesLink": "Se vores cases",
+    "heading": "Din hjemmeside er døren ind til dig.",
+    "lead": "Vi bygger hjemmesider til selvstændige, hvor personen er forretningen – med dit udtryk, din stemme og kode fra bunden.",
+    "story": [
+      "Jeg er uddannet cand. i marketing og kommunikation, og senere tog jeg en uddannelse som psykoterapeut. Det var faktisk dér, det hele startede. For jeg opdagede, at de fleste omkring mig – coaches, terapeuter, foredragsholdere – havde brug for en hjemmeside, der lignede dem. Ikke bare en side med de rigtige informationer, men en side, hvor de selv var brandet.",
+      "Jeg husker en terapeut, der elskede stærke farver på sin hjemmeside. Men når man trådte ind i hendes klinik, var det et helt andet rum: roligt, lyst og nærværende. Hjemmesiden og virkeligheden passede bare ikke sammen. Og det er jo dér, det går galt, for man får kun én chance for et godt førstehåndsindtryk.",
+      "Siden 2014 har jeg hjulpet mine kunder med at skabe et udtryk, der føles som at åbne døren ind til dem. I dag er det ikke kun terapeuter – jeg har haft kunder i alle mulige retninger – men det er stadig de selvstændige, hvor personen er forretningen, der går igen. Og det er rigtig skønt."
+    ],
+    "philosophyLabel": "Derfor hedder vi Transparo",
+    "philosophyHeading": "Alt er transparent fra start.",
+    "philosophy": [
+      "Vi har begge arbejdet steder, hvor modellen var at give kunden en billig – eller ligefrem gratis – hjemmeside og så tjene pengene på løbende udgifter. Bindinger, abonnementer og regninger, der bliver ved med at komme. Det synes vi ikke er særlig transparent.",
+      "Hos os er det enkelt: Du kender prisen fra start. Du betaler for din hjemmeside, og så er den din. Du kan hoste den, hvor du vil.",
+      "Vil du hellere have, at vi tager os af det hele – hosting, overvågning og rettelser – gør vi det meget gerne. Men du skal ikke føle dig forpligtet, og du skal ikke betale i dyre domme år efter år."
+    ],
+    "humanOverline": "AI og det menneskelige",
+    "humanHeading": "Alle kan lave en hjemmeside i dag. Ikke alle bliver fundet – eller husket.",
+    "human": [
+      "Det bliver nemmere og nemmere at lave sin egen hjemmeside, og det er egentlig fint nok. Vil du have en hurtig og billig side, kan du sagtens finde den – eller lave den selv. Men det er ikke det, vi laver.",
+      "Før handlede det om at komme på side 1 på Google. I dag spørger folk også ChatGPT og andre AI'er, hvem de skal vælge. Det bygger vi ind i din side fra start, og vi hjælper dig gerne med at forstå det.",
+      "Vi bruger selvfølgelig AI som værktøj. Men vi bygger alt med kode fra bunden – uden templates – fordi vi ser, hvad der sker, når AI'en får lov at bestemme: Alt begynder at ligne hinanden. Det bliver generisk, pænt og glemt.",
+      "Jeg har også baggrund som tekstforfatter, og jeg tror på, at vi står foran et vendepunkt. Når den første bølge af AI har lagt sig, bliver det personlige det, der skiller sig ud. Derfor bruger vi mange timer på, at dit udtryk kommer til sin ret – og derfor anbefaler vi rigtige billeder frem for AI-genererede. Vi samarbejder med fotografer, fordi vi tror på det naturlige og autentiske."
+    ],
+    "lines": [
+      "Ingen templates",
+      "Ingen bindinger",
+      "Ingen overraskelser"
+    ]
   }
 }

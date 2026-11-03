@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { TagLine } from '@/components/ui/TagLine'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -21,9 +22,7 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 
 export function AboutPageContent() {
   const t = useTranslations('aboutPage')
-  const story = useTranslations('problemSolution')
   const about = useTranslations('about')
-  const values = useTranslations('whyUs')
   const shouldReduceMotion = useReducedMotion()
   const { open: openDesignProposal } = useDesignProposal()
   const dur = shouldReduceMotion ? 0 : 0.7
@@ -49,10 +48,10 @@ export function AboutPageContent() {
     role: about(`team.${m.i}.role`),
     bio: about(`team.${m.i}.bio`),
   }))
-  const reasons = [0, 1, 2, 3].map((i) => ({
-    title: values(`reasons.${i}.title`),
-    description: values(`reasons.${i}.description`),
-  }))
+  const storyParas = [0, 1, 2].map((i) => t(`story.${i}`))
+  const philosophy = [0, 1, 2].map((i) => t(`philosophy.${i}`))
+  const human = [0, 1, 2, 3].map((i) => t(`human.${i}`))
+  const lines = [0, 1, 2].map((i) => t(`lines.${i}`))
 
   return (
     <>
@@ -66,10 +65,10 @@ export function AboutPageContent() {
             {...intro(0.1)}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6 max-w-5xl"
           >
-            {story('heading')}
+            {t('heading')}
           </motion.h1>
           <motion.p {...intro(0.2)} className="text-lg md:text-xl text-white/55 max-w-2xl leading-relaxed mb-14">
-            {story('paragraph1')}
+            {t('lead')}
           </motion.p>
           <motion.dl
             {...intro(0.3)}
@@ -87,17 +86,14 @@ export function AboutPageContent() {
 
       {/* Historien */}
       <section className="bg-white px-6 md:px-12 py-20 md:py-32">
-        <div className="max-w-[1400px] mx-auto space-y-20 md:space-y-28">
+        <div className="max-w-[1400px] mx-auto">
           <motion.div {...reveal()}>
             <Row label={t('storyLabel')}>
-              <p className="text-2xl md:text-3xl lg:text-[2rem] leading-[1.4] text-black/80 max-w-3xl">
-                {about('descriptions.0')} <span className="text-black">{about('descriptions.1')}</span>
-              </p>
-            </Row>
-          </motion.div>
-          <motion.div {...reveal()}>
-            <Row label={t('approachLabel')}>
-              <p className="text-2xl md:text-3xl lg:text-[2rem] leading-[1.4] text-black/80 max-w-3xl">{story('paragraph2')}</p>
+              <div className="space-y-7 max-w-3xl">
+                <p className="text-2xl md:text-3xl lg:text-[2rem] leading-[1.4] text-black">{storyParas[0]}</p>
+                <p className="text-lg md:text-xl leading-relaxed text-black/70">{storyParas[1]}</p>
+                <p className="text-lg md:text-xl leading-relaxed text-black/70">{storyParas[2]}</p>
+              </div>
             </Row>
           </motion.div>
         </div>
@@ -113,6 +109,9 @@ export function AboutPageContent() {
               <br />
               <span className="text-black/40">{about('headingLine2')}</span>
             </h2>
+            <p className="mt-8 max-w-2xl text-lg md:text-xl leading-relaxed text-black/70">
+              {about('descriptions.0')} {about('descriptions.1')} {about('descriptions.2')}
+            </p>
           </motion.div>
           <div className="grid md:grid-cols-2 gap-14 md:gap-12 lg:gap-20">
             {team.map((m, idx) => (
@@ -129,22 +128,34 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* Værdier */}
+      {/* Filosofien */}
+      <section className="bg-black text-white px-6 md:px-12 py-20 md:py-32">
+        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16">
+          <motion.div {...reveal()} className="lg:col-span-5">
+            <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold mb-6">{t('philosophyLabel')}</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight text-white">{t('philosophyHeading')}</h2>
+            <TagLine items={lines} tone="light" size="md" className="mt-10" />
+          </motion.div>
+          <motion.div {...reveal(0.1)} className="lg:col-span-7 space-y-6">
+            <p className="text-xl md:text-2xl leading-[1.45] text-white">{philosophy[0]}</p>
+            <p className="text-lg md:text-xl leading-relaxed text-white/70">{philosophy[1]}</p>
+            <p className="text-lg md:text-xl leading-relaxed text-white/70">{philosophy[2]}</p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* AI og det menneskelige */}
       <section className="bg-[#f7f5f2] border-y border-black/[0.05] px-6 md:px-12 py-20 md:py-32">
         <div className="max-w-[1400px] mx-auto">
-          <motion.div {...reveal()} className="mb-14 md:mb-20 max-w-3xl">
-            <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold-dark mb-6">{values('overline')}</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight text-black mb-6">
-              {values('headingLine1')} <span className="text-black/40">{values('headingLine2')}</span>
-            </h2>
-            <p className="text-lg md:text-xl text-black/65 leading-relaxed">{values('description')}</p>
+          <motion.div {...reveal()} className="mb-12 md:mb-16 max-w-4xl">
+            <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold-dark mb-6">{t('humanOverline')}</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-black">{t('humanHeading')}</h2>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14">
-            {reasons.map((r, i) => (
-              <motion.div key={r.title} {...reveal((i % 4) * 0.08)} className="border-t border-black/10 pt-8">
-                <span aria-hidden="true" className="block w-10 h-[2px] bg-gold mb-6" />
-                <h3 className="text-xl md:text-2xl font-bold text-black leading-tight mb-3">{r.title}</h3>
-                <p className="text-black/60 leading-relaxed">{r.description}</p>
+          <div className="grid md:grid-cols-2 gap-x-14 gap-y-10">
+            {human.map((p, i) => (
+              <motion.div key={i} {...reveal((i % 2) * 0.08)} className="border-t border-black/10 pt-7">
+                <span aria-hidden="true" className="block w-10 h-[2px] bg-gold mb-5" />
+                <p className="text-lg leading-relaxed text-black/70">{p}</p>
               </motion.div>
             ))}
           </div>
