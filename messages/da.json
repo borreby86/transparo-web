@@ -55,7 +55,7 @@
     "overline": "Hjemmesider til selvstændige",
     "headlinePart1": "Hjemmesider, der",
     "headlinePart2": "ligner dig.",
-    "subtitle": "Vi laver hjemmesider til coaches, foredragsholdere og konsulenter. Alt er kodet fra bunden, og når du har betalt, er den din. Fra 8.995 kr. Du ser et forslag til din forside, før du beslutter noget.",
+    "subtitle": "Vi laver hjemmesider til coaches, foredragsholdere og konsulenter. Alt er kodet fra bunden, og du ejer hjemmesiden selv. Fra 8.995 kr. Du ser et forslag til din forside, før du beslutter noget.",
     "subtitleExtra": "Du får et gratis designforslag til din forside – så du kan se hvad du får, før du beslutter noget som helst.",
     "ctaDesignProposal": "Få et gratis designforslag",
     "ctaPriceCalculator": "Se priser",
@@ -193,9 +193,9 @@
     "headingLine1": "Christina",
     "headingLine2": "og Dennis.",
     "descriptions": [
-      "Vi er to, og det er med vilje.",
-      "Jeg har som regel dialogen med dig, og Dennis er stærkest i koden – men han har lært mig at kode, så vi kan begge dele.",
-      "Vi vil hellere have færre projekter, hvor vi har tæt kontakt med kunden."
+      "Vi er et lille bureau.",
+      "Vi tager kun udvalgte projekter ind hvert år, fordi vi gerne vil levere det bedst mulige i tæt dialog med dig. Vi vil ikke lave hundredvis af sider, men levere kvalitet.",
+      "Jeg har som regel dialogen med dig, og Dennis er stærkest i koden – men han har lært mig at kode, så vi kan begge dele."
     ],
     "team": [
       {
@@ -863,7 +863,7 @@
       "title": "Transparo – Hjemmesider til selvstændige",
       "description": "Hjemmesider til coaches, foredragsholdere og konsulenter. Kodet fra bunden og uden bindinger. Fra 8.995 kr.",
       "ogTitle": "Transparo – Hjemmesider, der ligner dig",
-      "ogDescription": "Kodet fra bunden. Du betaler for siden, og så er den din."
+      "ogDescription": "Kodet fra bunden og uden bindinger. Hjemmesider til selvstændige."
     },
     "layout": {
       "defaultTitle": "Transparo | Professionel Webudvikling Danmark",
@@ -1998,22 +1998,22 @@
   },
   "homeAI": {
     "overline": "Det første indtryk",
-    "headingLine1": "Man får kun én chance",
-    "headingLine2": "for et godt første indtryk.",
-    "lead": "Når en kunde kommer ind på din hjemmeside, skal indtrykket passe til den person, de møder i virkeligheden. Det gør det desværre ikke så ofte. Derfor starter jeg med dig og dit udtryk – ikke med en skabelon.",
-    "quote": "Jeg har lavet hjemmesider siden 2014. Jeg er uddannet cand. i marketing og kommunikation og har også en uddannelse som psykoterapeut og baggrund som tekstforfatter. Jeg kigger derfor på både udtryk, tekst og den, der skal læse det.",
+    "headingLine1": "You only get one chance",
+    "headingLine2": "to make a good impression.",
+    "lead": "Din hjemmeside skal give det indtryk, du gerne vil give. Når en kunde kommer ind på siden, skal udtrykket passe til dig og til det, du står for. Derfor starter jeg med dig og dit udtryk – ikke med en skabelon.",
+    "quote": "Jeg har lavet hjemmesider siden 2014. Jeg er uddannet cand. i marketing og kommunikation og har baggrund som tekstforfatter. Jeg kigger derfor på både udtryk, tekst og den, der skal læse det.",
     "name": "Christina Borreby",
     "role": "Founder",
     "aboutLink": "Mere om os"
   },
   "homeModern": {
     "overline": "Sådan arbejder vi",
-    "headingLine1": "Du betaler for siden.",
-    "headingLine2": "Så er den din.",
+    "headingLine1": "Du ved, hvad det koster,",
+    "headingLine2": "og hvad du får.",
     "benefits": [
       {
         "title": "Du ejer den selv",
-        "description": "Du betaler et beløb for hjemmesiden, og så er den din. Du kan hoste den, hvor du vil.",
+        "description": "Når hjemmesiden er færdig, er den din. Du kan hoste den, hvor du vil, og du er ikke bundet til os.",
         "details": [
           "Ingen binding eller abonnement",
           "Koden, domænet og indholdet er dit",
@@ -2048,8 +2048,8 @@
         ]
       },
       {
-        "title": "Tæt kontakt",
-        "description": "Vi er bevidst få. Vi vil hellere have projekter, hvor vi har tæt dialog med dig, end tage en masse sider ind.",
+        "title": "Få udvalgte projekter",
+        "description": "Vi er et lille bureau og tager kun udvalgte projekter ind hvert år. Så kan vi levere det bedst mulige i tæt dialog med dig. Vi vil ikke lave hundredvis af sider, men levere kvalitet.",
         "details": [
           "Du snakker direkte med dem, der bygger",
           "Du følger din side undervejs",
@@ -2097,7 +2097,7 @@
     "overline": "Bygget fra bunden",
     "headingLine1": "AI er vores værktøj –",
     "headingLine2": "ikke vores designer.",
-    "text": "Vi bruger AI, men vi bruger ikke templates. Når AI'en bestemmer, ender alle hjemmesider med at ligne hinanden. Her er tre kunder med tre helt forskellige udtryk.",
+    "text": "Vi bruger AI, men ikke en standard template. Vi bruger den til lettere at kunne levere et udtryk, der matcher dig – ellers ender alle hjemmesider med at ligne hinanden. Her er tre kunder med tre helt forskellige udtryk.",
     "strengths": [
       "Ingen templates",
       "Sans for detaljen",
@@ -2132,14 +2132,14 @@
     "lead": "Christina og Dennis. Alt er kodet fra bunden, uden templates og uden bindinger.",
     "story": [
       "Jeg har lavet hjemmesider siden 2014. Jeg er uddannet cand. i marketing og kommunikation og har også en uddannelse som psykoterapeut. Det var egentlig der, jeg opdagede, at de fleste omkring mig havde brug for en hjemmeside, der afspejlede dem – for de er jo deres eget brand.",
-      "Mange af mine kunder er coaches, foredragsholdere og konsulenter. Det er vigtigt for dem, at det første indtryk på hjemmesiden passer til den person, kunden senere møder. Man får kun én chance for at gøre et godt indtryk.",
+      "Mange af mine kunder er coaches, foredragsholdere og konsulenter. Det er vigtigt for dem, at hjemmesiden svarer til det indtryk, de gerne vil give. You only get one chance to make a good impression.",
       "I dag laver jeg hjemmesider i alle mulige retninger. Men det er de selvstændige, der går igen. Det er rigtig skønt."
     ],
     "philosophyLabel": "Derfor hedder vi Transparo",
     "philosophyHeading": "Alt er transparent fra start.",
     "philosophy": [
       "Dennis og jeg har begge arbejdet for firmaer, der tilbød en meget billig eller gratis hjemmeside og så tjente pengene på løbende udgifter og lange bindinger. Det synes vi ikke er særlig transparent.",
-      "Hos os betaler du et beløb for hjemmesiden, og så ejer du den selv. Du kan hoste den, hvor du vil.",
+      "Hos os er det ligetil: Du kender prisen fra start, og hjemmesiden er din. Du kan hoste den, hvor du vil.",
       "Vil du have, at vi tager os af hosting, overvågning og rettelser, gør vi det gerne. Men du skal ikke føle dig forpligtet, og du skal ikke betale store beløb år efter år."
     ],
     "humanOverline": "AI og det menneskelige",
@@ -2147,7 +2147,7 @@
     "human": [
       "Det bliver nemmere og nemmere at lave sin egen hjemmeside. Vil du have en billig og hurtig AI-side, kan du sagtens få en eller lave den selv. Det er bare ikke det, vi laver.",
       "Før gik det ud på at komme på side 1 på Google. Nu spørger folk også ChatGPT og andre AI'er. Vi bygger siden, så du har en chance for at blive nævnt, og vi rådgiver dig om resten.",
-      "Vi bruger AI som værktøj, men vi bruger ikke templates. Min frygt er, at alle hjemmesider ender med at ligne hinanden og miste det personlige. AI'en foreslår noget generisk, medmindre man ved, hvordan man skal bede den.",
+      "Vi bruger AI, men ikke en standard template. Vi bruger den til lettere at kunne levere et udtryk, der matcher dig. Min frygt er, at alle hjemmesider ender med at ligne hinanden og miste det personlige.",
       "Jeg tror, at det menneskelige får stor værdi, når den første bølge af AI har lagt sig. Derfor bruger vi mange timer på detaljerne, anbefaler rigtige billeder og arbejder sammen med fotografer."
     ],
     "lines": [
