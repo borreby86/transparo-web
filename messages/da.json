@@ -52,10 +52,10 @@
     "mobileBookButton": "Book"
   },
   "hero": {
-    "overline": "Hjemmesider til selvstændige",
-    "headlinePart1": "Hjemmesider, der",
-    "headlinePart2": "ligner dig.",
-    "subtitle": "Vi laver hjemmesider til coaches, foredragsholdere og konsulenter. Alt er kodet fra bunden, og du ejer hjemmesiden selv. Fra 8.995 kr. Du ser et forslag til din forside, før du beslutter noget.",
+    "overline": "unique designs - built on trust",
+    "headlinePart1": "Afspejler din hjemmeside",
+    "headlinePart2": "dig og dit personlige brand?",
+    "subtitle": "Vi er specialiserede i hjemmesider til selvstændige; særligt coaches, foredragsholdere og konsulenter, der ønsker en visuel identitet med et personligt præg. Priser fra 8.995 kr.",
     "subtitleExtra": "Du får et gratis designforslag til din forside – så du kan se hvad du får, før du beslutter noget som helst.",
     "ctaDesignProposal": "Få et gratis designforslag",
     "ctaPriceCalculator": "Se priser",
@@ -70,7 +70,7 @@
     "kontakt": "Kontakt",
     "faq": "FAQ",
     "contactTitle": "Kontakt",
-    "location": "Hørsholm, Danmark",
+    "location": "Hørsholm",
     "copyright": "© {year} Transparo. Alle rettigheder forbeholdes.",
     "privacyPolicy": "Privatlivspolitik",
     "cookiePolicy": "Cookiepolitik",
@@ -83,7 +83,7 @@
     "emailLabel": "Email",
     "phoneLabel": "Telefon",
     "locationLabel": "Adresse",
-    "location": "Hørsholm, Danmark",
+    "location": "Hørsholm",
     "teamNote": "Vi er et lille team, så du taler direkte med dem, der bygger dit website. Ingen mellemled.",
     "nameLabel": "Navn *",
     "namePlaceholder": "Dit fulde navn",
@@ -2000,7 +2000,7 @@
     "overline": "Det første indtryk",
     "headingLine1": "You only get one chance",
     "headingLine2": "to make a good impression.",
-    "lead": "Din hjemmeside skal give det indtryk, du gerne vil give. Når en kunde kommer ind på siden, skal udtrykket passe til dig og til det, du står for. Derfor starter jeg med dig og dit udtryk – ikke med en skabelon.",
+    "lead": "En hjemmeside skal, efter vores mening, efterlade besøgende kunder med en klar fornemmelse af, hvem du er. Derfor skal udtrykket passe til dig og til det, du står for. Vi starter altid med et møde, så vi lærer dig og dit ønskede udtryk at kende.",
     "quote": "Jeg har lavet hjemmesider siden 2014. Jeg er uddannet cand. i marketing og kommunikation og har baggrund som tekstforfatter. Jeg kigger derfor på både udtryk, tekst og den, der skal læse det.",
     "name": "Christina Borreby",
     "role": "Founder",
@@ -2068,7 +2068,7 @@
     ],
     "wpHeading": "Vil du have, at vi tager os af det hele?",
     "wpText": "Vi tilbyder hosting med overvågning og rettelser, så vi tager det fulde ansvar for hjemmesiden. Men det er et tilbud, ikke et krav.",
-    "intro": "Dennis og jeg har begge arbejdet for firmaer, der gav kunden en billig eller gratis hjemmeside og så tjente på løbende udgifter og lange bindinger. Det synes vi ikke er særlig transparent. Hos os ved du fra start, hvad den koster."
+    "intro": "Vi har begge arbejdet for firmaer, der gav kunden en billig eller gratis hjemmeside og ikke var transparente omkring løbende udgifter og lange bindinger. Det synes vi ikke er fair. Hos os får du en fast pris for din hjemmeside, og så er du frit stillet bagefter. Ændrer projektet form undervejs, fordi du får nye ønsker, godkender du altid en eventuel merpris."
   },
   "homeProposal": {
     "overline": "Start her",
@@ -2097,10 +2097,10 @@
     "overline": "Bygget fra bunden",
     "headingLine1": "AI er vores værktøj –",
     "headingLine2": "ikke vores designer.",
-    "text": "Vi bruger AI, men ikke en standard template. Vi bruger den til lettere at kunne levere et udtryk, der matcher dig – ellers ender alle hjemmesider med at ligne hinanden. Her er tre kunder med tre helt forskellige udtryk.",
+    "text": "Vi bruger AI, men aldrig en standard template. Vi bygger alle websites fra bunden, og AI gør det bare lettere end nogensinde før at skabe unikke udtryk, der matcher den enkeltes produkt og personlighed. Her er tre kunder med tre helt forskellige udtryk.",
     "strengths": [
       "Ingen templates",
-      "Sans for detaljen",
+      "Kodet fra bunden",
       "Dit eget udtryk"
     ],
     "paletteLabel": "Farvepalet"
@@ -2109,16 +2109,16 @@
     "overline": "Om Transparo",
     "meta": [
       {
-        "k": "Hvem",
+        "k": "Hvem står bag",
         "v": "Christina Borreby & Dennis Enghave"
       },
       {
-        "k": "Hjemmesider siden",
+        "k": "erfaring med marketing & webdesign siden",
         "v": "2014"
       },
       {
-        "k": "Hvor",
-        "v": "Hørsholm, Danmark"
+        "k": "Hvor holder vi til fysisk",
+        "v": "Hørsholm"
       }
     ],
     "storyLabel": "Historien",
