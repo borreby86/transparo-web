@@ -6,19 +6,7 @@ import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/routing'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import { TagLine } from '@/components/ui/TagLine'
 import { useDesignProposal } from '@/components/ui/DesignProposalContext'
-
-function Row({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="grid lg:grid-cols-12 gap-6 lg:gap-16">
-      <div className="lg:col-span-3">
-        <span className="text-[11px] uppercase tracking-[0.2em] text-black/55">{label}</span>
-      </div>
-      <div className="lg:col-span-9">{children}</div>
-    </div>
-  )
-}
 
 export function AboutPageContent() {
   const t = useTranslations('aboutPage')
@@ -48,10 +36,6 @@ export function AboutPageContent() {
     role: about(`team.${m.i}.role`),
     bio: about(`team.${m.i}.bio`),
   }))
-  const storyParas = [0, 1, 2].map((i) => t(`story.${i}`))
-  const philosophy = [0, 1, 2].map((i) => t(`philosophy.${i}`))
-  const human = [0, 1, 2, 3].map((i) => t(`human.${i}`))
-  const lines = [0, 1, 2].map((i) => t(`lines.${i}`))
 
   return (
     <>
@@ -84,25 +68,10 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* Historien */}
-      <section className="bg-white px-6 md:px-12 py-20 md:py-32">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div {...reveal()}>
-            <Row label={t('storyLabel')}>
-              <div className="space-y-7 max-w-3xl">
-                <p className="text-2xl md:text-3xl lg:text-[2rem] leading-[1.4] text-black">{storyParas[0]}</p>
-                <p className="text-lg md:text-xl leading-relaxed text-black/70">{storyParas[1]}</p>
-                <p className="text-lg md:text-xl leading-relaxed text-black/70">{storyParas[2]}</p>
-              </div>
-            </Row>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Holdet */}
-      <section className="bg-[#ece6e2] px-6 md:px-12 py-20 md:py-32">
+      <section className="bg-[#ece6e2] px-6 md:px-12 py-20 md:py-28">
         <div className="max-w-[1400px] mx-auto">
-          <motion.div {...reveal()} className="mb-14 md:mb-20">
+          <motion.div {...reveal()} className="mb-12 md:mb-16">
             <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold-dark mb-6">{about('overline')}</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight text-black">
               {about('headingLine1')}
@@ -135,42 +104,8 @@ export function AboutPageContent() {
         </div>
       </section>
 
-      {/* Filosofien */}
-      <section className="bg-black text-white px-6 md:px-12 py-20 md:py-32">
-        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16">
-          <motion.div {...reveal()} className="lg:col-span-5">
-            <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold mb-6">{t('philosophyLabel')}</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight text-white">{t('philosophyHeading')}</h2>
-            <TagLine items={lines} tone="light" size="md" className="mt-10" />
-          </motion.div>
-          <motion.div {...reveal(0.1)} className="lg:col-span-7 space-y-6">
-            <p className="text-xl md:text-2xl leading-[1.45] text-white">{philosophy[0]}</p>
-            <p className="text-lg md:text-xl leading-relaxed text-white/70">{philosophy[1]}</p>
-            <p className="text-lg md:text-xl leading-relaxed text-white/70">{philosophy[2]}</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* AI og det menneskelige */}
-      <section className="bg-[#f7f5f2] border-y border-black/[0.05] px-6 md:px-12 py-20 md:py-32">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div {...reveal()} className="mb-12 md:mb-16 max-w-4xl">
-            <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold-dark mb-6">{t('humanOverline')}</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-black">{t('humanHeading')}</h2>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-x-14 gap-y-10">
-            {human.map((p, i) => (
-              <motion.div key={i} {...reveal((i % 2) * 0.08)} className="border-t border-black/10 pt-7">
-                <span aria-hidden="true" className="block w-10 h-[2px] bg-gold mb-5" />
-                <p className="text-lg leading-relaxed text-black/70">{p}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Afslutning – lys, med designforslaget som eneste handling */}
-      <section className="bg-[#ece6e2] px-6 md:px-12 py-20 md:py-28">
+      <section className="bg-[#f7f5f2] px-6 md:px-12 py-20 md:py-28">
         <motion.div
           {...reveal()}
           className="max-w-[1400px] mx-auto grid lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-8 lg:gap-24 items-end"

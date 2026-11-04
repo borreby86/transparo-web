@@ -137,10 +137,10 @@ export function ProcessFinalCTA() {
             </a>
             <div className="hidden sm:block w-px h-4 bg-white/20" />
             <a
-              href="mailto:hej@transparo.dk"
+              href="mailto:info@christinaborreby.dk"
               className="text-white/60 hover:text-gold transition-colors"
             >
-              hej@transparo.dk
+              info@christinaborreby.dk
             </a>
           </div>
         </motion.div>

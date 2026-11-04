@@ -1036,7 +1036,7 @@
     "managementOption2Title": "I din browser",
     "managementOption2Description": "De fleste browsere giver dig mulighed for at administrere cookies. Find vejledninger her:",
     "managementOption3Title": "Kontakt os",
-    "managementOption3Description": "Har du spørgsmål om vores brug af cookies? Kontakt os på kontakt@transparo.dk",
+    "managementOption3Description": "Har du spørgsmål om vores brug af cookies? Kontakt os på info@christinaborreby.dk",
     "gdprTitle": "GDPR og databeskyttelse",
     "gdprDescription": "Vi overholder EU's databeskyttelsesforordning (GDPR) og dansk lovgivning om cookies og privatlivsbeskyttelse. Det betyder:",
     "gdprPoints": [
@@ -1061,7 +1061,7 @@
       },
       "dataController": {
         "title": "2. Dataansvarlig",
-        "content": "Transparo\nKøbenhavn, Danmark\nEmail: kontakt@transparo.dk\nTelefon: +45 12 34 56 78"
+        "content": "Transparo\nKøbenhavn, Danmark\nEmail: info@christinaborreby.dk\nTelefon: +45 12 34 56 78"
       },
       "dataCollected": {
         "title": "3. Hvilke oplysninger indsamler vi?",
@@ -1122,7 +1122,7 @@
           "Ret til indsigelse: Du kan gøre indsigelse mod behandlingen af dine data",
           "Ret til at trække samtykke tilbage: Når behandling er baseret på samtykke"
         ],
-        "contactNote": "For at udøve disse rettigheder, kontakt os på kontakt@transparo.dk."
+        "contactNote": "For at udøve disse rettigheder, kontakt os på info@christinaborreby.dk."
       },
       "security": {
         "title": "9. Sikkerhed",
@@ -1139,7 +1139,7 @@
       "contact": {
         "title": "12. Kontakt",
         "description": "Hvis du har spørgsmål om denne privatlivspolitik eller hvordan vi behandler dine personoplysninger, er du velkommen til at kontakte os:",
-        "details": "Email: kontakt@transparo.dk\nTelefon: +45 12 34 56 78",
+        "details": "Email: info@christinaborreby.dk\nTelefon: +45 12 34 56 78",
         "complaintNote": "Du har også ret til at klage til Datatilsynet, hvis du mener, at vi behandler dine personoplysninger i strid med GDPR."
       }
     }
@@ -1280,7 +1280,7 @@
       "contact": {
         "title": "16. Kontakt",
         "description": "Hvis du har spørgsmål til disse handelsbetingelser, er du velkommen til at kontakte os:",
-        "details": "Transparo\nEmail: kontakt@transparo.dk\nTelefon: +45 12 34 56 78\nKøbenhavn, Danmark"
+        "details": "Transparo\nEmail: info@christinaborreby.dk\nTelefon: +45 12 34 56 78\nKøbenhavn, Danmark"
       }
     }
   },
@@ -1386,7 +1386,7 @@
     "back": "Tilbage",
     "send": "Send",
     "sending": "Sender...",
-    "email": "kontakt@transparo.dk",
+    "email": "info@christinaborreby.dk",
     "phone": "+45 22 47 12 47",
     "companyName": "Transparo",
     "readMore": "Læs mere",

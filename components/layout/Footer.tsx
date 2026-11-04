@@ -31,10 +31,10 @@ export function Footer() {
               <li className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-gold flex-shrink-0 mt-0.5" />
                 <a
-                  href="mailto:kontakt@transparo.dk"
+                  href="mailto:info@christinaborreby.dk"
                   className="text-black/70 hover:text-gold transition-colors text-sm"
                 >
-                  kontakt@transparo.dk
+                  info@christinaborreby.dk
                 </a>
               </li>
               <li className="flex items-start space-x-3">

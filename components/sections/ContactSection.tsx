@@ -97,10 +97,10 @@ export function ContactSection() {
                     {t('emailLabel')}
                   </span>
                   <a
-                    href="mailto:kontakt@transparo.dk"
+                    href="mailto:info@christinaborreby.dk"
                     className="text-2xl md:text-3xl font-bold text-black hover:text-gold transition-colors duration-300"
                   >
-                    kontakt@transparo.dk
+                    info@christinaborreby.dk
                   </a>
                 </div>
 

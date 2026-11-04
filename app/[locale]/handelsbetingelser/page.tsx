@@ -261,7 +261,7 @@ export default async function HandelsbetingelserPage({ params }: { params: Promi
               </p>
               <p className="text-black/80 leading-relaxed">
                 Transparo<br />
-                Email: kontakt@transparo.dk<br />
+                Email: info@christinaborreby.dk<br />
                 Telefon: +45 12 34 56 78<br />
                 København, Danmark
               </p>

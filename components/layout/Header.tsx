@@ -183,7 +183,7 @@ export function Header() {
                 className="absolute bottom-8 left-10 md:left-20 lg:left-28 right-10 md:right-20 flex justify-between items-center"
               >
                 <span className="text-black/30 text-xs tracking-wider">
-                  kontakt@transparo.dk
+                  info@christinaborreby.dk
                 </span>
                 <div className="flex items-center gap-4">
                   <span className="text-black/30 text-xs tracking-wider">

@@ -174,8 +174,8 @@ export default function CookiePolitikPage() {
                   <h4 className="font-semibold text-navy mb-2">Kontakt os</h4>
                   <p className="text-sm text-black/70">
                     Har du spørgsmål om vores brug af cookies? Kontakt os på{' '}
-                    <a href="mailto:kontakt@transparo.dk" className="text-gold hover:underline">
-                      kontakt@transparo.dk
+                    <a href="mailto:info@christinaborreby.dk" className="text-gold hover:underline">
+                      info@christinaborreby.dk
                     </a>
                   </p>
                 </div>
@@ -244,7 +244,7 @@ export default function CookiePolitikPage() {
             <div className="mt-8 p-4 bg-offwhite rounded-lg">
               <p className="text-sm text-black/70">
                 <strong className="text-navy">Har du spørgsmål?</strong><br />
-                Kontakt os på <a href="mailto:kontakt@transparo.dk" className="text-gold hover:underline">kontakt@transparo.dk</a> eller via vores{' '}
+                Kontakt os på <a href="mailto:info@christinaborreby.dk" className="text-gold hover:underline">info@christinaborreby.dk</a> eller via vores{' '}
                 <Link href="/kontakt" className="text-gold hover:underline">kontaktformular</Link>.
               </p>
             </div>

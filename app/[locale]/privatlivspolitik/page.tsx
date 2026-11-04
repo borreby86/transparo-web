@@ -43,7 +43,7 @@ export default async function PrivatlivspolitikPage({ params }: { params: Promis
               <p className="text-black/80 leading-relaxed mb-2">
                 Transparo<br />
                 København, Danmark<br />
-                Email: kontakt@transparo.dk<br />
+                Email: info@christinaborreby.dk<br />
                 Telefon: +45 12 34 56 78
               </p>
             </section>
@@ -129,7 +129,7 @@ export default async function PrivatlivspolitikPage({ params }: { params: Promis
                 <li><strong>Ret til at trække samtykke tilbage:</strong> Når behandling er baseret på samtykke</li>
               </ul>
               <p className="text-black/80 leading-relaxed mt-4">
-                For at udøve disse rettigheder, kontakt os på kontakt@transparo.dk.
+                For at udøve disse rettigheder, kontakt os på info@christinaborreby.dk.
               </p>
             </section>
 
@@ -165,7 +165,7 @@ export default async function PrivatlivspolitikPage({ params }: { params: Promis
                 er du velkommen til at kontakte os:
               </p>
               <p className="text-black/80 leading-relaxed">
-                Email: kontakt@transparo.dk<br />
+                Email: info@christinaborreby.dk<br />
                 Telefon: +45 12 34 56 78
               </p>
               <p className="text-black/80 leading-relaxed mt-4">

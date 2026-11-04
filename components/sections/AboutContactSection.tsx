@@ -122,13 +122,13 @@ export function AboutContactSection() {
             {/* Contact links */}
             <div className="space-y-4">
               <motion.a
-                href="mailto:kontakt@transparo.dk"
+                href="mailto:info@christinaborreby.dk"
                 className="group flex items-center justify-between p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:bg-gold hover:border-gold transition-all duration-500"
                 whileHover={shouldReduceMotion ? {} : { x: 10 }}
               >
                 <div>
                   <span className="block text-sm text-white/50 group-hover:text-black/50 mb-1 transition-colors">{t('emailLabel')}</span>
-                  <span className="text-lg text-white group-hover:text-black font-medium transition-colors">kontakt@transparo.dk</span>
+                  <span className="text-lg text-white group-hover:text-black font-medium transition-colors">info@christinaborreby.dk</span>
                 </div>
                 <ArrowUpRight className="w-6 h-6 text-white/30 group-hover:text-black group-hover:rotate-45 transition-all duration-300" />
               </motion.a>
