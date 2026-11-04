@@ -12,68 +12,45 @@ export function HeroSection() {
   const t = useTranslations('hero')
   const shouldReduceMotion = useReducedMotion()
   const { open: openDesignProposal } = useDesignProposal()
-  const word = 'transparo.'
   const hasSeenLoader = typeof window !== 'undefined' && sessionStorage.getItem('transparo_loader_seen') === 'true'
-  const [displayedText, setDisplayedText] = useState(hasSeenLoader ? word : '')
-  const [charIndex, setCharIndex] = useState(hasSeenLoader ? word.length : 0)
   const [showLoader, setShowLoader] = useState(!hasSeenLoader)
-  const [showHero, setShowHero] = useState(hasSeenLoader)
 
-  // Typewriter
+  // Startskærm: "transparo." og eyebrow fader blødt ind, står et øjeblik og fader ud til forsiden
   useEffect(() => {
     if (hasSeenLoader) return
-
-    if (shouldReduceMotion) {
-      setDisplayedText(word)
-      setCharIndex(word.length)
-      return
-    }
-
-    if (charIndex < word.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText(word.slice(0, charIndex + 1))
-        setCharIndex(charIndex + 1)
-      }, 120)
-      return () => clearTimeout(timeout)
-    }
-  }, [charIndex, shouldReduceMotion, word, hasSeenLoader])
-
-  // After typing, fade out loader → show hero
-  useEffect(() => {
-    if (hasSeenLoader) return
-
-    if (charIndex >= word.length) {
-      const timeout = setTimeout(() => {
-        setShowLoader(false)
-        sessionStorage.setItem('transparo_loader_seen', 'true')
-        setTimeout(() => setShowHero(true), 200)
-      }, shouldReduceMotion ? 0 : 600)
-      return () => clearTimeout(timeout)
-    }
-  }, [charIndex, shouldReduceMotion, word.length, hasSeenLoader])
-
+    const hold = setTimeout(() => {
+      setShowLoader(false)
+      sessionStorage.setItem('transparo_loader_seen', 'true')
+    }, shouldReduceMotion ? 0 : 2600)
+    return () => clearTimeout(hold)
+  }, [shouldReduceMotion, hasSeenLoader])
 
   return (
     <section className="relative overflow-hidden bg-[#faf9f6]">
-      {/* Loader: "transparo." typewriter */}
+      {/* Startskærm: blød fade-in af "transparo." med eyebrow */}
       <AnimatePresence>
         {showLoader && (
           <motion.div
-            className="fixed inset-0 z-50 bg-white flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center px-6 text-center"
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: shouldReduceMotion ? 0 : 1.2, ease: 'easeInOut' }}
           >
-            <span className="font-sans font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-black tracking-tight">
-              {displayedText.slice(0, -1)}
-              <span className="text-gold">
-                {displayedText.endsWith('.') ? '.' : ''}
-              </span>
-              <motion.span
-                className="inline-block w-[3px] h-14 sm:h-16 md:h-20 lg:h-24 bg-gold ml-2 align-middle"
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}
-              />
-            </span>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 1.4, ease: 'easeInOut' }}
+              className="font-sans font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-black tracking-tight"
+            >
+              transparo<span className="text-gold">.</span>
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 1, delay: shouldReduceMotion ? 0 : 0.9, ease: 'easeOut' }}
+              className="mt-6 text-[11px] sm:text-xs font-medium uppercase tracking-[0.25em] text-black/55"
+            >
+              Unique designs – built on trust
+            </motion.span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -82,32 +59,22 @@ export function HeroSection() {
       <div className="relative bg-black px-6 md:px-12 pt-28 pb-8 md:pt-32 md:pb-10 overflow-hidden">
         <div className="max-w-[1400px] mx-auto relative z-10 grid lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-8 lg:gap-16 lg:items-end">
           <div>
-            <motion.span
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-              animate={showHero ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
+            <span
               className="text-xs font-medium uppercase tracking-[0.15em] text-gold block mb-4"
             >
               {t('overline')}
-            </motion.span>
+            </span>
 
-            <motion.h1
-              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-              animate={showHero ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.1 }}
+            <h1
               className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.05] tracking-tight"
             >
               <span className="text-white">{t('headlinePart1')}</span>
               <br />
-              <span className="text-white">{t('headlinePart2')}</span>
-            </motion.h1>
+              <span className="text-gold">{t('headlinePart2')}</span>
+            </h1>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={showHero ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.2 }}
-          >
+          <div>
             <p className="text-base md:text-lg text-white/50 max-w-xl leading-relaxed mb-6">{t('subtitle')}</p>
             <div className="flex flex-wrap items-center gap-3">
               <button
@@ -123,18 +90,14 @@ export function HeroSection() {
                 {t('ctaPortfolio')}
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Cases are the hero's main message */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={showHero ? { opacity: 1 } : {}}
-        transition={{ duration: shouldReduceMotion ? 0 : 0.8, delay: shouldReduceMotion ? 0 : 0.3 }}
-      >
+      <div>
         <CaseShowcase />
-      </motion.div>
+      </div>
     </section>
   )
 }

@@ -53,9 +53,9 @@
   },
   "hero": {
     "overline": "unique designs - built on trust",
-    "headlinePart1": "Websites der",
-    "headlinePart2": "afspejler din professionalisme",
-    "subtitle": "Vores fornemmeste opgave er at forstå din forretning, så vi kan hjælpe dig bedst muligt på vej til det visuelle udtryk, der afspejler dig og dit virke bedst muligt. Hvert projekt starter derfor med en afklarende samtale, så vi lærer dig at kende, inden vi skaber dit nye ansigt udadtil.",
+    "headlinePart1": "Websites der afspejler",
+    "headlinePart2": "din professionalisme",
+    "subtitle": "Vi er specialiserede i hjemmesider til selvstændige; særligt coaches, foredragsholdere og konsulenter, der ønsker en visuel identitet med et personligt præg. Priser fra 8.995 kr.",
     "subtitleExtra": "Du får et gratis designforslag til din forside – så du kan se hvad du får, før du beslutter noget som helst.",
     "ctaDesignProposal": "Få et gratis designforslag",
     "ctaPriceCalculator": "Se priser",
@@ -2000,10 +2000,13 @@
     "overline": "Det første indtryk",
     "headingLine1": "You only get one chance",
     "headingLine2": "to make a good impression.",
-    "lead": "En hjemmeside skal, efter vores mening, efterlade besøgende kunder med en klar fornemmelse af, hvem du er. Derfor skal udtrykket passe til dig og til det, du står for. Vi starter altid med et møde, så vi lærer dig og dit ønskede udtryk at kende.",
     "aboutLink": "Mere om os",
-    "question": "Afspejler din hjemmeside dig og dit personlige brand?",
-    "audience": "Vi er specialiserede i hjemmesider til selvstændige; særligt coaches, foredragsholdere og konsulenter, der ønsker en visuel identitet med et personligt præg. Priser fra 8.995 kr."
+    "body": [
+      "Vores fornemmeste opgave er at forstå din forretning, så vi kan hjælpe dig bedst muligt på vej til det visuelle udtryk, der afspejler dig og dit virke bedst muligt.",
+      "For en hjemmeside skal, efter vores mening, efterlade besøgende kunder med en klar fornemmelse af, hvem du er og hvad du står for.",
+      "Det er nemt for alle at lave en hjemmeside med AI i dag, men hos os får du mere end det.",
+      "Hvert projekt starter altid med et møde, så vi lærer dig og dine værdier at kende, inden vi skaber dit nye ansigt udadtil."
+    ]
   },
   "homeModern": {
     "overline": "Sådan arbejder vi",
