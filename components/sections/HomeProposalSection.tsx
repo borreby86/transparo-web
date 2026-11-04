@@ -16,15 +16,11 @@ export function HomeProposalSection() {
     viewport: { once: true, margin: '-80px' },
     transition: { duration: shouldReduceMotion ? 0 : 0.7, ease: 'easeOut' as const },
   }
-  const steps = [0, 1, 2].map((i) => ({
-    title: t(`steps.${i}.title`),
-    description: t(`steps.${i}.description`),
-  }))
 
   return (
     <section id="designforslag" className="bg-[#ece6e2] px-6 md:px-12 py-20 md:py-32">
       <div className="max-w-[1400px] mx-auto">
-        <motion.div {...fade} className="grid lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-8 lg:gap-24 items-end mb-14 md:mb-16">
+        <motion.div {...fade} className="grid lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] gap-8 lg:gap-24 items-end">
           <div>
             <span className="block text-xs font-medium uppercase tracking-[0.2em] text-gold-dark mb-6">{t('overline')}</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.06] tracking-tight text-black">
@@ -43,19 +39,9 @@ export function HomeProposalSection() {
               {t('cta')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
-            <p className="mt-3.5 text-[13px] text-black/60">{t('note')}</p>
           </div>
         </motion.div>
 
-        <motion.ol {...fade} className="grid md:grid-cols-3 gap-10 md:gap-14">
-          {steps.map((s) => (
-            <li key={s.title} className="border-t border-black/15 pt-8">
-              <span aria-hidden="true" className="block w-10 h-[2px] bg-gold mb-6" />
-              <h3 className="text-xl md:text-2xl font-bold text-black leading-tight mb-2">{s.title}</h3>
-              <p className="text-black/65 text-base md:text-lg leading-relaxed">{s.description}</p>
-            </li>
-          ))}
-        </motion.ol>
       </div>
     </section>
   )

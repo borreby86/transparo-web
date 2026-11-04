@@ -39,7 +39,8 @@ export function HomeDistinctSection() {
             </h2>
           </div>
           <div>
-            <p className="text-lg leading-relaxed text-black/70 mb-6">{t('text')}</p>
+            <p className="text-lg leading-relaxed text-black/70 mb-4">{t('text')}</p>
+            <p className="text-lg leading-relaxed text-black/70 mb-6">{t('textExtra')}</p>
             <TagLine items={strengths} variant="ink" size="md" className="pt-6 border-t border-black/10" />
           </div>
         </motion.div>

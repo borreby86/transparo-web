@@ -2014,6 +2014,24 @@
     "headingLine2": "og hvad du får.",
     "benefits": [
       {
+        "title": "Få udvalgte projekter",
+        "description": "Vi er et lille bureau og tager kun udvalgte projekter ind hvert år. Så kan vi levere det bedst mulige i tæt dialog med dig. Vi vil ikke lave hundredvis af sider, men levere kvalitet.",
+        "details": [
+          "Du snakker direkte med dem, der bygger",
+          "Du følger din side undervejs",
+          "Tid til detaljerne"
+        ]
+      },
+      {
+        "title": "Rigtige billeder og din egen stemme",
+        "description": "Vi anbefaler rigtige billeder frem for AI-billeder og arbejder sammen med fotografer. Med tekst er det det samme: AI kan hjælpe, men uden et menneske bliver den flad.",
+        "details": [
+          "Tekster, der lyder som dig",
+          "Rigtige billeder, ikke AI-billeder",
+          "Samarbejde med fotografer"
+        ]
+      },
+      {
         "title": "Du ejer den selv",
         "description": "Når hjemmesiden er færdig, er den din. Du kan hoste den, hvor du vil, og du er ikke bundet til os.",
         "details": [
@@ -2041,24 +2059,6 @@
         ]
       },
       {
-        "title": "Rigtige billeder og din egen stemme",
-        "description": "Vi anbefaler rigtige billeder frem for AI-billeder og arbejder sammen med fotografer. Med tekst er det det samme: AI kan hjælpe, men uden et menneske bliver den flad.",
-        "details": [
-          "Tekster, der lyder som dig",
-          "Rigtige billeder, ikke AI-billeder",
-          "Samarbejde med fotografer"
-        ]
-      },
-      {
-        "title": "Få udvalgte projekter",
-        "description": "Vi er et lille bureau og tager kun udvalgte projekter ind hvert år. Så kan vi levere det bedst mulige i tæt dialog med dig. Vi vil ikke lave hundredvis af sider, men levere kvalitet.",
-        "details": [
-          "Du snakker direkte med dem, der bygger",
-          "Du følger din side undervejs",
-          "Tid til detaljerne"
-        ]
-      },
-      {
         "title": "Tryghed bagefter",
         "description": "Vil du have, at vi tager os af hosting, overvågning og rettelser, gør vi det gerne. Men du skal ikke føle dig forpligtet, og du skal ikke betale store beløb hvert år.",
         "details": [
@@ -2076,7 +2076,7 @@
     "overline": "Start her",
     "headingLine1": "Se din nye forside,",
     "headingLine2": "før du beslutter noget.",
-    "text": "Vi laver et konkret designforslag til din forside – gratis og uden forpligtelser. Så kan du se, hvad du får, i stedet for at gætte.",
+    "text": "Må vi vise dig, hvad vi kan og lave et konkret designforslag til din forside? Det er gratis og uden forpligtelser. Udfyld formularen, så kontakter vi dig til en kort snak, inden vi starter.",
     "cta": "Få et gratis designforslag",
     "note": "Åbner en kort formular · Uforpligtende",
     "steps": [
@@ -2099,13 +2099,14 @@
     "overline": "Bygget fra bunden",
     "headingLine1": "AI er vores værktøj –",
     "headingLine2": "ikke vores designer.",
-    "text": "Vi bruger AI, men aldrig en standard template. Vi bygger alle websites fra bunden, og AI gør det bare lettere end nogensinde før at skabe unikke udtryk, der matcher den enkeltes produkt og personlighed. Her er tre kunder med tre helt forskellige udtryk.",
+    "text": "Vi bruger AI, men aldrig som erstatning for vores egen kreativitet. Vi bygger hvert websites fra bunden, uanset om du ønsker WordPress eller den nye generation af hjemmesider. For os gør AI det bare lettere end nogensinde før at skabe unikke udtryk, der matcher den enkeltes brand.",
     "strengths": [
       "Ingen templates",
       "Kodet fra bunden",
       "Dit eget udtryk"
     ],
-    "paletteLabel": "Farvepalet"
+    "paletteLabel": "Farvepalet",
+    "textExtra": "Her er eksempelvis tre kunder med tre forskellige udtryk."
   },
   "aboutPage": {
     "overline": "Om Transparo",

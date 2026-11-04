@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { KeyRound, Code2, Search, Camera, Users, ShieldCheck, Check } from 'lucide-react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
-const ICONS = [KeyRound, Code2, Search, Camera, Users, ShieldCheck]
+const ICONS = [Users, Camera, KeyRound, Code2, Search, ShieldCheck]
 
 export function HomeModernSection() {
   const t = useTranslations('homeModern')
