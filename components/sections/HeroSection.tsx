@@ -99,7 +99,7 @@ export function HeroSection() {
             >
               <span className="text-white">{t('headlinePart1')}</span>
               <br />
-              <span className="text-gold">{t('headlinePart2')}</span>
+              <span className="text-white">{t('headlinePart2')}</span>
             </motion.h1>
           </div>
 

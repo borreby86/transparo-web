@@ -10,7 +10,7 @@ import { ArrowRight } from 'lucide-react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { caseStudiesDetailed } from '@/data/caseStudies'
 
-const FEATURED = ['eskild-ebbesen', 'mind-balance-system', 'significanz', 'christina-borreby']
+const FEATURED = ['eskild-ebbesen', 'mind-balance-system', 'significanz']
 const INTERVAL = 6500
 // Fader mockup-billedets kanter ud, så der ikke ses en kant mod sektionens baggrund
 const FEATHER =
