@@ -190,12 +190,11 @@
   },
   "about": {
     "overline": "Om os",
-    "headingLine1": "Christina",
-    "headingLine2": "tech-nørden",
+    "headingLine1": "Perfektionisten",
+    "headingLine2": "og tech-nørden",
     "descriptions": [
-      "Vi er et lille bureau.",
-      "Vi tager kun udvalgte projekter ind hvert år, fordi vi gerne vil levere det bedst mulige i tæt dialog med dig. Vi vil ikke lave hundredvis af sider, men levere kvalitet.",
-      "Jeg har som regel dialogen med dig, og Dennis er stærkest i koden – men han har lært mig at kode, så vi kan begge dele."
+      "Vi er et lille bureau, og tager kun udvalgte projekter ind hvert år, for at sætte kvalitet over kvantitet. Det er det, du betaler for hos os. Du vil typisk have dialogen med Christina, som hjælper med at afdække præcist, hvad du har brug for med dit nye site.",
+      "Derefter bygger hun og Dennis i fællesskab det færdige resultat. Du får Christinas visuelle sans for detalje og æstetik, mens Dennis sikrer at alt det tekniske er på plads."
     ],
     "team": [
       {

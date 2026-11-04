@@ -109,9 +109,10 @@ export function AboutPageContent() {
               <br />
               <span className="text-black/40">{about('headingLine2')}</span>
             </h2>
-            <p className="mt-8 max-w-2xl text-lg md:text-xl leading-relaxed text-black/70">
-              {about('descriptions.0')} {about('descriptions.1')} {about('descriptions.2')}
-            </p>
+            <div className="mt-8 max-w-2xl space-y-5 text-lg md:text-xl leading-relaxed text-black/70">
+              <p>{about('descriptions.0')}</p>
+              <p>{about('descriptions.1')}</p>
+            </div>
           </motion.div>
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {team.map((m, idx) => (
