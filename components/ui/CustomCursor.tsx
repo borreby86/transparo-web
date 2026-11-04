@@ -106,29 +106,40 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Gold arrow cursor (tip sits exactly on the pointer position) */}
+      {/* Main cursor dot */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999]"
-        style={{ x: cursorXSpring, y: cursorYSpring }}
-        animate={{
-          scale: isProjectCard ? 0 : isHovering ? 1.25 : 1,
-          opacity: isProjectCard ? 0 : 1,
+        className="fixed top-0 left-0 w-3 h-3 bg-gold rounded-full pointer-events-none z-[9999]"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+          translateX: '-50%',
+          translateY: '-50%',
+          boxShadow: '0 0 10px rgba(218, 165, 32, 0.5)',
         }}
-        transition={{ duration: 0.25, ease: [0.43, 0.13, 0.23, 0.96] }}
-      >
-        <svg
-          width="22"
-          height="26"
-          viewBox="0 0 22 26"
-          fill="none"
-          style={{ display: 'block', transformOrigin: '2px 2px', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))' }}
-        >
-          <path
-            d="M2 2 L2 21 L7.2 16.4 L10.8 24 L14.2 22.5 L10.7 15 L17.5 14.6 Z"
-            fill="#DAA520"
-          />
-        </svg>
-      </motion.div>
+        animate={{
+          scale: isHovering || isProjectCard ? 0 : 1,
+        }}
+        transition={{ duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
+      />
+
+      {/* Outer ring — normal hover state */}
+      <motion.div
+        className="fixed top-0 left-0 border border-gold rounded-full pointer-events-none z-[9998]"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+          translateX: '-50%',
+          translateY: '-50%',
+        }}
+        animate={{
+          width: isProjectCard ? 0 : isHovering ? 60 : 36,
+          height: isProjectCard ? 0 : isHovering ? 60 : 36,
+          opacity: isProjectCard ? 0 : 1,
+          borderColor: isHovering ? 'rgba(218, 165, 32, 1)' : 'rgba(218, 165, 32, 0.6)',
+          borderWidth: isHovering ? 2 : 1,
+        }}
+        transition={{ duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
+      />
 
       {/* Project card cursor — circle with gold arrow */}
       <motion.div
