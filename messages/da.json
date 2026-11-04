@@ -191,7 +191,7 @@
   "about": {
     "overline": "Om os",
     "headingLine1": "Christina",
-    "headingLine2": "og Dennis.",
+    "headingLine2": "tech-nørden",
     "descriptions": [
       "Vi er et lille bureau.",
       "Vi tager kun udvalgte projekter ind hvert år, fordi vi gerne vil levere det bedst mulige i tæt dialog med dig. Vi vil ikke lave hundredvis af sider, men levere kvalitet.",
@@ -201,12 +201,12 @@
       {
         "name": "Christina Borreby",
         "role": "Founder",
-        "bio": "Cand. i marketing og kommunikation, med baggrund som tekstforfatter og en uddannelse som psykoterapeut. Har lavet hjemmesider siden 2014 og har som regel kontakten til dig."
+        "bio": "Cand. i marketing og kommunikation med baggrund som tekstforfatter. Mange års erfaring med hjemmesider til selvstændige og virksomheder. Har som regel kontakten til dig."
       },
       {
         "name": "Dennis Enghave",
-        "role": "Udvikler",
-        "bio": "Dennis er stærk i koden og bygger siden fra bunden uden templates. Han har lært Christina at kode."
+        "role": "Perfektionisten & tech-nørden",
+        "bio": "Dennis bygger sitet fra bunden. Han arbejder med React, Python og cloud og er optaget af, at siden er hurtig og sikker."
       }
     ]
   },
@@ -2099,7 +2099,7 @@
     "overline": "Bygget fra bunden",
     "headingLine1": "AI er vores værktøj –",
     "headingLine2": "ikke vores designer.",
-    "text": "Vi bruger AI, men aldrig som erstatning for vores egen kreativitet. Vi bygger hvert websites fra bunden, uanset om du ønsker WordPress eller den nye generation af hjemmesider. For os gør AI det bare lettere end nogensinde før at skabe unikke udtryk, der matcher den enkeltes brand.",
+    "text": "Vi bruger AI, men aldrig som erstatning for vores egen kreativitet. Vi bygger hvert website fra bunden, uanset om du ønsker WordPress eller den nye generation af hjemmesider. For os gør AI det bare lettere end nogensinde før at skabe unikke udtryk, der matcher den enkeltes brand.",
     "strengths": [
       "Ingen templates",
       "Kodet fra bunden",
@@ -2132,10 +2132,10 @@
     "ctaButton": "Få et gratis designforslag",
     "casesLink": "Se vores cases",
     "heading": "Vi laver hjemmesider til selvstændige.",
-    "lead": "Christina og Dennis. Alt er kodet fra bunden, uden templates og uden bindinger.",
+    "lead": "Vi har mange års erfaring fra branchen, og det kommer vores kunder til gode. Transparens og tillid er nøgleord hos os.",
     "story": [
-      "Jeg har lavet hjemmesider siden 2014. Jeg er uddannet cand. i marketing og kommunikation og har også en uddannelse som psykoterapeut. Det var egentlig der, jeg opdagede, at de fleste omkring mig havde brug for en hjemmeside, der afspejlede dem – for de er jo deres eget brand.",
-      "Mange af mine kunder er coaches, foredragsholdere og konsulenter. Det er vigtigt for dem, at hjemmesiden svarer til det indtryk, de gerne vil give. You only get one chance to make a good impression.",
+      "Jeg har lavet hjemmesider siden 2014 og har mange års erfaring i branchen. Jeg er uddannet cand. i marketing og kommunikation og har baggrund som tekstforfatter. Jeg har oplevet, at de fleste selvstændige har brug for en hjemmeside, der afspejler dem – for de er jo deres eget brand.",
+      "Mange af mine kunder er selvstændige, fx coaches, foredragsholdere og konsulenter, men jeg har også lavet hjemmesider til virksomheder. Det er vigtigt, at hjemmesiden svarer til det indtryk, man gerne vil give. You only get one chance to make a good impression.",
       "I dag laver jeg hjemmesider i alle mulige retninger. Men det er de selvstændige, der går igen. Det er rigtig skønt."
     ],
     "philosophyLabel": "Derfor hedder vi Transparo",

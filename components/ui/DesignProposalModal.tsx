@@ -138,7 +138,7 @@ export function DesignProposalModal() {
               willChange: 'transform'
             }}
           >
-            <div className="p-10 md:p-14 min-h-full flex flex-col justify-center">
+            <div className="px-8 py-8 md:px-12 md:py-8 min-h-full flex flex-col justify-center">
               <button
                 onClick={handleClose}
                 className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
@@ -159,22 +159,19 @@ export function DesignProposalModal() {
                 </motion.div>
               ) : (
                 <>
-                  <span className="text-gold text-xs font-medium uppercase tracking-[0.2em] mb-4 block">
-                    {t('heading')}
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
                     {t('subheading')}
                     <br />
                     <span className="text-white/40">{t('subheadingFaded')}</span>
                   </h2>
-                  <p className="text-white/40 text-sm leading-relaxed mb-10">
+                  <p className="text-white/40 text-sm leading-relaxed mb-5">
                     {t('description')}
                   </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-3">
                   {/* Name */}
                   <div>
-                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-0.5">
                       {t('nameLabel')}
                     </label>
                     <input
@@ -182,14 +179,14 @@ export function DesignProposalModal() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-2 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
                       placeholder={t('namePlaceholder')}
                     />
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-0.5">
                       {t('emailLabel')}
                     </label>
                     <input
@@ -197,28 +194,28 @@ export function DesignProposalModal() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-2 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
                       placeholder={t('emailPlaceholder')}
                     />
                   </div>
 
                   {/* Website */}
                   <div>
-                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-0.5">
                       {t('websiteLabel')}
                     </label>
                     <input
                       type="text"
                       value={formData.website}
                       onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-2 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
                       placeholder={t('websitePlaceholder')}
                     />
                   </div>
 
                   {/* Inspiration Links */}
                   <div>
-                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-0.5">
                       {t('inspirationLabel')}
                     </label>
 
@@ -248,7 +245,7 @@ export function DesignProposalModal() {
                         value={newLink}
                         onChange={(e) => setNewLink(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        className="flex-1 bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
+                        className="flex-1 bg-transparent border-b border-white/20 focus:border-gold text-white py-2 text-sm outline-none transition-colors duration-300 placeholder:text-white/20"
                         placeholder={t('inspirationPlaceholder')}
                       />
                       <button
@@ -265,14 +262,14 @@ export function DesignProposalModal() {
 
                   {/* Message */}
                   <div>
-                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-2">
+                    <label className="text-white/40 text-xs uppercase tracking-[0.15em] block mb-0.5">
                       {t('messageLabel')}
                     </label>
                     <textarea
-                      rows={3}
+                      rows={2}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-3 text-sm outline-none transition-colors duration-300 resize-none placeholder:text-white/20"
+                      className="w-full bg-transparent border-b border-white/20 focus:border-gold text-white py-2 text-sm outline-none transition-colors duration-300 resize-none placeholder:text-white/20"
                       placeholder={t('messagePlaceholder')}
                     />
                   </div>
@@ -280,7 +277,7 @@ export function DesignProposalModal() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full bg-gold text-black py-4 font-bold text-xs uppercase tracking-[0.2em] hover:bg-gold/90 transition-colors duration-300 mt-4"
+                    className="w-full bg-gold text-black py-3.5 font-bold text-xs uppercase tracking-[0.2em] hover:bg-gold/90 transition-colors duration-300 mt-3"
                   >
                     {t('submitButton')}
                   </button>

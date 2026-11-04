@@ -113,15 +113,21 @@ export function AboutPageContent() {
               {about('descriptions.0')} {about('descriptions.1')} {about('descriptions.2')}
             </p>
           </motion.div>
-          <div className="grid md:grid-cols-2 gap-14 md:gap-12 lg:gap-20">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {team.map((m, idx) => (
-              <motion.article key={m.name} {...reveal(idx * 0.12)} className={idx === 1 ? 'md:mt-20' : ''}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] mb-7">
-                  <Image src={m.img} alt={m.name} fill className={`${m.imgClass} grayscale`} sizes="(max-width: 768px) 100vw, 560px" />
+              <motion.article
+                key={m.name}
+                {...reveal(idx * 0.1)}
+                className="flex gap-5 md:gap-6 items-start rounded-2xl bg-white/70 border border-black/[0.05] p-5 md:p-6"
+              >
+                <div className="relative shrink-0 w-24 h-28 md:w-28 md:h-36 overflow-hidden rounded-xl">
+                  <Image src={m.img} alt={m.name} fill className={`${m.imgClass} grayscale`} sizes="112px" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-black">{m.name}</h3>
-                <span className="block text-gold-dark text-xs font-medium uppercase tracking-[0.2em] mt-2 mb-4">{m.role}</span>
-                <p className="text-black/65 text-base md:text-lg leading-relaxed max-w-xl">{m.bio}</p>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold text-black">{m.name}</h3>
+                  <span className="block text-gold-dark text-[11px] font-medium uppercase tracking-[0.2em] mt-1.5 mb-3">{m.role}</span>
+                  <p className="text-black/65 text-[15px] leading-relaxed">{m.bio}</p>
+                </div>
               </motion.article>
             ))}
           </div>
