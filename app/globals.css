@@ -139,6 +139,15 @@
   }
 }
 
+/* Custom cursor: hide the native cursor (incl. pointer hand) on mouse devices */
+@media (hover: hover) and (pointer: fine) {
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
