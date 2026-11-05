@@ -328,7 +328,7 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
         },
         {
           title: 'Hvorfor heste? – fortalt som et billede',
-          text: 'Et nært portræt af mand og hest toner ud i teksten. En forskningsfaktum og en pointe i kursiv giver sektionen både tyngde og følelse.',
+          text: 'Et nært portræt af mand og hest toner ud i teksten. En pointe i kursiv giver sektionen både tyngde og følelse.',
           bullets: [
             'Stort fotografi der toner ud i baggrunden',
             'Overskrift med guld-kursiv: dit lederskab',
@@ -464,7 +464,7 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
           title: 'Metoden forklaret med ét tal og to billeder',
           text: 'Overskriften “500 kilo direkte feedback” gør en svær idé konkret, og et billedgitter fra rigtige workshops viser, hvordan det ser ud.',
           bullets: [
-            'Kort forklaring og fremhævet citat om international forskning',
+            'Kort forklaring og fremhævet citat',
             'Billedgitter fra rigtige forløb',
             'Guld-kursiv på nøglebudskabet',
           ],
