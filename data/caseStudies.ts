@@ -74,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 5,
     title: 'christinaborreby.dk',
-    subtitle: 'En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab',
+    subtitle: 'Nærvær, klarhed og stærkere lederskab',
     imageUrl: '/portfolio-images/christina-borreby-new.webp',
     slug: 'christina-borreby',
     tagline: 'Udvikling med hestekræfter for ledere, teams og unge',
@@ -292,7 +292,7 @@ export const caseStudiesDetailed: CaseStudyDetail[] = [
   {
     ...cs('christina-borreby'),
     challenge:
-      'Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching og deres videnskabeligt funderede tilgang til lederudvikling.',
+      'Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching.',
     solution:
       'Vi designede en moderne website der balancerer professionalisme med varme. Med fokus på storytelling, klare budskaber og et visuelt udtryk der afspejler både natur og forretning.',
     technologies: ['Next.js', 'Payload CMS', 'Motion', 'Tailwind CSS', 'Video Integration'],

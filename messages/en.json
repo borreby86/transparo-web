@@ -973,7 +973,7 @@
       {
         "id": 5,
         "title": "Autentisk lederudvikling med hesteassisteret coaching",
-        "subtitle": "En videnskabeligt funderet metode til nærvær, klarhed og stærkere lederskab",
+        "subtitle": "Nærvær, klarhed og stærkere lederskab",
         "slug": "christina-borreby",
         "labels": [
           "Branding",
@@ -981,7 +981,7 @@
         ],
         "author": "Christina Borreby",
         "role": "Stifter, Christina Borreby",
-        "challenge": "Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching og deres videnskabeligt funderede tilgang til lederudvikling.",
+        "challenge": "Christina Borreby havde brug for en hjemmeside der kunne formidle værdien af hesteassisteret coaching.",
         "solution": "Vi designede en moderne website der balancerer professionalisme med varme. Med fokus på storytelling, klare budskaber og et visuelt udtryk der afspejler både natur og forretning.",
         "technologies": [
           "Next.js",
