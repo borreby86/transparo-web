@@ -130,7 +130,7 @@ export function ProcessFinalCTA() {
           <p className="text-white/40 text-sm mb-6">{t('contactNote')}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
-              href="tel:+4512345678"
+              href="tel:+4522471247"
               className="text-white/60 hover:text-gold transition-colors"
             >
               +45 123 45 678

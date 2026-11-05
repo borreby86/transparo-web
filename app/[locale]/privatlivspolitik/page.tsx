@@ -44,7 +44,7 @@ export default async function PrivatlivspolitikPage({ params }: { params: Promis
                 Transparo<br />
                 København, Danmark<br />
                 Email: info@christinaborreby.dk<br />
-                Telefon: +45 12 34 56 78
+                Telefon: +45 22 47 12 47
               </p>
             </section>
 
@@ -166,7 +166,7 @@ export default async function PrivatlivspolitikPage({ params }: { params: Promis
               </p>
               <p className="text-black/80 leading-relaxed">
                 Email: info@christinaborreby.dk<br />
-                Telefon: +45 12 34 56 78
+                Telefon: +45 22 47 12 47
               </p>
               <p className="text-black/80 leading-relaxed mt-4">
                 Du har også ret til at klage til Datatilsynet, hvis du mener, at vi behandler dine personoplysninger
